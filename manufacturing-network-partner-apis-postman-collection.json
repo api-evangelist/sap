@@ -1,0 +1,637 @@
+{
+    "id": "db52d6fbe308672529b25284960b2eaa",
+    "name": "Manufacturing Network Partner APIs",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "0716ed0f557ef914d0a1b7f3d08aae13",
+            "name": "Sends a callback message",
+            "url": "httpshostname\/dim\/api\/callback",
+            "description": "Upon the receipt of an event, send a response in an async way to the event framework of Manufacturing Network.\n\nIn the callback message, be sure to include the event ID. Add other information as appropriate.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Callback",
+                    "description": "A callback message",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "ce664be3c856e91da14cf08519267a79",
+            "name": "Retrieves a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
+            "description": "Retrieves the information of a collaboration room by its ID.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "e44d30b451a356fd2a12450155aa584d",
+            "name": "Retrieves basic info of a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/basic",
+            "description": "Retrieves the information of a collaboration room in a simplified form.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "8ded9526bd9ac39cd494cac1bf1b085a",
+            "name": "Retrieves documents in a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents",
+            "description": "Retrieves the information of all documents in a collaboration room, such as design files and specifications.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "7ee13f37704adde2d4ec0712e40ef9d5",
+            "name": "Retrieves a document",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
+            "description": "Retrieves the information of a document by its ID.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "25d0f8372f2923da2a1864610c6b38d0",
+            "name": "Deletes a document",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
+            "description": "Deletes a document.  \nThe login technical user must be the one who uploaded the document.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "a8eb78e5cbba983746f031e929049095",
+            "name": "Retrieves the production data",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData",
+            "description": "Retrieves the production data in a collaboration room, including the currency, all the production options, and the initial pricings provided by the supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "6cc971646662ad02671553b8a6f942ac",
+            "name": "Downloads a file",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/download",
+            "description": "Downloads a file from a collaboration room.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "decded896e66953b8c4c93567b563fad",
+            "name": "Uploads a file",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/upload",
+            "description": "Uploads a file to a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "fileUpload",
+                    "description": "A file to be uploaded",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "originFileDisplay",
+                    "description": "Indicates if a file is visible to all participants in the collaboration room (public) or to the uploader only (private)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "e05515b55aa7d4a39d91627bf19c0be5",
+            "name": "Downloads the thumbnail of a design file",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/thumbnail\/download",
+            "description": "Downloads the thumbnail selected as the icon for a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "d45501caf396a3f8157def4cadcd08f2",
+            "name": "Retrieves all extensions",
+            "url": "httpshostname\/dim\/api\/extensions",
+            "description": "Retrieves all the extensions that have been registered with Manufacturing Network.  \nThese extensions are developed by Manufacturing Network customers or partners to enhance the functionality of the application.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "572807378363c7829219d2416c6b7e42",
+            "name": "Retrieves an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}",
+            "description": "Retrieves an organization by its ID.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "4f6cc7c144b8ead3c02b67e23538c8f3",
+            "name": "Retrieves the collaboration rooms of an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms",
+            "description": "Retrieves the collaboration rooms where an organization is a collaboration party.   \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "organizationIds",
+                    "description": "The IDs of other organizations.  \nUse this parameter to restrict the search to collaboration rooms where other specific organizations also participate in the collaboration.  \nSeparate the organization IDs using commas.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "bd07e34784e9793ad5abafdf4134c02d",
+            "name": "Retrieves the collaboration rooms created by an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms\/owned",
+            "description": "Retrieves the collaboration rooms created and owned by an organization.  \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "organizationIds",
+                    "description": "The IDs of other organizations.  \nUse this parameter to restrict the search to collaboration rooms where other specific organizations also participate in the collaboration.  \nSeparate the organization IDs using commas.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "partId",
+                    "description": "The ID of a part.  \nUse this parameter to restrict the search to collaboration rooms for a specific part.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "status",
+                    "description": "The status of a collaboration.  \nUse this parameter to restrict the search to collaboration rooms where the collaboration is in a specific status.  \nValid values: [New, In Process, Completed, Discarded]\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "serviceType",
+                    "description": "The type of service that a supplier organization provides during the collaboration.  \nUse this parameter to restrict the search to collaboration rooms where a certain type of service is provided by a supplier.   \nThis parameter is effective only if you've also specified the organizationIds parameter.  \nValid values: [ADDITIVE_MANU, MATERIAL_PROVIDER, OEM, OTHER_SERVICES]\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "7becac76ddd1b078674fd41ef4606b0f",
+            "name": "Retrieves a parts analysis worklist",
+            "url": "httpshostname\/dim\/api\/partsAnalysis\/worklists\/{worklistId}",
+            "description": "Retrieves a parts analysis worklist.  \nThe analysis is made to identify parts that are suitable for additive manufacturing.   \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "worklistId",
+                    "description": "The UUID for a published worklist.  \nYou can get this UUID by subscribing to the Published event of the partsAnalysisWorklist service object.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "$format",
+                    "description": "Specifies the response format",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "47b9b41f37bafbe7ac90299795a7d84e",
+            "name": "Updates a part",
+            "url": "httpshostname\/dim\/api\/partsAnalysis\/worklists\/{worklistId}\/parts\/{partId}",
+            "description": "Updates a part in a worklist\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "worklistId",
+                    "description": "The UUID for a published worklist.  \nYou can get this UUID by subscribing to the Published event of the partsAnalysisWorklist service object.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "partId",
+                    "description": "A self-generated ID for a part in the worklist\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "PartsAnalysisUpdateDTO",
+                    "description": "A request about updating a parts analysis worklist",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        },
+        {
+            "id": "97405cd2c566c469afca70b9db71b614",
+            "name": "Downloads the design file of a part",
+            "url": "httpshostname\/dim\/api\/partsAnalysis\/worklists\/{worklistId}\/parts\/{partId}\/designFiles\/{designFileId}",
+            "description": "Downloads the design file for a part",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "worklistId",
+                    "description": "The UUID for a published worklist.  \nYou can get this UUID by subscribing to the Published event of the partsAnalysisWorklist service object.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "partId",
+                    "description": "A self-generated ID for a part in the worklist\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "designFileId",
+                    "description": "A self-generated ID for a design file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "db52d6fbe308672529b25284960b2eaa",
+            "rawModeData": ""
+        }
+    ]
+}

@@ -1,0 +1,1686 @@
+{
+    "id": "b14d0f04bd75df839625c0ffb029769c",
+    "name": "Manufacturing Network Customer APIs",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "dbe4276cea70a775239ec97fddb6db7d",
+            "name": "Sends a callback message",
+            "url": "httpshostname\/dim\/api\/callback",
+            "description": "Upon the receipt of an event, send a response in an async way to the event framework of Manufacturing Network.\n\nIn the callback message, be sure to include the event ID. Add other information as appropriate.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Callback",
+                    "description": "A callback message",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "a15b575d093a646fa58aa491aeba1139",
+            "name": "Creates a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms",
+            "description": "Creates a collaboration room.  \nThe login user must be from a customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "CollaborationRoomCreateRequest",
+                    "description": "A request about creating a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "9881f76cec76ed080a547055ace94194",
+            "name": "Retrieves a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
+            "description": "Retrieves the information of a collaboration room by its ID.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "3d1a01c9c4cc7b88c51a86432a5c232c",
+            "name": "Updates a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
+            "description": "Updates a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "patch",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "CollaborationRoomUpdateRequest",
+                    "description": "A request about updating a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "a79d59b00131053b2853a3c998681f54",
+            "name": "Deletes a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
+            "description": "Deletes a collaboration room\nThe login user must be a collaboration lead for the customer and it must be a new or discarded collaboration.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "eac12137e2a0810b10293611bd2c00c9",
+            "name": "Retrieves basic info of a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/basic",
+            "description": "Retrieves the information of a collaboration room in a simplified form.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "0cbf48f3ecfc62a630af7f15f117a781",
+            "name": "Starts a collaboration",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/start",
+            "description": "Sets a collaboration in process.  \nThe collaboration must be a new collaboration.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "08c1221209e25ae2f8cf48b06592475a",
+            "name": "Completes a collaboration",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/complete",
+            "description": "Sets a collaboration as completed\n- The login user must be a collaboration lead for the customer.\n- If there's already a supplier in the collaboration room, the collaboration must already or still be in process.\n- If there's already a completed collaboration with the same additive manufacturing supplier, part ID, and customer, this operation fails.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "abac94a824bace920d11acc713087d1a",
+            "name": "Discards a collaboration",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/discard",
+            "description": "Sets a collaboration as discarded.  \nThe login user must be a collaboration lead for the customer and the collaboration must be in process or completed.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "dfdffa288cbfff386ca9b28c71c6a8b8",
+            "name": "Reopens a collaboration",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/reopen",
+            "description": "Reopens a completed collaboration.  \nThe collaboration is set back to the status 'In Process'.\nThe login user must be a collaboration lead for the customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "f2913218a8309814d8cfee5e58a2939b",
+            "name": "Retrieves documents in a collaboration room",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents",
+            "description": "Retrieves the information of all documents in a collaboration room, such as design files and specifications.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "1184a2e22537e2c173414ce0502780f0",
+            "name": "Retrieves a document",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
+            "description": "Retrieves the information of a document by its ID.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "4d2d008f98c02364a860c8053eb03e63",
+            "name": "Deletes a document",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
+            "description": "Deletes a document.  \nThe login user must be the one who uploaded the file.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "85d9289e5e71fb9ad5f3d500f20378a0",
+            "name": "Gets conversion info of a design file",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}\/conversion",
+            "description": "Retrieves the information of the conversion event for a design file.\nA conversion event converts a design file into a VDS file.  \nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "357ac9ad8df2d91512b7e4da57c472b3",
+            "name": "Converts a design file",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}\/conversion",
+            "description": "Invokes a conversion event that converts a design file into a VDS file.\n\nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Prefer",
+                    "description": "Sets the conversion event to run asynchronously.  \nValid value: respond-async\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "6caf3187a96e405c12aafcc02d01cfdf",
+            "name": "Retrieves the production data",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData",
+            "description": "Retrieves the production data in a collaboration room, including the currency, all the production options, and the initial pricings provided by the supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "1728146189566162f9b51f18286d84ed",
+            "name": "Creates a production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData",
+            "description": "Creates a new production option, providing the pricing information in the meantime.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ProductionDataCreateRequest",
+                    "description": "A request about creating a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "83ffc4998e2ba5ddb76db365fa319810",
+            "name": "Creates a production option without pricing",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/basic",
+            "description": "Creates a new production option without an initial pricing.  \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "AdditionalProductionDataBasicCreateRequest",
+                    "description": "A request about creating a production option without pricing",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "c828e8147747713b80cd281274d164c2",
+            "name": "Updates the pricing",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/pricing",
+            "description": "Updates the initial pricing for the customer's production option.  \nThe login user must be a collaboration lead from an additive manufacturing supplier.  \nNote: The planned quantity is defined by the customer and not available for update by the supplier.      \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ProductionDataPricingRequest",
+                    "description": "A request about updating the pricing of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "cf88d4fee41d315223a0753a1b51c010",
+            "name": "Updates the customer's production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/requirement",
+            "description": "Updates the customer's production option.   \nThe login user must be from the customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ProductionDataRequirementRequest",
+                    "description": "A request about a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "5ee248ecd0f6909869d419741bf815a9",
+            "name": "Updates a supplier's production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}",
+            "description": "Updates a production option proposed by the additive manufacturing supplier as well as the initial pricing for this option.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "productionDataId",
+                    "description": "The ID of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ProductionDataUpdateRequest",
+                    "description": "A request about updating a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "ef3998dc1a6043db083bca065e397966",
+            "name": "Deletes a supplier's production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}",
+            "description": "Deletes a production option proposed by the additive manufacturing supplier. The initial pricing is deleted along with it.  \nThe login user must be from the additive manufacturing supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "productionDataId",
+                    "description": "The ID of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "376656b69c41776eca23bc2652ac9ca6",
+            "name": "Updates a supplier's production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/basic",
+            "description": "Updates a production option proposed by the additive manufacturing supplier.    \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads. The initial pricing cannot be updated.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "productionDataId",
+                    "description": "The ID of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "AdditionalProductionDataBasicUpdateRequest",
+                    "description": "A request about updating a supplier's production option, excluding pricing information",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "9c8820001cfd51dabca897db7c601e6f",
+            "name": "Retrieves the confirmed production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/confirmed",
+            "description": "Retrieves the production option confirmed as the finalized production requirements, and the initial pricing for it.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "31db567f34441d0e52585c19527ce8db",
+            "name": "Confirms a production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/confirm",
+            "description": "Confirms a production option along with the initial pricing for it.  \nThe production option might be proposed by the customer or the additive manufacturing supplier.   \nThe login user must be from the customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "productionDataId",
+                    "description": "The ID of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "61f15b1d9871092b24b0473470ec6530",
+            "name": "Cancels the confirmation of a production option",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/cancelConfirm",
+            "description": "Undos the confirmation of a production option.  \nThe login user must be from the customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "productionDataId",
+                    "description": "The ID of a production option",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "95eb3d6651c029a98e7d9c2d41e1f84d",
+            "name": "Retrieves the thumbnail of a design file",
+            "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/thumbnails",
+            "description": "Retrieves the thumbnail information in a collaboration room.\nEach design file has a corresponding thumbnail file automatically generated.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "4413d6128ea353b5969df787c7c05cde",
+            "name": "Retrieves available collaboration room templates",
+            "url": "httpshostname\/dim\/api\/collaborationTemplates",
+            "description": "Retrieves available collaboration room templates.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "typeName",
+                    "description": "The name of a collaboration room template",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "typeId",
+                    "description": "The ID of a collaboration room template.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "390ecb8dc99124b87348f09e18f2e446",
+            "name": "Downloads a file",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/download",
+            "description": "Downloads a file from a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileId",
+                    "description": "The ID of a file",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "59850f5e40b95d2f4aa854f726752dd2",
+            "name": "Uploads a file to a collaboration room",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/upload",
+            "description": "Uploads a file to a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "fileUpload",
+                    "description": "A file to be uploaded",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "originFileDisplay",
+                    "description": "Indicates if a file is visible to all participants in the collaboration room (public) or to the uploader only (private)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "b4494fca929026f94dad81d1b0dfa722",
+            "name": "Downloads the thumbnail of a design file",
+            "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/thumbnail\/download",
+            "description": "Downloads the thumbnail selected as the icon for a collaboration room.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "collaborationRoomId",
+                    "description": "The ID of a collaboration room",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "11c73ea66cc20755f73fd423cada60f5",
+            "name": "Uploads a file to the temp folder",
+            "url": "httpshostname\/dim\/api\/documents\/organizations\/{organizationId}\/TEMP\/upload",
+            "description": "Uploads a file to the temp folder for an organization.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "fileUpload",
+                    "description": "A file to be uploaded",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "dd804f330d5ec9d7f8de8f4bdc000c0e",
+            "name": "Retrieves all extensions",
+            "url": "httpshostname\/dim\/api\/extensions",
+            "description": "Retrieves all the extensions that have been registered with Manufacturing Network.  \nThese extensions are developed by Manufacturing Network customers or partners to enhance the functionality of the application.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "3cde27796f8ce94ba711539ab89d67dd",
+            "name": "Retrieves extensions available for use",
+            "url": "httpshostname\/dim\/api\/extensions\/available",
+            "description": "Retrieves extensions that can be used during a collaboration.  \nA supplier enables an extension for collaboration by selecting it for use in the supplier profile.  \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationIds",
+                    "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "65dbdc264f138077dd7c0cee5bc64dce",
+            "name": "Retrieves supplier profile master data",
+            "url": "httpshostname\/dim\/api\/masterData",
+            "description": "Retrieves master data such as processes and materials.\nNarrow down the result by specifying the master data types.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "type",
+                    "description": "A master data type\nValid values: [certificates, currencies, materialRequirement, postProcesses, preferredLanguages, processMaterial, servicePortfolio]",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "631172afed241fd83ded7d1c6e1cfbfe",
+            "name": "Creates an order",
+            "url": "httpshostname\/dim\/api\/orders",
+            "description": "Creates an order for the part for which the customer and the supplier haven been colloabrating\nThe order is based on the confirmed production option and pricing.\nThe login user must be from the customer.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "OrderRequest",
+                    "description": "A request about an order",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "49b8d05ba9fe46834dc01c6df46e21ea",
+            "name": "Adds a record to the order history",
+            "url": "httpshostname\/dim\/api\/orders\/{orderNumber}\/history",
+            "description": "Adds a record to the history of an order.   \nThe order number is sent in the message body of the Order Created event.  \nThe login user must be from the additive manufacturing supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "orderNumber",
+                    "description": "An order number",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "OrderItemRequest",
+                    "description": "A request about an order",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "098e13d44bffb4d19549e5aabd63de86",
+            "name": "Retrieves your own organization",
+            "url": "httpshostname\/dim\/api\/organizations\/self",
+            "description": "Retrieves the information of the login user's own organization.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "b4dd6af65a6c882131d6f39eb951a9c7",
+            "name": "Retrieves organizations available for collaboration",
+            "url": "httpshostname\/dim\/api\/organizations\/visible",
+            "description": "Retrieves organizations in a specific business role that are available for collaboration.  \nThese organizations may have been approved for or blocked from collaboration, or they're still pending for approval.\nThe login user must be from a customer.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "roleCode",
+                    "description": "The code for the business role of the organizations. 1 for manufacturers, 4 for suppliers.  \nValid value: 4.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "approved",
+                    "description": "Specify approved=true to restrict the search to organizations that are approved for collaboration. Note that approved=false searches for all organizations, approved, blocked, or pending for approval.  \nOnly approved organizations can be invited for collaboration.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "activeServices",
+                    "description": "The types of service that a supplier provides.  \nValid values: [\"AdditiveManu\", \"MaterialProvider\", \"OEM\", \"OtherServices\"].\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "39617fd06195abbd26855500e187470c",
+            "name": "Retrieves an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}",
+            "description": "Retrieves an organization by its ID.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "6a28627b09a56cb0f9566bf5ade524cb",
+            "name": "Updates a supplier profile",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}",
+            "description": "Updates the supplier profile of a specific organization.\nThe login user must be from a supplier.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "OrganizationUpdateRequest",
+                    "description": "A request about updating an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "21fcb69fc0d4dc4267d7eeed3a5b2a5c",
+            "name": "Retrieves the collaboration rooms of an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms",
+            "description": "Retrieves the collaboration rooms where the login user's organization is a collaboration party.   \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.   \n- If the login user is an organization admin, all the collaboration rooms where the login user's organization is a collaboration party are retrieved. The login user may not be part of the collaborations.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "organizationIds",
+                    "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "3123bea0453dbee969c9ae980368a3b7",
+            "name": "Retrieves the collaboration rooms created by an organization",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms\/owned",
+            "description": "Retrieves the collaboration rooms created and owned by an organization.  \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.  \n- If the login user is an organization admin, all the collaboration rooms owned by the login user's organization are retrieved.  \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "organizationIds",
+                    "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "partId",
+                    "description": "The ID of a part.  \nUse this parameter to restrict the search to collaboration rooms for a specific part.\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "status",
+                    "description": "The status of a collaboration.  \nUse this parameter to restrict the search to collaboration rooms where the collaboration is in a specific status.  \nValid values: [New, In Process, Completed, Discarded]\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "serviceType",
+                    "description": "The type of service that a supplier organization provides during the collaboration.  \nUse this parameter to restrict the search to collaboration rooms where a certain type of service is provided by a supplier.   \nThis parameter is effective only if you've also specified the organizationIds parameter.  \nValid values: [ADDITIVE_MANU, MATERIAL_PROVIDER, OEM, OTHER_SERVICES]\n",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "9a42b562fd7a026934b7f8c0bcdf69f7",
+            "name": "Retrieves a service profile",
+            "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/serviceProfiles",
+            "description": "Retrieves the service portfolios of a supplier.   \nA supplier may provide more than one type of service. The service profile may be comprised of various service portfolios for different service types.  \n- If the login user is not an organization admin, he or she can retrieve only the active service portfolios.  \n- if the login user is an organization admin, he or she can retrieve both active and inactive service portfolios. \n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "6df5794990aa1ce99cf67c58499be480",
+            "name": "Retrieves collaboration room template types",
+            "url": "httpshostname\/dim\/api\/templateTypes",
+            "description": "Retrieves available collaboration room template types.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "7cadb5d8966530099af52df8a4737c07",
+            "name": "Retrieves the users of an organization",
+            "url": "httpshostname\/dim\/api\/users",
+            "description": "Retrieves the users of a specific organization.  \nThe login user must be from this organization as well.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "organizationId",
+                    "description": "The ID of an organization",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "e3035c7a773f0ba264ff20ed1b82d336",
+            "name": "Retrieves your own user info",
+            "url": "httpshostname\/dim\/api\/users\/self",
+            "description": "Retrieves the information of the current login user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        },
+        {
+            "id": "93d19901fd5ec705e94131041c6a83b3",
+            "name": "Retrieves a user's collaboration rooms",
+            "url": "httpshostname\/dim\/api\/users\/{userId}\/collaborationRooms",
+            "description": "Retrieves the collaboration rooms where a user is a participant.  \n- If the login user is not an organization admin, he or she can search only by his or her own user ID and retrieve the collaboration rooms where he or she is a participant.  \n- If the login user is an organization admin, he or she can search by the user ID of any user in the same organization.\n",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "userId",
+                    "description": "The ID of a user",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "rawModeData": ""
+        }
+    ]
+}

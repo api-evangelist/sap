@@ -1,0 +1,2683 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Manufacturing Network Customer APIs",
+        "description": "A customer API is used to retrieve the data of one's own organization. The client making API requests also needs to be registered with your organization but doesn't require special approval or authorization.\n\nTo make an API request, you need to get an access token using your OAuth 2.0 client credentials. For more information, see [Make an API Request](https:\/\/help.sap.com\/viewer\/dmc-mn-dev-guide\/15b2822c62d9489c8e47034665eadda7.html).\n\nPlease be aware that the version of most APIs is v1, but the version of the *\/documents* APIs is v2.",
+        "termsOfService": ""
+    },
+    "servers": [
+        "httpshostname\/dim\/api"
+    ],
+    "paths": {
+        "\/callback": {
+            "post": {
+                "summary": "Sends a callback message",
+                "description": "Upon the receipt of an event, send a response in an async way to the event framework of Manufacturing Network.\n\nIn the callback message, be sure to include the event ID. Add other information as appropriate.",
+                "operationId": "UponTheReceiptOfAnEventSendAResponseInAnAsyncWayToTheEventFrameworkOfManufacturing",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Callback",
+                        "in": "body",
+                        "description": "A callback message"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms": {
+            "post": {
+                "summary": "Creates a collaboration room",
+                "description": "Creates a collaboration room.  \nThe login user must be from a customer.\n",
+                "operationId": "CreatesACollaborationRoomTheLoginUserMustBeFromACustomer",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "CollaborationRoomCreateRequest",
+                        "in": "body",
+                        "description": "A request about creating a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}": {
+            "get": {
+                "summary": "Retrieves a collaboration room",
+                "description": "Retrieves the information of a collaboration room by its ID.",
+                "operationId": "RetrievesTheInformationOfACollaborationRoomByItsId",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Updates a collaboration room",
+                "description": "Updates a collaboration room.\n",
+                "operationId": "UpdatesACollaborationRoom",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "CollaborationRoomUpdateRequest",
+                        "in": "body",
+                        "description": "A request about updating a collaboration room"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Deletes a collaboration room",
+                "description": "Deletes a collaboration room\nThe login user must be a collaboration lead for the customer and it must be a new or discarded collaboration.\n",
+                "operationId": "DeletesACollaborationRoomtheLoginUserMustBeACollaborationLeadForTheCustomerAndItMust",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/basic": {
+            "get": {
+                "summary": "Retrieves basic info of a collaboration room",
+                "description": "Retrieves the information of a collaboration room in a simplified form.\n",
+                "operationId": "RetrievesTheInformationOfACollaborationRoomInASimplifiedForm",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/start": {
+            "post": {
+                "summary": "Starts a collaboration",
+                "description": "Sets a collaboration in process.  \nThe collaboration must be a new collaboration.\n",
+                "operationId": "SetsACollaborationInProcessTheCollaborationMustBeANewCollaboration",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/complete": {
+            "post": {
+                "summary": "Completes a collaboration",
+                "description": "Sets a collaboration as completed\n- The login user must be a collaboration lead for the customer.\n- If there's already a supplier in the collaboration room, the collaboration must already or still be in process.\n- If there's already a completed collaboration with the same additive manufacturing supplier, part ID, and customer, this operation fails.\n",
+                "operationId": "SetsACollaborationAsCompletedTheLoginUserMustBeACollaborationLeadForTheCustomerIfTh",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/discard": {
+            "post": {
+                "summary": "Discards a collaboration",
+                "description": "Sets a collaboration as discarded.  \nThe login user must be a collaboration lead for the customer and the collaboration must be in process or completed.\n",
+                "operationId": "SetsACollaborationAsDiscardedTheLoginUserMustBeACollaborationLeadForTheCustomerAnd",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/reopen": {
+            "post": {
+                "summary": "Reopens a collaboration",
+                "description": "Reopens a completed collaboration.  \nThe collaboration is set back to the status 'In Process'.\nThe login user must be a collaboration lead for the customer.\n",
+                "operationId": "ReopensACompletedCollaborationTheCollaborationIsSetBackToTheStatusInProcesstheLoginU",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/documents": {
+            "get": {
+                "summary": "Retrieves documents in a collaboration room",
+                "description": "Retrieves the information of all documents in a collaboration room, such as design files and specifications.\n",
+                "operationId": "RetrievesTheInformationOfAllDocumentsInACollaborationRoomSuchAsDesignFilesAndSpecific",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}": {
+            "get": {
+                "summary": "Retrieves a document",
+                "description": "Retrieves the information of a document by its ID.\n",
+                "operationId": "RetrievesTheInformationOfADocumentByItsId",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "fileId",
+                        "in": "path",
+                        "description": "The ID of a file"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Deletes a document",
+                "description": "Deletes a document.  \nThe login user must be the one who uploaded the file.\n",
+                "operationId": "DeletesADocumentTheLoginUserMustBeTheOneWhoUploadedTheFile",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "fileId",
+                        "in": "path",
+                        "description": "The ID of a file"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}\/conversion": {
+            "get": {
+                "summary": "Gets conversion info of a design file",
+                "description": "Retrieves the information of the conversion event for a design file.\nA conversion event converts a design file into a VDS file.  \nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
+                "operationId": "RetrievesTheInformationOfTheConversionEventForADesignFileaConversionEventConvertsADes",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "fileId",
+                        "in": "path",
+                        "description": "The ID of a file"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Converts a design file",
+                "description": "Invokes a conversion event that converts a design file into a VDS file.\n\nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
+                "operationId": "InvokesAConversionEventThatConvertsADesignFileIntoAVdsFileseeAFullListOfSupportedF",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "fileId",
+                        "in": "path",
+                        "description": "The ID of a file"
+                    },
+                    {
+                        "name": "Prefer",
+                        "in": "header",
+                        "description": "Sets the conversion event to run asynchronously.  \nValid value: respond-async\n"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData": {
+            "get": {
+                "summary": "Retrieves the production data",
+                "description": "Retrieves the production data in a collaboration room, including the currency, all the production options, and the initial pricings provided by the supplier.\n",
+                "operationId": "RetrievesTheProductionDataInACollaborationRoomIncludingTheCurrencyAllTheProductionOpti",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Creates a production option",
+                "description": "Creates a new production option, providing the pricing information in the meantime.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
+                "operationId": "CreatesANewProductionOptionProvidingThePricingInformationInTheMeantimeTheLoginUserMu",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "ProductionDataCreateRequest",
+                        "in": "body",
+                        "description": "A request about creating a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/basic": {
+            "post": {
+                "summary": "Creates a production option without pricing",
+                "description": "Creates a new production option without an initial pricing.  \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads.\n",
+                "operationId": "CreatesANewProductionOptionWithoutAnInitialPricingThisEndpointIsUsedByUsersFromThe",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "AdditionalProductionDataBasicCreateRequest",
+                        "in": "body",
+                        "description": "A request about creating a production option without pricing"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/pricing": {
+            "put": {
+                "summary": "Updates the pricing",
+                "description": "Updates the initial pricing for the customer's production option.  \nThe login user must be a collaboration lead from an additive manufacturing supplier.  \nNote: The planned quantity is defined by the customer and not available for update by the supplier.      \n",
+                "operationId": "UpdatesTheInitialPricingForTheCustomersProductionOptionTheLoginUserMustBeACollaborat",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "ProductionDataPricingRequest",
+                        "in": "body",
+                        "description": "A request about updating the pricing of a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/requirement": {
+            "put": {
+                "summary": "Updates the customer's production option",
+                "description": "Updates the customer's production option.   \nThe login user must be from the customer.\n",
+                "operationId": "UpdatesTheCustomersProductionOptionTheLoginUserMustBeFromTheCustomer",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "ProductionDataRequirementRequest",
+                        "in": "body",
+                        "description": "A request about a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}": {
+            "put": {
+                "summary": "Updates a supplier's production option",
+                "description": "Updates a production option proposed by the additive manufacturing supplier as well as the initial pricing for this option.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
+                "operationId": "UpdatesAProductionOptionProposedByTheAdditiveManufacturingSupplierAsWellAsTheInitialP",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "productionDataId",
+                        "in": "path",
+                        "description": "The ID of a production option"
+                    },
+                    {
+                        "name": "ProductionDataUpdateRequest",
+                        "in": "body",
+                        "description": "A request about updating a production option"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Deletes a supplier's production option",
+                "description": "Deletes a production option proposed by the additive manufacturing supplier. The initial pricing is deleted along with it.  \nThe login user must be from the additive manufacturing supplier.\n",
+                "operationId": "DeletesAProductionOptionProposedByTheAdditiveManufacturingSupplierTheInitialPricingIsD",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "productionDataId",
+                        "in": "path",
+                        "description": "The ID of a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/basic": {
+            "put": {
+                "summary": "Updates a supplier's production option",
+                "description": "Updates a production option proposed by the additive manufacturing supplier.    \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads. The initial pricing cannot be updated.\n",
+                "operationId": "UpdatesAProductionOptionProposedByTheAdditiveManufacturingSupplierThisEndpointIsUsed",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "productionDataId",
+                        "in": "path",
+                        "description": "The ID of a production option"
+                    },
+                    {
+                        "name": "AdditionalProductionDataBasicUpdateRequest",
+                        "in": "body",
+                        "description": "A request about updating a supplier's production option, excluding pricing information"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/confirmed": {
+            "get": {
+                "summary": "Retrieves the confirmed production option",
+                "description": "Retrieves the production option confirmed as the finalized production requirements, and the initial pricing for it.\n",
+                "operationId": "RetrievesTheProductionOptionConfirmedAsTheFinalizedProductionRequirementsAndTheInitialP",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/confirm": {
+            "post": {
+                "summary": "Confirms a production option",
+                "description": "Confirms a production option along with the initial pricing for it.  \nThe production option might be proposed by the customer or the additive manufacturing supplier.   \nThe login user must be from the customer.\n",
+                "operationId": "ConfirmsAProductionOptionAlongWithTheInitialPricingForItTheProductionOptionMightBeP",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "productionDataId",
+                        "in": "path",
+                        "description": "The ID of a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/cancelConfirm": {
+            "post": {
+                "summary": "Cancels the confirmation of a production option",
+                "description": "Undos the confirmation of a production option.  \nThe login user must be from the customer.\n",
+                "operationId": "UndosTheConfirmationOfAProductionOptionTheLoginUserMustBeFromTheCustomer",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "productionDataId",
+                        "in": "path",
+                        "description": "The ID of a production option"
+                    }
+                ]
+            }
+        },
+        "\/collaborationRooms\/{collaborationRoomId}\/thumbnails": {
+            "get": {
+                "summary": "Retrieves the thumbnail of a design file",
+                "description": "Retrieves the thumbnail information in a collaboration room.\nEach design file has a corresponding thumbnail file automatically generated.\n",
+                "operationId": "RetrievesTheThumbnailInformationInACollaborationRoomeachDesignFileHasACorrespondingThum",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/collaborationTemplates": {
+            "get": {
+                "summary": "Retrieves available collaboration room templates",
+                "description": "Retrieves available collaboration room templates.\n",
+                "operationId": "RetrievesAvailableCollaborationRoomTemplates",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "typeName",
+                        "in": "query",
+                        "description": "The name of a collaboration room template"
+                    },
+                    {
+                        "name": "typeId",
+                        "in": "query",
+                        "description": "The ID of a collaboration room template."
+                    }
+                ]
+            }
+        },
+        "\/documents\/collaborationRooms\/{collaborationRoomId}\/download": {
+            "get": {
+                "summary": "Downloads a file",
+                "description": "Downloads a file from a collaboration room.\n",
+                "operationId": "DownloadsAFileFromACollaborationRoom",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    },
+                    {
+                        "name": "fileId",
+                        "in": "query",
+                        "description": "The ID of a file"
+                    }
+                ]
+            }
+        },
+        "\/documents\/collaborationRooms\/{collaborationRoomId}\/upload": {
+            "post": {
+                "summary": "Uploads a file to a collaboration room",
+                "description": "Uploads a file to a collaboration room.\n",
+                "operationId": "UploadsAFileToACollaborationRoom",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "fileUpload",
+                        "in": "formData",
+                        "description": "A file to be uploaded"
+                    },
+                    {
+                        "name": "originFileDisplay",
+                        "in": "formData",
+                        "description": "Indicates if a file is visible to all participants in the collaboration room (public) or to the uploader only (private)"
+                    },
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/documents\/collaborationRooms\/{collaborationRoomId}\/thumbnail\/download": {
+            "get": {
+                "summary": "Downloads the thumbnail of a design file",
+                "description": "Downloads the thumbnail selected as the icon for a collaboration room.\n",
+                "operationId": "DownloadsTheThumbnailSelectedAsTheIconForACollaborationRoom",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "collaborationRoomId",
+                        "in": "path",
+                        "description": "The ID of a collaboration room"
+                    }
+                ]
+            }
+        },
+        "\/documents\/organizations\/{organizationId}\/TEMP\/upload": {
+            "post": {
+                "summary": "Uploads a file to the temp folder",
+                "description": "Uploads a file to the temp folder for an organization.\n",
+                "operationId": "UploadsAFileToTheTempFolderForAnOrganization",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    },
+                    {
+                        "name": "fileUpload",
+                        "in": "formData",
+                        "description": "A file to be uploaded"
+                    }
+                ]
+            }
+        },
+        "\/extensions": {
+            "get": {
+                "summary": "Retrieves all extensions",
+                "description": "Retrieves all the extensions that have been registered with Manufacturing Network.  \nThese extensions are developed by Manufacturing Network customers or partners to enhance the functionality of the application.\n",
+                "operationId": "RetrievesAllTheExtensionsThatHaveBeenRegisteredWithManufacturingNetworkTheseExtensions",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/extensions\/available": {
+            "get": {
+                "summary": "Retrieves extensions available for use",
+                "description": "Retrieves extensions that can be used during a collaboration.  \nA supplier enables an extension for collaboration by selecting it for use in the supplier profile.  \n",
+                "operationId": "RetrievesExtensionsThatCanBeUsedDuringACollaborationASupplierEnablesAnExtensionForCo",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationIds",
+                        "in": "query",
+                        "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas."
+                    }
+                ]
+            }
+        },
+        "\/masterData": {
+            "get": {
+                "summary": "Retrieves supplier profile master data",
+                "description": "Retrieves master data such as processes and materials.\nNarrow down the result by specifying the master data types.\n",
+                "operationId": "RetrievesMasterDataSuchAsProcessesAndMaterialsnarrowDownTheResultBySpecifyingTheMaster",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "A master data type\nValid values: [certificates, currencies, materialRequirement, postProcesses, preferredLanguages, processMaterial, servicePortfolio]"
+                    }
+                ]
+            }
+        },
+        "\/orders": {
+            "post": {
+                "summary": "Creates an order",
+                "description": "Creates an order for the part for which the customer and the supplier haven been colloabrating\nThe order is based on the confirmed production option and pricing.\nThe login user must be from the customer.",
+                "operationId": "CreatesAnOrderForThePartForWhichTheCustomerAndTheSupplierHavenBeenColloabratingtheOr",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "OrderRequest",
+                        "in": "body",
+                        "description": "A request about an order"
+                    }
+                ]
+            }
+        },
+        "\/orders\/{orderNumber}\/history": {
+            "post": {
+                "summary": "Adds a record to the order history",
+                "description": "Adds a record to the history of an order.   \nThe order number is sent in the message body of the Order Created event.  \nThe login user must be from the additive manufacturing supplier.\n",
+                "operationId": "AddsARecordToTheHistoryOfAnOrderTheOrderNumberIsSentInTheMessageBodyOfTheOrder",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "orderNumber",
+                        "in": "path",
+                        "description": "An order number"
+                    },
+                    {
+                        "name": "OrderItemRequest",
+                        "in": "body",
+                        "description": "A request about an order"
+                    }
+                ]
+            }
+        },
+        "\/organizations\/self": {
+            "get": {
+                "summary": "Retrieves your own organization",
+                "description": "Retrieves the information of the login user's own organization.\n",
+                "operationId": "RetrievesTheInformationOfTheLoginUsersOwnOrganization",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/organizations\/visible": {
+            "get": {
+                "summary": "Retrieves organizations available for collaboration",
+                "description": "Retrieves organizations in a specific business role that are available for collaboration.  \nThese organizations may have been approved for or blocked from collaboration, or they're still pending for approval.\nThe login user must be from a customer.\n",
+                "operationId": "RetrievesOrganizationsInASpecificBusinessRoleThatAreAvailableForCollaborationTheseOrga",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "roleCode",
+                        "in": "query",
+                        "description": "The code for the business role of the organizations. 1 for manufacturers, 4 for suppliers.  \nValid value: 4.\n"
+                    },
+                    {
+                        "name": "approved",
+                        "in": "query",
+                        "description": "Specify approved=true to restrict the search to organizations that are approved for collaboration. Note that approved=false searches for all organizations, approved, blocked, or pending for approval.  \nOnly approved organizations can be invited for collaboration.\n"
+                    },
+                    {
+                        "name": "activeServices",
+                        "in": "query",
+                        "description": "The types of service that a supplier provides.  \nValid values: [\"AdditiveManu\", \"MaterialProvider\", \"OEM\", \"OtherServices\"].\n"
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organizationId}": {
+            "get": {
+                "summary": "Retrieves an organization",
+                "description": "Retrieves an organization by its ID.\n",
+                "operationId": "RetrievesAnOrganizationByItsId",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Updates a supplier profile",
+                "description": "Updates the supplier profile of a specific organization.\nThe login user must be from a supplier.\n",
+                "operationId": "UpdatesTheSupplierProfileOfASpecificOrganizationtheLoginUserMustBeFromASupplier",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    },
+                    {
+                        "name": "OrganizationUpdateRequest",
+                        "in": "body",
+                        "description": "A request about updating an organization"
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organizationId}\/collaborationRooms": {
+            "get": {
+                "summary": "Retrieves the collaboration rooms of an organization",
+                "description": "Retrieves the collaboration rooms where the login user's organization is a collaboration party.   \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.   \n- If the login user is an organization admin, all the collaboration rooms where the login user's organization is a collaboration party are retrieved. The login user may not be part of the collaborations.\n",
+                "operationId": "RetrievesTheCollaborationRoomsWhereTheLoginUsersOrganizationIsACollaborationPartyIf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    },
+                    {
+                        "name": "organizationIds",
+                        "in": "query",
+                        "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas."
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organizationId}\/collaborationRooms\/owned": {
+            "get": {
+                "summary": "Retrieves the collaboration rooms created by an organization",
+                "description": "Retrieves the collaboration rooms created and owned by an organization.  \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.  \n- If the login user is an organization admin, all the collaboration rooms owned by the login user's organization are retrieved.  \n",
+                "operationId": "RetrievesTheCollaborationRoomsCreatedAndOwnedByAnOrganizationIfTheLoginUserIsNotAn",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    },
+                    {
+                        "name": "organizationIds",
+                        "in": "query",
+                        "description": "The IDs of organizations as collaboration parties\nSeparate the IDs using commas."
+                    },
+                    {
+                        "name": "partId",
+                        "in": "query",
+                        "description": "The ID of a part.  \nUse this parameter to restrict the search to collaboration rooms for a specific part.\n"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "The status of a collaboration.  \nUse this parameter to restrict the search to collaboration rooms where the collaboration is in a specific status.  \nValid values: [New, In Process, Completed, Discarded]\n"
+                    },
+                    {
+                        "name": "serviceType",
+                        "in": "query",
+                        "description": "The type of service that a supplier organization provides during the collaboration.  \nUse this parameter to restrict the search to collaboration rooms where a certain type of service is provided by a supplier.   \nThis parameter is effective only if you've also specified the organizationIds parameter.  \nValid values: [ADDITIVE_MANU, MATERIAL_PROVIDER, OEM, OTHER_SERVICES]\n"
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organizationId}\/serviceProfiles": {
+            "get": {
+                "summary": "Retrieves a service profile",
+                "description": "Retrieves the service portfolios of a supplier.   \nA supplier may provide more than one type of service. The service profile may be comprised of various service portfolios for different service types.  \n- If the login user is not an organization admin, he or she can retrieve only the active service portfolios.  \n- if the login user is an organization admin, he or she can retrieve both active and inactive service portfolios. \n",
+                "operationId": "RetrievesTheServicePortfoliosOfASupplierASupplierMayProvideMoreThanOneTypeOfServic",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "The ID of an organization"
+                    }
+                ]
+            }
+        },
+        "\/templateTypes": {
+            "get": {
+                "summary": "Retrieves collaboration room template types",
+                "description": "Retrieves available collaboration room template types.\n",
+                "operationId": "RetrievesAvailableCollaborationRoomTemplateTypes",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/users": {
+            "get": {
+                "summary": "Retrieves the users of an organization",
+                "description": "Retrieves the users of a specific organization.  \nThe login user must be from this organization as well.\n",
+                "operationId": "RetrievesTheUsersOfASpecificOrganizationTheLoginUserMustBeFromThisOrganizationAsWel",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "query",
+                        "description": "The ID of an organization"
+                    }
+                ]
+            }
+        },
+        "\/users\/self": {
+            "get": {
+                "summary": "Retrieves your own user info",
+                "description": "Retrieves the information of the current login user.",
+                "operationId": "RetrievesTheInformationOfTheCurrentLoginUser",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/users\/{userId}\/collaborationRooms": {
+            "get": {
+                "summary": "Retrieves a user's collaboration rooms",
+                "description": "Retrieves the collaboration rooms where a user is a participant.  \n- If the login user is not an organization admin, he or she can search only by his or her own user ID and retrieve the collaboration rooms where he or she is a participant.  \n- If the login user is an organization admin, he or she can search by the user ID of any user in the same organization.\n",
+                "operationId": "RetrievesTheCollaborationRoomsWhereAUserIsAParticipantIfTheLoginUserIsNotAnOrgani",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The ID of a user"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AdditionalProductionDataBasicCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "optionName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "AdditionalProductionDataBasicUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "optionName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CallbackDTO": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "body": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CertificateDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationPartyDTO": {
+                "type": "object",
+                "properties": {
+                    "comment": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "crId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isSourceParty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isTargetParty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "organizationId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "participants": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationPartyRequest": {
+                "type": "object",
+                "properties": {
+                    "organizationId": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationRoomBasicDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "creatorId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFile": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timeFrame": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dueDate": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForSupplier": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationParties": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "productionData": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ThumbnailId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "extensionIds": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationRoomCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "templateId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationParties": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dataFields": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "requestedCertificateIds": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFile": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFileUom": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isITAR": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isEAROtherThanEAR99": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isSafetyRegulation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dueDate": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "projectId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timeFrame": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "preferredLanguage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForSupplier": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "invitedUserIds": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printingMaterialCategory": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "characteristics": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "usedFor": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "extensionIds": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationRoomDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "creatorId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationParties": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dataFields": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "requestedCertificates": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ownerOrganizationId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFile": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFileUom": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isEAROtherThanEAR99": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isITAR": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isSafetyRegulation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "urgencyOfDelivery": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dueDate": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "projectId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timeFrame": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "preferredLanguage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "productionData": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForCustomer": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForSupplier": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ThumbnailId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printingMaterialCategory": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "characteristics": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "usedFor": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "extensionIds": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationRoomUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dueDate": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "projectId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "requestedCertificateIds": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printFileUom": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "urgencyOfDelivery": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isSafetyRegulation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timeFrame": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "preferredLanguage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dataFields": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ThumbnailId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForSupplier": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalInfoForCustomer": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "printingMaterialCategory": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "characteristics": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "usedFor": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationRoomsDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationTemplateDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "client": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "initiatorRole": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "participatorRole": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "businessObjectType": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dataFieldDefs": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationComponents": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CollaborationTemplatesDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CompleteUserDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "accountId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "organizationId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "familyName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "middleName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "givenName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "addressInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "emailInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phoneInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "roles": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "CurrencyDTO": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "DataFieldDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "optional": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "DataFieldDefDTO": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "dataType": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "maxLength": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "EmailAddressDTO": {
+                "type": "object",
+                "properties": {
+                    "communicationDataID": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "emailAddress": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isDefault": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ExtensionDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "providerName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ExtensionsDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "FileConversionDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationRoomId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "fileId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isTimeout": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isRetryable": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "convertedFileId": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "FileDTO": {
+                "type": "object",
+                "properties": {
+                    "collaborationRoomId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdBy": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "fileId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "fileName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "mimeType": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "parentFolderId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "size": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "FilesDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "MasterDataDTO": {
+                "type": "object",
+                "properties": {
+                    "postProcesses": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "certificates": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "processMaterials": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "preferredLanguages": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currencies": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "services": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "materialRequirements": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "MaterialRequirementDTO": {
+                "type": "object",
+                "properties": {
+                    "printingMaterialCategory": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "characteristics": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "usedFor": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrderDTO": {
+                "type": "object",
+                "properties": {
+                    "orderNumber": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "quantity": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "collaborationRoomId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "productionDataId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "productionDataVersion": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdBy": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "history": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrderHistoryDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "message": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "recordCreatedTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "orderCreatedTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "createdBy": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrderItemRequestDTO": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "message": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrderRequestDTO": {
+                "type": "object",
+                "properties": {
+                    "collaborationRoomId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "quantity": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrganizationDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "accountId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "accountType": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "accountTypeDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "companyDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "industryExperience": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ndaAttachmentId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ndaAttachmentName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "organizationName1": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logoDocumentID": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "logoPreview": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "roles": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "addressInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "serviceProfiles": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phoneInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "webInfo": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "certifications": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "contactPersons": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "extensionIds": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrganizationsDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "OrganizationUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "companyDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "industryExperience": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ndaAttachmentId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "ndaAttachmentName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "certifications": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ParticipantDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "userId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isSourceParty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isTargetParty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "groups": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isInitiator": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "partyId": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "PhoneNumberDTO": {
+                "type": "object",
+                "properties": {
+                    "isDefault": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "communicationDataID": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phoneNumber": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phoneNumberExtension": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "phoneNumberType": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "PostalAddressDTO": {
+                "type": "object",
+                "properties": {
+                    "communicationDataID": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "addressRepresentationISOCode": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "country": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "countryDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "region": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "regionDescription": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "district": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "cityName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalCityName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postalCode": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "streetName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "streetPrefixName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalStreetPrefixName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "streetSuffixName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "additionalStreetSuffixName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "houseNumber": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "houseNumberSupplementText": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "poBox": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "poBoxIsWithoutNumber": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "poBoxPostalCode": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "poBoxLobbyName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "poBoxDeviatingCityName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "building": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "floor": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "room": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "PostProcessDTO": {
+                "type": "object",
+                "properties": {
+                    "postProcess": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "PreferredLanguageDTO": {
+                "type": "object",
+                "properties": {
+                    "preferredLanguage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "key": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProcessMaterialDTO": {
+                "type": "object",
+                "properties": {
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDataCreateRequest": {
+                "type": "object",
+                "properties": {
+                    "optionName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDataDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "optionName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolutionUom": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "currency": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "lastUpdatedBy": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "lastUpdatedUserName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "lastUpdatedTime": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDataPricingRequest": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDataRequirementRequest": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDataUpdateRequest": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "optionName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "process": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "material": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "resolution": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "colors": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "tolerance": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "postProcessings": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "buildOrientation": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "minOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "plannedOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderQty": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderPrice": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "economicOrderLeadTime": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ProductionDatasDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "RoleDTO": {
+                "type": "object",
+                "properties": {
+                    "roleCode": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "roleCodeDescription": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ServicePortfolioDTO": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "service": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ServiceProfilesDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "TemplateDataFieldDefMappingDTO": {
+                "type": "object",
+                "properties": {
+                    "optional": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "TemplateTypeDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "TemplateTypesDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ThumbnailDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "content": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "ThumbnailsDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "UserDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "accountId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "organizationId": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "familyName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "middleName": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "givenName": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "UsersDTO": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "WebInfoDTO": {
+                "type": "object",
+                "properties": {
+                    "communicationDataID": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "webUrl": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "isDefault": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            },
+            "errorResponse": {
+                "type": "object",
+                "properties": {
+                    "displayMessage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "errorMessageKey": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "technicalMessage": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "errorResponse": {
+                        "description": "",
+                        "type": "get"
+                    },
+                    "timestamp": {
+                        "description": "",
+                        "type": "get"
+                    }
+                }
+            }
+        }
+    }
+}

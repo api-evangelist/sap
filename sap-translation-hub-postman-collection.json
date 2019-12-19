@@ -1,0 +1,245 @@
+{
+    "id": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+    "name": "SAP Translation Hub",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "01e2b09123f25ff31ec1775ffd83cec4",
+            "name": "SAP product domains",
+            "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/domains",
+            "description": "SAP product terminology is organized by domains. Domains are used in the translation process to determine the correct terminology for a given application. <br> This resource returns a list of the domains and domain groups that are available in SAP Translation Hub.<br> You can combine the domain resource with the translation resource to more accurately reflect the subject area of your texts.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "Specifies the nature of the data in the body so that the receiving agent can process the data accordingly.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "search",
+                    "description": "Shows whether a particular domain is available in SAP Translation Hub. Enter all or part of the short description of the domain, for example, ```financial```.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "onlyGroups",
+                    "description": "Shows a list of the domain groups that SAP Translation Hub supports. To list the domain groups, enter ```true``` as the value for this parameter. You can use the ID of a domain or a domain group to specify a particular subject area in the translation resource.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "rawModeData": ""
+        },
+        {
+            "id": "01a8f75fc00bb22f319d9b3a373b6c8c",
+            "name": "Languages that SAP Translation Hub supports.",
+            "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/languages",
+            "description": "Returns a list of the languages that SAP Translation Hub supports. You can also check whether a particualr language is available in SAP Translation Hub.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "Specifies the nature of the data in the body so that the receiving agent can process the data accordingly.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "search",
+                    "description": "Shows whether a particular domain is available in SAP Translation Hub. Enter all or part of the short description of the domain, for example, ```financial```.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "rawModeData": ""
+        },
+        {
+            "id": "667aa74651c9cc8389e3e3913babbb83",
+            "name": "The suggestion resource enables you to get suggestions for short texts during the development process.",
+            "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/suggestions",
+            "description": "Provides suggestions for short texts based on complete or partial texts and their translations. You can, for example, use the suggestion resource to propose texts while you type texts in a development environment. The texts that the resource proposes are already available in additional languages in the multilingual text repository (MLTR).",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "Specifies the nature of the data in the body so that the receiving agent can process the data accordingly.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "search",
+                    "description": "Shows whether a particular domain is available in SAP Translation Hub. Enter all or part of the short description of the domain, for example, ```financial```.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "searchLanguage",
+                    "description": "Allows you to search for a text in any of the languages that SAP Translation Hub supports. Specify the language using the language ID, for example, de.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "language",
+                    "description": "Allows you to search for a text that has translations in the specified language(s). For example, you can search for texts that have translations in German (de) and French (fr).",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain",
+                    "description": "Searches for texts in the specified domain(s) or domain group(s). For example, you can search for terms that are assigned to the domain for Customer Relationship Management (B2) or logistics (03). To see which domains and domain groups are supported, use the '\/domains' resource.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "texttype",
+                    "description": "Allows you to search for a text that is assigned to one or more text types. For example, you can search for terms that are assigned to the text type for field labels (XFLD). To see which text types are supported, use the '\/texttypes' resource. If you use the suggestion service with ABAP systems, you can specify a four-character object type, such as DTEL for data elements, in this parameter.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxLength",
+                    "description": "Searches for texts up to the specified number of characters. For example, if a UI element can accommodate only 5 characters, you can search for texts that comprise 5 characters or fewer. If the suggestion service cannot find any texts that match the length criteria, the response is empty.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "rawModeData": ""
+        },
+        {
+            "id": "98859a7d50f5852f227faf544edad217",
+            "name": "Returns a list of the text types available in SAP Translation Hub.",
+            "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/texttypes",
+            "description": "In SAP products, short texts, such as those used on user interfaces (UIs), are characterized by various text types. The type of a specific text is determined by the UI element that it describes. For example,  button texts are described by the text type ```XBUT```. <br> The text type resource returns a list of the text types that are available in SAP Translation Hub. You can combine the '\/text type' resource with the '\/suggestion' resource to narrow down the results of the suggestion resource.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "Specifies the nature of the data in the body so that the receiving agent can process the data accordingly.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "search",
+                    "description": "Shows whether a particular domain is available in SAP Translation Hub. Enter all or part of the short description of the domain, for example, ```financial```.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "rawModeData": ""
+        },
+        {
+            "id": "481ea8dd3aa98a445f15a8acfd627798",
+            "name": "The '\/translate' resource enables you to get translations of English short texts that exist in SAP Translation Hub.",
+            "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/translate",
+            "description": "Provides translations of short texts based on a combination of existing texts and their translations that are used in SAP products and machine translation capabilities.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "Specifies the nature of the data in the body so that the receiving agent can process the data accordingly.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "translate",
+                    "description": "The JSON request contains an array of ```units``` JSON objects. ",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "rawModeData": ""
+        }
+    ]
+}

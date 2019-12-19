@@ -1,0 +1,97 @@
+{
+    "name": "SAP",
+    "description": "Get software and technology solutions from SAP, the leader in business applications.  Run simple with the best in cloud, analytics, mobile and IT solutions.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28252-www-sap-com.jpg",
+    "tags": [
+        "have api",
+        "relative data",
+        "service api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/sap\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Manufacturing Network Customer APIs",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28252-www-sap-com.jpg",
+            "humanURL": "https:\/\/www.sap.com\/index.html",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/manufacturing-network-customer-apis.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/manufacturing-network-customer-apis-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "Manufacturing Network Partner APIs",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28252-www-sap-com.jpg",
+            "humanURL": "https:\/\/www.sap.com\/index.html",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/manufacturing-network-partner-apis.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/manufacturing-network-partner-apis-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "SAP Translation Hub",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/28252-www-sap-com.jpg",
+            "humanURL": "https:\/\/www.sap.com\/index.html",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/sap-translation-hub.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/sap-translation-hub-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "https:\/\/www.sap.com\/index.html"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/sap-canada"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/api.sap.com\/"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/sap"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/SAP"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.sap.com"
+        }
+    ]
+}

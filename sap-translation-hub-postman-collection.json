@@ -1,5 +1,5 @@
 {
-    "id": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+    "id": "7cffb47694826288fb79989eb03ec848",
     "name": "SAP Translation Hub",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "01e2b09123f25ff31ec1775ffd83cec4",
+            "id": "21e196766f1a69cea91508f63ac99917",
             "name": "SAP product domains",
             "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/domains",
             "description": "SAP product terminology is organized by domains. Domains are used in the translation process to determine the correct terminology for a given application. <br> This resource returns a list of the domains and domain groups that are available in SAP Translation Hub.<br> You can combine the domain resource with the translation resource to more accurately reflect the subject area of your texts.",
@@ -51,11 +51,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "collectionId": "7cffb47694826288fb79989eb03ec848",
             "rawModeData": ""
         },
         {
-            "id": "01a8f75fc00bb22f319d9b3a373b6c8c",
+            "id": "b6a0137459f2e16447bcab83ca676e16",
             "name": "Languages that SAP Translation Hub supports.",
             "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/languages",
             "description": "Returns a list of the languages that SAP Translation Hub supports. You can also check whether a particualr language is available in SAP Translation Hub.",
@@ -89,11 +89,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "collectionId": "7cffb47694826288fb79989eb03ec848",
             "rawModeData": ""
         },
         {
-            "id": "667aa74651c9cc8389e3e3913babbb83",
+            "id": "d392a3282a0b3033779d5dce75035a5d",
             "name": "The suggestion resource enables you to get suggestions for short texts during the development process.",
             "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/suggestions",
             "description": "Provides suggestions for short texts based on complete or partial texts and their translations. You can, for example, use the suggestion resource to propose texts while you type texts in a development environment. The texts that the resource proposes are already available in additional languages in the multilingual text repository (MLTR).",
@@ -162,11 +162,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "collectionId": "7cffb47694826288fb79989eb03ec848",
             "rawModeData": ""
         },
         {
-            "id": "98859a7d50f5852f227faf544edad217",
+            "id": "27546a26ca6c2d2119182d481ac228d0",
             "name": "Returns a list of the text types available in SAP Translation Hub.",
             "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/texttypes",
             "description": "In SAP products, short texts, such as those used on user interfaces (UIs), are characterized by various text types. The type of a specific text is determined by the UI element that it describes. For example,  button texts are described by the text type ```XBUT```. <br> The text type resource returns a list of the text types that are available in SAP Translation Hub. You can combine the '\/text type' resource with the '\/suggestion' resource to narrow down the results of the suggestion resource.",
@@ -200,11 +200,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "collectionId": "7cffb47694826288fb79989eb03ec848",
             "rawModeData": ""
         },
         {
-            "id": "481ea8dd3aa98a445f15a8acfd627798",
+            "id": "3f9610192e92b4b84ce90a2c89e17e6f",
             "name": "The '\/translate' resource enables you to get translations of English short texts that exist in SAP Translation Hub.",
             "url": "httpssandbox.api.sap.com\/translationhub\/api\/v1\/translate",
             "description": "Provides translations of short texts based on a combination of existing texts and their translations that are used in SAP products and machine translation capabilities.",
@@ -238,7 +238,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "4ba8c0a7d64fb58f0ccda24e41ea39ac",
+            "collectionId": "7cffb47694826288fb79989eb03ec848",
             "rawModeData": ""
         }
     ]

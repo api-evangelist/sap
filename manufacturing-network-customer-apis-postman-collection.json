@@ -1,5 +1,5 @@
 {
-    "id": "b14d0f04bd75df839625c0ffb029769c",
+    "id": "e7c1dc642b873b3b75906e6885b06aad",
     "name": "Manufacturing Network Customer APIs",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "dbe4276cea70a775239ec97fddb6db7d",
+            "id": "ee2f70f1438297735a27d065d362614c",
             "name": "Sends a callback message",
             "url": "httpshostname\/dim\/api\/callback",
             "description": "Upon the receipt of an event, send a response in an async way to the event framework of Manufacturing Network.\n\nIn the callback message, be sure to include the event ID. Add other information as appropriate.",
@@ -37,11 +37,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "a15b575d093a646fa58aa491aeba1139",
+            "id": "6969a7444c7b0f4f95e0c61e59ba3b8a",
             "name": "Creates a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms",
             "description": "Creates a collaboration room.  \nThe login user must be from a customer.\n",
@@ -68,11 +68,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "9881f76cec76ed080a547055ace94194",
+            "id": "47923d03a26b3c7d8f30f9d9487814a0",
             "name": "Retrieves a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
             "description": "Retrieves the information of a collaboration room by its ID.",
@@ -99,11 +99,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "3d1a01c9c4cc7b88c51a86432a5c232c",
+            "id": "0eceda12ef0f181cbb3195177893f085",
             "name": "Updates a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
             "description": "Updates a collaboration room.\n",
@@ -137,11 +137,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "a79d59b00131053b2853a3c998681f54",
+            "id": "800ae330dd4d4534296da083ee097a0f",
             "name": "Deletes a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}",
             "description": "Deletes a collaboration room\nThe login user must be a collaboration lead for the customer and it must be a new or discarded collaboration.\n",
@@ -168,11 +168,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "eac12137e2a0810b10293611bd2c00c9",
+            "id": "442cde0a852059ad599e7f0786588bbb",
             "name": "Retrieves basic info of a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/basic",
             "description": "Retrieves the information of a collaboration room in a simplified form.\n",
@@ -199,11 +199,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "0cbf48f3ecfc62a630af7f15f117a781",
+            "id": "a6caea5e53d9adba6da9d669a0e9d7e7",
             "name": "Starts a collaboration",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/start",
             "description": "Sets a collaboration in process.  \nThe collaboration must be a new collaboration.\n",
@@ -230,11 +230,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "08c1221209e25ae2f8cf48b06592475a",
+            "id": "0f451a8b592097252810ed66f6aa7d3e",
             "name": "Completes a collaboration",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/complete",
             "description": "Sets a collaboration as completed\n- The login user must be a collaboration lead for the customer.\n- If there's already a supplier in the collaboration room, the collaboration must already or still be in process.\n- If there's already a completed collaboration with the same additive manufacturing supplier, part ID, and customer, this operation fails.\n",
@@ -261,11 +261,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "abac94a824bace920d11acc713087d1a",
+            "id": "b53e3ceae182e79d49737c4e9ab52b17",
             "name": "Discards a collaboration",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/discard",
             "description": "Sets a collaboration as discarded.  \nThe login user must be a collaboration lead for the customer and the collaboration must be in process or completed.\n",
@@ -292,11 +292,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "dfdffa288cbfff386ca9b28c71c6a8b8",
+            "id": "c5a4ce132f2a640229429ec2ddfdef47",
             "name": "Reopens a collaboration",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/reopen",
             "description": "Reopens a completed collaboration.  \nThe collaboration is set back to the status 'In Process'.\nThe login user must be a collaboration lead for the customer.\n",
@@ -323,11 +323,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "f2913218a8309814d8cfee5e58a2939b",
+            "id": "875b03161d06a2a4bc40a6dea3d79ad4",
             "name": "Retrieves documents in a collaboration room",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents",
             "description": "Retrieves the information of all documents in a collaboration room, such as design files and specifications.\n",
@@ -354,11 +354,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "1184a2e22537e2c173414ce0502780f0",
+            "id": "f4d893332f3b45656dcda92039036734",
             "name": "Retrieves a document",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
             "description": "Retrieves the information of a document by its ID.\n",
@@ -392,11 +392,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "4d2d008f98c02364a860c8053eb03e63",
+            "id": "c889a4b0c36fb809f79b4d6652bc3445",
             "name": "Deletes a document",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}",
             "description": "Deletes a document.  \nThe login user must be the one who uploaded the file.\n",
@@ -430,11 +430,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "85d9289e5e71fb9ad5f3d500f20378a0",
+            "id": "ddcf895c27a1c2dfd4be8de5696cae91",
             "name": "Gets conversion info of a design file",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}\/conversion",
             "description": "Retrieves the information of the conversion event for a design file.\nA conversion event converts a design file into a VDS file.  \nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
@@ -468,11 +468,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "357ac9ad8df2d91512b7e4da57c472b3",
+            "id": "121a0551a59ff4ae0062564058ecd5de",
             "name": "Converts a design file",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/documents\/{fileId}\/conversion",
             "description": "Invokes a conversion event that converts a design file into a VDS file.\n\nSee a full list of supported formats in the [online help](https:\/\/help.sap.com\/viewer\/dmc-mn-app-help-customer\/710ee60457ca457cbda854c363bcf71f.html).\n",
@@ -513,11 +513,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "6caf3187a96e405c12aafcc02d01cfdf",
+            "id": "9a6c2daaed6b14ab8f5c1fb40ffdb0e4",
             "name": "Retrieves the production data",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData",
             "description": "Retrieves the production data in a collaboration room, including the currency, all the production options, and the initial pricings provided by the supplier.\n",
@@ -544,11 +544,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "1728146189566162f9b51f18286d84ed",
+            "id": "22df2906e1e4532c366c9d8a304c097e",
             "name": "Creates a production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData",
             "description": "Creates a new production option, providing the pricing information in the meantime.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
@@ -582,11 +582,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "83ffc4998e2ba5ddb76db365fa319810",
+            "id": "b687ea7e526a18e1270030ec62f2f105",
             "name": "Creates a production option without pricing",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/basic",
             "description": "Creates a new production option without an initial pricing.  \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads.\n",
@@ -620,11 +620,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "c828e8147747713b80cd281274d164c2",
+            "id": "5a1755102e4d5a25004d893636d1bec3",
             "name": "Updates the pricing",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/pricing",
             "description": "Updates the initial pricing for the customer's production option.  \nThe login user must be a collaboration lead from an additive manufacturing supplier.  \nNote: The planned quantity is defined by the customer and not available for update by the supplier.      \n",
@@ -658,11 +658,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "cf88d4fee41d315223a0753a1b51c010",
+            "id": "5d8756b93c696e6be77de5775026812c",
             "name": "Updates the customer's production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/original\/requirement",
             "description": "Updates the customer's production option.   \nThe login user must be from the customer.\n",
@@ -696,11 +696,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "5ee248ecd0f6909869d419741bf815a9",
+            "id": "4f70fe421a71eb9640c499b8c7447985",
             "name": "Updates a supplier's production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}",
             "description": "Updates a production option proposed by the additive manufacturing supplier as well as the initial pricing for this option.  \nThe login user must be a collaboration lead from the additive manufacturing supplier.\n",
@@ -741,11 +741,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "ef3998dc1a6043db083bca065e397966",
+            "id": "5b20038dbb1ca7f3548ccbde59d702fe",
             "name": "Deletes a supplier's production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}",
             "description": "Deletes a production option proposed by the additive manufacturing supplier. The initial pricing is deleted along with it.  \nThe login user must be from the additive manufacturing supplier.\n",
@@ -779,11 +779,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "376656b69c41776eca23bc2652ac9ca6",
+            "id": "5a57350413d17d102d6fd33a82ec3fa0",
             "name": "Updates a supplier's production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/basic",
             "description": "Updates a production option proposed by the additive manufacturing supplier.    \nThis endpoint is used by users from the additive manufactuirng supplier that're not collaboration leads. The initial pricing cannot be updated.\n",
@@ -824,11 +824,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "9c8820001cfd51dabca897db7c601e6f",
+            "id": "afec46104c5b334f32b0ff6d6240780c",
             "name": "Retrieves the confirmed production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/confirmed",
             "description": "Retrieves the production option confirmed as the finalized production requirements, and the initial pricing for it.\n",
@@ -855,11 +855,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "31db567f34441d0e52585c19527ce8db",
+            "id": "5088d07e6f6cab812c5c8c15ba61c99f",
             "name": "Confirms a production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/confirm",
             "description": "Confirms a production option along with the initial pricing for it.  \nThe production option might be proposed by the customer or the additive manufacturing supplier.   \nThe login user must be from the customer.\n",
@@ -893,11 +893,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "61f15b1d9871092b24b0473470ec6530",
+            "id": "1b9794d3f05909d067aa32a0bd4a7329",
             "name": "Cancels the confirmation of a production option",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/productionData\/{productionDataId}\/cancelConfirm",
             "description": "Undos the confirmation of a production option.  \nThe login user must be from the customer.\n",
@@ -931,11 +931,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "95eb3d6651c029a98e7d9c2d41e1f84d",
+            "id": "fd8db1aa563ee68c66310d357666d2a8",
             "name": "Retrieves the thumbnail of a design file",
             "url": "httpshostname\/dim\/api\/collaborationRooms\/{collaborationRoomId}\/thumbnails",
             "description": "Retrieves the thumbnail information in a collaboration room.\nEach design file has a corresponding thumbnail file automatically generated.\n",
@@ -962,11 +962,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "4413d6128ea353b5969df787c7c05cde",
+            "id": "593adf24211ca400a2fae2090621f333",
             "name": "Retrieves available collaboration room templates",
             "url": "httpshostname\/dim\/api\/collaborationTemplates",
             "description": "Retrieves available collaboration room templates.\n",
@@ -1000,11 +1000,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "390ecb8dc99124b87348f09e18f2e446",
+            "id": "be5efcb2dd3a9fcdd8ca356ba84b22eb",
             "name": "Downloads a file",
             "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/download",
             "description": "Downloads a file from a collaboration room.\n",
@@ -1038,11 +1038,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "59850f5e40b95d2f4aa854f726752dd2",
+            "id": "abf5e7f0add7c3b9ff5cc6c7c3389d2c",
             "name": "Uploads a file to a collaboration room",
             "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/upload",
             "description": "Uploads a file to a collaboration room.\n",
@@ -1083,11 +1083,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "b4494fca929026f94dad81d1b0dfa722",
+            "id": "a09dafd3cc93398f5e6938da5f327a57",
             "name": "Downloads the thumbnail of a design file",
             "url": "httpshostname\/dim\/api\/documents\/collaborationRooms\/{collaborationRoomId}\/thumbnail\/download",
             "description": "Downloads the thumbnail selected as the icon for a collaboration room.\n",
@@ -1114,11 +1114,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "11c73ea66cc20755f73fd423cada60f5",
+            "id": "6b2f72c6c9855b806b46da77deb04c7c",
             "name": "Uploads a file to the temp folder",
             "url": "httpshostname\/dim\/api\/documents\/organizations\/{organizationId}\/TEMP\/upload",
             "description": "Uploads a file to the temp folder for an organization.\n",
@@ -1152,11 +1152,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "dd804f330d5ec9d7f8de8f4bdc000c0e",
+            "id": "663a293f5e845fa4ecd3e6d2a9a46356",
             "name": "Retrieves all extensions",
             "url": "httpshostname\/dim\/api\/extensions",
             "description": "Retrieves all the extensions that have been registered with Manufacturing Network.  \nThese extensions are developed by Manufacturing Network customers or partners to enhance the functionality of the application.\n",
@@ -1175,11 +1175,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "3cde27796f8ce94ba711539ab89d67dd",
+            "id": "3a53228c110904768491a80d2d9a441a",
             "name": "Retrieves extensions available for use",
             "url": "httpshostname\/dim\/api\/extensions\/available",
             "description": "Retrieves extensions that can be used during a collaboration.  \nA supplier enables an extension for collaboration by selecting it for use in the supplier profile.  \n",
@@ -1206,11 +1206,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "65dbdc264f138077dd7c0cee5bc64dce",
+            "id": "6aa407aaa477bfc0172938f5b99be625",
             "name": "Retrieves supplier profile master data",
             "url": "httpshostname\/dim\/api\/masterData",
             "description": "Retrieves master data such as processes and materials.\nNarrow down the result by specifying the master data types.\n",
@@ -1237,11 +1237,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "631172afed241fd83ded7d1c6e1cfbfe",
+            "id": "67f0d94aa45859e99110dd5530996443",
             "name": "Creates an order",
             "url": "httpshostname\/dim\/api\/orders",
             "description": "Creates an order for the part for which the customer and the supplier haven been colloabrating\nThe order is based on the confirmed production option and pricing.\nThe login user must be from the customer.",
@@ -1268,11 +1268,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "49b8d05ba9fe46834dc01c6df46e21ea",
+            "id": "20958d135106f0ca74d4cc4ecb8ae2ef",
             "name": "Adds a record to the order history",
             "url": "httpshostname\/dim\/api\/orders\/{orderNumber}\/history",
             "description": "Adds a record to the history of an order.   \nThe order number is sent in the message body of the Order Created event.  \nThe login user must be from the additive manufacturing supplier.\n",
@@ -1306,11 +1306,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "098e13d44bffb4d19549e5aabd63de86",
+            "id": "0e5c0ed6b5e576b20da5fce702696a1f",
             "name": "Retrieves your own organization",
             "url": "httpshostname\/dim\/api\/organizations\/self",
             "description": "Retrieves the information of the login user's own organization.\n",
@@ -1329,11 +1329,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "b4dd6af65a6c882131d6f39eb951a9c7",
+            "id": "23d0df33a21a422bc52cd6def6e6c061",
             "name": "Retrieves organizations available for collaboration",
             "url": "httpshostname\/dim\/api\/organizations\/visible",
             "description": "Retrieves organizations in a specific business role that are available for collaboration.  \nThese organizations may have been approved for or blocked from collaboration, or they're still pending for approval.\nThe login user must be from a customer.\n",
@@ -1374,11 +1374,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "39617fd06195abbd26855500e187470c",
+            "id": "3d015ee4fd614635298dcf5aebbde315",
             "name": "Retrieves an organization",
             "url": "httpshostname\/dim\/api\/organizations\/{organizationId}",
             "description": "Retrieves an organization by its ID.\n",
@@ -1405,11 +1405,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "6a28627b09a56cb0f9566bf5ade524cb",
+            "id": "37d9bd2aa72f83c1af886619d29d5c99",
             "name": "Updates a supplier profile",
             "url": "httpshostname\/dim\/api\/organizations\/{organizationId}",
             "description": "Updates the supplier profile of a specific organization.\nThe login user must be from a supplier.\n",
@@ -1443,11 +1443,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "21fcb69fc0d4dc4267d7eeed3a5b2a5c",
+            "id": "49153cecb35dcdcc5769a218a7102dfa",
             "name": "Retrieves the collaboration rooms of an organization",
             "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms",
             "description": "Retrieves the collaboration rooms where the login user's organization is a collaboration party.   \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.   \n- If the login user is an organization admin, all the collaboration rooms where the login user's organization is a collaboration party are retrieved. The login user may not be part of the collaborations.\n",
@@ -1481,11 +1481,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "3123bea0453dbee969c9ae980368a3b7",
+            "id": "6bc3ae58904df8a12776ace591349294",
             "name": "Retrieves the collaboration rooms created by an organization",
             "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/collaborationRooms\/owned",
             "description": "Retrieves the collaboration rooms created and owned by an organization.  \n- If the login user is not an organization admin, only the collaboration rooms where the login user is a participant are retrieved.  \n- If the login user is an organization admin, all the collaboration rooms owned by the login user's organization are retrieved.  \n",
@@ -1540,11 +1540,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "9a42b562fd7a026934b7f8c0bcdf69f7",
+            "id": "16eb078b006abf9a912b0d7dd5c9ad3b",
             "name": "Retrieves a service profile",
             "url": "httpshostname\/dim\/api\/organizations\/{organizationId}\/serviceProfiles",
             "description": "Retrieves the service portfolios of a supplier.   \nA supplier may provide more than one type of service. The service profile may be comprised of various service portfolios for different service types.  \n- If the login user is not an organization admin, he or she can retrieve only the active service portfolios.  \n- if the login user is an organization admin, he or she can retrieve both active and inactive service portfolios. \n",
@@ -1571,11 +1571,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "6df5794990aa1ce99cf67c58499be480",
+            "id": "e0e66178edb48a28a8922c7b553f3ee3",
             "name": "Retrieves collaboration room template types",
             "url": "httpshostname\/dim\/api\/templateTypes",
             "description": "Retrieves available collaboration room template types.\n",
@@ -1594,11 +1594,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "7cadb5d8966530099af52df8a4737c07",
+            "id": "f742c7b937dcc456cb2a195e60c8cbfa",
             "name": "Retrieves the users of an organization",
             "url": "httpshostname\/dim\/api\/users",
             "description": "Retrieves the users of a specific organization.  \nThe login user must be from this organization as well.\n",
@@ -1625,11 +1625,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "e3035c7a773f0ba264ff20ed1b82d336",
+            "id": "cf71227eb0536ec501f00a887bc51cb8",
             "name": "Retrieves your own user info",
             "url": "httpshostname\/dim\/api\/users\/self",
             "description": "Retrieves the information of the current login user.",
@@ -1648,11 +1648,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         },
         {
-            "id": "93d19901fd5ec705e94131041c6a83b3",
+            "id": "575496def0b7bb9fc3869d38c9335732",
             "name": "Retrieves a user's collaboration rooms",
             "url": "httpshostname\/dim\/api\/users\/{userId}\/collaborationRooms",
             "description": "Retrieves the collaboration rooms where a user is a participant.  \n- If the login user is not an organization admin, he or she can search only by his or her own user ID and retrieve the collaboration rooms where he or she is a participant.  \n- If the login user is an organization admin, he or she can search by the user ID of any user in the same organization.\n",
@@ -1679,7 +1679,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "b14d0f04bd75df839625c0ffb029769c",
+            "collectionId": "e7c1dc642b873b3b75906e6885b06aad",
             "rawModeData": ""
         }
     ]

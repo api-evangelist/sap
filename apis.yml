@@ -1,0 +1,138 @@
+name: SAP APIs
+description: Collection of SAP's enterprise APIs for business applications and cloud services
+image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+url: https://api.sap.com
+created: '2024-01-15'
+modified: '2024-01-15'
+apis:
+- name: SAP Business One Service Layer API
+  description: RESTful API for accessing SAP Business One data and business logic
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  baseUrl: https://{server}:50000/b1s/v1
+  tags:
+  - ERP
+  - Business Management
+  - Enterprise
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: OpenAPI
+    url: https://api.sap.com/api/SAPB1/overview
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+- name: SAP S/4HANA Cloud API
+  description: APIs for SAP S/4HANA Cloud enabling integration with intelligent ERP
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/package/SAPS4HANACloud
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud
+  tags:
+  - ERP
+  - Cloud
+  - S/4HANA
+  - Enterprise Resource Planning
+  properties:
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: API Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+- name: SAP SuccessFactors API
+  description: Human Capital Management APIs for employee central, recruiting, and talent management
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/package/SAPSuccessFactors
+  baseUrl: https://api.successfactors.com/odata/v2
+  tags:
+  - HCM
+  - Human Resources
+  - Talent Management
+  - HR
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/
+  - type: OData API
+    url: https://api.sap.com/package/SAPSuccessFactors/odata
+  - type: API Reference
+    url: https://help.sap.com/doc/74597e67f54d4f448252bad4c2b601c9/
+- name: SAP Ariba APIs
+  description: Procurement and supply chain APIs for sourcing, contracts, and supplier management
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://developer.ariba.com
+  baseUrl: https://openapi.ariba.com
+  tags:
+  - Procurement
+  - Supply Chain
+  - Sourcing
+  - Supplier Management
+  properties:
+  - type: Documentation
+    url: https://developer.ariba.com/api
+  - type: Developer Portal
+    url: https://developer.ariba.com
+  - type: API Guides
+    url: https://developer.ariba.com/api/guides
+- name: SAP Cloud Platform Integration Suite
+  description: Integration APIs for connecting applications, data, and processes
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/package/CloudPlatformIntegration
+  baseUrl: https://{tenant}.it-cpi{xx}.cfapps.{region}.hana.ondemand.com
+  tags:
+  - Integration
+  - Cloud Platform
+  - Middleware
+  - iPaaS
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/CLOUD_INTEGRATION
+  - type: API Hub
+    url: https://api.sap.com/package/CloudPlatformIntegration
+  - type: Learning Journey
+    url: https://help.sap.com/learning-journeys/integrate-applications-and-services
+- name: SAP Commerce Cloud API
+  description: E-commerce APIs for product catalog, cart, checkout, and order management
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://help.sap.com/docs/SAP_COMMERCE_CLOUD
+  baseUrl: https://{baseSiteId}.{environment}/rest/v2
+  tags:
+  - E-commerce
+  - Retail
+  - Commerce
+  - OCC
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
+  - type: OCC API
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
+  - type: Swagger
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
+- name: SAP Analytics Cloud API
+  description: APIs for business intelligence, planning, and predictive analytics
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD
+  baseUrl: https://{tenant}.{region}.sapanalytics.cloud/api/v1
+  tags:
+  - Analytics
+  - Business Intelligence
+  - Planning
+  - BI
+  properties:
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/14cac91febef464dbb1efce20e3f1613/
+  - type: REST API
+    url: https://help.sap.com/doc/14cac91febef464dbb1efce20e3f1613/release/en-US/index.html
+  - type: API Guide
+    url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
+include:
+- name: SAP API Business Hub
+  url: https://api.sap.com
+maintainers:
+- FN: SAP SE
+  email: api-support@sap.com
+  url: https://www.sap.com
+tags:
+- Enterprise
+- ERP
+- Cloud
+- Business Applications
+- Integration

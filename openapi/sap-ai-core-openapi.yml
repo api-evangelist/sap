@@ -1,0 +1,568 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core API
+  description: >-
+    REST API for deploying, managing, and consuming AI models and workflows on
+    SAP Business Technology Platform. Provides endpoints for scenario management,
+    execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource
+servers:
+  - url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+    description: SAP AI Core Production
+    variables:
+      region:
+        description: SAP BTP region
+        default: eu10
+      landscape:
+        description: SAP BTP landscape
+        default: hana
+tags:
+  - name: Scenarios
+    description: AI scenario definitions and metadata
+  - name: Executions
+    description: Training execution lifecycle management
+  - name: Deployments
+    description: Model deployment and serving management
+  - name: Artifacts
+    description: Model artifacts and dataset management
+  - name: Configurations
+    description: Execution and deployment configurations
+security:
+  - oauth2: []
+paths:
+  /lm/scenarios:
+    get:
+      operationId: listScenarios
+      summary: List AI scenarios
+      description: >-
+        Retrieves all AI scenarios available in the resource group.
+      tags:
+        - Scenarios
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of scenarios
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Scenario'
+        '401':
+          description: Unauthorized
+  /lm/scenarios/{scenarioId}/versions:
+    get:
+      operationId: listScenarioVersions
+      summary: List scenario versions
+      description: >-
+        Retrieves all versions for a specific AI scenario.
+      tags:
+        - Scenarios
+      parameters:
+        - name: scenarioId
+          in: path
+          required: true
+          description: Scenario identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of scenario versions
+  /lm/configurations:
+    get:
+      operationId: listConfigurations
+      summary: List configurations
+      description: >-
+        Retrieves all configurations for executions and deployments.
+      tags:
+        - Configurations
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+        - name: scenarioId
+          in: query
+          description: Filter by scenario ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of configurations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Configuration'
+    post:
+      operationId: createConfiguration
+      summary: Create a configuration
+      description: >-
+        Creates a new configuration for an execution or deployment.
+      tags:
+        - Configurations
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurationCreate'
+      responses:
+        '201':
+          description: Configuration created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+  /lm/executions:
+    get:
+      operationId: listExecutions
+      summary: List executions
+      description: >-
+        Retrieves all training executions in the resource group.
+      tags:
+        - Executions
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+        - name: status
+          in: query
+          description: Filter by execution status
+          schema:
+            type: string
+            enum:
+              - PENDING
+              - RUNNING
+              - COMPLETED
+              - DEAD
+              - STOPPED
+      responses:
+        '200':
+          description: List of executions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Execution'
+    post:
+      operationId: createExecution
+      summary: Create an execution
+      description: >-
+        Triggers a new training execution using a configuration.
+      tags:
+        - Executions
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecutionCreate'
+      responses:
+        '202':
+          description: Execution created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+  /lm/executions/{executionId}:
+    get:
+      operationId: getExecution
+      summary: Get an execution
+      description: >-
+        Retrieves details of a specific training execution.
+      tags:
+        - Executions
+      parameters:
+        - name: executionId
+          in: path
+          required: true
+          description: Execution identifier
+          schema:
+            type: string
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: Execution details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+        '404':
+          description: Execution not found
+    delete:
+      operationId: deleteExecution
+      summary: Stop an execution
+      description: >-
+        Stops a running execution or marks it for deletion.
+      tags:
+        - Executions
+      parameters:
+        - name: executionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '202':
+          description: Execution stop accepted
+  /lm/deployments:
+    get:
+      operationId: listDeployments
+      summary: List deployments
+      description: >-
+        Retrieves all model deployments in the resource group.
+      tags:
+        - Deployments
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of deployments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Deployment'
+    post:
+      operationId: createDeployment
+      summary: Create a deployment
+      description: >-
+        Creates a new model deployment for serving predictions.
+      tags:
+        - Deployments
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeploymentCreate'
+      responses:
+        '202':
+          description: Deployment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+  /lm/artifacts:
+    get:
+      operationId: listArtifacts
+      summary: List artifacts
+      description: >-
+        Retrieves all artifacts (models, datasets) in the resource group.
+      tags:
+        - Artifacts
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of artifacts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Artifact'
+    post:
+      operationId: createArtifact
+      summary: Register an artifact
+      description: >-
+        Registers a new artifact (model or dataset) for use in executions
+        and deployments.
+      tags:
+        - Artifacts
+      parameters:
+        - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtifactCreate'
+      responses:
+        '201':
+          description: Artifact registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifact'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  schemas:
+    Scenario:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique scenario identifier
+        name:
+          type: string
+          description: Human-readable scenario name
+        description:
+          type: string
+          description: Scenario description
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        modifiedAt:
+          type: string
+          format: date-time
+          description: Last modification timestamp
+    Configuration:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Configuration identifier
+        name:
+          type: string
+          description: Configuration name
+        scenarioId:
+          type: string
+          description: Associated scenario ID
+        executableId:
+          type: string
+          description: Associated executable ID
+        parameterBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterBinding'
+        inputArtifactBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtifactBinding'
+        createdAt:
+          type: string
+          format: date-time
+    ConfigurationCreate:
+      type: object
+      required:
+        - name
+        - scenarioId
+        - executableId
+      properties:
+        name:
+          type: string
+        scenarioId:
+          type: string
+        executableId:
+          type: string
+        parameterBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterBinding'
+        inputArtifactBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtifactBinding'
+    ParameterBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Parameter name
+        value:
+          type: string
+          description: Parameter value
+    ArtifactBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Input artifact key
+        artifactId:
+          type: string
+          description: Artifact identifier
+    Execution:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Execution identifier
+        configurationId:
+          type: string
+          description: Configuration used for this execution
+        scenarioId:
+          type: string
+          description: Associated scenario
+        status:
+          type: string
+          description: Current execution status
+          enum:
+            - PENDING
+            - RUNNING
+            - COMPLETED
+            - DEAD
+            - STOPPED
+            - UNKNOWN
+        statusMessage:
+          type: string
+          description: Human-readable status message
+        outputArtifacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Artifact'
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+    ExecutionCreate:
+      type: object
+      required:
+        - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the execution
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Deployment identifier
+        configurationId:
+          type: string
+          description: Configuration used for this deployment
+        scenarioId:
+          type: string
+          description: Associated scenario
+        status:
+          type: string
+          description: Current deployment status
+          enum:
+            - PENDING
+            - RUNNING
+            - COMPLETED
+            - DEAD
+            - STOPPED
+            - UNKNOWN
+        deploymentUrl:
+          type: string
+          format: uri
+          description: URL for sending inference requests
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+    DeploymentCreate:
+      type: object
+      required:
+        - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the deployment
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Artifact identifier
+        name:
+          type: string
+          description: Artifact name
+        kind:
+          type: string
+          description: Artifact kind
+          enum:
+            - model
+            - dataset
+            - resultset
+            - other
+        url:
+          type: string
+          description: Storage URL for the artifact
+        scenarioId:
+          type: string
+          description: Associated scenario
+        executionId:
+          type: string
+          description: Execution that produced this artifact
+        description:
+          type: string
+          description: Artifact description
+        createdAt:
+          type: string
+          format: date-time
+    ArtifactCreate:
+      type: object
+      required:
+        - name
+        - kind
+        - url
+        - scenarioId
+      properties:
+        name:
+          type: string
+        kind:
+          type: string
+          enum:
+            - model
+            - dataset
+            - resultset
+            - other
+        url:
+          type: string
+        scenarioId:
+          type: string
+        description:
+          type: string

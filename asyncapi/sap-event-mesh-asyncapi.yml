@@ -1,0 +1,202 @@
+asyncapi: 2.6.0
+info:
+  title: SAP Event Mesh Events
+  description: >-
+    Event-driven messaging API for SAP Business Technology Platform supporting
+    AMQP, MQTT, and REST protocols. Enables publish/subscribe patterns for
+    business events across SAP and third-party applications.
+  version: '1.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+  externalDocs:
+    description: SAP Event Mesh Documentation
+    url: https://help.sap.com/docs/event-mesh
+servers:
+  restServer:
+    url: https://enterprise-messaging-pubsub.cfapps.{region}.hana.ondemand.com
+    protocol: https
+    description: SAP Event Mesh REST API endpoint
+    variables:
+      region:
+        description: SAP BTP region identifier
+        default: eu10
+    security:
+      - oauth2: []
+  mqttServer:
+    url: mqtts://enterprise-messaging-messaging-mqtts.cfapps.{region}.hana.ondemand.com:443
+    protocol: mqtts
+    description: SAP Event Mesh MQTT endpoint
+    variables:
+      region:
+        default: eu10
+    security:
+      - oauth2: []
+  amqpServer:
+    url: amqps://enterprise-messaging-messaging-amqps.cfapps.{region}.hana.ondemand.com:443
+    protocol: amqps
+    description: SAP Event Mesh AMQP endpoint
+    variables:
+      region:
+        default: eu10
+    security:
+      - oauth2: []
+channels:
+  sap/s4/beh/businesspartner/v1/BusinessPartner/Created/v1:
+    description: >-
+      Event emitted when a new business partner is created in SAP S/4HANA.
+    publish:
+      operationId: onBusinessPartnerCreated
+      summary: Business Partner Created
+      message:
+        $ref: '#/components/messages/BusinessPartnerCreated'
+  sap/s4/beh/businesspartner/v1/BusinessPartner/Changed/v1:
+    description: >-
+      Event emitted when an existing business partner is modified in SAP S/4HANA.
+    publish:
+      operationId: onBusinessPartnerChanged
+      summary: Business Partner Changed
+      message:
+        $ref: '#/components/messages/BusinessPartnerChanged'
+  sap/s4/beh/salesorder/v1/SalesOrder/Created/v1:
+    description: >-
+      Event emitted when a new sales order is created in SAP S/4HANA.
+    publish:
+      operationId: onSalesOrderCreated
+      summary: Sales Order Created
+      message:
+        $ref: '#/components/messages/SalesOrderCreated'
+  sap/s4/beh/salesorder/v1/SalesOrder/Changed/v1:
+    description: >-
+      Event emitted when a sales order is modified in SAP S/4HANA.
+    publish:
+      operationId: onSalesOrderChanged
+      summary: Sales Order Changed
+      message:
+        $ref: '#/components/messages/SalesOrderChanged'
+  sap/s4/beh/purchaseorder/v1/PurchaseOrder/Created/v1:
+    description: >-
+      Event emitted when a new purchase order is created in SAP S/4HANA.
+    publish:
+      operationId: onPurchaseOrderCreated
+      summary: Purchase Order Created
+      message:
+        $ref: '#/components/messages/PurchaseOrderCreated'
+  sap/s4/beh/materialDocument/v1/MaterialDocument/Created/v1:
+    description: >-
+      Event emitted when a material document (goods receipt, goods issue) is
+      posted in SAP S/4HANA.
+    publish:
+      operationId: onMaterialDocumentCreated
+      summary: Material Document Created
+      message:
+        $ref: '#/components/messages/MaterialDocumentCreated'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+  messages:
+    BusinessPartnerCreated:
+      name: BusinessPartnerCreated
+      title: Business Partner Created Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BusinessPartnerEvent'
+    BusinessPartnerChanged:
+      name: BusinessPartnerChanged
+      title: Business Partner Changed Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/BusinessPartnerEvent'
+    SalesOrderCreated:
+      name: SalesOrderCreated
+      title: Sales Order Created Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SalesOrderEvent'
+    SalesOrderChanged:
+      name: SalesOrderChanged
+      title: Sales Order Changed Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SalesOrderEvent'
+    PurchaseOrderCreated:
+      name: PurchaseOrderCreated
+      title: Purchase Order Created Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PurchaseOrderEvent'
+    MaterialDocumentCreated:
+      name: MaterialDocumentCreated
+      title: Material Document Created Event
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/MaterialDocumentEvent'
+  schemas:
+    BusinessPartnerEvent:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+        BusinessPartnerFullName:
+          type: string
+          description: Full name of the business partner
+        BusinessPartnerCategory:
+          type: string
+          description: Category (1=Organization, 2=Person)
+    SalesOrderEvent:
+      type: object
+      properties:
+        SalesOrder:
+          type: string
+          description: Sales order number
+        SalesOrderType:
+          type: string
+          description: Sales document type
+        SoldToParty:
+          type: string
+          description: Sold-to party business partner number
+        CreationDate:
+          type: string
+          format: date
+          description: Document creation date
+        TotalNetAmount:
+          type: number
+          description: Total net value of the order
+    PurchaseOrderEvent:
+      type: object
+      properties:
+        PurchaseOrder:
+          type: string
+          description: Purchase order number
+        PurchaseOrderType:
+          type: string
+          description: Purchase order type
+        Supplier:
+          type: string
+          description: Supplier business partner number
+        CreationDate:
+          type: string
+          format: date
+    MaterialDocumentEvent:
+      type: object
+      properties:
+        MaterialDocument:
+          type: string
+          description: Material document number
+        MaterialDocumentYear:
+          type: string
+          description: Material document year
+        GoodsMovementType:
+          type: string
+          description: Goods movement type code
+        PostingDate:
+          type: string
+          format: date
+          description: Posting date

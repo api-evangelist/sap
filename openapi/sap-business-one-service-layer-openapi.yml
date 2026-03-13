@@ -1,0 +1,610 @@
+openapi: 3.1.0
+info:
+  title: SAP Business One Service Layer API
+  description: >-
+    RESTful API for accessing SAP Business One data and business logic. Provides
+    CRUD operations on business objects such as orders, business partners,
+    items, and financial documents through OData-compatible endpoints.
+  version: '1.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+externalDocs:
+  description: SAP Business One Service Layer Documentation
+  url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+servers:
+  - url: https://{server}:50000/b1s/v1
+    description: SAP Business One Service Layer Server
+    variables:
+      server:
+        description: The hostname of your SAP Business One server
+        default: localhost
+tags:
+  - name: Authentication
+    description: Login and session management
+  - name: Business Partners
+    description: Manage customers, vendors, and leads
+  - name: Orders
+    description: Sales orders, purchase orders, and delivery management
+  - name: Items
+    description: Product and item master data management
+  - name: Journal Entries
+    description: Financial journal entries and postings
+  - name: Invoices
+    description: AR and AP invoice management
+security:
+  - sessionCookie: []
+paths:
+  /Login:
+    post:
+      operationId: login
+      summary: Authenticate and create a session
+      description: >-
+        Authenticates a user against SAP Business One and returns a session
+        cookie for subsequent API calls.
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Authentication failed
+  /Logout:
+    post:
+      operationId: logout
+      summary: End the current session
+      description: >-
+        Terminates the current authenticated session and invalidates the
+        session cookie.
+      tags:
+        - Authentication
+      responses:
+        '204':
+          description: Successfully logged out
+  /BusinessPartners:
+    get:
+      operationId: listBusinessPartners
+      summary: List business partners
+      description: >-
+        Retrieves a list of business partners including customers, vendors,
+        and leads with support for OData query options.
+      tags:
+        - Business Partners
+      parameters:
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/OrderBy'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of business partners
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BusinessPartner'
+    post:
+      operationId: createBusinessPartner
+      summary: Create a business partner
+      description: >-
+        Creates a new business partner record in SAP Business One.
+      tags:
+        - Business Partners
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+      responses:
+        '201':
+          description: Business partner created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessPartner'
+        '400':
+          description: Invalid request data
+  /BusinessPartners('{CardCode}'):
+    get:
+      operationId: getBusinessPartner
+      summary: Get a business partner by code
+      description: >-
+        Retrieves a specific business partner by their card code.
+      tags:
+        - Business Partners
+      parameters:
+        - name: CardCode
+          in: path
+          required: true
+          description: The unique card code of the business partner
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Business partner details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessPartner'
+        '404':
+          description: Business partner not found
+    patch:
+      operationId: updateBusinessPartner
+      summary: Update a business partner
+      description: >-
+        Updates an existing business partner record with the provided fields.
+      tags:
+        - Business Partners
+      parameters:
+        - name: CardCode
+          in: path
+          required: true
+          description: The unique card code of the business partner
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+      responses:
+        '204':
+          description: Business partner updated
+        '404':
+          description: Business partner not found
+  /Orders:
+    get:
+      operationId: listOrders
+      summary: List sales orders
+      description: >-
+        Retrieves a list of sales orders with support for OData query options
+        including filtering, sorting, and pagination.
+      tags:
+        - Orders
+      parameters:
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/OrderBy'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of sales orders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+    post:
+      operationId: createOrder
+      summary: Create a sales order
+      description: >-
+        Creates a new sales order in SAP Business One with line items.
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          description: Sales order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid order data
+  /Items:
+    get:
+      operationId: listItems
+      summary: List items
+      description: >-
+        Retrieves the item master data list with support for OData query options.
+      tags:
+        - Items
+      parameters:
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+  /JournalEntries:
+    get:
+      operationId: listJournalEntries
+      summary: List journal entries
+      description: >-
+        Retrieves financial journal entries with support for OData filtering
+        and pagination.
+      tags:
+        - Journal Entries
+      parameters:
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of journal entries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/JournalEntry'
+    post:
+      operationId: createJournalEntry
+      summary: Create a journal entry
+      description: >-
+        Creates a new financial journal entry with debit and credit lines.
+      tags:
+        - Journal Entries
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JournalEntry'
+      responses:
+        '201':
+          description: Journal entry created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JournalEntry'
+  /Invoices:
+    get:
+      operationId: listInvoices
+      summary: List AR invoices
+      description: >-
+        Retrieves accounts receivable invoices with OData query support.
+      tags:
+        - Invoices
+      parameters:
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+    post:
+      operationId: createInvoice
+      summary: Create an AR invoice
+      description: >-
+        Creates a new accounts receivable invoice with line items.
+      tags:
+        - Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invoice'
+      responses:
+        '201':
+          description: Invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: B1SESSION
+      description: Session cookie obtained from the Login endpoint
+  parameters:
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    OrderBy:
+      name: $orderby
+      in: query
+      description: OData ordering expression
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - CompanyDB
+        - UserName
+        - Password
+      properties:
+        CompanyDB:
+          type: string
+          description: The name of the company database to connect to
+        UserName:
+          type: string
+          description: The SAP Business One user name
+        Password:
+          type: string
+          description: The user password
+    LoginResponse:
+      type: object
+      properties:
+        SessionId:
+          type: string
+          description: The session identifier for subsequent requests
+        Version:
+          type: string
+          description: The Service Layer version
+        SessionTimeout:
+          type: integer
+          description: Session timeout in minutes
+    BusinessPartner:
+      type: object
+      properties:
+        CardCode:
+          type: string
+          description: Unique identifier for the business partner
+          maxLength: 15
+        CardName:
+          type: string
+          description: Name of the business partner
+          maxLength: 100
+        CardType:
+          type: string
+          description: Type of business partner
+          enum:
+            - cCustomer
+            - cSupplier
+            - cLid
+        GroupCode:
+          type: integer
+          description: Business partner group code
+        Phone1:
+          type: string
+          description: Primary phone number
+        EmailAddress:
+          type: string
+          description: Email address
+          format: email
+        FederalTaxID:
+          type: string
+          description: Tax identification number
+        Currency:
+          type: string
+          description: Default currency code
+        Valid:
+          type: string
+          description: Whether the business partner is active
+          enum:
+            - tYES
+            - tNO
+    Order:
+      type: object
+      properties:
+        DocEntry:
+          type: integer
+          description: Unique document entry number
+          readOnly: true
+        DocNum:
+          type: integer
+          description: Document number
+        CardCode:
+          type: string
+          description: Business partner code
+        DocDate:
+          type: string
+          format: date
+          description: Document date
+        DocDueDate:
+          type: string
+          format: date
+          description: Document due date
+        DocTotal:
+          type: number
+          format: double
+          description: Total document amount
+          readOnly: true
+        DocCurrency:
+          type: string
+          description: Document currency
+        DocumentLines:
+          type: array
+          description: Order line items
+          items:
+            $ref: '#/components/schemas/DocumentLine'
+    DocumentLine:
+      type: object
+      properties:
+        ItemCode:
+          type: string
+          description: Item code
+        Quantity:
+          type: number
+          format: double
+          description: Ordered quantity
+        UnitPrice:
+          type: number
+          format: double
+          description: Price per unit
+        Currency:
+          type: string
+          description: Line currency
+        WarehouseCode:
+          type: string
+          description: Warehouse code for the line item
+        TaxCode:
+          type: string
+          description: Tax code applied to the line
+    Item:
+      type: object
+      properties:
+        ItemCode:
+          type: string
+          description: Unique item code
+          maxLength: 50
+        ItemName:
+          type: string
+          description: Item description
+          maxLength: 200
+        ItemType:
+          type: string
+          description: Item type
+          enum:
+            - itItems
+            - itLabor
+            - itTravel
+            - itFixedAssets
+        ItemsGroupCode:
+          type: integer
+          description: Item group code
+        QuantityOnStock:
+          type: number
+          format: double
+          description: Current quantity in stock
+          readOnly: true
+        AvgStdPrice:
+          type: number
+          format: double
+          description: Average or standard price
+        SalesUnit:
+          type: string
+          description: Default sales unit of measure
+        PurchaseUnit:
+          type: string
+          description: Default purchase unit of measure
+    JournalEntry:
+      type: object
+      properties:
+        JdtNum:
+          type: integer
+          description: Journal entry number
+          readOnly: true
+        ReferenceDate:
+          type: string
+          format: date
+          description: Reference date
+        Memo:
+          type: string
+          description: Remark or memo for the journal entry
+        JournalEntryLines:
+          type: array
+          description: Debit and credit lines
+          items:
+            $ref: '#/components/schemas/JournalEntryLine'
+    JournalEntryLine:
+      type: object
+      properties:
+        AccountCode:
+          type: string
+          description: General ledger account code
+        Debit:
+          type: number
+          format: double
+          description: Debit amount in local currency
+        Credit:
+          type: number
+          format: double
+          description: Credit amount in local currency
+        ShortName:
+          type: string
+          description: Short name or business partner code
+        LineMemo:
+          type: string
+          description: Memo for this line
+    Invoice:
+      type: object
+      properties:
+        DocEntry:
+          type: integer
+          description: Unique document entry number
+          readOnly: true
+        DocNum:
+          type: integer
+          description: Document number
+        CardCode:
+          type: string
+          description: Customer business partner code
+        DocDate:
+          type: string
+          format: date
+          description: Invoice date
+        DocDueDate:
+          type: string
+          format: date
+          description: Payment due date
+        DocTotal:
+          type: number
+          format: double
+          description: Total invoice amount
+          readOnly: true
+        DocumentLines:
+          type: array
+          description: Invoice line items
+          items:
+            $ref: '#/components/schemas/DocumentLine'

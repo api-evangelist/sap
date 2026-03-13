@@ -1,0 +1,412 @@
+openapi: 3.1.0
+info:
+  title: SAP S/4HANA Cloud Business Partner API
+  description: >-
+    OData v2 API for managing business partner master data in SAP S/4HANA Cloud.
+    Covers creation, retrieval, and update of business partners, addresses,
+    bank accounts, tax numbers, and roles (customer, supplier).
+  version: '1.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+externalDocs:
+  description: SAP S/4HANA Cloud Business Partner API on SAP Business Accelerator Hub
+  url: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
+servers:
+  - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+    description: SAP S/4HANA Cloud OData Endpoint
+    variables:
+      host:
+        description: SAP S/4HANA Cloud hostname
+        default: sandbox.api.sap.com
+tags:
+  - name: Business Partners
+    description: Business partner header data and general information
+  - name: Addresses
+    description: Business partner address management
+  - name: Bank Accounts
+    description: Business partner bank account details
+  - name: Roles
+    description: Business partner role assignments (customer, supplier)
+  - name: Tax Numbers
+    description: Business partner tax identification numbers
+security:
+  - basicAuth: []
+  - oauth2: []
+paths:
+  /A_BusinessPartner:
+    get:
+      operationId: listBusinessPartners
+      summary: List business partners
+      description: >-
+        Retrieves a collection of business partner master records with support
+        for OData query options including filtering, sorting, and pagination.
+      tags:
+        - Business Partners
+      parameters:
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Filter'
+        - $ref: '#/components/parameters/Select'
+        - $ref: '#/components/parameters/Orderby'
+      responses:
+        '200':
+          description: Collection of business partners
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartner'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createBusinessPartner
+      summary: Create a business partner
+      description: >-
+        Creates a new business partner master record in SAP S/4HANA Cloud.
+      tags:
+        - Business Partners
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+      responses:
+        '201':
+          description: Business partner created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/BusinessPartner'
+        '400':
+          description: Invalid request
+  /A_BusinessPartner('{BusinessPartner}'):
+    get:
+      operationId: getBusinessPartner
+      summary: Get a business partner
+      description: >-
+        Retrieves a single business partner by its key.
+      tags:
+        - Business Partners
+      parameters:
+        - name: BusinessPartner
+          in: path
+          required: true
+          description: Business partner number
+          schema:
+            type: string
+            maxLength: 10
+      responses:
+        '200':
+          description: Business partner details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/BusinessPartner'
+        '404':
+          description: Business partner not found
+    patch:
+      operationId: updateBusinessPartner
+      summary: Update a business partner
+      description: >-
+        Updates fields of an existing business partner record.
+      tags:
+        - Business Partners
+      parameters:
+        - name: BusinessPartner
+          in: path
+          required: true
+          description: Business partner number
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+      responses:
+        '204':
+          description: Business partner updated
+        '404':
+          description: Business partner not found
+  /A_BusinessPartnerAddress:
+    get:
+      operationId: listBusinessPartnerAddresses
+      summary: List business partner addresses
+      description: >-
+        Retrieves address records associated with business partners.
+      tags:
+        - Addresses
+      parameters:
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of addresses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerAddress'
+  /A_BusinessPartnerBank:
+    get:
+      operationId: listBusinessPartnerBankAccounts
+      summary: List bank accounts
+      description: >-
+        Retrieves bank account records for business partners.
+      tags:
+        - Bank Accounts
+      parameters:
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Skip'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of bank accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerBank'
+  /A_BusinessPartnerRole:
+    get:
+      operationId: listBusinessPartnerRoles
+      summary: List business partner roles
+      description: >-
+        Retrieves role assignments for business partners, indicating whether
+        they serve as customer, supplier, or both.
+      tags:
+        - Roles
+      parameters:
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of roles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerRole'
+  /A_BusinessPartnerTaxNumber:
+    get:
+      operationId: listBusinessPartnerTaxNumbers
+      summary: List tax numbers
+      description: >-
+        Retrieves tax identification numbers for business partners.
+      tags:
+        - Tax Numbers
+      parameters:
+        - $ref: '#/components/parameters/Top'
+        - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of tax numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerTaxNumber'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SAP user credentials
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://{host}/oauth/token
+          scopes:
+            API_BUSINESS_PARTNER: Access to Business Partner API
+  parameters:
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+    Skip:
+      name: $skip
+      in: query
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to return
+      schema:
+        type: string
+    Orderby:
+      name: $orderby
+      in: query
+      description: OData sort expression
+      schema:
+        type: string
+  schemas:
+    BusinessPartner:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+          maxLength: 10
+        BusinessPartnerFullName:
+          type: string
+          description: Full name of the business partner
+        BusinessPartnerCategory:
+          type: string
+          description: Category (1=Organization, 2=Person, 3=Group)
+          enum: ['1', '2', '3']
+        BusinessPartnerGrouping:
+          type: string
+          description: Business partner grouping
+        FirstName:
+          type: string
+          description: First name (for person category)
+        LastName:
+          type: string
+          description: Last name (for person category)
+        OrganizationBPName1:
+          type: string
+          description: Organization name line 1
+        SearchTerm1:
+          type: string
+          description: Search term 1
+        Language:
+          type: string
+          description: Correspondence language
+          maxLength: 2
+        CreationDate:
+          type: string
+          format: date
+          description: Date the business partner was created
+    BusinessPartnerAddress:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+        AddressID:
+          type: string
+          description: Address identifier
+        Country:
+          type: string
+          description: Country key (ISO 3166-1 alpha-2)
+          maxLength: 2
+        Region:
+          type: string
+          description: Region or state code
+        CityName:
+          type: string
+          description: City name
+        PostalCode:
+          type: string
+          description: Postal code
+        StreetName:
+          type: string
+          description: Street name
+        HouseNumber:
+          type: string
+          description: House number
+    BusinessPartnerBank:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+        BankIdentification:
+          type: string
+          description: Bank detail identifier
+        BankCountryKey:
+          type: string
+          description: Bank country key (ISO 3166-1)
+        BankNumber:
+          type: string
+          description: Bank routing number
+        BankAccount:
+          type: string
+          description: Bank account number
+        IBAN:
+          type: string
+          description: International Bank Account Number
+        SWIFTCode:
+          type: string
+          description: SWIFT/BIC code
+    BusinessPartnerRole:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+        BusinessPartnerRole:
+          type: string
+          description: Role code (e.g., FLCU01=Customer, FLVN01=Vendor)
+    BusinessPartnerTaxNumber:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+        BPTaxType:
+          type: string
+          description: Tax number category
+        BPTaxNumber:
+          type: string
+          description: Tax identification number

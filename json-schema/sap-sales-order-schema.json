@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.sap.com/schemas/sap/sales-order.json",
+  "title": "SAP Sales Order",
+  "description": "Schema for SAP sales order documents used in S/4HANA and Business One APIs.",
+  "type": "object",
+  "required": ["SalesOrderType", "SoldToParty"],
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number",
+      "maxLength": 10,
+      "readOnly": true
+    },
+    "SalesOrderType": {
+      "type": "string",
+      "description": "Sales document type",
+      "maxLength": 4
+    },
+    "SalesOrganization": {
+      "type": "string",
+      "description": "Sales organization code",
+      "maxLength": 4
+    },
+    "DistributionChannel": {
+      "type": "string",
+      "description": "Distribution channel",
+      "maxLength": 2
+    },
+    "OrganizationDivision": {
+      "type": "string",
+      "description": "Division",
+      "maxLength": 2
+    },
+    "SoldToParty": {
+      "type": "string",
+      "description": "Sold-to party business partner number",
+      "maxLength": 10
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "description": "Customer purchase order number",
+      "maxLength": 35
+    },
+    "SalesOrderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Sales order date"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested delivery date"
+    },
+    "TotalNetAmount": {
+      "type": "number",
+      "description": "Net value of the sales order in document currency"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Document currency (ISO 4217)",
+      "maxLength": 3,
+      "pattern": "^[A-Z]{3}$"
+    },
+    "OverallDeliveryStatus": {
+      "type": "string",
+      "description": "Overall delivery status",
+      "enum": ["", "A", "B", "C"]
+    },
+    "Items": {
+      "type": "array",
+      "description": "Sales order line items",
+      "items": {
+        "$ref": "#/$defs/SalesOrderItem"
+      }
+    }
+  },
+  "$defs": {
+    "SalesOrderItem": {
+      "type": "object",
+      "description": "Sales order line item",
+      "required": ["Material", "OrderQuantity"],
+      "properties": {
+        "SalesOrderItem": {
+          "type": "string",
+          "description": "Item number within the sales order",
+          "maxLength": 6
+        },
+        "Material": {
+          "type": "string",
+          "description": "Material number",
+          "maxLength": 40
+        },
+        "SalesOrderItemText": {
+          "type": "string",
+          "description": "Item description",
+          "maxLength": 40
+        },
+        "OrderQuantity": {
+          "type": "number",
+          "description": "Order quantity",
+          "minimum": 0
+        },
+        "OrderQuantityUnit": {
+          "type": "string",
+          "description": "Unit of measure for the order quantity",
+          "maxLength": 3
+        },
+        "NetAmount": {
+          "type": "number",
+          "description": "Net value of the line item"
+        },
+        "Plant": {
+          "type": "string",
+          "description": "Delivering plant",
+          "maxLength": 4
+        },
+        "StorageLocation": {
+          "type": "string",
+          "description": "Storage location",
+          "maxLength": 4
+        }
+      }
+    }
+  }
+}

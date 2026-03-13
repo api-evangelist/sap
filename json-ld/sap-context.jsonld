@@ -1,0 +1,162 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "sap": "https://api.sap.com/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "BusinessPartner": {
+      "@id": "sap:BusinessPartner",
+      "@context": {
+        "businessPartnerNumber": "sap:BusinessPartner",
+        "fullName": "schema:name",
+        "category": "sap:BusinessPartnerCategory",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "organizationName": "schema:legalName",
+        "language": "schema:inLanguage",
+        "industry": "sap:Industry",
+        "email": "schema:email",
+        "telephone": "schema:telephone",
+        "createdAt": {
+          "@id": "dcterms:created",
+          "@type": "xsd:date"
+        },
+        "modifiedAt": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:date"
+        },
+        "addresses": {
+          "@id": "schema:address",
+          "@container": "@set"
+        },
+        "roles": {
+          "@id": "sap:BusinessPartnerRole",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Address": {
+      "@id": "schema:PostalAddress",
+      "@context": {
+        "country": "schema:addressCountry",
+        "region": "schema:addressRegion",
+        "city": "schema:addressLocality",
+        "postalCode": "schema:postalCode",
+        "street": "schema:streetAddress",
+        "houseNumber": "sap:HouseNumber"
+      }
+    },
+
+    "SalesOrder": {
+      "@id": "sap:SalesOrder",
+      "@context": {
+        "salesOrderNumber": "schema:orderNumber",
+        "orderType": "sap:SalesOrderType",
+        "customer": {
+          "@id": "schema:customer",
+          "@type": "@id"
+        },
+        "orderDate": {
+          "@id": "schema:orderDate",
+          "@type": "xsd:date"
+        },
+        "deliveryDate": {
+          "@id": "sap:RequestedDeliveryDate",
+          "@type": "xsd:date"
+        },
+        "totalAmount": "schema:totalPrice",
+        "currency": "schema:priceCurrency",
+        "items": {
+          "@id": "schema:orderedItem",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "SalesOrderItem": {
+      "@id": "sap:SalesOrderItem",
+      "@context": {
+        "itemNumber": "schema:position",
+        "material": "sap:Material",
+        "description": "schema:description",
+        "quantity": "schema:amount",
+        "unitOfMeasure": "schema:unitCode",
+        "netAmount": "schema:price",
+        "plant": "sap:Plant"
+      }
+    },
+
+    "PurchaseOrder": {
+      "@id": "sap:PurchaseOrder",
+      "@context": {
+        "purchaseOrderNumber": "schema:orderNumber",
+        "orderType": "sap:PurchaseOrderType",
+        "supplier": {
+          "@id": "schema:seller",
+          "@type": "@id"
+        },
+        "orderDate": {
+          "@id": "schema:orderDate",
+          "@type": "xsd:date"
+        },
+        "totalAmount": "schema:totalPrice",
+        "currency": "schema:priceCurrency"
+      }
+    },
+
+    "Material": {
+      "@id": "sap:Material",
+      "@context": {
+        "materialNumber": "schema:sku",
+        "description": "schema:name",
+        "materialType": "sap:MaterialType",
+        "baseUnit": "schema:unitCode",
+        "weight": "schema:weight",
+        "volume": "sap:Volume"
+      }
+    },
+
+    "JournalEntry": {
+      "@id": "sap:JournalEntry",
+      "@context": {
+        "documentNumber": "schema:identifier",
+        "referenceDate": {
+          "@id": "dcterms:date",
+          "@type": "xsd:date"
+        },
+        "postingDate": {
+          "@id": "sap:PostingDate",
+          "@type": "xsd:date"
+        },
+        "memo": "schema:description",
+        "lines": {
+          "@id": "sap:JournalEntryLine",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Employee": {
+      "@id": "sap:Employee",
+      "@context": {
+        "employeeId": "schema:identifier",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "email": "schema:email",
+        "jobTitle": "schema:jobTitle",
+        "department": "schema:department",
+        "hireDate": {
+          "@id": "sap:HireDate",
+          "@type": "xsd:date"
+        },
+        "manager": {
+          "@id": "schema:colleague",
+          "@type": "@id"
+        }
+      }
+    }
+  }
+}

@@ -39,7 +39,7 @@ paths:
   /Login:
     post:
       operationId: login
-      summary: Authenticate and create a session
+      summary: SAP Authenticate and create a session
       description: >-
         Authenticates a user against SAP Business One and returns a session
         cookie for subsequent API calls.
@@ -63,7 +63,7 @@ paths:
   /Logout:
     post:
       operationId: logout
-      summary: End the current session
+      summary: SAP End the current session
       description: >-
         Terminates the current authenticated session and invalidates the
         session cookie.
@@ -75,7 +75,7 @@ paths:
   /BusinessPartners:
     get:
       operationId: listBusinessPartners
-      summary: List business partners
+      summary: SAP List business partners
       description: >-
         Retrieves a list of business partners including customers, vendors,
         and leads with support for OData query options.
@@ -101,7 +101,7 @@ paths:
                       $ref: '#/components/schemas/BusinessPartner'
     post:
       operationId: createBusinessPartner
-      summary: Create a business partner
+      summary: SAP Create a business partner
       description: >-
         Creates a new business partner record in SAP Business One.
       tags:
@@ -124,7 +124,7 @@ paths:
   /BusinessPartners('{CardCode}'):
     get:
       operationId: getBusinessPartner
-      summary: Get a business partner by code
+      summary: SAP Get a business partner by code
       description: >-
         Retrieves a specific business partner by their card code.
       tags:
@@ -147,7 +147,7 @@ paths:
           description: Business partner not found
     patch:
       operationId: updateBusinessPartner
-      summary: Update a business partner
+      summary: SAP Update a business partner
       description: >-
         Updates an existing business partner record with the provided fields.
       tags:
@@ -173,7 +173,7 @@ paths:
   /Orders:
     get:
       operationId: listOrders
-      summary: List sales orders
+      summary: SAP List sales orders
       description: >-
         Retrieves a list of sales orders with support for OData query options
         including filtering, sorting, and pagination.
@@ -199,7 +199,7 @@ paths:
                       $ref: '#/components/schemas/Order'
     post:
       operationId: createOrder
-      summary: Create a sales order
+      summary: SAP Create a sales order
       description: >-
         Creates a new sales order in SAP Business One with line items.
       tags:
@@ -222,7 +222,7 @@ paths:
   /Items:
     get:
       operationId: listItems
-      summary: List items
+      summary: SAP List items
       description: >-
         Retrieves the item master data list with support for OData query options.
       tags:
@@ -247,7 +247,7 @@ paths:
   /JournalEntries:
     get:
       operationId: listJournalEntries
-      summary: List journal entries
+      summary: SAP List journal entries
       description: >-
         Retrieves financial journal entries with support for OData filtering
         and pagination.
@@ -272,7 +272,7 @@ paths:
                       $ref: '#/components/schemas/JournalEntry'
     post:
       operationId: createJournalEntry
-      summary: Create a journal entry
+      summary: SAP Create a journal entry
       description: >-
         Creates a new financial journal entry with debit and credit lines.
       tags:
@@ -293,7 +293,7 @@ paths:
   /Invoices:
     get:
       operationId: listInvoices
-      summary: List AR invoices
+      summary: SAP List AR invoices
       description: >-
         Retrieves accounts receivable invoices with OData query support.
       tags:
@@ -317,7 +317,7 @@ paths:
                       $ref: '#/components/schemas/Invoice'
     post:
       operationId: createInvoice
-      summary: Create an AR invoice
+      summary: SAP Create an AR invoice
       description: >-
         Creates a new accounts receivable invoice with line items.
       tags:

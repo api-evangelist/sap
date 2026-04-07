@@ -38,7 +38,7 @@ paths:
   /A_BusinessPartner:
     get:
       operationId: listBusinessPartners
-      summary: List business partners
+      summary: SAP List business partners
       description: >-
         Retrieves a collection of business partner master records with support
         for OData query options including filtering, sorting, and pagination.
@@ -69,7 +69,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createBusinessPartner
-      summary: Create a business partner
+      summary: SAP Create a business partner
       description: >-
         Creates a new business partner master record in SAP S/4HANA Cloud.
       tags:
@@ -95,7 +95,7 @@ paths:
   /A_BusinessPartner('{BusinessPartner}'):
     get:
       operationId: getBusinessPartner
-      summary: Get a business partner
+      summary: SAP Get a business partner
       description: >-
         Retrieves a single business partner by its key.
       tags:
@@ -122,7 +122,7 @@ paths:
           description: Business partner not found
     patch:
       operationId: updateBusinessPartner
-      summary: Update a business partner
+      summary: SAP Update a business partner
       description: >-
         Updates fields of an existing business partner record.
       tags:
@@ -148,7 +148,7 @@ paths:
   /A_BusinessPartnerAddress:
     get:
       operationId: listBusinessPartnerAddresses
-      summary: List business partner addresses
+      summary: SAP List business partner addresses
       description: >-
         Retrieves address records associated with business partners.
       tags:
@@ -175,7 +175,7 @@ paths:
   /A_BusinessPartnerBank:
     get:
       operationId: listBusinessPartnerBankAccounts
-      summary: List bank accounts
+      summary: SAP List bank accounts
       description: >-
         Retrieves bank account records for business partners.
       tags:
@@ -202,7 +202,7 @@ paths:
   /A_BusinessPartnerRole:
     get:
       operationId: listBusinessPartnerRoles
-      summary: List business partner roles
+      summary: SAP List business partner roles
       description: >-
         Retrieves role assignments for business partners, indicating whether
         they serve as customer, supplier, or both.
@@ -229,7 +229,7 @@ paths:
   /A_BusinessPartnerTaxNumber:
     get:
       operationId: listBusinessPartnerTaxNumbers
-      summary: List tax numbers
+      summary: SAP List tax numbers
       description: >-
         Retrieves tax identification numbers for business partners.
       tags:

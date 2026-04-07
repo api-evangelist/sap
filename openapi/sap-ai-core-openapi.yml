@@ -40,7 +40,7 @@ paths:
   /lm/scenarios:
     get:
       operationId: listScenarios
-      summary: List AI scenarios
+      summary: SAP List AI scenarios
       description: >-
         Retrieves all AI scenarios available in the resource group.
       tags:
@@ -66,7 +66,7 @@ paths:
   /lm/scenarios/{scenarioId}/versions:
     get:
       operationId: listScenarioVersions
-      summary: List scenario versions
+      summary: SAP List scenario versions
       description: >-
         Retrieves all versions for a specific AI scenario.
       tags:
@@ -85,7 +85,7 @@ paths:
   /lm/configurations:
     get:
       operationId: listConfigurations
-      summary: List configurations
+      summary: SAP List configurations
       description: >-
         Retrieves all configurations for executions and deployments.
       tags:
@@ -113,7 +113,7 @@ paths:
                       $ref: '#/components/schemas/Configuration'
     post:
       operationId: createConfiguration
-      summary: Create a configuration
+      summary: SAP Create a configuration
       description: >-
         Creates a new configuration for an execution or deployment.
       tags:
@@ -136,7 +136,7 @@ paths:
   /lm/executions:
     get:
       operationId: listExecutions
-      summary: List executions
+      summary: SAP List executions
       description: >-
         Retrieves all training executions in the resource group.
       tags:
@@ -170,7 +170,7 @@ paths:
                       $ref: '#/components/schemas/Execution'
     post:
       operationId: createExecution
-      summary: Create an execution
+      summary: SAP Create an execution
       description: >-
         Triggers a new training execution using a configuration.
       tags:
@@ -193,7 +193,7 @@ paths:
   /lm/executions/{executionId}:
     get:
       operationId: getExecution
-      summary: Get an execution
+      summary: SAP Get an execution
       description: >-
         Retrieves details of a specific training execution.
       tags:
@@ -217,7 +217,7 @@ paths:
           description: Execution not found
     delete:
       operationId: deleteExecution
-      summary: Stop an execution
+      summary: SAP Stop an execution
       description: >-
         Stops a running execution or marks it for deletion.
       tags:
@@ -235,7 +235,7 @@ paths:
   /lm/deployments:
     get:
       operationId: listDeployments
-      summary: List deployments
+      summary: SAP List deployments
       description: >-
         Retrieves all model deployments in the resource group.
       tags:
@@ -258,7 +258,7 @@ paths:
                       $ref: '#/components/schemas/Deployment'
     post:
       operationId: createDeployment
-      summary: Create a deployment
+      summary: SAP Create a deployment
       description: >-
         Creates a new model deployment for serving predictions.
       tags:
@@ -281,7 +281,7 @@ paths:
   /lm/artifacts:
     get:
       operationId: listArtifacts
-      summary: List artifacts
+      summary: SAP List artifacts
       description: >-
         Retrieves all artifacts (models, datasets) in the resource group.
       tags:
@@ -304,7 +304,7 @@ paths:
                       $ref: '#/components/schemas/Artifact'
     post:
       operationId: createArtifact
-      summary: Register an artifact
+      summary: SAP Register an artifact
       description: >-
         Registers a new artifact (model or dataset) for use in executions
         and deployments.

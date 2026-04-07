@@ -24,16 +24,16 @@ servers:
         description: SAP BTP landscape
         default: hana
 tags:
-  - name: Scenarios
-    description: AI scenario definitions and metadata
-  - name: Executions
-    description: Training execution lifecycle management
-  - name: Deployments
-    description: Model deployment and serving management
   - name: Artifacts
     description: Model artifacts and dataset management
   - name: Configurations
     description: Execution and deployment configurations
+  - name: Deployments
+    description: Model deployment and serving management
+  - name: Executions
+    description: Training execution lifecycle management
+  - name: Scenarios
+    description: AI scenario definitions and metadata
 security:
   - oauth2: []
 paths:

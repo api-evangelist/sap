@@ -25,14 +25,14 @@ tags:
     description: Login and session management
   - name: Business Partners
     description: Manage customers, vendors, and leads
-  - name: Orders
-    description: Sales orders, purchase orders, and delivery management
+  - name: Invoices
+    description: AR and AP invoice management
   - name: Items
     description: Product and item master data management
   - name: Journal Entries
     description: Financial journal entries and postings
-  - name: Invoices
-    description: AR and AP invoice management
+  - name: Orders
+    description: Sales orders, purchase orders, and delivery management
 security:
   - sessionCookie: []
 paths:

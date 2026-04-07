@@ -21,12 +21,12 @@ servers:
         description: SAP S/4HANA Cloud hostname
         default: sandbox.api.sap.com
 tags:
-  - name: Business Partners
-    description: Business partner header data and general information
   - name: Addresses
     description: Business partner address management
   - name: Bank Accounts
     description: Business partner bank account details
+  - name: Business Partners
+    description: Business partner header data and general information
   - name: Roles
     description: Business partner role assignments (customer, supplier)
   - name: Tax Numbers

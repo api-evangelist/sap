@@ -14,20 +14,18 @@ apis:
     humanUrl: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
     baseUrl: https://{server}:50000/b1s/v1
     tags:
-      - ERP
       - Business Management
       - Enterprise
+      - ERP
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
       - type: OpenAPI
         url: openapi/sap-business-one-service-layer-openapi.yml
       - type: Authentication
-        url: 
-          https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+        url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
       - type: Getting Started
-        url: 
-          https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+        url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - name: SAP S/4HANA Cloud API
     description: >-
       APIs for SAP S/4HANA Cloud enabling integration with intelligent ERP.
@@ -35,10 +33,10 @@ apis:
     humanUrl: https://api.sap.com/package/SAPS4HANACloud
     baseUrl: https://sandbox.api.sap.com/s4hanacloud
     tags:
-      - ERP
       - Cloud
-      - S/4HANA
       - Enterprise Resource Planning
+      - ERP
+      - S/4HANA
     properties:
       - type: OpenAPI
         url: openapi/sap-s4hana-cloud-business-partner-openapi.yml
@@ -58,13 +56,12 @@ apis:
     baseUrl: https://api.successfactors.com/odata/v2
     tags:
       - HCM
+      - HR
       - Human Resources
       - Talent Management
-      - HR
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/
+        url: https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/
       - type: OData API
         url: https://api.sap.com/package/SAPSuccessFactors/odata
       - type: API Reference
@@ -79,9 +76,9 @@ apis:
     baseUrl: https://openapi.ariba.com
     tags:
       - Procurement
-      - Supply Chain
       - Sourcing
       - Supplier Management
+      - Supply Chain
     properties:
       - type: Documentation
         url: https://developer.ariba.com/api
@@ -96,21 +93,19 @@ apis:
     humanUrl: https://api.sap.com/package/CloudPlatformIntegration
     baseUrl: https://{tenant}.it-cpi{xx}.cfapps.{region}.hana.ondemand.com
     tags:
-      - Integration
       - Cloud Platform
-      - Middleware
+      - Integration
       - iPaaS
+      - Middleware
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/CLOUD_INTEGRATION
       - type: API Hub
         url: https://api.sap.com/package/CloudPlatformIntegration
       - type: Learning Journey
-        url: 
-          https://help.sap.com/learning-journeys/integrate-applications-and-services
+        url: https://help.sap.com/learning-journeys/integrate-applications-and-services
       - type: Getting Started
-        url: 
-          https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
+        url: https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
   - name: SAP Commerce Cloud API
     description: >-
       E-commerce APIs for product catalog, cart, checkout, and order management.
@@ -118,20 +113,17 @@ apis:
     humanUrl: https://help.sap.com/docs/SAP_COMMERCE_CLOUD
     baseUrl: https://{baseSiteId}.{environment}/rest/v2
     tags:
-      - E-commerce
-      - Retail
       - Commerce
+      - E-Commerce
       - OCC
+      - Retail
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
+        url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
       - type: OCC API
-        url: 
-          https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
+        url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
       - type: Swagger
-        url: 
-          https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
+        url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
   - name: SAP Analytics Cloud API
     description: >-
       APIs for business intelligence, planning, and predictive analytics.
@@ -140,19 +132,16 @@ apis:
     baseUrl: https://{tenant}.{region}.sapanalytics.cloud/api/v1
     tags:
       - Analytics
+      - BI
       - Business Intelligence
       - Planning
-      - BI
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/14cac91febef464dbb1efce20e3f1613/
+        url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/14cac91febef464dbb1efce20e3f1613/
       - type: REST API
-        url: 
-          https://help.sap.com/doc/14cac91febef464dbb1efce20e3f1613/release/en-US/index.html
+        url: https://help.sap.com/doc/14cac91febef464dbb1efce20e3f1613/release/en-US/index.html
       - type: API Guide
-        url: 
-          https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
+        url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
   - name: SAP Concur API
     description: >-
       APIs for travel and expense management including expense reporting, travel booking,
@@ -161,18 +150,17 @@ apis:
     humanUrl: https://developer.concur.com
     baseUrl: https://us.api.concursolutions.com
     tags:
-      - Travel
+      - Concur
       - Expense Management
       - Invoice
-      - Concur
+      - Travel
     properties:
       - type: Documentation
         url: https://developer.concur.com/api-reference/
       - type: Developer Portal
         url: https://developer.concur.com
       - type: Authentication
-        url: 
-          https://developer.concur.com/api-reference/authentication/getting-started.html
+        url: https://developer.concur.com/api-reference/authentication/getting-started.html
       - type: API Hub
         url: https://api.sap.com/products/SAPConcur/apis/REST
       - type: Changelog
@@ -185,9 +173,9 @@ apis:
     humanUrl: https://api.sap.com/products/SAPFieldglass/apis/packages
     baseUrl: https://www.fieldglass.net/api
     tags:
-      - Vendor Management
       - Contingent Workforce
       - External Workers
+      - Vendor Management
       - VMS
     properties:
       - type: Documentation
@@ -207,9 +195,9 @@ apis:
     baseUrl: https://accounts-service.cfapps.{region}.hana.ondemand.com
     tags:
       - BTP
+      - Cloud Management
       - Cloud Platform
       - Platform Services
-      - Cloud Management
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/BTP
@@ -227,9 +215,9 @@ apis:
     humanUrl: https://api.sap.com/package/sapdatasphere/overview
     baseUrl: https://{tenant}.{region}.hcs.cloud.sap
     tags:
-      - Data Warehousing
       - Analytics
       - Data Integration
+      - Data Warehousing
       - Datasphere
     properties:
       - type: Documentation
@@ -246,12 +234,11 @@ apis:
       protocols.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://help.sap.com/docs/event-mesh
-    baseUrl: 
-      https://enterprise-messaging-pubsub.cfapps.{region}.hana.ondemand.com
+    baseUrl: https://enterprise-messaging-pubsub.cfapps.{region}.hana.ondemand.com
     tags:
-      - Messaging
-      - Event-Driven
       - AMQP
+      - Event-Driven
+      - Messaging
       - MQTT
     properties:
       - type: AsyncAPI
@@ -259,13 +246,11 @@ apis:
       - type: Documentation
         url: https://help.sap.com/docs/event-mesh
       - type: REST API
-        url: 
-          https://help.sap.com/docs/event-mesh/event-mesh/rest-apis-for-messaging
+        url: https://help.sap.com/docs/event-mesh/event-mesh/rest-apis-for-messaging
       - type: API Hub
         url: https://api.sap.com/package/SAPEventMeshDefaultPlan/rest
       - type: Getting Started
-        url: 
-          https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh
+        url: https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh
   - name: SAP Master Data Integration API
     description: >-
       APIs for centralizing and harmonizing master data across SAP and third-party
@@ -274,9 +259,9 @@ apis:
     humanUrl: https://api.sap.com/package/sap-mdi-masterDataIntegration/overview
     baseUrl: https://{tenant}.integrationsuite.{region}.hana.ondemand.com
     tags:
-      - Master Data
       - Data Integration
       - Data Quality
+      - Master Data
       - MDI
     properties:
       - type: Documentation
@@ -291,24 +276,20 @@ apis:
     description: >-
       APIs for process modeling, BPMN diagram management, and process governance automation.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-    humanUrl: 
-      https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+    humanUrl: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
     baseUrl: https://editor.signavio.com/p
     tags:
-      - Process Mining
       - BPM
       - BPMN
       - Process Management
+      - Process Mining
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+        url: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
       - type: API Reference
-        url: 
-          https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
+        url: https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
       - type: Developer Guide
-        url: 
-          https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
+        url: https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
   - name: SAP Document Management Service API
     description: >-
       CMIS-based APIs for document management including versioning, access control,
@@ -317,19 +298,17 @@ apis:
     humanUrl: https://help.sap.com/docs/document-management-service
     baseUrl: https://{tenant}.document-center.cfapps.{region}.hana.ondemand.com
     tags:
-      - Document Management
+      - BTP
       - CMIS
       - Content Management
-      - BTP
+      - Document Management
     properties:
       - type: Documentation
         url: https://help.sap.com/docs/document-management-service
       - type: API Hub
-        url: 
-          https://api.sap.com/package/SAPDocumentManagementServiceIntegrationOptionCMISAPI/rest
+        url: https://api.sap.com/package/SAPDocumentManagementServiceIntegrationOptionCMISAPI/rest
       - type: Getting Started
-        url: 
-          https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
+        url: https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
   - name: SAP Integration Suite API Management
     description: >-
       APIs for building, managing, publishing, and monitoring API proxies within SAP
@@ -338,14 +317,13 @@ apis:
     humanUrl: https://help.sap.com/docs/sap-api-management
     baseUrl: https://{tenant}.{region}.apimanagement.hana.ondemand.com
     tags:
-      - API Management
       - API Gateway
-      - Integration Suite
+      - API Management
       - API Proxy
+      - Integration Suite
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/integration-suite/sap-integration-suite/api-documentation
+        url: https://help.sap.com/docs/integration-suite/sap-integration-suite/api-documentation
       - type: API Hub
         url: https://api.sap.com/package/APIMgmt/overview
       - type: Getting Started
@@ -358,20 +336,18 @@ apis:
       Business Technology Platform. Provides endpoints for scenario management,
       execution orchestration, and model serving.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-    humanURL: 
-      https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+    humanURL: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
     baseURL: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
     tags:
-      - Artificial Intelligence
-      - Machine Learning
       - AI Core
+      - Artificial Intelligence
       - BTP
+      - Machine Learning
     properties:
       - type: OpenAPI
         url: openapi/sap-ai-core-openapi.yml
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+        url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
       - type: Reference
         url: https://api.sap.com/api/AI_CORE_API/resource
       - type: API Hub
@@ -386,16 +362,15 @@ apis:
     humanURL: https://dev.emarsys.com/
     baseURL: https://api.emarsys.net/api/v2
     tags:
-      - Marketing Automation
+      - CRM
       - Customer Engagement
       - Email Marketing
-      - CRM
+      - Marketing Automation
     properties:
       - type: Documentation
         url: https://dev.emarsys.com/
       - type: Reference
-        url: 
-          https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
+        url: https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
       - type: API Hub
         url: https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview
   - name: SAP Build Work Zone API
@@ -404,18 +379,16 @@ apis:
       applications into unified workpages, and administering work zone sites and
       content.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-    humanURL: 
-      https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+    humanURL: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
     baseURL: https://{tenant}.dt.workzone.cfapps.{region}.hana.ondemand.com
     tags:
+      - BTP
       - Digital Workplace
       - Portal
       - Work Zone
-      - BTP
     properties:
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+        url: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
 include:
   - name: SAP API Business Hub
     url: https://api.sap.com
@@ -424,14 +397,14 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 tags:
+  - AI
+  - BTP
+  - Business Applications
+  - Cloud
+  - Data Management
   - Enterprise
   - ERP
-  - Cloud
-  - Business Applications
   - Integration
-  - BTP
-  - AI
-  - Data Management
 common:
   - type: Developer Portal
     url: https://developers.sap.com/

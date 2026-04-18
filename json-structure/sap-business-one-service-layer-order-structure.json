@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "DocEntry": {
+      "type": "integer"
+    },
+    "DocNum": {
+      "type": "integer"
+    },
+    "CardCode": {
+      "type": "string"
+    },
+    "DocDate": {
+      "type": "string"
+    },
+    "DocDueDate": {
+      "type": "string"
+    },
+    "DocTotal": {
+      "type": "number"
+    },
+    "DocCurrency": {
+      "type": "string"
+    },
+    "DocumentLines": {
+      "type": "array"
+    }
+  }
+}

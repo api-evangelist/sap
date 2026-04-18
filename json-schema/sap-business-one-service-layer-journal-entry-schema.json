@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JournalEntry",
+  "type": "object",
+  "properties": {
+    "JdtNum": {
+      "type": "integer",
+      "description": "Journal entry number"
+    },
+    "ReferenceDate": {
+      "type": "string",
+      "description": "Reference date"
+    },
+    "Memo": {
+      "type": "string",
+      "description": "Remark or memo for the journal entry"
+    },
+    "JournalEntryLines": {
+      "type": "array",
+      "description": "Debit and credit lines"
+    }
+  }
+}

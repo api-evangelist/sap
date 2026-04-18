@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocumentLine",
+  "type": "object",
+  "properties": {
+    "ItemCode": {
+      "type": "string",
+      "description": "Item code"
+    },
+    "Quantity": {
+      "type": "number",
+      "description": "Ordered quantity"
+    },
+    "UnitPrice": {
+      "type": "number",
+      "description": "Price per unit"
+    },
+    "Currency": {
+      "type": "string",
+      "description": "Line currency"
+    },
+    "WarehouseCode": {
+      "type": "string",
+      "description": "Warehouse code for the line item"
+    },
+    "TaxCode": {
+      "type": "string",
+      "description": "Tax code applied to the line"
+    }
+  }
+}

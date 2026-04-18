@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "BusinessPartnerRole",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string"
+    },
+    "BusinessPartnerRole": {
+      "type": "string"
+    }
+  }
+}

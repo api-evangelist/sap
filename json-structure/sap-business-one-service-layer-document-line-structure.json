@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "DocumentLine",
+  "type": "object",
+  "properties": {
+    "ItemCode": {
+      "type": "string"
+    },
+    "Quantity": {
+      "type": "number"
+    },
+    "UnitPrice": {
+      "type": "number"
+    },
+    "Currency": {
+      "type": "string"
+    },
+    "WarehouseCode": {
+      "type": "string"
+    },
+    "TaxCode": {
+      "type": "string"
+    }
+  }
+}

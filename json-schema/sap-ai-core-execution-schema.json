@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Execution",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Execution identifier"
+    },
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration used for this execution"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current execution status"
+    },
+    "statusMessage": {
+      "type": "string",
+      "description": "Human-readable status message"
+    },
+    "outputArtifacts": {
+      "type": "array"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "modifiedAt": {
+      "type": "string"
+    }
+  }
+}

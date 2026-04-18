@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoginResponse",
+  "type": "object",
+  "properties": {
+    "SessionId": {
+      "type": "string",
+      "description": "The session identifier for subsequent requests"
+    },
+    "Version": {
+      "type": "string",
+      "description": "The Service Layer version"
+    },
+    "SessionTimeout": {
+      "type": "integer",
+      "description": "Session timeout in minutes"
+    }
+  }
+}

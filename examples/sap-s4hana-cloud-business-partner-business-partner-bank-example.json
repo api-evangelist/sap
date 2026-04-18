@@ -1,0 +1,9 @@
+{
+  "BusinessPartner": "example_value",
+  "BankIdentification": "example_value",
+  "BankCountryKey": "example_value",
+  "BankNumber": "example_value",
+  "BankAccount": "example_value",
+  "IBAN": "example_value",
+  "SWIFTCode": "example_value"
+}

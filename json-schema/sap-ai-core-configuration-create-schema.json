@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConfigurationCreate",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "executableId": {
+      "type": "string"
+    },
+    "parameterBindings": {
+      "type": "array"
+    },
+    "inputArtifactBindings": {
+      "type": "array"
+    }
+  }
+}

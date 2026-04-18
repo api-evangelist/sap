@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LoginRequest",
+  "type": "object",
+  "properties": {
+    "CompanyDB": {
+      "type": "string",
+      "description": "The name of the company database to connect to"
+    },
+    "UserName": {
+      "type": "string",
+      "description": "The SAP Business One user name"
+    },
+    "Password": {
+      "type": "string",
+      "description": "The user password"
+    }
+  }
+}

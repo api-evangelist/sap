@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessPartnerRole",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BusinessPartnerRole": {
+      "type": "string",
+      "description": "Role code (e.g., FLCU01=Customer, FLVN01=Vendor)"
+    }
+  }
+}

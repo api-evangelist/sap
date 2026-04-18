@@ -1,0 +1,9 @@
+{
+  "id": "abc123",
+  "configurationId": "500123",
+  "scenarioId": "500123",
+  "status": "example_value",
+  "deploymentUrl": "https://www.example.com",
+  "createdAt": "example_value",
+  "modifiedAt": "example_value"
+}

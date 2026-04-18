@@ -1,0 +1,467 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SAP Business One Service Layer"
+  description: "RESTful API for accessing SAP Business One data and business logic including orders, business partners, items, and financial documents."
+  tags:
+    - SAP
+    - Business One
+    - ERP
+    - Enterprise
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SAP_B1_USERNAME: SAP_B1_USERNAME
+      SAP_B1_PASSWORD: SAP_B1_PASSWORD
+      SAP_B1_COMPANY_DB: SAP_B1_COMPANY_DB
+
+capability:
+  consumes:
+    - type: http
+      namespace: sap-business-one
+      baseUri: https://localhost:50000/b1s/v1
+      description: "SAP Business One Service Layer for CRUD operations on business objects."
+      authentication:
+        type: apikey
+        key: B1SESSION
+        value: "{{SAP_B1_SESSION}}"
+        placement: cookie
+      resources:
+        - name: authentication
+          path: /
+          description: "Login and session management"
+          operations:
+            - name: login
+              method: POST
+              path: /Login
+              description: "Authenticates a user and returns a session cookie."
+              body:
+                type: json
+                data:
+                  CompanyDB: "{{tools.companyDB}}"
+                  UserName: "{{tools.userName}}"
+                  Password: "{{tools.password}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: logout
+              method: POST
+              path: /Logout
+              description: "Terminates the current authenticated session."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: business-partners
+          path: /BusinessPartners
+          description: "Manage customers, vendors, and leads"
+          operations:
+            - name: list-business-partners
+              method: GET
+              description: "Retrieves a list of business partners."
+              inputParameters:
+                - name: $select
+                  in: query
+                  type: string
+                  required: false
+                  description: "Fields to include in the response"
+                - name: $filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of records"
+                - name: $skip
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of records to skip"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-business-partner
+              method: POST
+              description: "Creates a new business partner record."
+              body:
+                type: json
+                data:
+                  CardCode: "{{tools.cardCode}}"
+                  CardName: "{{tools.cardName}}"
+                  CardType: "{{tools.cardType}}"
+                  EmailAddress: "{{tools.emailAddress}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-business-partner
+              method: GET
+              path: /('{CardCode}')
+              description: "Retrieves a specific business partner by card code."
+              inputParameters:
+                - name: CardCode
+                  in: path
+                  type: string
+                  required: true
+                  description: "The unique card code"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: update-business-partner
+              method: PATCH
+              path: /('{CardCode}')
+              description: "Updates an existing business partner record."
+              inputParameters:
+                - name: CardCode
+                  in: path
+                  type: string
+                  required: true
+                  description: "The unique card code"
+              body:
+                type: json
+                data:
+                  CardName: "{{tools.cardName}}"
+                  EmailAddress: "{{tools.emailAddress}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: orders
+          path: /Orders
+          description: "Sales orders management"
+          operations:
+            - name: list-orders
+              method: GET
+              description: "Retrieves a list of sales orders."
+              inputParameters:
+                - name: $select
+                  in: query
+                  type: string
+                  required: false
+                  description: "Fields to include"
+                - name: $filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of records"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-order
+              method: POST
+              description: "Creates a new sales order with line items."
+              body:
+                type: json
+                data:
+                  CardCode: "{{tools.cardCode}}"
+                  DocDate: "{{tools.docDate}}"
+                  DocumentLines: "{{tools.documentLines}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: items
+          path: /Items
+          description: "Product and item master data"
+          operations:
+            - name: list-items
+              method: GET
+              description: "Retrieves the item master data list."
+              inputParameters:
+                - name: $select
+                  in: query
+                  type: string
+                  required: false
+                  description: "Fields to include"
+                - name: $filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of records"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: journal-entries
+          path: /JournalEntries
+          description: "Financial journal entries and postings"
+          operations:
+            - name: list-journal-entries
+              method: GET
+              description: "Retrieves financial journal entries."
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of records"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-journal-entry
+              method: POST
+              description: "Creates a new financial journal entry."
+              body:
+                type: json
+                data:
+                  ReferenceDate: "{{tools.referenceDate}}"
+                  Memo: "{{tools.memo}}"
+                  JournalEntryLines: "{{tools.journalEntryLines}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: invoices
+          path: /Invoices
+          description: "AR and AP invoice management"
+          operations:
+            - name: list-invoices
+              method: GET
+              description: "Retrieves accounts receivable invoices."
+              inputParameters:
+                - name: $filter
+                  in: query
+                  type: string
+                  required: false
+                  description: "OData filter expression"
+                - name: $top
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum number of records"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-invoice
+              method: POST
+              description: "Creates a new accounts receivable invoice."
+              body:
+                type: json
+                data:
+                  CardCode: "{{tools.cardCode}}"
+                  DocDate: "{{tools.docDate}}"
+                  DocumentLines: "{{tools.documentLines}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8101
+      namespace: sap-business-one-rest
+      resources:
+        - path: /v1/business-partners
+          name: business-partners
+          description: "Business partner management"
+          operations:
+            - method: GET
+              name: list-business-partners
+              description: "List all business partners"
+              call: "sap-business-one.list-business-partners"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-business-partner
+              description: "Create a new business partner"
+              call: "sap-business-one.create-business-partner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/orders
+          name: orders
+          description: "Sales order management"
+          operations:
+            - method: GET
+              name: list-orders
+              description: "List all sales orders"
+              call: "sap-business-one.list-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-order
+              description: "Create a new sales order"
+              call: "sap-business-one.create-order"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/items
+          name: items
+          description: "Item master data"
+          operations:
+            - method: GET
+              name: list-items
+              description: "List all items"
+              call: "sap-business-one.list-items"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/invoices
+          name: invoices
+          description: "Invoice management"
+          operations:
+            - method: GET
+              name: list-invoices
+              description: "List all invoices"
+              call: "sap-business-one.list-invoices"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-invoice
+              description: "Create a new invoice"
+              call: "sap-business-one.create-invoice"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9101
+      namespace: sap-business-one-mcp
+      transport: http
+      tools:
+        - name: login
+          description: "Authenticate and create a session"
+          hints:
+            readOnly: false
+          call: "sap-business-one.login"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-business-partners
+          description: "List business partners including customers, vendors, and leads"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-business-partners"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-business-partner
+          description: "Create a new business partner record"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-business-partner
+          description: "Get a specific business partner by card code"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.get-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-business-partner
+          description: "Update an existing business partner"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "sap-business-one.update-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-orders
+          description: "List sales orders"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-order
+          description: "Create a new sales order"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-order"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-items
+          description: "List item master data"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-items"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-journal-entries
+          description: "List financial journal entries"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-journal-entries"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-journal-entry
+          description: "Create a new financial journal entry"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-journal-entry"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-invoices
+          description: "List accounts receivable invoices"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-invoices"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-invoice
+          description: "Create a new accounts receivable invoice"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-invoice"
+          outputParameters:
+            - type: object
+              mapping: "$."

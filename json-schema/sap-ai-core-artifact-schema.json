@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artifact",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Artifact identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Artifact name"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Artifact kind"
+    },
+    "url": {
+      "type": "string",
+      "description": "Storage URL for the artifact"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario"
+    },
+    "executionId": {
+      "type": "string",
+      "description": "Execution that produced this artifact"
+    },
+    "description": {
+      "type": "string",
+      "description": "Artifact description"
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  }
+}

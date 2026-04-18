@@ -1,0 +1,12 @@
+{
+  "BusinessPartner": "example_value",
+  "BusinessPartnerFullName": "example_value",
+  "BusinessPartnerCategory": "example_value",
+  "BusinessPartnerGrouping": "example_value",
+  "FirstName": "example_value",
+  "LastName": "example_value",
+  "OrganizationBPName1": "example_value",
+  "SearchTerm1": "example_value",
+  "Language": "example_value",
+  "CreationDate": "example_value"
+}

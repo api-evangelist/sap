@@ -1,0 +1,10 @@
+{
+  "id": "abc123",
+  "name": "Example Title",
+  "kind": "example_value",
+  "url": "https://www.example.com",
+  "scenarioId": "500123",
+  "executionId": "500123",
+  "description": "A sample description.",
+  "createdAt": "example_value"
+}

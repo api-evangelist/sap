@@ -1,0 +1,10 @@
+{
+  "BusinessPartner": "example_value",
+  "AddressID": "500123",
+  "Country": "example_value",
+  "Region": "example_value",
+  "CityName": "example_value",
+  "PostalCode": "example_value",
+  "StreetName": "example_value",
+  "HouseNumber": "example_value"
+}

@@ -14,39 +14,39 @@ externalDocs:
   description: SAP AI Core API Reference
   url: https://api.sap.com/api/AI_CORE_API/resource
 servers:
-  - url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
-    description: SAP AI Core Production
-    variables:
-      region:
-        description: SAP BTP region
-        default: eu10
-      landscape:
-        description: SAP BTP landscape
-        default: hana
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
 tags:
-  - name: Artifacts
-    description: Model artifacts and dataset management
-  - name: Configurations
-    description: Execution and deployment configurations
-  - name: Deployments
-    description: Model deployment and serving management
-  - name: Executions
-    description: Training execution lifecycle management
-  - name: Scenarios
-    description: AI scenario definitions and metadata
+- name: Artifacts
+  description: Model artifacts and dataset management
+- name: Configurations
+  description: Execution and deployment configurations
+- name: Deployments
+  description: Model deployment and serving management
+- name: Executions
+  description: Training execution lifecycle management
+- name: Scenarios
+  description: AI scenario definitions and metadata
 security:
-  - oauth2: []
+- oauth2: []
 paths:
   /lm/scenarios:
     get:
       operationId: listScenarios
-      summary: SAP List AI scenarios
+      summary: Sap List Ai Scenarios
       description: >-
         Retrieves all AI scenarios available in the resource group.
       tags:
-        - Scenarios
+      - Scenarios
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '200':
           description: List of scenarios
@@ -61,42 +61,62 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Scenario'
+              examples:
+                Listscenarios200Example:
+                  summary: Default listScenarios 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/scenarios/{scenarioId}/versions:
     get:
       operationId: listScenarioVersions
-      summary: SAP List scenario versions
+      summary: Sap List Scenario Versions
       description: >-
         Retrieves all versions for a specific AI scenario.
       tags:
-        - Scenarios
+      - Scenarios
       parameters:
-        - name: scenarioId
-          in: path
-          required: true
-          description: Scenario identifier
-          schema:
-            type: string
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - name: scenarioId
+        in: path
+        required: true
+        description: Scenario identifier
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '200':
           description: List of scenario versions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/configurations:
     get:
       operationId: listConfigurations
-      summary: SAP List configurations
+      summary: Sap List Configurations
       description: >-
         Retrieves all configurations for executions and deployments.
       tags:
-        - Configurations
+      - Configurations
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
-        - name: scenarioId
-          in: query
-          description: Filter by scenario ID
-          schema:
-            type: string
+      - $ref: '#/components/parameters/AIResourceGroup'
+      - name: scenarioId
+        in: query
+        description: Filter by scenario ID
+        schema:
+          type: string
+        example: '500123'
       responses:
         '200':
           description: List of configurations
@@ -111,21 +131,54 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Configuration'
+              examples:
+                Listconfigurations200Example:
+                  summary: Default listConfigurations 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      scenarioId: '500123'
+                      executableId: '500123'
+                      parameterBindings:
+                      - {}
+                      inputArtifactBindings:
+                      - {}
+                      createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createConfiguration
-      summary: SAP Create a configuration
+      summary: Sap Create a Configuration
       description: >-
         Creates a new configuration for an execution or deployment.
       tags:
-        - Configurations
+      - Configurations
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ConfigurationCreate'
+            examples:
+              CreateconfigurationRequestExample:
+                summary: Default createConfiguration request
+                x-microcks-default: true
+                value:
+                  name: Example Title
+                  scenarioId: '500123'
+                  executableId: '500123'
+                  parameterBindings:
+                  - key: example_value
+                    value: example_value
+                  inputArtifactBindings:
+                  - key: example_value
+                    artifactId: '500123'
       responses:
         '201':
           description: Configuration created
@@ -133,27 +186,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Configuration'
+              examples:
+                Createconfiguration201Example:
+                  summary: Default createConfiguration 201 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    scenarioId: '500123'
+                    executableId: '500123'
+                    parameterBindings:
+                    - key: example_value
+                      value: example_value
+                    inputArtifactBindings:
+                    - key: example_value
+                      artifactId: '500123'
+                    createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/executions:
     get:
       operationId: listExecutions
-      summary: SAP List executions
+      summary: Sap List Executions
       description: >-
         Retrieves all training executions in the resource group.
       tags:
-        - Executions
+      - Executions
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
-        - name: status
-          in: query
-          description: Filter by execution status
-          schema:
-            type: string
-            enum:
-              - PENDING
-              - RUNNING
-              - COMPLETED
-              - DEAD
-              - STOPPED
+      - $ref: '#/components/parameters/AIResourceGroup'
+      - name: status
+        in: query
+        description: Filter by execution status
+        schema:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+        example: PENDING
       responses:
         '200':
           description: List of executions
@@ -168,21 +241,46 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Execution'
+              examples:
+                Listexecutions200Example:
+                  summary: Default listExecutions 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      configurationId: '500123'
+                      scenarioId: '500123'
+                      status: PENDING
+                      statusMessage: example_value
+                      outputArtifacts:
+                      - {}
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createExecution
-      summary: SAP Create an execution
+      summary: Sap Create an Execution
       description: >-
         Triggers a new training execution using a configuration.
       tags:
-        - Executions
+      - Executions
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ExecutionCreate'
+            examples:
+              CreateexecutionRequestExample:
+                summary: Default createExecution request
+                x-microcks-default: true
+                value:
+                  configurationId: '500123'
       responses:
         '202':
           description: Execution created
@@ -190,22 +288,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Execution'
+              examples:
+                Createexecution202Example:
+                  summary: Default createExecution 202 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    statusMessage: example_value
+                    outputArtifacts:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/executions/{executionId}:
     get:
       operationId: getExecution
-      summary: SAP Get an execution
+      summary: Sap Get an Execution
       description: >-
         Retrieves details of a specific training execution.
       tags:
-        - Executions
+      - Executions
       parameters:
-        - name: executionId
-          in: path
-          required: true
-          description: Execution identifier
-          schema:
-            type: string
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - name: executionId
+        in: path
+        required: true
+        description: Execution identifier
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '200':
           description: Execution details
@@ -213,35 +336,63 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Execution'
+              examples:
+                Getexecution200Example:
+                  summary: Default getExecution 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    statusMessage: example_value
+                    outputArtifacts:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
         '404':
           description: Execution not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteExecution
-      summary: SAP Stop an execution
+      summary: Sap Stop an Execution
       description: >-
         Stops a running execution or marks it for deletion.
       tags:
-        - Executions
+      - Executions
       parameters:
-        - name: executionId
-          in: path
-          required: true
-          schema:
-            type: string
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - name: executionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '202':
           description: Execution stop accepted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/deployments:
     get:
       operationId: listDeployments
-      summary: SAP List deployments
+      summary: Sap List Deployments
       description: >-
         Retrieves all model deployments in the resource group.
       tags:
-        - Deployments
+      - Deployments
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '200':
           description: List of deployments
@@ -256,21 +407,44 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Deployment'
+              examples:
+                Listdeployments200Example:
+                  summary: Default listDeployments 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      configurationId: '500123'
+                      scenarioId: '500123'
+                      status: PENDING
+                      deploymentUrl: https://www.example.com
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createDeployment
-      summary: SAP Create a deployment
+      summary: Sap Create a Deployment
       description: >-
         Creates a new model deployment for serving predictions.
       tags:
-        - Deployments
+      - Deployments
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/DeploymentCreate'
+            examples:
+              CreatedeploymentRequestExample:
+                summary: Default createDeployment request
+                x-microcks-default: true
+                value:
+                  configurationId: '500123'
       responses:
         '202':
           description: Deployment created
@@ -278,16 +452,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Deployment'
+              examples:
+                Createdeployment202Example:
+                  summary: Default createDeployment 202 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    deploymentUrl: https://www.example.com
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /lm/artifacts:
     get:
       operationId: listArtifacts
-      summary: SAP List artifacts
+      summary: Sap List Artifacts
       description: >-
         Retrieves all artifacts (models, datasets) in the resource group.
       tags:
-        - Artifacts
+      - Artifacts
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       responses:
         '200':
           description: List of artifacts
@@ -302,22 +491,50 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Artifact'
+              examples:
+                Listartifacts200Example:
+                  summary: Default listArtifacts 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createArtifact
-      summary: SAP Register an artifact
+      summary: Sap Register an Artifact
       description: >-
         Registers a new artifact (model or dataset) for use in executions
         and deployments.
       tags:
-        - Artifacts
+      - Artifacts
       parameters:
-        - $ref: '#/components/parameters/AIResourceGroup'
+      - $ref: '#/components/parameters/AIResourceGroup'
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/ArtifactCreate'
+            examples:
+              CreateartifactRequestExample:
+                summary: Default createArtifact request
+                x-microcks-default: true
+                value:
+                  name: Example Title
+                  kind: model
+                  url: https://www.example.com
+                  scenarioId: '500123'
+                  description: A sample description.
       responses:
         '201':
           description: Artifact registered
@@ -325,6 +542,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Artifact'
+              examples:
+                Createartifact201Example:
+                  summary: Default createArtifact 201 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    kind: model
+                    url: https://www.example.com
+                    scenarioId: '500123'
+                    executionId: '500123'
+                    description: A sample description.
+                    createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     oauth2:
@@ -349,220 +582,271 @@ components:
         id:
           type: string
           description: Unique scenario identifier
+          example: abc123
         name:
           type: string
           description: Human-readable scenario name
+          example: Example Title
         description:
           type: string
           description: Scenario description
+          example: A sample description.
         createdAt:
           type: string
           format: date-time
           description: Creation timestamp
+          example: '2026-01-15T10:30:00Z'
         modifiedAt:
           type: string
           format: date-time
           description: Last modification timestamp
+          example: '2026-01-15T10:30:00Z'
     Configuration:
       type: object
       properties:
         id:
           type: string
           description: Configuration identifier
+          example: abc123
         name:
           type: string
           description: Configuration name
+          example: Example Title
         scenarioId:
           type: string
           description: Associated scenario ID
+          example: '500123'
         executableId:
           type: string
           description: Associated executable ID
+          example: '500123'
         parameterBindings:
           type: array
           items:
             $ref: '#/components/schemas/ParameterBinding'
+          example: []
         inputArtifactBindings:
           type: array
           items:
             $ref: '#/components/schemas/ArtifactBinding'
+          example: []
         createdAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
     ConfigurationCreate:
       type: object
       required:
-        - name
-        - scenarioId
-        - executableId
+      - name
+      - scenarioId
+      - executableId
       properties:
         name:
           type: string
+          example: Example Title
         scenarioId:
           type: string
+          example: '500123'
         executableId:
           type: string
+          example: '500123'
         parameterBindings:
           type: array
           items:
             $ref: '#/components/schemas/ParameterBinding'
+          example: []
         inputArtifactBindings:
           type: array
           items:
             $ref: '#/components/schemas/ArtifactBinding'
+          example: []
     ParameterBinding:
       type: object
       properties:
         key:
           type: string
           description: Parameter name
+          example: example_value
         value:
           type: string
           description: Parameter value
+          example: example_value
     ArtifactBinding:
       type: object
       properties:
         key:
           type: string
           description: Input artifact key
+          example: example_value
         artifactId:
           type: string
           description: Artifact identifier
+          example: '500123'
     Execution:
       type: object
       properties:
         id:
           type: string
           description: Execution identifier
+          example: abc123
         configurationId:
           type: string
           description: Configuration used for this execution
+          example: '500123'
         scenarioId:
           type: string
           description: Associated scenario
+          example: '500123'
         status:
           type: string
           description: Current execution status
           enum:
-            - PENDING
-            - RUNNING
-            - COMPLETED
-            - DEAD
-            - STOPPED
-            - UNKNOWN
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+          - UNKNOWN
+          example: PENDING
         statusMessage:
           type: string
           description: Human-readable status message
+          example: example_value
         outputArtifacts:
           type: array
           items:
             $ref: '#/components/schemas/Artifact'
+          example: []
         createdAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
         modifiedAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
     ExecutionCreate:
       type: object
       required:
-        - configurationId
+      - configurationId
       properties:
         configurationId:
           type: string
           description: Configuration to use for the execution
+          example: '500123'
     Deployment:
       type: object
       properties:
         id:
           type: string
           description: Deployment identifier
+          example: abc123
         configurationId:
           type: string
           description: Configuration used for this deployment
+          example: '500123'
         scenarioId:
           type: string
           description: Associated scenario
+          example: '500123'
         status:
           type: string
           description: Current deployment status
           enum:
-            - PENDING
-            - RUNNING
-            - COMPLETED
-            - DEAD
-            - STOPPED
-            - UNKNOWN
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+          - UNKNOWN
+          example: PENDING
         deploymentUrl:
           type: string
           format: uri
           description: URL for sending inference requests
+          example: https://www.example.com
         createdAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
         modifiedAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
     DeploymentCreate:
       type: object
       required:
-        - configurationId
+      - configurationId
       properties:
         configurationId:
           type: string
           description: Configuration to use for the deployment
+          example: '500123'
     Artifact:
       type: object
       properties:
         id:
           type: string
           description: Artifact identifier
+          example: abc123
         name:
           type: string
           description: Artifact name
+          example: Example Title
         kind:
           type: string
           description: Artifact kind
           enum:
-            - model
-            - dataset
-            - resultset
-            - other
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
         url:
           type: string
           description: Storage URL for the artifact
+          example: https://www.example.com
         scenarioId:
           type: string
           description: Associated scenario
+          example: '500123'
         executionId:
           type: string
           description: Execution that produced this artifact
+          example: '500123'
         description:
           type: string
           description: Artifact description
+          example: A sample description.
         createdAt:
           type: string
           format: date-time
+          example: '2026-01-15T10:30:00Z'
     ArtifactCreate:
       type: object
       required:
-        - name
-        - kind
-        - url
-        - scenarioId
+      - name
+      - kind
+      - url
+      - scenarioId
       properties:
         name:
           type: string
+          example: Example Title
         kind:
           type: string
           enum:
-            - model
-            - dataset
-            - resultset
-            - other
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
         url:
           type: string
+          example: https://www.example.com
         scenarioId:
           type: string
+          example: '500123'
         description:
           type: string
+          example: A sample description.

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Item",
+  "type": "object",
+  "properties": {
+    "ItemCode": {
+      "type": "string",
+      "description": "Unique item code"
+    },
+    "ItemName": {
+      "type": "string",
+      "description": "Item description"
+    },
+    "ItemType": {
+      "type": "string",
+      "description": "Item type"
+    },
+    "ItemsGroupCode": {
+      "type": "integer",
+      "description": "Item group code"
+    },
+    "QuantityOnStock": {
+      "type": "number",
+      "description": "Current quantity in stock"
+    },
+    "AvgStdPrice": {
+      "type": "number",
+      "description": "Average or standard price"
+    },
+    "SalesUnit": {
+      "type": "string",
+      "description": "Default sales unit of measure"
+    },
+    "PurchaseUnit": {
+      "type": "string",
+      "description": "Default purchase unit of measure"
+    }
+  }
+}

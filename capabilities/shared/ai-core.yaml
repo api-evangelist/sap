@@ -1,0 +1,470 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SAP AI Core"
+  description: "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform."
+  tags:
+    - SAP
+    - AI Core
+    - Machine Learning
+    - BTP
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SAP_AI_CORE_OAUTH_TOKEN: SAP_AI_CORE_OAUTH_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: sap-ai-core
+      baseUri: https://api.ai.eu10.cfapps.hana.hana.ondemand.com/v2
+      description: "SAP AI Core API for scenario management, execution orchestration, model serving, and artifact tracking."
+      authentication:
+        type: bearer
+        token: "{{SAP_AI_CORE_OAUTH_TOKEN}}"
+      resources:
+        - name: scenarios
+          path: /lm/scenarios
+          description: "AI scenario definitions and metadata"
+          operations:
+            - name: list-scenarios
+              method: GET
+              description: "Retrieves all AI scenarios available in the resource group."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-scenario-versions
+              method: GET
+              path: /{scenarioId}/versions
+              description: "Retrieves all versions for a specific AI scenario."
+              inputParameters:
+                - name: scenarioId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Scenario identifier"
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: configurations
+          path: /lm/configurations
+          description: "Execution and deployment configurations"
+          operations:
+            - name: list-configurations
+              method: GET
+              description: "Retrieves all configurations for executions and deployments."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+                - name: scenarioId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by scenario ID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-configuration
+              method: POST
+              description: "Creates a new configuration for an execution or deployment."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  scenarioId: "{{tools.scenarioId}}"
+                  executableId: "{{tools.executableId}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: executions
+          path: /lm/executions
+          description: "Training execution lifecycle management"
+          operations:
+            - name: list-executions
+              method: GET
+              description: "Retrieves all training executions in the resource group."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by execution status"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-execution
+              method: POST
+              description: "Triggers a new training execution using a configuration."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              body:
+                type: json
+                data:
+                  configurationId: "{{tools.configurationId}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-execution
+              method: GET
+              path: /{executionId}
+              description: "Retrieves details of a specific training execution."
+              inputParameters:
+                - name: executionId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Execution identifier"
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-execution
+              method: DELETE
+              path: /{executionId}
+              description: "Stops a running execution or marks it for deletion."
+              inputParameters:
+                - name: executionId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Execution identifier"
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: deployments
+          path: /lm/deployments
+          description: "Model deployment and serving management"
+          operations:
+            - name: list-deployments
+              method: GET
+              description: "Retrieves all model deployments in the resource group."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-deployment
+              method: POST
+              description: "Creates a new model deployment for serving predictions."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              body:
+                type: json
+                data:
+                  configurationId: "{{tools.configurationId}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: artifacts
+          path: /lm/artifacts
+          description: "Model artifacts and dataset management"
+          operations:
+            - name: list-artifacts
+              method: GET
+              description: "Retrieves all artifacts (models, datasets) in the resource group."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-artifact
+              method: POST
+              description: "Registers a new artifact (model or dataset) for use in executions and deployments."
+              inputParameters:
+                - name: AI-Resource-Group
+                  in: header
+                  type: string
+                  required: true
+                  description: "The resource group for multi-tenancy isolation"
+              body:
+                type: json
+                data:
+                  name: "{{tools.name}}"
+                  kind: "{{tools.kind}}"
+                  url: "{{tools.url}}"
+                  scenarioId: "{{tools.scenarioId}}"
+                  description: "{{tools.description}}"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: sap-ai-core-rest
+      resources:
+        - path: /v1/scenarios
+          name: scenarios
+          description: "AI scenario management"
+          operations:
+            - method: GET
+              name: list-scenarios
+              description: "List all AI scenarios"
+              call: "sap-ai-core.list-scenarios"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/configurations
+          name: configurations
+          description: "Configuration management"
+          operations:
+            - method: GET
+              name: list-configurations
+              description: "List all configurations"
+              call: "sap-ai-core.list-configurations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-configuration
+              description: "Create a new configuration"
+              call: "sap-ai-core.create-configuration"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/executions
+          name: executions
+          description: "Execution management"
+          operations:
+            - method: GET
+              name: list-executions
+              description: "List all executions"
+              call: "sap-ai-core.list-executions"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-execution
+              description: "Create a new execution"
+              call: "sap-ai-core.create-execution"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/deployments
+          name: deployments
+          description: "Deployment management"
+          operations:
+            - method: GET
+              name: list-deployments
+              description: "List all deployments"
+              call: "sap-ai-core.list-deployments"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-deployment
+              description: "Create a new deployment"
+              call: "sap-ai-core.create-deployment"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/artifacts
+          name: artifacts
+          description: "Artifact management"
+          operations:
+            - method: GET
+              name: list-artifacts
+              description: "List all artifacts"
+              call: "sap-ai-core.list-artifacts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-artifact
+              description: "Register a new artifact"
+              call: "sap-ai-core.create-artifact"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: sap-ai-core-mcp
+      transport: http
+      tools:
+        - name: list-scenarios
+          description: "List all AI scenarios in the resource group"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-scenarios"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-scenario-versions
+          description: "List all versions for a specific AI scenario"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-scenario-versions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-configurations
+          description: "List all configurations for executions and deployments"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-configurations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-configuration
+          description: "Create a new configuration for an execution or deployment"
+          hints:
+            readOnly: false
+            openWorld: true
+          call: "sap-ai-core.create-configuration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-executions
+          description: "List all training executions in the resource group"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-executions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-execution
+          description: "Trigger a new training execution"
+          hints:
+            readOnly: false
+            openWorld: true
+          call: "sap-ai-core.create-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-execution
+          description: "Get details of a specific training execution"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.get-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-execution
+          description: "Stop a running execution"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "sap-ai-core.delete-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-deployments
+          description: "List all model deployments"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-deployments"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-deployment
+          description: "Create a new model deployment for serving predictions"
+          hints:
+            readOnly: false
+            openWorld: true
+          call: "sap-ai-core.create-deployment"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-artifacts
+          description: "List all artifacts (models, datasets)"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-artifacts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-artifact
+          description: "Register a new artifact (model or dataset)"
+          hints:
+            readOnly: false
+            openWorld: true
+          call: "sap-ai-core.create-artifact"
+          outputParameters:
+            - type: object
+              mapping: "$."

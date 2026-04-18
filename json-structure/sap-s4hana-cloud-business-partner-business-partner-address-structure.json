@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "BusinessPartnerAddress",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string"
+    },
+    "AddressID": {
+      "type": "string"
+    },
+    "Country": {
+      "type": "string"
+    },
+    "Region": {
+      "type": "string"
+    },
+    "CityName": {
+      "type": "string"
+    },
+    "PostalCode": {
+      "type": "string"
+    },
+    "StreetName": {
+      "type": "string"
+    },
+    "HouseNumber": {
+      "type": "string"
+    }
+  }
+}

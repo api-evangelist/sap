@@ -1,0 +1,9 @@
+{
+  "id": "abc123",
+  "name": "Example Title",
+  "scenarioId": "500123",
+  "executableId": "500123",
+  "parameterBindings": [],
+  "inputArtifactBindings": [],
+  "createdAt": "example_value"
+}

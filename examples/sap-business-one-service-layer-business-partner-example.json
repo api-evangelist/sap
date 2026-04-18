@@ -1,0 +1,11 @@
+{
+  "CardCode": "example_value",
+  "CardName": "example_value",
+  "CardType": "example_value",
+  "GroupCode": 10,
+  "Phone1": "example_value",
+  "EmailAddress": "user@example.com",
+  "FederalTaxID": "500123",
+  "Currency": "example_value",
+  "Valid": "500123"
+}

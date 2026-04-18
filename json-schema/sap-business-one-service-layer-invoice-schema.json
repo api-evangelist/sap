@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Invoice",
+  "type": "object",
+  "properties": {
+    "DocEntry": {
+      "type": "integer",
+      "description": "Unique document entry number"
+    },
+    "DocNum": {
+      "type": "integer",
+      "description": "Document number"
+    },
+    "CardCode": {
+      "type": "string",
+      "description": "Customer business partner code"
+    },
+    "DocDate": {
+      "type": "string",
+      "description": "Invoice date"
+    },
+    "DocDueDate": {
+      "type": "string",
+      "description": "Payment due date"
+    },
+    "DocTotal": {
+      "type": "number",
+      "description": "Total invoice amount"
+    },
+    "DocumentLines": {
+      "type": "array",
+      "description": "Invoice line items"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessPartnerTaxNumber",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BPTaxType": {
+      "type": "string",
+      "description": "Tax number category"
+    },
+    "BPTaxNumber": {
+      "type": "string",
+      "description": "Tax identification number"
+    }
+  }
+}

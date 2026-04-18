@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "LoginRequest",
+  "type": "object",
+  "properties": {
+    "CompanyDB": {
+      "type": "string"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "string"
+    }
+  }
+}

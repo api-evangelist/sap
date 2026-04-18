@@ -1,0 +1,22 @@
+name: sap API Vocabulary
+provider: sap
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 33
+schemas: 25
+tags:
+- Addresses
+- Artifacts
+- Authentication
+- Bank Accounts
+- Business Partners
+- Configurations
+- Deployments
+- Executions
+- Invoices
+- Items
+- Journal Entries
+- Orders
+- Roles
+- Scenarios
+- Tax Numbers

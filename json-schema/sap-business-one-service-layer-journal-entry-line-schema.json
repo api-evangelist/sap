@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JournalEntryLine",
+  "type": "object",
+  "properties": {
+    "AccountCode": {
+      "type": "string",
+      "description": "General ledger account code"
+    },
+    "Debit": {
+      "type": "number",
+      "description": "Debit amount in local currency"
+    },
+    "Credit": {
+      "type": "number",
+      "description": "Credit amount in local currency"
+    },
+    "ShortName": {
+      "type": "string",
+      "description": "Short name or business partner code"
+    },
+    "LineMemo": {
+      "type": "string",
+      "description": "Memo for this line"
+    }
+  }
+}

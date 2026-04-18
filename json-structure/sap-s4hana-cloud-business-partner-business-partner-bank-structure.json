@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "BusinessPartnerBank",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string"
+    },
+    "BankIdentification": {
+      "type": "string"
+    },
+    "BankCountryKey": {
+      "type": "string"
+    },
+    "BankNumber": {
+      "type": "string"
+    },
+    "BankAccount": {
+      "type": "string"
+    },
+    "IBAN": {
+      "type": "string"
+    },
+    "SWIFTCode": {
+      "type": "string"
+    }
+  }
+}

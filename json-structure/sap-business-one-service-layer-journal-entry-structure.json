@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "JournalEntry",
+  "type": "object",
+  "properties": {
+    "JdtNum": {
+      "type": "integer"
+    },
+    "ReferenceDate": {
+      "type": "string"
+    },
+    "Memo": {
+      "type": "string"
+    },
+    "JournalEntryLines": {
+      "type": "array"
+    }
+  }
+}

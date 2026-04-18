@@ -1,0 +1,7 @@
+{
+  "AccountCode": "example_value",
+  "Debit": 42.5,
+  "Credit": 42.5,
+  "ShortName": "example_value",
+  "LineMemo": "example_value"
+}

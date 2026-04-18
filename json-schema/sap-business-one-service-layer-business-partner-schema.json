@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessPartner",
+  "type": "object",
+  "properties": {
+    "CardCode": {
+      "type": "string",
+      "description": "Unique identifier for the business partner"
+    },
+    "CardName": {
+      "type": "string",
+      "description": "Name of the business partner"
+    },
+    "CardType": {
+      "type": "string",
+      "description": "Type of business partner"
+    },
+    "GroupCode": {
+      "type": "integer",
+      "description": "Business partner group code"
+    },
+    "Phone1": {
+      "type": "string",
+      "description": "Primary phone number"
+    },
+    "EmailAddress": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "FederalTaxID": {
+      "type": "string",
+      "description": "Tax identification number"
+    },
+    "Currency": {
+      "type": "string",
+      "description": "Default currency code"
+    },
+    "Valid": {
+      "type": "string",
+      "description": "Whether the business partner is active"
+    }
+  }
+}

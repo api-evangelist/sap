@@ -1,0 +1,10 @@
+{
+  "ItemCode": "example_value",
+  "ItemName": "example_value",
+  "ItemType": "example_value",
+  "ItemsGroupCode": 10,
+  "QuantityOnStock": 42.5,
+  "AvgStdPrice": 42.5,
+  "SalesUnit": "example_value",
+  "PurchaseUnit": "example_value"
+}

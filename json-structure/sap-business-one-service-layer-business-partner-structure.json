@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "BusinessPartner",
+  "type": "object",
+  "properties": {
+    "CardCode": {
+      "type": "string"
+    },
+    "CardName": {
+      "type": "string"
+    },
+    "CardType": {
+      "type": "string"
+    },
+    "GroupCode": {
+      "type": "integer"
+    },
+    "Phone1": {
+      "type": "string"
+    },
+    "EmailAddress": {
+      "type": "string"
+    },
+    "FederalTaxID": {
+      "type": "string"
+    },
+    "Currency": {
+      "type": "string"
+    },
+    "Valid": {
+      "type": "string"
+    }
+  }
+}

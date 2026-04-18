@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArtifactBinding",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Input artifact key"
+    },
+    "artifactId": {
+      "type": "string",
+      "description": "Artifact identifier"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "ItemCode": "example_value",
+  "Quantity": 42.5,
+  "UnitPrice": 42.5,
+  "Currency": "example_value",
+  "WarehouseCode": "example_value",
+  "TaxCode": "example_value"
+}

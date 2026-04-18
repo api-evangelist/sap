@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeploymentCreate",
+  "type": "object",
+  "properties": {
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration to use for the deployment"
+    }
+  }
+}

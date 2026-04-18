@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessPartner",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BusinessPartnerFullName": {
+      "type": "string",
+      "description": "Full name of the business partner"
+    },
+    "BusinessPartnerCategory": {
+      "type": "string",
+      "description": "Category (1=Organization, 2=Person, 3=Group)"
+    },
+    "BusinessPartnerGrouping": {
+      "type": "string",
+      "description": "Business partner grouping"
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "First name (for person category)"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "Last name (for person category)"
+    },
+    "OrganizationBPName1": {
+      "type": "string",
+      "description": "Organization name line 1"
+    },
+    "SearchTerm1": {
+      "type": "string",
+      "description": "Search term 1"
+    },
+    "Language": {
+      "type": "string",
+      "description": "Correspondence language"
+    },
+    "CreationDate": {
+      "type": "string",
+      "description": "Date the business partner was created"
+    }
+  }
+}

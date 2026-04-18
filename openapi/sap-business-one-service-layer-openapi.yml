@@ -14,43 +14,51 @@ externalDocs:
   description: SAP Business One Service Layer Documentation
   url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
 servers:
-  - url: https://{server}:50000/b1s/v1
-    description: SAP Business One Service Layer Server
-    variables:
-      server:
-        description: The hostname of your SAP Business One server
-        default: localhost
+- url: https://{server}:50000/b1s/v1
+  description: SAP Business One Service Layer Server
+  variables:
+    server:
+      description: The hostname of your SAP Business One server
+      default: localhost
 tags:
-  - name: Authentication
-    description: Login and session management
-  - name: Business Partners
-    description: Manage customers, vendors, and leads
-  - name: Invoices
-    description: AR and AP invoice management
-  - name: Items
-    description: Product and item master data management
-  - name: Journal Entries
-    description: Financial journal entries and postings
-  - name: Orders
-    description: Sales orders, purchase orders, and delivery management
+- name: Authentication
+  description: Login and session management
+- name: Business Partners
+  description: Manage customers, vendors, and leads
+- name: Invoices
+  description: AR and AP invoice management
+- name: Items
+  description: Product and item master data management
+- name: Journal Entries
+  description: Financial journal entries and postings
+- name: Orders
+  description: Sales orders, purchase orders, and delivery management
 security:
-  - sessionCookie: []
+- sessionCookie: []
 paths:
   /Login:
     post:
       operationId: login
-      summary: SAP Authenticate and create a session
+      summary: Sap Authenticate and Create a Session
       description: >-
         Authenticates a user against SAP Business One and returns a session
         cookie for subsequent API calls.
       tags:
-        - Authentication
+      - Authentication
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/LoginRequest'
+            examples:
+              LoginRequestExample:
+                summary: Default login request
+                x-microcks-default: true
+                value:
+                  CompanyDB: example_value
+                  UserName: example_value
+                  Password: example_value
       responses:
         '200':
           description: Successfully authenticated
@@ -58,35 +66,49 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LoginResponse'
+              examples:
+                Login200Example:
+                  summary: Default login 200 response
+                  x-microcks-default: true
+                  value:
+                    SessionId: '500123'
+                    Version: example_value
+                    SessionTimeout: 10
         '401':
           description: Authentication failed
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Logout:
     post:
       operationId: logout
-      summary: SAP End the current session
+      summary: Sap End the Current Session
       description: >-
         Terminates the current authenticated session and invalidates the
         session cookie.
       tags:
-        - Authentication
+      - Authentication
       responses:
         '204':
           description: Successfully logged out
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /BusinessPartners:
     get:
       operationId: listBusinessPartners
-      summary: SAP List business partners
+      summary: Sap List Business Partners
       description: >-
         Retrieves a list of business partners including customers, vendors,
         and leads with support for OData query options.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/OrderBy'
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/OrderBy'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
       responses:
         '200':
           description: List of business partners
@@ -99,19 +121,51 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Listbusinesspartners200Example:
+                  summary: Default listBusinessPartners 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - CardCode: example_value
+                      CardName: example_value
+                      CardType: cCustomer
+                      GroupCode: 10
+                      Phone1: example_value
+                      EmailAddress: user@example.com
+                      FederalTaxID: '500123'
+                      Currency: example_value
+                      Valid: tYES
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createBusinessPartner
-      summary: SAP Create a business partner
+      summary: Sap Create a Business Partner
       description: >-
         Creates a new business partner record in SAP Business One.
       tags:
-        - Business Partners
+      - Business Partners
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              CreatebusinesspartnerRequestExample:
+                summary: Default createBusinessPartner request
+                x-microcks-default: true
+                value:
+                  CardCode: example_value
+                  CardName: example_value
+                  CardType: cCustomer
+                  GroupCode: 10
+                  Phone1: example_value
+                  EmailAddress: user@example.com
+                  FederalTaxID: '500123'
+                  Currency: example_value
+                  Valid: tYES
       responses:
         '201':
           description: Business partner created
@@ -119,23 +173,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Createbusinesspartner201Example:
+                  summary: Default createBusinessPartner 201 response
+                  x-microcks-default: true
+                  value:
+                    CardCode: example_value
+                    CardName: example_value
+                    CardType: cCustomer
+                    GroupCode: 10
+                    Phone1: example_value
+                    EmailAddress: user@example.com
+                    FederalTaxID: '500123'
+                    Currency: example_value
+                    Valid: tYES
         '400':
           description: Invalid request data
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /BusinessPartners('{CardCode}'):
     get:
       operationId: getBusinessPartner
-      summary: SAP Get a business partner by code
+      summary: Sap Get a Business Partner by Code
       description: >-
         Retrieves a specific business partner by their card code.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - name: CardCode
-          in: path
-          required: true
-          description: The unique card code of the business partner
-          schema:
-            type: string
+      - name: CardCode
+        in: path
+        required: true
+        description: The unique card code of the business partner
+        schema:
+          type: string
+        example: example_value
       responses:
         '200':
           description: Business partner details
@@ -143,48 +215,83 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Getbusinesspartner200Example:
+                  summary: Default getBusinessPartner 200 response
+                  x-microcks-default: true
+                  value:
+                    CardCode: example_value
+                    CardName: example_value
+                    CardType: cCustomer
+                    GroupCode: 10
+                    Phone1: example_value
+                    EmailAddress: user@example.com
+                    FederalTaxID: '500123'
+                    Currency: example_value
+                    Valid: tYES
         '404':
           description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateBusinessPartner
-      summary: SAP Update a business partner
+      summary: Sap Update a Business Partner
       description: >-
         Updates an existing business partner record with the provided fields.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - name: CardCode
-          in: path
-          required: true
-          description: The unique card code of the business partner
-          schema:
-            type: string
+      - name: CardCode
+        in: path
+        required: true
+        description: The unique card code of the business partner
+        schema:
+          type: string
+        example: example_value
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              UpdatebusinesspartnerRequestExample:
+                summary: Default updateBusinessPartner request
+                x-microcks-default: true
+                value:
+                  CardCode: example_value
+                  CardName: example_value
+                  CardType: cCustomer
+                  GroupCode: 10
+                  Phone1: example_value
+                  EmailAddress: user@example.com
+                  FederalTaxID: '500123'
+                  Currency: example_value
+                  Valid: tYES
       responses:
         '204':
           description: Business partner updated
         '404':
           description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Orders:
     get:
       operationId: listOrders
-      summary: SAP List sales orders
+      summary: Sap List Sales Orders
       description: >-
         Retrieves a list of sales orders with support for OData query options
         including filtering, sorting, and pagination.
       tags:
-        - Orders
+      - Orders
       parameters:
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/OrderBy'
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/OrderBy'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
       responses:
         '200':
           description: List of sales orders
@@ -197,19 +304,56 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Order'
+              examples:
+                Listorders200Example:
+                  summary: Default listOrders 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - DocEntry: 10
+                      DocNum: 10
+                      CardCode: example_value
+                      DocDate: '2026-01-15'
+                      DocDueDate: '2026-01-15'
+                      DocTotal: 42.5
+                      DocCurrency: example_value
+                      DocumentLines:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createOrder
-      summary: SAP Create a sales order
+      summary: Sap Create a Sales Order
       description: >-
         Creates a new sales order in SAP Business One with line items.
       tags:
-        - Orders
+      - Orders
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Order'
+            examples:
+              CreateorderRequestExample:
+                summary: Default createOrder request
+                x-microcks-default: true
+                value:
+                  DocEntry: 10
+                  DocNum: 10
+                  CardCode: example_value
+                  DocDate: '2026-01-15'
+                  DocDueDate: '2026-01-15'
+                  DocTotal: 42.5
+                  DocCurrency: example_value
+                  DocumentLines:
+                  - ItemCode: example_value
+                    Quantity: 42.5
+                    UnitPrice: 42.5
+                    Currency: example_value
+                    WarehouseCode: example_value
+                    TaxCode: example_value
       responses:
         '201':
           description: Sales order created
@@ -217,21 +361,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
+              examples:
+                Createorder201Example:
+                  summary: Default createOrder 201 response
+                  x-microcks-default: true
+                  value:
+                    DocEntry: 10
+                    DocNum: 10
+                    CardCode: example_value
+                    DocDate: '2026-01-15'
+                    DocDueDate: '2026-01-15'
+                    DocTotal: 42.5
+                    DocCurrency: example_value
+                    DocumentLines:
+                    - ItemCode: example_value
+                      Quantity: 42.5
+                      UnitPrice: 42.5
+                      Currency: example_value
+                      WarehouseCode: example_value
+                      TaxCode: example_value
         '400':
           description: Invalid order data
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Items:
     get:
       operationId: listItems
-      summary: SAP List items
+      summary: Sap List Items
       description: >-
         Retrieves the item master data list with support for OData query options.
       tags:
-        - Items
+      - Items
       parameters:
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
       responses:
         '200':
           description: List of items
@@ -244,20 +410,37 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Item'
+              examples:
+                Listitems200Example:
+                  summary: Default listItems 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - ItemCode: example_value
+                      ItemName: example_value
+                      ItemType: itItems
+                      ItemsGroupCode: 10
+                      QuantityOnStock: 42.5
+                      AvgStdPrice: 42.5
+                      SalesUnit: example_value
+                      PurchaseUnit: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /JournalEntries:
     get:
       operationId: listJournalEntries
-      summary: SAP List journal entries
+      summary: Sap List Journal Entries
       description: >-
         Retrieves financial journal entries with support for OData filtering
         and pagination.
       tags:
-        - Journal Entries
+      - Journal Entries
       parameters:
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
       responses:
         '200':
           description: List of journal entries
@@ -270,19 +453,47 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/JournalEntry'
+              examples:
+                Listjournalentries200Example:
+                  summary: Default listJournalEntries 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - JdtNum: 10
+                      ReferenceDate: '2026-01-15'
+                      Memo: example_value
+                      JournalEntryLines:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createJournalEntry
-      summary: SAP Create a journal entry
+      summary: Sap Create a Journal Entry
       description: >-
         Creates a new financial journal entry with debit and credit lines.
       tags:
-        - Journal Entries
+      - Journal Entries
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/JournalEntry'
+            examples:
+              CreatejournalentryRequestExample:
+                summary: Default createJournalEntry request
+                x-microcks-default: true
+                value:
+                  JdtNum: 10
+                  ReferenceDate: '2026-01-15'
+                  Memo: example_value
+                  JournalEntryLines:
+                  - AccountCode: example_value
+                    Debit: 42.5
+                    Credit: 42.5
+                    ShortName: example_value
+                    LineMemo: example_value
       responses:
         '201':
           description: Journal entry created
@@ -290,19 +501,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/JournalEntry'
+              examples:
+                Createjournalentry201Example:
+                  summary: Default createJournalEntry 201 response
+                  x-microcks-default: true
+                  value:
+                    JdtNum: 10
+                    ReferenceDate: '2026-01-15'
+                    Memo: example_value
+                    JournalEntryLines:
+                    - AccountCode: example_value
+                      Debit: 42.5
+                      Credit: 42.5
+                      ShortName: example_value
+                      LineMemo: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Invoices:
     get:
       operationId: listInvoices
-      summary: SAP List AR invoices
+      summary: Sap List Ar Invoices
       description: >-
         Retrieves accounts receivable invoices with OData query support.
       tags:
-        - Invoices
+      - Invoices
       parameters:
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
       responses:
         '200':
           description: List of invoices
@@ -315,19 +543,54 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Invoice'
+              examples:
+                Listinvoices200Example:
+                  summary: Default listInvoices 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - DocEntry: 10
+                      DocNum: 10
+                      CardCode: example_value
+                      DocDate: '2026-01-15'
+                      DocDueDate: '2026-01-15'
+                      DocTotal: 42.5
+                      DocumentLines:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createInvoice
-      summary: SAP Create an AR invoice
+      summary: Sap Create an Ar Invoice
       description: >-
         Creates a new accounts receivable invoice with line items.
       tags:
-        - Invoices
+      - Invoices
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Invoice'
+            examples:
+              CreateinvoiceRequestExample:
+                summary: Default createInvoice request
+                x-microcks-default: true
+                value:
+                  DocEntry: 10
+                  DocNum: 10
+                  CardCode: example_value
+                  DocDate: '2026-01-15'
+                  DocDueDate: '2026-01-15'
+                  DocTotal: 42.5
+                  DocumentLines:
+                  - ItemCode: example_value
+                    Quantity: 42.5
+                    UnitPrice: 42.5
+                    Currency: example_value
+                    WarehouseCode: example_value
+                    TaxCode: example_value
       responses:
         '201':
           description: Invoice created
@@ -335,6 +598,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Invoice'
+              examples:
+                Createinvoice201Example:
+                  summary: Default createInvoice 201 response
+                  x-microcks-default: true
+                  value:
+                    DocEntry: 10
+                    DocNum: 10
+                    CardCode: example_value
+                    DocDate: '2026-01-15'
+                    DocDueDate: '2026-01-15'
+                    DocTotal: 42.5
+                    DocumentLines:
+                    - ItemCode: example_value
+                      Quantity: 42.5
+                      UnitPrice: 42.5
+                      Currency: example_value
+                      WarehouseCode: example_value
+                      TaxCode: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     sessionCookie:
@@ -379,31 +663,37 @@ components:
     LoginRequest:
       type: object
       required:
-        - CompanyDB
-        - UserName
-        - Password
+      - CompanyDB
+      - UserName
+      - Password
       properties:
         CompanyDB:
           type: string
           description: The name of the company database to connect to
+          example: example_value
         UserName:
           type: string
           description: The SAP Business One user name
+          example: example_value
         Password:
           type: string
           description: The user password
+          example: example_value
     LoginResponse:
       type: object
       properties:
         SessionId:
           type: string
           description: The session identifier for subsequent requests
+          example: '500123'
         Version:
           type: string
           description: The Service Layer version
+          example: example_value
         SessionTimeout:
           type: integer
           description: Session timeout in minutes
+          example: 10
     BusinessPartner:
       type: object
       properties:
@@ -411,39 +701,48 @@ components:
           type: string
           description: Unique identifier for the business partner
           maxLength: 15
+          example: example_value
         CardName:
           type: string
           description: Name of the business partner
           maxLength: 100
+          example: example_value
         CardType:
           type: string
           description: Type of business partner
           enum:
-            - cCustomer
-            - cSupplier
-            - cLid
+          - cCustomer
+          - cSupplier
+          - cLid
+          example: cCustomer
         GroupCode:
           type: integer
           description: Business partner group code
+          example: 10
         Phone1:
           type: string
           description: Primary phone number
+          example: example_value
         EmailAddress:
           type: string
           description: Email address
           format: email
+          example: user@example.com
         FederalTaxID:
           type: string
           description: Tax identification number
+          example: '500123'
         Currency:
           type: string
           description: Default currency code
+          example: example_value
         Valid:
           type: string
           description: Whether the business partner is active
           enum:
-            - tYES
-            - tNO
+          - tYES
+          - tNO
+          example: tYES
     Order:
       type: object
       properties:
@@ -451,56 +750,70 @@ components:
           type: integer
           description: Unique document entry number
           readOnly: true
+          example: 10
         DocNum:
           type: integer
           description: Document number
+          example: 10
         CardCode:
           type: string
           description: Business partner code
+          example: example_value
         DocDate:
           type: string
           format: date
           description: Document date
+          example: '2026-01-15'
         DocDueDate:
           type: string
           format: date
           description: Document due date
+          example: '2026-01-15'
         DocTotal:
           type: number
           format: double
           description: Total document amount
           readOnly: true
+          example: 42.5
         DocCurrency:
           type: string
           description: Document currency
+          example: example_value
         DocumentLines:
           type: array
           description: Order line items
           items:
             $ref: '#/components/schemas/DocumentLine'
+          example: []
     DocumentLine:
       type: object
       properties:
         ItemCode:
           type: string
           description: Item code
+          example: example_value
         Quantity:
           type: number
           format: double
           description: Ordered quantity
+          example: 42.5
         UnitPrice:
           type: number
           format: double
           description: Price per unit
+          example: 42.5
         Currency:
           type: string
           description: Line currency
+          example: example_value
         WarehouseCode:
           type: string
           description: Warehouse code for the line item
+          example: example_value
         TaxCode:
           type: string
           description: Tax code applied to the line
+          example: example_value
     Item:
       type: object
       properties:
@@ -508,36 +821,44 @@ components:
           type: string
           description: Unique item code
           maxLength: 50
+          example: example_value
         ItemName:
           type: string
           description: Item description
           maxLength: 200
+          example: example_value
         ItemType:
           type: string
           description: Item type
           enum:
-            - itItems
-            - itLabor
-            - itTravel
-            - itFixedAssets
+          - itItems
+          - itLabor
+          - itTravel
+          - itFixedAssets
+          example: itItems
         ItemsGroupCode:
           type: integer
           description: Item group code
+          example: 10
         QuantityOnStock:
           type: number
           format: double
           description: Current quantity in stock
           readOnly: true
+          example: 42.5
         AvgStdPrice:
           type: number
           format: double
           description: Average or standard price
+          example: 42.5
         SalesUnit:
           type: string
           description: Default sales unit of measure
+          example: example_value
         PurchaseUnit:
           type: string
           description: Default purchase unit of measure
+          example: example_value
     JournalEntry:
       type: object
       properties:
@@ -545,38 +866,47 @@ components:
           type: integer
           description: Journal entry number
           readOnly: true
+          example: 10
         ReferenceDate:
           type: string
           format: date
           description: Reference date
+          example: '2026-01-15'
         Memo:
           type: string
           description: Remark or memo for the journal entry
+          example: example_value
         JournalEntryLines:
           type: array
           description: Debit and credit lines
           items:
             $ref: '#/components/schemas/JournalEntryLine'
+          example: []
     JournalEntryLine:
       type: object
       properties:
         AccountCode:
           type: string
           description: General ledger account code
+          example: example_value
         Debit:
           type: number
           format: double
           description: Debit amount in local currency
+          example: 42.5
         Credit:
           type: number
           format: double
           description: Credit amount in local currency
+          example: 42.5
         ShortName:
           type: string
           description: Short name or business partner code
+          example: example_value
         LineMemo:
           type: string
           description: Memo for this line
+          example: example_value
     Invoice:
       type: object
       properties:
@@ -584,27 +914,34 @@ components:
           type: integer
           description: Unique document entry number
           readOnly: true
+          example: 10
         DocNum:
           type: integer
           description: Document number
+          example: 10
         CardCode:
           type: string
           description: Customer business partner code
+          example: example_value
         DocDate:
           type: string
           format: date
           description: Invoice date
+          example: '2026-01-15'
         DocDueDate:
           type: string
           format: date
           description: Payment due date
+          example: '2026-01-15'
         DocTotal:
           type: number
           format: double
           description: Total invoice amount
           readOnly: true
+          example: 42.5
         DocumentLines:
           type: array
           description: Invoice line items
           items:
             $ref: '#/components/schemas/DocumentLine'
+          example: []

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArtifactCreate",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

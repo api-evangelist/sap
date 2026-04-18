@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deployment",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Deployment identifier"
+    },
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration used for this deployment"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current deployment status"
+    },
+    "deploymentUrl": {
+      "type": "string",
+      "description": "URL for sending inference requests"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "modifiedAt": {
+      "type": "string"
+    }
+  }
+}

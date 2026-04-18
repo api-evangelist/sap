@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Execution",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "configurationId": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "statusMessage": {
+      "type": "string"
+    },
+    "outputArtifacts": {
+      "type": "array"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "modifiedAt": {
+      "type": "string"
+    }
+  }
+}

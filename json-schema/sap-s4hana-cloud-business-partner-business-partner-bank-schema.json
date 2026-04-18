@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BusinessPartnerBank",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BankIdentification": {
+      "type": "string",
+      "description": "Bank detail identifier"
+    },
+    "BankCountryKey": {
+      "type": "string",
+      "description": "Bank country key (ISO 3166-1)"
+    },
+    "BankNumber": {
+      "type": "string",
+      "description": "Bank routing number"
+    },
+    "BankAccount": {
+      "type": "string",
+      "description": "Bank account number"
+    },
+    "IBAN": {
+      "type": "string",
+      "description": "International Bank Account Number"
+    },
+    "SWIFTCode": {
+      "type": "string",
+      "description": "SWIFT/BIC code"
+    }
+  }
+}

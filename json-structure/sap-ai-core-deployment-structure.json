@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Deployment",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "configurationId": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "deploymentUrl": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "modifiedAt": {
+      "type": "string"
+    }
+  }
+}

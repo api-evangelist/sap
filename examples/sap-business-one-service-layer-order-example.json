@@ -1,0 +1,10 @@
+{
+  "DocEntry": 10,
+  "DocNum": 10,
+  "CardCode": "example_value",
+  "DocDate": "example_value",
+  "DocDueDate": "example_value",
+  "DocTotal": 42.5,
+  "DocCurrency": "example_value",
+  "DocumentLines": []
+}

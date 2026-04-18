@@ -1,0 +1,489 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SAP Enterprise Business Operations"
+  description: "Unified workflow combining SAP Business One, S/4HANA Cloud Business Partner, and AI Core APIs for managing business partners, orders, financials, and AI-driven automation across SAP ERP systems."
+  tags:
+    - SAP
+    - Enterprise
+    - ERP
+    - AI
+    - Business Operations
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SAP_AI_CORE_OAUTH_TOKEN: SAP_AI_CORE_OAUTH_TOKEN
+      SAP_B1_USERNAME: SAP_B1_USERNAME
+      SAP_B1_PASSWORD: SAP_B1_PASSWORD
+      SAP_B1_COMPANY_DB: SAP_B1_COMPANY_DB
+      SAP_S4HANA_USERNAME: SAP_S4HANA_USERNAME
+      SAP_S4HANA_PASSWORD: SAP_S4HANA_PASSWORD
+
+capability:
+  consumes:
+    - import: sap-ai-core
+      location: ./shared/ai-core.yaml
+    - import: sap-business-one
+      location: ./shared/business-one.yaml
+    - import: sap-s4hana-bp
+      location: ./shared/s4hana-business-partner.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: sap-enterprise-ops-api
+      description: "Unified REST API for SAP enterprise business operations spanning ERP, master data, and AI workflows."
+      resources:
+        - path: /v1/business-partners
+          name: b1-business-partners
+          description: "Business One business partner management"
+          operations:
+            - method: GET
+              name: list-b1-business-partners
+              description: "List business partners from SAP Business One"
+              call: "sap-business-one.list-business-partners"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-b1-business-partner
+              description: "Create a business partner in SAP Business One"
+              call: "sap-business-one.create-business-partner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/business-partners/{id}
+          name: b1-business-partner-detail
+          description: "Business One business partner detail"
+          operations:
+            - method: GET
+              name: get-b1-business-partner
+              description: "Get a specific business partner from SAP Business One"
+              call: "sap-business-one.get-business-partner"
+              with:
+                CardCode: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: PATCH
+              name: update-b1-business-partner
+              description: "Update a business partner in SAP Business One"
+              call: "sap-business-one.update-business-partner"
+              with:
+                CardCode: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/s4hana-business-partners
+          name: s4hana-business-partners
+          description: "S/4HANA Cloud business partner master data"
+          operations:
+            - method: GET
+              name: list-s4hana-business-partners
+              description: "List business partners from S/4HANA Cloud"
+              call: "sap-s4hana-bp.list-business-partners"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-s4hana-business-partner
+              description: "Create a business partner in S/4HANA Cloud"
+              call: "sap-s4hana-bp.create-business-partner"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/orders
+          name: orders
+          description: "Sales order management"
+          operations:
+            - method: GET
+              name: list-orders
+              description: "List sales orders from Business One"
+              call: "sap-business-one.list-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-order
+              description: "Create a sales order in Business One"
+              call: "sap-business-one.create-order"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/items
+          name: items
+          description: "Item master data"
+          operations:
+            - method: GET
+              name: list-items
+              description: "List items from Business One"
+              call: "sap-business-one.list-items"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/invoices
+          name: invoices
+          description: "Invoice management"
+          operations:
+            - method: GET
+              name: list-invoices
+              description: "List invoices from Business One"
+              call: "sap-business-one.list-invoices"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-invoice
+              description: "Create an invoice in Business One"
+              call: "sap-business-one.create-invoice"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/journal-entries
+          name: journal-entries
+          description: "Financial journal entries"
+          operations:
+            - method: GET
+              name: list-journal-entries
+              description: "List journal entries from Business One"
+              call: "sap-business-one.list-journal-entries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-journal-entry
+              description: "Create a journal entry in Business One"
+              call: "sap-business-one.create-journal-entry"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/addresses
+          name: addresses
+          description: "S/4HANA business partner addresses"
+          operations:
+            - method: GET
+              name: list-addresses
+              description: "List business partner addresses from S/4HANA"
+              call: "sap-s4hana-bp.list-addresses"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/scenarios
+          name: ai-scenarios
+          description: "AI scenario management"
+          operations:
+            - method: GET
+              name: list-scenarios
+              description: "List AI scenarios from AI Core"
+              call: "sap-ai-core.list-scenarios"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/executions
+          name: ai-executions
+          description: "AI execution management"
+          operations:
+            - method: GET
+              name: list-executions
+              description: "List AI executions"
+              call: "sap-ai-core.list-executions"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-execution
+              description: "Create an AI execution"
+              call: "sap-ai-core.create-execution"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/deployments
+          name: ai-deployments
+          description: "AI deployment management"
+          operations:
+            - method: GET
+              name: list-deployments
+              description: "List AI deployments"
+              call: "sap-ai-core.list-deployments"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-deployment
+              description: "Create an AI deployment"
+              call: "sap-ai-core.create-deployment"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: sap-enterprise-ops-mcp
+      transport: http
+      description: "MCP server for AI-assisted SAP enterprise business operations across ERP, master data, and AI workflows."
+      tools:
+        - name: b1-list-business-partners
+          description: "List business partners from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-business-partners"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-create-business-partner
+          description: "Create a business partner in SAP Business One"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-get-business-partner
+          description: "Get a specific business partner from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.get-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-update-business-partner
+          description: "Update a business partner in SAP Business One"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "sap-business-one.update-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-list-orders
+          description: "List sales orders from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-create-order
+          description: "Create a sales order in SAP Business One"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-order"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-list-items
+          description: "List item master data from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-items"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-list-journal-entries
+          description: "List financial journal entries from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-journal-entries"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-create-journal-entry
+          description: "Create a financial journal entry in SAP Business One"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-journal-entry"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-list-invoices
+          description: "List accounts receivable invoices from SAP Business One"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-business-one.list-invoices"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: b1-create-invoice
+          description: "Create an accounts receivable invoice in SAP Business One"
+          hints:
+            readOnly: false
+          call: "sap-business-one.create-invoice"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-list-business-partners
+          description: "List business partner master records from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.list-business-partners"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-create-business-partner
+          description: "Create a business partner in S/4HANA Cloud"
+          hints:
+            readOnly: false
+          call: "sap-s4hana-bp.create-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-get-business-partner
+          description: "Get a specific business partner from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.get-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-update-business-partner
+          description: "Update a business partner in S/4HANA Cloud"
+          hints:
+            readOnly: false
+            idempotent: true
+          call: "sap-s4hana-bp.update-business-partner"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-list-addresses
+          description: "List business partner addresses from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.list-addresses"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-list-bank-accounts
+          description: "List business partner bank accounts from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.list-bank-accounts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-list-roles
+          description: "List business partner roles from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.list-roles"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: s4hana-list-tax-numbers
+          description: "List business partner tax numbers from S/4HANA Cloud"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-s4hana-bp.list-tax-numbers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-list-scenarios
+          description: "List AI scenarios from SAP AI Core"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-scenarios"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-list-configurations
+          description: "List AI configurations from SAP AI Core"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-configurations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-create-configuration
+          description: "Create an AI configuration in SAP AI Core"
+          hints:
+            readOnly: false
+          call: "sap-ai-core.create-configuration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-list-executions
+          description: "List AI training executions from SAP AI Core"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-executions"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-create-execution
+          description: "Trigger an AI training execution in SAP AI Core"
+          hints:
+            readOnly: false
+          call: "sap-ai-core.create-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-get-execution
+          description: "Get details of a specific AI execution"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.get-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-delete-execution
+          description: "Stop a running AI execution"
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "sap-ai-core.delete-execution"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-list-deployments
+          description: "List AI model deployments from SAP AI Core"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-deployments"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-create-deployment
+          description: "Create an AI model deployment in SAP AI Core"
+          hints:
+            readOnly: false
+          call: "sap-ai-core.create-deployment"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-list-artifacts
+          description: "List AI artifacts (models, datasets) from SAP AI Core"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sap-ai-core.list-artifacts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: ai-create-artifact
+          description: "Register a new AI artifact in SAP AI Core"
+          hints:
+            readOnly: false
+          call: "sap-ai-core.create-artifact"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Configuration",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Configuration identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Configuration name"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario ID"
+    },
+    "executableId": {
+      "type": "string",
+      "description": "Associated executable ID"
+    },
+    "parameterBindings": {
+      "type": "array"
+    },
+    "inputArtifactBindings": {
+      "type": "array"
+    },
+    "createdAt": {
+      "type": "string"
+    }
+  }
+}

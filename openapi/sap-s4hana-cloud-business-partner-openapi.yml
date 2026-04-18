@@ -14,42 +14,42 @@ externalDocs:
   description: SAP S/4HANA Cloud Business Partner API on SAP Business Accelerator Hub
   url: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
 servers:
-  - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
-    description: SAP S/4HANA Cloud OData Endpoint
-    variables:
-      host:
-        description: SAP S/4HANA Cloud hostname
-        default: sandbox.api.sap.com
+- url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+  description: SAP S/4HANA Cloud OData Endpoint
+  variables:
+    host:
+      description: SAP S/4HANA Cloud hostname
+      default: sandbox.api.sap.com
 tags:
-  - name: Addresses
-    description: Business partner address management
-  - name: Bank Accounts
-    description: Business partner bank account details
-  - name: Business Partners
-    description: Business partner header data and general information
-  - name: Roles
-    description: Business partner role assignments (customer, supplier)
-  - name: Tax Numbers
-    description: Business partner tax identification numbers
+- name: Addresses
+  description: Business partner address management
+- name: Bank Accounts
+  description: Business partner bank account details
+- name: Business Partners
+  description: Business partner header data and general information
+- name: Roles
+  description: Business partner role assignments (customer, supplier)
+- name: Tax Numbers
+  description: Business partner tax identification numbers
 security:
-  - basicAuth: []
-  - oauth2: []
+- basicAuth: []
+- oauth2: []
 paths:
   /A_BusinessPartner:
     get:
       operationId: listBusinessPartners
-      summary: SAP List business partners
+      summary: Sap List Business Partners
       description: >-
         Retrieves a collection of business partner master records with support
         for OData query options including filtering, sorting, and pagination.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
-        - $ref: '#/components/parameters/Filter'
-        - $ref: '#/components/parameters/Select'
-        - $ref: '#/components/parameters/Orderby'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Orderby'
       responses:
         '200':
           description: Collection of business partners
@@ -65,21 +65,56 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Listbusinesspartners200Example:
+                  summary: Default listBusinessPartners 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BusinessPartnerFullName: example_value
+                        BusinessPartnerCategory: '1'
+                        BusinessPartnerGrouping: example_value
+                        FirstName: example_value
+                        LastName: example_value
+                        OrganizationBPName1: example_value
+                        SearchTerm1: example_value
+                        Language: example_value
+                        CreationDate: '2026-01-15'
         '401':
           description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createBusinessPartner
-      summary: SAP Create a business partner
+      summary: Sap Create a Business Partner
       description: >-
         Creates a new business partner master record in SAP S/4HANA Cloud.
       tags:
-        - Business Partners
+      - Business Partners
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              CreatebusinesspartnerRequestExample:
+                summary: Default createBusinessPartner request
+                x-microcks-default: true
+                value:
+                  BusinessPartner: example_value
+                  BusinessPartnerFullName: example_value
+                  BusinessPartnerCategory: '1'
+                  BusinessPartnerGrouping: example_value
+                  FirstName: example_value
+                  LastName: example_value
+                  OrganizationBPName1: example_value
+                  SearchTerm1: example_value
+                  Language: example_value
+                  CreationDate: '2026-01-15'
       responses:
         '201':
           description: Business partner created
@@ -90,24 +125,44 @@ paths:
                 properties:
                   d:
                     $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Createbusinesspartner201Example:
+                  summary: Default createBusinessPartner 201 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      BusinessPartner: example_value
+                      BusinessPartnerFullName: example_value
+                      BusinessPartnerCategory: '1'
+                      BusinessPartnerGrouping: example_value
+                      FirstName: example_value
+                      LastName: example_value
+                      OrganizationBPName1: example_value
+                      SearchTerm1: example_value
+                      Language: example_value
+                      CreationDate: '2026-01-15'
         '400':
           description: Invalid request
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_BusinessPartner('{BusinessPartner}'):
     get:
       operationId: getBusinessPartner
-      summary: SAP Get a business partner
+      summary: Sap Get a Business Partner
       description: >-
         Retrieves a single business partner by its key.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - name: BusinessPartner
-          in: path
-          required: true
-          description: Business partner number
-          schema:
-            type: string
-            maxLength: 10
+      - name: BusinessPartner
+        in: path
+        required: true
+        description: Business partner number
+        schema:
+          type: string
+          maxLength: 10
+        example: example_value
       responses:
         '200':
           description: Business partner details
@@ -118,45 +173,83 @@ paths:
                 properties:
                   d:
                     $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Getbusinesspartner200Example:
+                  summary: Default getBusinessPartner 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      BusinessPartner: example_value
+                      BusinessPartnerFullName: example_value
+                      BusinessPartnerCategory: '1'
+                      BusinessPartnerGrouping: example_value
+                      FirstName: example_value
+                      LastName: example_value
+                      OrganizationBPName1: example_value
+                      SearchTerm1: example_value
+                      Language: example_value
+                      CreationDate: '2026-01-15'
         '404':
           description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateBusinessPartner
-      summary: SAP Update a business partner
+      summary: Sap Update a Business Partner
       description: >-
         Updates fields of an existing business partner record.
       tags:
-        - Business Partners
+      - Business Partners
       parameters:
-        - name: BusinessPartner
-          in: path
-          required: true
-          description: Business partner number
-          schema:
-            type: string
+      - name: BusinessPartner
+        in: path
+        required: true
+        description: Business partner number
+        schema:
+          type: string
+        example: example_value
       requestBody:
         required: true
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              UpdatebusinesspartnerRequestExample:
+                summary: Default updateBusinessPartner request
+                x-microcks-default: true
+                value:
+                  BusinessPartner: example_value
+                  BusinessPartnerFullName: example_value
+                  BusinessPartnerCategory: '1'
+                  BusinessPartnerGrouping: example_value
+                  FirstName: example_value
+                  LastName: example_value
+                  OrganizationBPName1: example_value
+                  SearchTerm1: example_value
+                  Language: example_value
+                  CreationDate: '2026-01-15'
       responses:
         '204':
           description: Business partner updated
         '404':
           description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_BusinessPartnerAddress:
     get:
       operationId: listBusinessPartnerAddresses
-      summary: SAP List business partner addresses
+      summary: Sap List Business Partner Addresses
       description: >-
         Retrieves address records associated with business partners.
       tags:
-        - Addresses
+      - Addresses
       parameters:
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
-        - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Filter'
       responses:
         '200':
           description: Collection of addresses
@@ -172,18 +265,36 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/BusinessPartnerAddress'
+              examples:
+                Listbusinesspartneraddresses200Example:
+                  summary: Default listBusinessPartnerAddresses 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        AddressID: '500123'
+                        Country: example_value
+                        Region: example_value
+                        CityName: example_value
+                        PostalCode: example_value
+                        StreetName: example_value
+                        HouseNumber: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_BusinessPartnerBank:
     get:
       operationId: listBusinessPartnerBankAccounts
-      summary: SAP List bank accounts
+      summary: Sap List Bank Accounts
       description: >-
         Retrieves bank account records for business partners.
       tags:
-        - Bank Accounts
+      - Bank Accounts
       parameters:
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Skip'
-        - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Filter'
       responses:
         '200':
           description: Collection of bank accounts
@@ -199,18 +310,35 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/BusinessPartnerBank'
+              examples:
+                Listbusinesspartnerbankaccounts200Example:
+                  summary: Default listBusinessPartnerBankAccounts 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BankIdentification: example_value
+                        BankCountryKey: example_value
+                        BankNumber: example_value
+                        BankAccount: example_value
+                        IBAN: example_value
+                        SWIFTCode: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_BusinessPartnerRole:
     get:
       operationId: listBusinessPartnerRoles
-      summary: SAP List business partner roles
+      summary: Sap List Business Partner Roles
       description: >-
         Retrieves role assignments for business partners, indicating whether
         they serve as customer, supplier, or both.
       tags:
-        - Roles
+      - Roles
       parameters:
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Filter'
       responses:
         '200':
           description: Collection of roles
@@ -226,17 +354,29 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/BusinessPartnerRole'
+              examples:
+                Listbusinesspartnerroles200Example:
+                  summary: Default listBusinessPartnerRoles 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BusinessPartnerRole: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_BusinessPartnerTaxNumber:
     get:
       operationId: listBusinessPartnerTaxNumbers
-      summary: SAP List tax numbers
+      summary: Sap List Tax Numbers
       description: >-
         Retrieves tax identification numbers for business partners.
       tags:
-        - Tax Numbers
+      - Tax Numbers
       parameters:
-        - $ref: '#/components/parameters/Top'
-        - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Filter'
       responses:
         '200':
           description: Collection of tax numbers
@@ -252,6 +392,19 @@ paths:
                         type: array
                         items:
                           $ref: '#/components/schemas/BusinessPartnerTaxNumber'
+              examples:
+                Listbusinesspartnertaxnumbers200Example:
+                  summary: Default listBusinessPartnerTaxNumbers 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BPTaxType: example_value
+                        BPTaxNumber: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:
@@ -307,106 +460,136 @@ components:
           type: string
           description: Business partner number
           maxLength: 10
+          example: example_value
         BusinessPartnerFullName:
           type: string
           description: Full name of the business partner
+          example: example_value
         BusinessPartnerCategory:
           type: string
           description: Category (1=Organization, 2=Person, 3=Group)
           enum: ['1', '2', '3']
+          example: '1'
         BusinessPartnerGrouping:
           type: string
           description: Business partner grouping
+          example: example_value
         FirstName:
           type: string
           description: First name (for person category)
+          example: example_value
         LastName:
           type: string
           description: Last name (for person category)
+          example: example_value
         OrganizationBPName1:
           type: string
           description: Organization name line 1
+          example: example_value
         SearchTerm1:
           type: string
           description: Search term 1
+          example: example_value
         Language:
           type: string
           description: Correspondence language
           maxLength: 2
+          example: example_value
         CreationDate:
           type: string
           format: date
           description: Date the business partner was created
+          example: '2026-01-15'
     BusinessPartnerAddress:
       type: object
       properties:
         BusinessPartner:
           type: string
           description: Business partner number
+          example: example_value
         AddressID:
           type: string
           description: Address identifier
+          example: '500123'
         Country:
           type: string
           description: Country key (ISO 3166-1 alpha-2)
           maxLength: 2
+          example: example_value
         Region:
           type: string
           description: Region or state code
+          example: example_value
         CityName:
           type: string
           description: City name
+          example: example_value
         PostalCode:
           type: string
           description: Postal code
+          example: example_value
         StreetName:
           type: string
           description: Street name
+          example: example_value
         HouseNumber:
           type: string
           description: House number
+          example: example_value
     BusinessPartnerBank:
       type: object
       properties:
         BusinessPartner:
           type: string
           description: Business partner number
+          example: example_value
         BankIdentification:
           type: string
           description: Bank detail identifier
+          example: example_value
         BankCountryKey:
           type: string
           description: Bank country key (ISO 3166-1)
+          example: example_value
         BankNumber:
           type: string
           description: Bank routing number
+          example: example_value
         BankAccount:
           type: string
           description: Bank account number
+          example: example_value
         IBAN:
           type: string
           description: International Bank Account Number
+          example: example_value
         SWIFTCode:
           type: string
           description: SWIFT/BIC code
+          example: example_value
     BusinessPartnerRole:
       type: object
       properties:
         BusinessPartner:
           type: string
           description: Business partner number
+          example: example_value
         BusinessPartnerRole:
           type: string
           description: Role code (e.g., FLCU01=Customer, FLVN01=Vendor)
+          example: example_value
     BusinessPartnerTaxNumber:
       type: object
       properties:
         BusinessPartner:
           type: string
           description: Business partner number
+          example: example_value
         BPTaxType:
           type: string
           description: Tax number category
+          example: example_value
         BPTaxNumber:
           type: string
           description: Tax identification number
+          example: example_value

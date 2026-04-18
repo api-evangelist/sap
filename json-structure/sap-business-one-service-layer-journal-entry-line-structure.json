@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "JournalEntryLine",
+  "type": "object",
+  "properties": {
+    "AccountCode": {
+      "type": "string"
+    },
+    "Debit": {
+      "type": "number"
+    },
+    "Credit": {
+      "type": "number"
+    },
+    "ShortName": {
+      "type": "string"
+    },
+    "LineMemo": {
+      "type": "string"
+    }
+  }
+}

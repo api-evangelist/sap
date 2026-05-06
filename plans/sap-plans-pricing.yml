@@ -4,7 +4,8 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: SAP
 providerId: sap
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - AI
   - BTP
@@ -14,174 +15,38 @@ tags:
   - Enterprise
   - ERP
   - Integration
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: SAP markets a multi-product enterprise platform; commercial terms for SAP products and SAP
+  Business Technology Platform (BTP) services are not published on a public pricing page. Customers price
+  via SAP sales (CPEA — Cloud Platform Enterprise Agreement, BTPEA, or pay-as-you-go consumption units),
+  through SAP Store, or via partners. Trims to a single Contact Sales plan until a public, machine-readable
+  rate card is available.
+sources:
+  - https://www.sap.com
+  - https://store.sap.com
+notes: SAP corporate pricing pages return HTTP 403 to automated fetches; SAP Store and Discovery Center
+  do not expose a public, parseable rate card. Pricing is contract- and partner-mediated.
 plans:
-  - id: sap-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the SAP API surface. Intended for evaluation, prototyping, and low-volume
-      integrations. Real limits and pricing must be reconciled with the provider's published plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: SAP Business One Service Layer API
-      - name: SAP S/4HANA Cloud API
-      - name: SAP SuccessFactors API
-      - name: SAP Ariba APIs
-      - name: SAP Cloud Platform Integration Suite
-      - name: SAP Commerce Cloud API
-      - name: SAP Analytics Cloud API
-      - name: SAP Concur API
-  - id: sap-pro
-    name: Professional
-    type: paid
-    description: Production tier for SAP. Provides higher quotas, priority support, and access to the
-      broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: SAP Business One Service Layer API
-      - name: SAP S/4HANA Cloud API
-      - name: SAP SuccessFactors API
-      - name: SAP Ariba APIs
-      - name: SAP Cloud Platform Integration Suite
-      - name: SAP Commerce Cloud API
-      - name: SAP Analytics Cloud API
-      - name: SAP Concur API
-      - name: SAP Fieldglass API
-      - name: SAP BTP Core Services API
-      - name: SAP Datasphere API
-      - name: SAP Event Mesh API
-      - name: SAP Master Data Integration API
-      - name: SAP Signavio Process Manager API
-      - name: SAP Document Management Service API
-      - name: SAP Integration Suite API Management
-      - name: SAP AI Core API
-      - name: SAP Emarsys Customer Engagement API
-      - name: SAP Build Work Zone API
-  - id: sap-enterprise
-    name: Enterprise
+  - id: sap-contact-sales
+    name: Contact Sales
     type: enterprise
-    description: Custom-negotiated tier for SAP. Includes dedicated capacity, contractual SLAs, security
-      review, data residency options, and named technical account management.
+    description: All commercial terms for SAP products and BTP services are negotiated through SAP sales,
+      SAP Store, or SAP partners (CPEA, BTPEA, or pay-as-you-go consumption units).
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Custom contract
+        name: custom
+        type: subscription
+        metric: varies
         limit: -1
-        timeFrame: month
+        timeFrame: year
         geo: configurable
-        domains: []
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
+        price: contact sales
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: SAP Business One Service Layer API
-      - name: SAP S/4HANA Cloud API
-      - name: SAP SuccessFactors API
-      - name: SAP Ariba APIs
-      - name: SAP Cloud Platform Integration Suite
-      - name: SAP Commerce Cloud API
-      - name: SAP Analytics Cloud API
-      - name: SAP Concur API
-      - name: SAP Fieldglass API
-      - name: SAP BTP Core Services API
-      - name: SAP Datasphere API
-      - name: SAP Event Mesh API
-      - name: SAP Master Data Integration API
-      - name: SAP Signavio Process Manager API
-      - name: SAP Document Management Service API
-      - name: SAP Integration Suite API Management
-      - name: SAP AI Core API
-      - name: SAP Emarsys Customer Engagement API
-      - name: SAP Build Work Zone API
+      - name: SAP Sales Engagement
+      - name: SAP Store
+      - name: SAP Partner Channel
+      - name: CPEA / BTPEA / Pay-As-You-Go
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-    url: https://apievangelist.com

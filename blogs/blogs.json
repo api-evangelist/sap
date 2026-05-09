@@ -1,0 +1,14 @@
+{
+  "repo": "sap",
+  "feeds": [
+    {
+      "source": "https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs",
+      "feed_url": "",
+      "title": "",
+      "saved": 0,
+      "error": "no_feed"
+    }
+  ],
+  "fetched": "2026-05-09T20:17:51Z",
+  "post_count": 0
+}

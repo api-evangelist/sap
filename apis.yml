@@ -4,7 +4,7 @@ description: >-
 image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
 url: https://api.sap.com
 created: '2024-01-15'
-modified: '2026-04-18'
+modified: '2026-05-19'
 specificationVersion: '0.18'
 apis:
   - name: SAP Business One Service Layer API
@@ -479,3 +479,9 @@ common:
     url: capabilities/shared/s4hana-business-partner.yaml
   - type: Capabilities
     url: capabilities/enterprise-business-operations.yaml
+  - name: MCP Server
+    url: https://github.com/SAP/mdk-mcp-server
+    type: MCPServer
+  - name: Agent Skills
+    url: https://github.com/SAP/ai-skills-library
+    type: AgentSkill

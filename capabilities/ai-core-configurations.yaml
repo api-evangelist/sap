@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP AI Core API — Configurations
+  description: 'SAP AI Core API — Configurations. 2 operations. Lead operation: Sap List Configurations. Self-contained Naftiko
+    capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Configurations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ai-core-configurations
+    baseUri: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+    description: SAP AI Core API — Configurations business capability. Self-contained, no shared references.
+    resources:
+    - name: lm-configurations
+      path: /lm/configurations
+      operations:
+      - name: listconfigurations
+        method: GET
+        description: Sap List Configurations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scenarioId
+          in: query
+          type: string
+          description: Filter by scenario ID
+      - name: createconfiguration
+        method: POST
+        description: Sap Create a Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SAP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ai-core-configurations-rest
+    port: 8080
+    description: REST adapter for SAP AI Core API — Configurations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/lm/configurations
+      name: lm-configurations
+      description: REST surface for lm-configurations.
+      operations:
+      - method: GET
+        name: listconfigurations
+        description: Sap List Configurations
+        call: ai-core-configurations.listconfigurations
+        with:
+          scenarioId: rest.scenarioId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createconfiguration
+        description: Sap Create a Configuration
+        call: ai-core-configurations.createconfiguration
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ai-core-configurations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP AI Core API — Configurations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: sap-list-configurations
+      description: Sap List Configurations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ai-core-configurations.listconfigurations
+      with:
+        scenarioId: tools.scenarioId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-create-configuration
+      description: Sap Create a Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ai-core-configurations.createconfiguration
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

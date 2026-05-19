@@ -1,0 +1,191 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP Business One Service Layer API — Business Partners
+  description: 'SAP Business One Service Layer API — Business Partners. 4 operations. Lead operation: Sap List Business Partners.
+    Self-contained Naftiko capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Business Partners
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: business-one-service-layer-business-partners
+    baseUri: https://{server}:50000/b1s/v1
+    description: SAP Business One Service Layer API — Business Partners business capability. Self-contained, no shared references.
+    resources:
+    - name: BusinessPartners
+      path: /BusinessPartners
+      operations:
+      - name: listbusinesspartners
+        method: GET
+        description: Sap List Business Partners
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbusinesspartner
+        method: POST
+        description: Sap Create a Business Partner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: BusinessPartners('{CardCode}')
+      path: /BusinessPartners('{CardCode}')
+      operations:
+      - name: getbusinesspartner
+        method: GET
+        description: Sap Get a Business Partner by Code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: CardCode
+          in: path
+          type: string
+          description: The unique card code of the business partner
+          required: true
+      - name: updatebusinesspartner
+        method: PATCH
+        description: Sap Update a Business Partner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: CardCode
+          in: path
+          type: string
+          description: The unique card code of the business partner
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: B1SESSION
+      value: '{{env.SAP_API_KEY}}'
+      placement: cookie
+  exposes:
+  - type: rest
+    namespace: business-one-service-layer-business-partners-rest
+    port: 8080
+    description: REST adapter for SAP Business One Service Layer API — Business Partners. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/businesspartners
+      name: businesspartners
+      description: REST surface for BusinessPartners.
+      operations:
+      - method: GET
+        name: listbusinesspartners
+        description: Sap List Business Partners
+        call: business-one-service-layer-business-partners.listbusinesspartners
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbusinesspartner
+        description: Sap Create a Business Partner
+        call: business-one-service-layer-business-partners.createbusinesspartner
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/businesspartners-cardcode
+      name: businesspartners-cardcode
+      description: REST surface for BusinessPartners('{CardCode}').
+      operations:
+      - method: GET
+        name: getbusinesspartner
+        description: Sap Get a Business Partner by Code
+        call: business-one-service-layer-business-partners.getbusinesspartner
+        with:
+          CardCode: rest.CardCode
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatebusinesspartner
+        description: Sap Update a Business Partner
+        call: business-one-service-layer-business-partners.updatebusinesspartner
+        with:
+          CardCode: rest.CardCode
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: business-one-service-layer-business-partners-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP Business One Service Layer API — Business Partners. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: sap-list-business-partners
+      description: Sap List Business Partners
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-one-service-layer-business-partners.listbusinesspartners
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-create-business-partner
+      description: Sap Create a Business Partner
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: business-one-service-layer-business-partners.createbusinesspartner
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-get-business-partner-code
+      description: Sap Get a Business Partner by Code
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-one-service-layer-business-partners.getbusinesspartner
+      with:
+        CardCode: tools.CardCode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-update-business-partner
+      description: Sap Update a Business Partner
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: business-one-service-layer-business-partners.updatebusinesspartner
+      with:
+        CardCode: tools.CardCode
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

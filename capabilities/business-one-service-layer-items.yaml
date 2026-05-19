@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP Business One Service Layer API — Items
+  description: 'SAP Business One Service Layer API — Items. 1 operations. Lead operation: Sap List Items. Self-contained Naftiko
+    capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: business-one-service-layer-items
+    baseUri: https://{server}:50000/b1s/v1
+    description: SAP Business One Service Layer API — Items business capability. Self-contained, no shared references.
+    resources:
+    - name: Items
+      path: /Items
+      operations:
+      - name: listitems
+        method: GET
+        description: Sap List Items
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: B1SESSION
+      value: '{{env.SAP_API_KEY}}'
+      placement: cookie
+  exposes:
+  - type: rest
+    namespace: business-one-service-layer-items-rest
+    port: 8080
+    description: REST adapter for SAP Business One Service Layer API — Items. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/items
+      name: items
+      description: REST surface for Items.
+      operations:
+      - method: GET
+        name: listitems
+        description: Sap List Items
+        call: business-one-service-layer-items.listitems
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: business-one-service-layer-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP Business One Service Layer API — Items. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: sap-list-items
+      description: Sap List Items
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: business-one-service-layer-items.listitems
+      outputParameters:
+      - type: object
+        mapping: $.

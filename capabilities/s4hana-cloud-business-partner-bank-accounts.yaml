@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP S/4HANA Cloud Business Partner API — Bank Accounts
+  description: 'SAP S/4HANA Cloud Business Partner API — Bank Accounts. 1 operations. Lead operation: Sap List Bank Accounts.
+    Self-contained Naftiko capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Bank Accounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s4hana-cloud-business-partner-bank-accounts
+    baseUri: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+    description: SAP S/4HANA Cloud Business Partner API — Bank Accounts business capability. Self-contained, no shared references.
+    resources:
+    - name: A_BusinessPartnerBank
+      path: /A_BusinessPartnerBank
+      operations:
+      - name: listbusinesspartnerbankaccounts
+        method: GET
+        description: Sap List Bank Accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SAP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: s4hana-cloud-business-partner-bank-accounts-rest
+    port: 8080
+    description: REST adapter for SAP S/4HANA Cloud Business Partner API — Bank Accounts. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/a-businesspartnerbank
+      name: a-businesspartnerbank
+      description: REST surface for A_BusinessPartnerBank.
+      operations:
+      - method: GET
+        name: listbusinesspartnerbankaccounts
+        description: Sap List Bank Accounts
+        call: s4hana-cloud-business-partner-bank-accounts.listbusinesspartnerbankaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s4hana-cloud-business-partner-bank-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP S/4HANA Cloud Business Partner API — Bank Accounts. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: sap-list-bank-accounts
+      description: Sap List Bank Accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s4hana-cloud-business-partner-bank-accounts.listbusinesspartnerbankaccounts
+      outputParameters:
+      - type: object
+        mapping: $.

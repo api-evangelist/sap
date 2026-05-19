@@ -1,0 +1,190 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP S/4HANA Cloud Business Partner API — Business Partners
+  description: 'SAP S/4HANA Cloud Business Partner API — Business Partners. 4 operations. Lead operation: Sap List Business
+    Partners. Self-contained Naftiko capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Business Partners
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: s4hana-cloud-business-partner-business-partners
+    baseUri: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+    description: SAP S/4HANA Cloud Business Partner API — Business Partners business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: A_BusinessPartner
+      path: /A_BusinessPartner
+      operations:
+      - name: listbusinesspartners
+        method: GET
+        description: Sap List Business Partners
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbusinesspartner
+        method: POST
+        description: Sap Create a Business Partner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: A_BusinessPartner('{BusinessPartner}')
+      path: /A_BusinessPartner('{BusinessPartner}')
+      operations:
+      - name: getbusinesspartner
+        method: GET
+        description: Sap Get a Business Partner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: BusinessPartner
+          in: path
+          type: string
+          description: Business partner number
+          required: true
+      - name: updatebusinesspartner
+        method: PATCH
+        description: Sap Update a Business Partner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: BusinessPartner
+          in: path
+          type: string
+          description: Business partner number
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SAP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: s4hana-cloud-business-partner-business-partners-rest
+    port: 8080
+    description: REST adapter for SAP S/4HANA Cloud Business Partner API — Business Partners. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/a-businesspartner
+      name: a-businesspartner
+      description: REST surface for A_BusinessPartner.
+      operations:
+      - method: GET
+        name: listbusinesspartners
+        description: Sap List Business Partners
+        call: s4hana-cloud-business-partner-business-partners.listbusinesspartners
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbusinesspartner
+        description: Sap Create a Business Partner
+        call: s4hana-cloud-business-partner-business-partners.createbusinesspartner
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/a-businesspartner-businesspartner
+      name: a-businesspartner-businesspartner
+      description: REST surface for A_BusinessPartner('{BusinessPartner}').
+      operations:
+      - method: GET
+        name: getbusinesspartner
+        description: Sap Get a Business Partner
+        call: s4hana-cloud-business-partner-business-partners.getbusinesspartner
+        with:
+          BusinessPartner: rest.BusinessPartner
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatebusinesspartner
+        description: Sap Update a Business Partner
+        call: s4hana-cloud-business-partner-business-partners.updatebusinesspartner
+        with:
+          BusinessPartner: rest.BusinessPartner
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: s4hana-cloud-business-partner-business-partners-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP S/4HANA Cloud Business Partner API — Business Partners. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: sap-list-business-partners
+      description: Sap List Business Partners
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s4hana-cloud-business-partner-business-partners.listbusinesspartners
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-create-business-partner
+      description: Sap Create a Business Partner
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: s4hana-cloud-business-partner-business-partners.createbusinesspartner
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-get-business-partner
+      description: Sap Get a Business Partner
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: s4hana-cloud-business-partner-business-partners.getbusinesspartner
+      with:
+        BusinessPartner: tools.BusinessPartner
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-update-business-partner
+      description: Sap Update a Business Partner
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: s4hana-cloud-business-partner-business-partners.updatebusinesspartner
+      with:
+        BusinessPartner: tools.BusinessPartner
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

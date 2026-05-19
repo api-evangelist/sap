@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP AI Core API — Deployments
+  description: 'SAP AI Core API — Deployments. 2 operations. Lead operation: Sap List Deployments. Self-contained Naftiko
+    capability covering one Sap business surface.'
+  tags:
+  - Sap
+  - Deployments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_API_KEY: SAP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ai-core-deployments
+    baseUri: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+    description: SAP AI Core API — Deployments business capability. Self-contained, no shared references.
+    resources:
+    - name: lm-deployments
+      path: /lm/deployments
+      operations:
+      - name: listdeployments
+        method: GET
+        description: Sap List Deployments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdeployment
+        method: POST
+        description: Sap Create a Deployment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SAP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ai-core-deployments-rest
+    port: 8080
+    description: REST adapter for SAP AI Core API — Deployments. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/lm/deployments
+      name: lm-deployments
+      description: REST surface for lm-deployments.
+      operations:
+      - method: GET
+        name: listdeployments
+        description: Sap List Deployments
+        call: ai-core-deployments.listdeployments
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdeployment
+        description: Sap Create a Deployment
+        call: ai-core-deployments.createdeployment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ai-core-deployments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP AI Core API — Deployments. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: sap-list-deployments
+      description: Sap List Deployments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ai-core-deployments.listdeployments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-create-deployment
+      description: Sap Create a Deployment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ai-core-deployments.createdeployment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

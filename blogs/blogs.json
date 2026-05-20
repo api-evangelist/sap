@@ -3,12 +3,11 @@
   "feeds": [
     {
       "source": "https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs",
-      "feed_url": "",
-      "title": "",
-      "saved": 0,
-      "error": "no_feed"
+      "feed_url": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
+      "title": "New board topics in All SAP Community Blogs",
+      "saved": 0
     }
   ],
-  "fetched": "2026-05-09T20:17:51Z",
+  "fetched": "2026-05-17T20:48:52Z",
   "post_count": 0
 }

@@ -2,12 +2,20 @@
   "repo": "sap",
   "feeds": [
     {
-      "source": "https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs",
+      "source": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
       "feed_url": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
-      "title": "New board topics in All SAP Community Blogs",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://api.sap.com",
+      "feed_url": "https://api.sap.com",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }

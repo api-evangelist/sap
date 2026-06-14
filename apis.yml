@@ -1,5 +1,6 @@
 name: SAP
-description: Collection of SAP's enterprise APIs for business applications and cloud services.
+description: Collection of SAP's enterprise APIs for business applications and cloud
+  services.
 image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
 url: https://api.sap.com
 created: '2024-01-15'
@@ -24,18 +25,8 @@ apis:
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-authentication.yaml
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-business-partners.yaml
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-invoices.yaml
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-items.yaml
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-journal-entries.yaml
-  - type: NaftikoCapability
-    url: capabilities/business-one-service-layer-orders.yaml
+  - url: graphql/sap-graphql.md
+    type: GraphQL
 - name: SAP S/4HANA Cloud API
   description: APIs for SAP S/4HANA Cloud enabling integration with intelligent ERP.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
@@ -57,18 +48,9 @@ apis:
     url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
   - type: GettingStarted
     url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
-  - type: NaftikoCapability
-    url: capabilities/s4hana-cloud-business-partner-addresses.yaml
-  - type: NaftikoCapability
-    url: capabilities/s4hana-cloud-business-partner-bank-accounts.yaml
-  - type: NaftikoCapability
-    url: capabilities/s4hana-cloud-business-partner-business-partners.yaml
-  - type: NaftikoCapability
-    url: capabilities/s4hana-cloud-business-partner-roles.yaml
-  - type: NaftikoCapability
-    url: capabilities/s4hana-cloud-business-partner-tax-numbers.yaml
 - name: SAP SuccessFactors API
-  description: Human Capital Management APIs for employee central, recruiting, and talent management.
+  description: Human Capital Management APIs for employee central, recruiting, and
+    talent management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPSuccessFactors
   baseUrl: https://api.successfactors.com/odata/v2
@@ -87,7 +69,8 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPSuccessFactors
 - name: SAP Ariba APIs
-  description: Procurement and supply chain APIs for sourcing, contracts, and supplier management.
+  description: Procurement and supply chain APIs for sourcing, contracts, and supplier
+    management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.ariba.com
   baseUrl: https://openapi.ariba.com
@@ -157,7 +140,8 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
 - name: SAP Concur API
-  description: APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
+  description: APIs for travel and expense management including expense reporting,
+    travel booking, and invoice processing.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.concur.com
   baseUrl: https://us.api.concursolutions.com
@@ -178,7 +162,8 @@ apis:
   - type: ChangeLog
     url: https://developer.concur.com/tools-support/release-notes/
 - name: SAP Fieldglass API
-  description: Vendor management system APIs for managing external workers, contractors, and service providers.
+  description: Vendor management system APIs for managing external workers, contractors,
+    and service providers.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/products/SAPFieldglass/apis/packages
   baseUrl: https://www.fieldglass.net/api
@@ -197,7 +182,8 @@ apis:
   - type: APIReference
     url: https://api.sap.com/products/SAPFieldglass/apis/all
 - name: SAP BTP Core Services API
-  description: Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
+  description: Core platform APIs for managing accounts, entitlements, and services
+    on SAP Business Technology Platform.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPCloudPlatformCoreServices/overview
   baseUrl: https://accounts-service.cfapps.{region}.hana.ondemand.com
@@ -216,7 +202,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/btp/btp-developers-guide/apis
 - name: SAP Datasphere API
-  description: APIs for data warehousing, catalog access, and consumption of analytical and relational models.
+  description: APIs for data warehousing, catalog access, and consumption of analytical
+    and relational models.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sapdatasphere/overview
   baseUrl: https://{tenant}.{region}.hcs.cloud.sap
@@ -235,7 +222,8 @@ apis:
   - type: APIReference
     url: https://api.sap.com/api/DatasphereCatalog/resource/
 - name: SAP Event Mesh API
-  description: Messaging APIs for event-driven architecture supporting AMQP, MQTT, and REST protocols.
+  description: Messaging APIs for event-driven architecture supporting AMQP, MQTT,
+    and REST protocols.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/event-mesh
   baseUrl: https://enterprise-messaging-pubsub.cfapps.{region}.hana.ondemand.com
@@ -256,7 +244,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh
 - name: SAP Master Data Integration API
-  description: APIs for centralizing and harmonizing master data across SAP and third-party applications.
+  description: APIs for centralizing and harmonizing master data across SAP and third-party
+    applications.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sap-mdi-masterDataIntegration/overview
   baseUrl: https://{tenant}.integrationsuite.{region}.hana.ondemand.com
@@ -275,7 +264,8 @@ apis:
   - type: APIReference
     url: https://api.sap.com/api/masterdata/resource
 - name: SAP Signavio Process Manager API
-  description: APIs for process modeling, BPMN diagram management, and process governance automation.
+  description: APIs for process modeling, BPMN diagram management, and process governance
+    automation.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   baseUrl: https://editor.signavio.com/p
@@ -292,7 +282,8 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
 - name: SAP Document Management Service API
-  description: CMIS-based APIs for document management including versioning, access control, and content storage on BTP.
+  description: CMIS-based APIs for document management including versioning, access
+    control, and content storage on BTP.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/document-management-service
   baseUrl: https://{tenant}.document-center.cfapps.{region}.hana.ondemand.com
@@ -309,7 +300,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
 - name: SAP Integration Suite API Management
-  description: APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
+  description: APIs for building, managing, publishing, and monitoring API proxies
+    within SAP Integration Suite.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/sap-api-management
   baseUrl: https://{tenant}.{region}.apimanagement.hana.ondemand.com
@@ -328,8 +320,9 @@ apis:
   - type: DeveloperPortal
     url: https://api.sap.com/api/APIPortal_Developer_CF/overview
 - name: SAP AI Core API
-  description: APIs for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides
-    endpoints for scenario management, execution orchestration, and model serving.
+  description: APIs for deploying, managing, and consuming AI models and workflows
+    on SAP Business Technology Platform. Provides endpoints for scenario management,
+    execution orchestration, and model serving.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
   baseUrl: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
@@ -349,19 +342,9 @@ apis:
     url: https://api.sap.com/api/AI_CORE_API/overview
   - type: SDK
     url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
-  - type: NaftikoCapability
-    url: capabilities/ai-core-artifacts.yaml
-  - type: NaftikoCapability
-    url: capabilities/ai-core-configurations.yaml
-  - type: NaftikoCapability
-    url: capabilities/ai-core-deployments.yaml
-  - type: NaftikoCapability
-    url: capabilities/ai-core-executions.yaml
-  - type: NaftikoCapability
-    url: capabilities/ai-core-scenarios.yaml
 - name: SAP Emarsys Customer Engagement API
-  description: REST APIs for marketing automation, customer engagement, and personalized campaign management across email,
-    web, SMS, and mobile channels.
+  description: REST APIs for marketing automation, customer engagement, and personalized
+    campaign management across email, web, SMS, and mobile channels.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://dev.emarsys.com/
   baseUrl: https://api.emarsys.net/api/v2
@@ -378,8 +361,8 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview
 - name: SAP Build Work Zone API
-  description: APIs for managing digital workplace experiences, integrating business applications into unified workpages,
-    and administering work zone sites and content.
+  description: APIs for managing digital workplace experiences, integrating business
+    applications into unified workpages, and administering work zone sites and content.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
   baseUrl: https://{tenant}.dt.workzone.cfapps.{region}.hana.ondemand.com

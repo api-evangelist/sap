@@ -1,0 +1,1422 @@
+"""
+SAP Conceptual GraphQL Schema
+Covers SAP S/4HANA, Ariba, Concur, SuccessFactors, Fieldglass, and BTP.
+SAP's public APIs are REST/OData-based; this schema represents the unified
+data model as it would appear if exposed via GraphQL.
+"""
+
+scalar DateTime
+scalar Date
+scalar Decimal
+scalar JSON
+
+# ─────────────────────────────────────────────
+# Customer & Sales (S/4HANA Order-to-Cash)
+# ─────────────────────────────────────────────
+
+type Customer {
+  id: ID!
+  customerNumber: String!
+  name: String!
+  searchTerm: String
+  accountGroup: String
+  industry: String
+  salesOrganization: String
+  distributionChannel: String
+  division: String
+  creditLimit: Decimal
+  currency: String
+  addresses: [BusinessPartnerAddress!]!
+  contacts: [Contact!]!
+  salesOrders: [SalesOrder!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type CustomerOrder {
+  id: ID!
+  orderNumber: String!
+  customer: Customer!
+  orderDate: Date!
+  requestedDeliveryDate: Date
+  status: String!
+  totalAmount: Decimal!
+  currency: String!
+  items: [SalesOrderItem!]!
+  deliveryNotes: [DeliveryNote!]!
+}
+
+type SalesOrder {
+  id: ID!
+  salesOrderNumber: String!
+  salesOrderType: String!
+  customer: Customer!
+  salesOrganization: String!
+  distributionChannel: String!
+  division: String!
+  orderDate: Date!
+  requestedDeliveryDate: Date
+  status: String!
+  totalNetAmount: Decimal!
+  totalTaxAmount: Decimal
+  currency: String!
+  plant: Plant
+  items: [SalesOrderItem!]!
+  invoices: [Invoice!]!
+  deliveryNotes: [DeliveryNote!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type SalesOrderItem {
+  id: ID!
+  salesOrder: SalesOrder!
+  itemNumber: String!
+  product: Product!
+  orderQuantity: Decimal!
+  unit: String!
+  netPrice: Decimal!
+  currency: String!
+  plant: Plant
+  storageLocation: StorageLocation
+  requestedDeliveryDate: Date
+  scheduleLines: [JSON]
+}
+
+# ─────────────────────────────────────────────
+# Business Partner (S/4HANA Master Data)
+# ─────────────────────────────────────────────
+
+type BusinessPartner {
+  id: ID!
+  businessPartnerNumber: String!
+  businessPartnerType: String!
+  firstName: String
+  lastName: String
+  organizationName: String
+  searchTerm1: String
+  searchTerm2: String
+  birthDate: Date
+  isNaturalPerson: Boolean!
+  isFemale: Boolean
+  language: String
+  currency: String
+  addresses: [BusinessPartnerAddress!]!
+  contacts: [Contact!]!
+  supplier: Supplier
+  customer: Customer
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type BusinessPartnerAddress {
+  id: ID!
+  businessPartner: BusinessPartner!
+  addressId: String!
+  streetName: String
+  houseNumber: String
+  postalCode: String
+  city: String
+  region: String
+  country: String!
+  addressType: String
+  isPrimary: Boolean!
+  phone: String
+  fax: String
+  email: String
+}
+
+type Contact {
+  id: ID!
+  businessPartner: BusinessPartner
+  firstName: String!
+  lastName: String!
+  title: String
+  email: String
+  phone: String
+  mobile: String
+  department: String
+  function: String
+  language: String
+}
+
+# ─────────────────────────────────────────────
+# Procurement (Ariba / S/4HANA Procure-to-Pay)
+# ─────────────────────────────────────────────
+
+type Supplier {
+  id: ID!
+  supplierNumber: String!
+  name: String!
+  searchTerm: String
+  accountGroup: String
+  paymentTerms: String
+  currency: String
+  addresses: [BusinessPartnerAddress!]!
+  contacts: [Contact!]!
+  purchaseOrders: [PurchaseOrder!]!
+  invoices: [Invoice!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type PurchaseOrder {
+  id: ID!
+  purchaseOrderNumber: String!
+  purchaseOrderType: String!
+  supplier: Supplier!
+  companyCode: CompanyCode!
+  plant: Plant
+  purchasingOrganization: String!
+  purchasingGroup: String!
+  documentDate: Date!
+  deliveryDate: Date
+  status: String!
+  totalNetAmount: Decimal!
+  currency: String!
+  items: [PurchaseOrderItem!]!
+  goodsReceipts: [GoodsReceipt!]!
+  invoices: [Invoice!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type PurchaseOrderItem {
+  id: ID!
+  purchaseOrder: PurchaseOrder!
+  itemNumber: String!
+  product: Product
+  shortText: String!
+  orderQuantity: Decimal!
+  unit: String!
+  netPrice: Decimal!
+  currency: String!
+  plant: Plant
+  storageLocation: StorageLocation
+  deliveryDate: Date
+  accountAssignmentCategory: String
+  costCenter: CostCenter
+  glAccount: GLAccount
+}
+
+type PurchaseRequisition {
+  id: ID!
+  requisitionNumber: String!
+  requisitionType: String!
+  requestedBy: String!
+  plant: Plant
+  deliveryDate: Date!
+  status: String!
+  items: [PurchaseRequisitionItem!]!
+  purchaseOrders: [PurchaseOrder!]!
+  createdAt: DateTime
+}
+
+type PurchaseRequisitionItem {
+  id: ID!
+  purchaseRequisition: PurchaseRequisition!
+  itemNumber: String!
+  product: Product
+  shortText: String!
+  quantity: Decimal!
+  unit: String!
+  valuation: Decimal
+  currency: String!
+  costCenter: CostCenter
+}
+
+type Invoice {
+  id: ID!
+  invoiceNumber: String!
+  invoiceType: String!
+  supplier: Supplier
+  customer: Customer
+  companyCode: CompanyCode!
+  fiscalYear: String!
+  invoiceDate: Date!
+  postingDate: Date!
+  dueDate: Date
+  totalAmount: Decimal!
+  taxAmount: Decimal
+  currency: String!
+  paymentTerms: String
+  status: String!
+  items: [InvoiceItem!]!
+  purchaseOrder: PurchaseOrder
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type InvoiceItem {
+  id: ID!
+  invoice: Invoice!
+  itemNumber: String!
+  description: String!
+  quantity: Decimal
+  unit: String
+  unitPrice: Decimal
+  amount: Decimal!
+  currency: String!
+  taxCode: String
+  glAccount: GLAccount
+  costCenter: CostCenter
+}
+
+type GoodsReceipt {
+  id: ID!
+  materialDocumentNumber: String!
+  fiscalYear: String!
+  purchaseOrder: PurchaseOrder
+  plant: Plant!
+  storageLocation: StorageLocation
+  postingDate: Date!
+  documentDate: Date!
+  movementType: String!
+  totalQuantity: Decimal!
+  items: [MaterialMovement!]!
+  createdAt: DateTime
+}
+
+type DeliveryNote {
+  id: ID!
+  deliveryNumber: String!
+  deliveryType: String!
+  salesOrder: SalesOrder
+  supplier: Supplier
+  shippingPoint: String
+  plannedGoodsIssueDate: Date
+  actualGoodsIssueDate: Date
+  status: String!
+  totalWeight: Decimal
+  weightUnit: String
+  items: [DeliveryNoteItem!]!
+  createdAt: DateTime
+}
+
+type DeliveryNoteItem {
+  id: ID!
+  deliveryNote: DeliveryNote!
+  itemNumber: String!
+  product: Product!
+  deliveryQuantity: Decimal!
+  unit: String!
+  plant: Plant
+  storageLocation: StorageLocation
+  batchNumber: String
+}
+
+type Contract {
+  id: ID!
+  contractNumber: String!
+  contractType: String!
+  supplier: Supplier
+  customer: Customer
+  companyCode: CompanyCode
+  validFrom: Date!
+  validTo: Date
+  targetValue: Decimal
+  currency: String!
+  status: String!
+  items: [ContractItem!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type ContractItem {
+  id: ID!
+  contract: Contract!
+  itemNumber: String!
+  product: Product
+  shortText: String!
+  targetQuantity: Decimal
+  targetValue: Decimal
+  unit: String
+  currency: String!
+  price: Decimal
+  priceUnit: Decimal
+}
+
+# ─────────────────────────────────────────────
+# Product / Material Master (S/4HANA)
+# ─────────────────────────────────────────────
+
+type Product {
+  id: ID!
+  productNumber: String!
+  productType: String!
+  productName: String!
+  baseUnit: String!
+  productCategory: ProductCategory
+  productGroup: ProductGroup
+  grossWeight: Decimal
+  netWeight: Decimal
+  weightUnit: String
+  volume: Decimal
+  volumeUnit: String
+  isHazardousMaterial: Boolean
+  isBatchManaged: Boolean
+  isSerialNumberProfile: Boolean
+  billsOfMaterial: [BillOfMaterial!]!
+  plants: [Plant!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type ProductCategory {
+  id: ID!
+  categoryCode: String!
+  categoryName: String!
+  parentCategory: ProductCategory
+  childCategories: [ProductCategory!]!
+  products: [Product!]!
+}
+
+type ProductGroup {
+  id: ID!
+  groupCode: String!
+  groupName: String!
+  products: [Product!]!
+}
+
+type BillOfMaterial {
+  id: ID!
+  bomNumber: String!
+  product: Product!
+  plant: Plant!
+  bomUsage: String!
+  validFrom: Date!
+  validTo: Date
+  baseQuantity: Decimal!
+  baseUnit: String!
+  items: [BOMItem!]!
+  createdAt: DateTime
+}
+
+type BOMItem {
+  id: ID!
+  bom: BillOfMaterial!
+  itemNumber: String!
+  component: Product!
+  componentQuantity: Decimal!
+  componentUnit: String!
+  itemCategory: String!
+  plant: Plant
+  leadTimeOffset: Int
+  isPhantomItem: Boolean
+}
+
+# ─────────────────────────────────────────────
+# Plant & Logistics (S/4HANA)
+# ─────────────────────────────────────────────
+
+type Plant {
+  id: ID!
+  plantCode: String!
+  plantName: String!
+  companyCode: CompanyCode!
+  country: String!
+  region: String
+  address: BusinessPartnerAddress
+  storageLocations: [StorageLocation!]!
+  products: [Product!]!
+}
+
+type StorageLocation {
+  id: ID!
+  storageLocationCode: String!
+  storageLocationName: String!
+  plant: Plant!
+  warehouseNumber: String
+}
+
+type MaterialDocument {
+  id: ID!
+  materialDocumentNumber: String!
+  fiscalYear: String!
+  documentDate: Date!
+  postingDate: Date!
+  referenceDocument: String
+  headerText: String
+  movements: [MaterialMovement!]!
+  createdAt: DateTime
+}
+
+type MaterialMovement {
+  id: ID!
+  materialDocument: MaterialDocument!
+  itemNumber: String!
+  product: Product!
+  plant: Plant!
+  storageLocation: StorageLocation
+  movementType: String!
+  quantity: Decimal!
+  unit: String!
+  amount: Decimal
+  currency: String
+  costCenter: CostCenter
+  glAccount: GLAccount
+  wbsElement: WBSElement
+}
+
+# ─────────────────────────────────────────────
+# Project System (S/4HANA PS)
+# ─────────────────────────────────────────────
+
+type Project {
+  id: ID!
+  projectDefinition: String!
+  projectName: String!
+  projectProfile: String
+  responsibleCostCenter: CostCenter
+  companyCode: CompanyCode
+  profitCenter: ProfitCenter
+  plannedStartDate: Date
+  plannedFinishDate: Date
+  status: String!
+  wbsElements: [WBSElement!]!
+  networks: [Network!]!
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type WBSElement {
+  id: ID!
+  wbsElementCode: String!
+  wbsElementName: String!
+  project: Project!
+  parentWBS: WBSElement
+  childWBS: [WBSElement!]!
+  level: Int!
+  costCenter: CostCenter
+  profitCenter: ProfitCenter
+  plannedCost: Decimal
+  actualCost: Decimal
+  currency: String
+  status: String!
+}
+
+type Network {
+  id: ID!
+  networkNumber: String!
+  networkName: String!
+  project: Project!
+  wbsElement: WBSElement
+  plant: Plant
+  status: String!
+  plannedStartDate: Date
+  plannedFinishDate: Date
+  activities: [NetworkActivity!]!
+}
+
+type NetworkActivity {
+  id: ID!
+  network: Network!
+  activityNumber: String!
+  activityName: String!
+  activityType: String!
+  controlKey: String
+  workCenter: String
+  plannedWork: Decimal
+  actualWork: Decimal
+  unit: String
+  duration: Decimal
+  plannedStartDate: Date
+  plannedFinishDate: Date
+  status: String!
+}
+
+# ─────────────────────────────────────────────
+# Financial Accounting (S/4HANA FI / CO)
+# ─────────────────────────────────────────────
+
+type CompanyCode {
+  id: ID!
+  companyCodeId: String!
+  companyCodeName: String!
+  country: String!
+  currency: String!
+  language: String!
+  fiscalYearVariant: String
+  chartOfAccounts: String
+  plants: [Plant!]!
+  costCenters: [CostCenter!]!
+  glAccounts: [GLAccount!]!
+}
+
+type GLAccount {
+  id: ID!
+  glAccountNumber: String!
+  glAccountName: String!
+  chartOfAccounts: String!
+  companyCode: CompanyCode
+  accountType: String!
+  accountGroup: String!
+  isBalanceSheetAccount: Boolean!
+  isProfitLossAccount: Boolean!
+  currency: String
+  isBlocked: Boolean!
+}
+
+type CostCenter {
+  id: ID!
+  costCenterCode: String!
+  costCenterName: String!
+  companyCode: CompanyCode!
+  costCenterGroup: CostCenterGroup
+  controllingArea: String!
+  profitCenter: ProfitCenter
+  responsiblePerson: String
+  validFrom: Date!
+  validTo: Date
+  currency: String!
+  isActive: Boolean!
+}
+
+type CostCenterGroup {
+  id: ID!
+  groupCode: String!
+  groupName: String!
+  controllingArea: String!
+  parentGroup: CostCenterGroup
+  childGroups: [CostCenterGroup!]!
+  costCenters: [CostCenter!]!
+}
+
+type Controlling {
+  id: ID!
+  controllingArea: String!
+  controllingAreaName: String!
+  currency: String!
+  costCenters: [CostCenter!]!
+  profitCenters: [ProfitCenter!]!
+}
+
+type ProfitCenter {
+  id: ID!
+  profitCenterCode: String!
+  profitCenterName: String!
+  controllingArea: String!
+  companyCode: CompanyCode
+  segment: String
+  functionalArea: FunctionalArea
+  responsiblePerson: String
+  validFrom: Date!
+  validTo: Date
+  isActive: Boolean!
+}
+
+type FunctionalArea {
+  id: ID!
+  functionalAreaCode: String!
+  functionalAreaName: String!
+  profitCenters: [ProfitCenter!]!
+}
+
+# ─────────────────────────────────────────────
+# Human Capital Management (SuccessFactors / HCM)
+# ─────────────────────────────────────────────
+
+type Employee {
+  id: ID!
+  employeeId: String!
+  userId: String
+  firstName: String!
+  lastName: String!
+  preferredName: String
+  email: String
+  phone: String
+  hireDate: Date!
+  terminationDate: Date
+  status: String!
+  position: EmployeePosition
+  department: String
+  costCenter: CostCenter
+  manager: Employee
+  directReports: [Employee!]!
+  payroll: Payroll
+  leaveRequests: [Leave!]!
+  timeSheets: [TimeSheet!]!
+  benefitsPlans: [BenefitsPlan!]!
+}
+
+type EmployeePosition {
+  id: ID!
+  positionCode: String!
+  positionTitle: String!
+  jobCode: String
+  jobFamily: String
+  grade: String
+  costCenter: CostCenter
+  plant: Plant
+  headcount: Int
+  employees: [Employee!]!
+  parentPosition: EmployeePosition
+}
+
+type HCMWorker {
+  id: ID!
+  workerId: String!
+  workerType: String!
+  firstName: String!
+  lastName: String!
+  email: String
+  startDate: Date!
+  endDate: Date
+  status: String!
+  position: EmployeePosition
+  supervisor: HCMWorker
+  costCenter: CostCenter
+  employmentDetails: JSON
+}
+
+type Payroll {
+  id: ID!
+  employee: Employee!
+  payPeriod: String!
+  payDate: Date
+  grossPay: Decimal!
+  netPay: Decimal!
+  currency: String!
+  deductions: [PayrollDeduction!]!
+  earnings: [PayrollEarning!]!
+  status: String!
+}
+
+type PayrollDeduction {
+  id: ID!
+  payroll: Payroll!
+  deductionType: String!
+  description: String
+  amount: Decimal!
+  currency: String!
+}
+
+type PayrollEarning {
+  id: ID!
+  payroll: Payroll!
+  earningType: String!
+  description: String
+  hours: Decimal
+  rate: Decimal
+  amount: Decimal!
+  currency: String!
+}
+
+type Leave {
+  id: ID!
+  employee: Employee!
+  leaveType: String!
+  startDate: Date!
+  endDate: Date!
+  durationDays: Decimal!
+  status: String!
+  approver: Employee
+  approvedDate: Date
+  comments: String
+  createdAt: DateTime
+}
+
+type Recruitment {
+  id: ID!
+  jobRequisitionId: String!
+  jobTitle: String!
+  position: EmployeePosition
+  recruiter: Employee
+  hiringManager: Employee
+  status: String!
+  openDate: Date!
+  closeDate: Date
+  targetHireDate: Date
+  headcount: Int!
+  candidates: [RecruitmentCandidate!]!
+}
+
+type RecruitmentCandidate {
+  id: ID!
+  recruitment: Recruitment!
+  candidateId: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  applicationDate: Date!
+  status: String!
+  interviewScores: JSON
+}
+
+type SuccessFactorsUser {
+  id: ID!
+  userId: String!
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  status: String!
+  department: String
+  division: String
+  title: String
+  location: String
+  manager: SuccessFactorsUser
+  hireDate: Date
+  lastModified: DateTime
+}
+
+type TimeSheet {
+  id: ID!
+  employee: Employee!
+  recordDate: Date!
+  approvalStatus: String!
+  totalHours: Decimal!
+  entries: [TimeSheetEntry!]!
+  submittedAt: DateTime
+  approvedAt: DateTime
+  approver: Employee
+}
+
+type TimeSheetEntry {
+  id: ID!
+  timeSheet: TimeSheet!
+  date: Date!
+  hours: Decimal!
+  activityType: String
+  costCenter: CostCenter
+  wbsElement: WBSElement
+  workOrder: WorkOrder
+  note: String
+}
+
+type BenefitsPlan {
+  id: ID!
+  planId: String!
+  planName: String!
+  planType: String!
+  provider: String
+  effectiveDate: Date!
+  endDate: Date
+  employeeCost: Decimal
+  employerCost: Decimal
+  currency: String!
+  employees: [Employee!]!
+}
+
+# ─────────────────────────────────────────────
+# Ariba (Procurement / Sourcing)
+# ─────────────────────────────────────────────
+
+type Ariba {
+  id: ID!
+  realm: String!
+  region: String!
+  requisitions: [AribaRequisition!]!
+  bids: [AribaBid!]!
+}
+
+type AribaRequisition {
+  id: ID!
+  requisitionId: String!
+  realm: String!
+  title: String!
+  requestedBy: String!
+  submitDate: DateTime
+  totalAmount: Decimal
+  currency: String!
+  status: String!
+  approvalStatus: String
+  lineItems: [AribaLineItem!]!
+  purchaseOrder: PurchaseOrder
+}
+
+type AribaLineItem {
+  id: ID!
+  requisition: AribaRequisition!
+  lineNumber: Int!
+  description: String!
+  quantity: Decimal!
+  unit: String!
+  unitPrice: Decimal!
+  currency: String!
+  supplier: Supplier
+  commodity: String
+  needByDate: Date
+}
+
+type AribaBid {
+  id: ID!
+  bidId: String!
+  eventId: String!
+  eventTitle: String!
+  awardedSupplier: Supplier
+  totalBidAmount: Decimal
+  currency: String!
+  submissionDeadline: DateTime
+  awardDate: Date
+  status: String!
+  responses: [AribaBidResponse!]!
+}
+
+type AribaBidResponse {
+  id: ID!
+  bid: AribaBid!
+  supplier: Supplier!
+  responseDate: DateTime
+  totalAmount: Decimal!
+  currency: String!
+  status: String!
+  lineItems: [AribaBidLineItem!]!
+}
+
+type AribaBidLineItem {
+  id: ID!
+  response: AribaBidResponse!
+  lineNumber: Int!
+  description: String!
+  quantity: Decimal!
+  unit: String!
+  unitPrice: Decimal!
+  currency: String!
+}
+
+# ─────────────────────────────────────────────
+# Concur (Travel & Expense)
+# ─────────────────────────────────────────────
+
+type ConcurExpense {
+  id: ID!
+  expenseId: String!
+  expenseType: String!
+  transactionDate: Date!
+  amount: Decimal!
+  currency: String!
+  exchangeRate: Decimal
+  businessPurpose: String
+  merchant: String
+  location: String
+  receiptRequired: Boolean!
+  hasReceipt: Boolean!
+  report: ConcurReport
+  employee: Employee
+  costCenter: CostCenter
+  approvalStatus: String!
+}
+
+type ConcurReport {
+  id: ID!
+  reportId: String!
+  reportName: String!
+  reportDate: Date!
+  employee: Employee!
+  totalAmount: Decimal!
+  currency: String!
+  approvalStatus: String!
+  submitDate: DateTime
+  approveDate: DateTime
+  approver: Employee
+  paymentDate: Date
+  paymentStatus: String
+  expenses: [ConcurExpense!]!
+  policyViolations: [JSON]
+  costCenter: CostCenter
+}
+
+# ─────────────────────────────────────────────
+# Fieldglass (External Workforce)
+# ─────────────────────────────────────────────
+
+type Fieldglass {
+  id: ID!
+  tenantId: String!
+  companyCode: CompanyCode
+  workOrders: [WorkOrder!]!
+}
+
+type WorkOrder {
+  id: ID!
+  workOrderId: String!
+  workOrderTitle: String!
+  supplier: Supplier!
+  worker: HCMWorker
+  startDate: Date!
+  endDate: Date
+  status: String!
+  totalValue: Decimal
+  currency: String!
+  billRate: Decimal
+  billRateUnit: String
+  site: String
+  costCenter: CostCenter
+  wbsElement: WBSElement
+  timeSheets: [TimeSheet!]!
+  invoices: [Invoice!]!
+}
+
+# ─────────────────────────────────────────────
+# SAP BTP (Business Technology Platform)
+# ─────────────────────────────────────────────
+
+type ODataService {
+  id: ID!
+  serviceUrl: String!
+  serviceName: String!
+  serviceVersion: String!
+  namespace: String
+  protocol: String!
+  entitySets: [String!]!
+  functionImports: [String!]!
+  isActive: Boolean!
+  systemAlias: String
+}
+
+type BTPService {
+  id: ID!
+  serviceName: String!
+  serviceInstanceName: String!
+  servicePlan: String!
+  region: String!
+  subaccount: String!
+  status: String!
+  bindings: [BTPBinding!]!
+  parameters: JSON
+  createdAt: DateTime
+  modifiedAt: DateTime
+}
+
+type BTPBinding {
+  id: ID!
+  bindingId: String!
+  service: BTPService!
+  applicationName: String
+  credentials: JSON
+  status: String!
+  createdAt: DateTime
+}
+
+type StandardIdentifier {
+  id: ID!
+  identifierType: String!
+  identifierValue: String!
+  scheme: String!
+  description: String
+  isValid: Boolean!
+  validFrom: Date
+  validTo: Date
+  relatedObject: String
+  relatedObjectId: String
+}
+
+# ─────────────────────────────────────────────
+# Queries
+# ─────────────────────────────────────────────
+
+type Query {
+  # Customers & Sales
+  customer(id: ID!): Customer
+  customers(filter: CustomerFilter, limit: Int, offset: Int): [Customer!]!
+  salesOrder(id: ID!): SalesOrder
+  salesOrders(filter: SalesOrderFilter, limit: Int, offset: Int): [SalesOrder!]!
+  customerOrder(id: ID!): CustomerOrder
+  customerOrders(customerId: ID!, limit: Int, offset: Int): [CustomerOrder!]!
+
+  # Business Partners
+  businessPartner(id: ID!): BusinessPartner
+  businessPartners(filter: BusinessPartnerFilter, limit: Int, offset: Int): [BusinessPartner!]!
+
+  # Procurement
+  supplier(id: ID!): Supplier
+  suppliers(filter: SupplierFilter, limit: Int, offset: Int): [Supplier!]!
+  purchaseOrder(id: ID!): PurchaseOrder
+  purchaseOrders(filter: PurchaseOrderFilter, limit: Int, offset: Int): [PurchaseOrder!]!
+  purchaseRequisition(id: ID!): PurchaseRequisition
+  purchaseRequisitions(filter: PurchaseRequisitionFilter, limit: Int, offset: Int): [PurchaseRequisition!]!
+  invoice(id: ID!): Invoice
+  invoices(filter: InvoiceFilter, limit: Int, offset: Int): [Invoice!]!
+  goodsReceipt(id: ID!): GoodsReceipt
+  goodsReceipts(purchaseOrderId: ID, limit: Int, offset: Int): [GoodsReceipt!]!
+  deliveryNote(id: ID!): DeliveryNote
+  deliveryNotes(filter: DeliveryNoteFilter, limit: Int, offset: Int): [DeliveryNote!]!
+  contract(id: ID!): Contract
+  contracts(filter: ContractFilter, limit: Int, offset: Int): [Contract!]!
+
+  # Product / Material
+  product(id: ID!): Product
+  products(filter: ProductFilter, limit: Int, offset: Int): [Product!]!
+  productCategory(id: ID!): ProductCategory
+  productCategories(limit: Int, offset: Int): [ProductCategory!]!
+  productGroup(id: ID!): ProductGroup
+  productGroups(limit: Int, offset: Int): [ProductGroup!]!
+  billOfMaterial(id: ID!): BillOfMaterial
+  billsOfMaterial(productId: ID, plantId: ID, limit: Int, offset: Int): [BillOfMaterial!]!
+
+  # Plant & Logistics
+  plant(id: ID!): Plant
+  plants(companyCodeId: ID, limit: Int, offset: Int): [Plant!]!
+  storageLocation(id: ID!): StorageLocation
+  storageLocations(plantId: ID!, limit: Int, offset: Int): [StorageLocation!]!
+  materialDocument(id: ID!): MaterialDocument
+  materialDocuments(filter: MaterialDocumentFilter, limit: Int, offset: Int): [MaterialDocument!]!
+
+  # Project System
+  project(id: ID!): Project
+  projects(filter: ProjectFilter, limit: Int, offset: Int): [Project!]!
+  wbsElement(id: ID!): WBSElement
+  wbsElements(projectId: ID!, limit: Int, offset: Int): [WBSElement!]!
+  network(id: ID!): Network
+  networks(projectId: ID!, limit: Int, offset: Int): [Network!]!
+
+  # Finance & Controlling
+  companyCode(id: ID!): CompanyCode
+  companyCodes(limit: Int, offset: Int): [CompanyCode!]!
+  glAccount(id: ID!): GLAccount
+  glAccounts(companyCodeId: ID, limit: Int, offset: Int): [GLAccount!]!
+  costCenter(id: ID!): CostCenter
+  costCenters(filter: CostCenterFilter, limit: Int, offset: Int): [CostCenter!]!
+  profitCenter(id: ID!): ProfitCenter
+  profitCenters(controllingArea: String, limit: Int, offset: Int): [ProfitCenter!]!
+  functionalArea(id: ID!): FunctionalArea
+  functionalAreas(limit: Int, offset: Int): [FunctionalArea!]!
+  controlling(id: ID!): Controlling
+  controllings(limit: Int, offset: Int): [Controlling!]!
+
+  # HCM / SuccessFactors
+  employee(id: ID!): Employee
+  employees(filter: EmployeeFilter, limit: Int, offset: Int): [Employee!]!
+  employeePosition(id: ID!): EmployeePosition
+  employeePositions(limit: Int, offset: Int): [EmployeePosition!]!
+  hcmWorker(id: ID!): HCMWorker
+  hcmWorkers(filter: HCMWorkerFilter, limit: Int, offset: Int): [HCMWorker!]!
+  payroll(id: ID!): Payroll
+  payrolls(employeeId: ID!, limit: Int, offset: Int): [Payroll!]!
+  leaveRequest(id: ID!): Leave
+  leaveRequests(employeeId: ID!, limit: Int, offset: Int): [Leave!]!
+  recruitment(id: ID!): Recruitment
+  recruitments(filter: RecruitmentFilter, limit: Int, offset: Int): [Recruitment!]!
+  successFactorsUser(id: ID!): SuccessFactorsUser
+  successFactorsUsers(limit: Int, offset: Int): [SuccessFactorsUser!]!
+  timeSheet(id: ID!): TimeSheet
+  timeSheets(employeeId: ID!, limit: Int, offset: Int): [TimeSheet!]!
+  benefitsPlan(id: ID!): BenefitsPlan
+  benefitsPlans(limit: Int, offset: Int): [BenefitsPlan!]!
+
+  # Ariba
+  ariba(realm: String!): Ariba
+  aribaRequisition(id: ID!): AribaRequisition
+  aribaRequisitions(realm: String!, filter: AribaRequisitionFilter, limit: Int, offset: Int): [AribaRequisition!]!
+  aribaBid(id: ID!): AribaBid
+  aribaBids(realm: String!, limit: Int, offset: Int): [AribaBid!]!
+
+  # Concur
+  concurExpense(id: ID!): ConcurExpense
+  concurExpenses(employeeId: ID, reportId: ID, limit: Int, offset: Int): [ConcurExpense!]!
+  concurReport(id: ID!): ConcurReport
+  concurReports(employeeId: ID!, limit: Int, offset: Int): [ConcurReport!]!
+
+  # Fieldglass
+  fieldglass(tenantId: String!): Fieldglass
+  workOrder(id: ID!): WorkOrder
+  workOrders(filter: WorkOrderFilter, limit: Int, offset: Int): [WorkOrder!]!
+
+  # BTP
+  btpService(id: ID!): BTPService
+  btpServices(subaccount: String, region: String, limit: Int, offset: Int): [BTPService!]!
+  btpBinding(id: ID!): BTPBinding
+  btpBindings(serviceId: ID!, limit: Int, offset: Int): [BTPBinding!]!
+  odataService(id: ID!): ODataService
+  odataServices(systemAlias: String, limit: Int, offset: Int): [ODataService!]!
+  standardIdentifier(id: ID!): StandardIdentifier
+  standardIdentifiers(identifierType: String, limit: Int, offset: Int): [StandardIdentifier!]!
+}
+
+# ─────────────────────────────────────────────
+# Mutations
+# ─────────────────────────────────────────────
+
+type Mutation {
+  # Sales
+  createSalesOrder(input: SalesOrderInput!): SalesOrder!
+  updateSalesOrder(id: ID!, input: SalesOrderInput!): SalesOrder!
+  createCustomer(input: CustomerInput!): Customer!
+  updateCustomer(id: ID!, input: CustomerInput!): Customer!
+
+  # Procurement
+  createPurchaseOrder(input: PurchaseOrderInput!): PurchaseOrder!
+  updatePurchaseOrder(id: ID!, input: PurchaseOrderInput!): PurchaseOrder!
+  approvePurchaseOrder(id: ID!): PurchaseOrder!
+  createPurchaseRequisition(input: PurchaseRequisitionInput!): PurchaseRequisition!
+  createInvoice(input: InvoiceInput!): Invoice!
+  postGoodsReceipt(input: GoodsReceiptInput!): GoodsReceipt!
+
+  # HR
+  createEmployee(input: EmployeeInput!): Employee!
+  updateEmployee(id: ID!, input: EmployeeInput!): Employee!
+  submitLeaveRequest(input: LeaveInput!): Leave!
+  approveLeaveRequest(id: ID!, approverId: ID!): Leave!
+  submitTimeSheet(id: ID!): TimeSheet!
+  approveTimeSheet(id: ID!, approverId: ID!): TimeSheet!
+
+  # Ariba
+  createAribaRequisition(realm: String!, input: AribaRequisitionInput!): AribaRequisition!
+  submitAribaRequisition(id: ID!): AribaRequisition!
+
+  # Concur
+  createConcurExpense(input: ConcurExpenseInput!): ConcurExpense!
+  createConcurReport(input: ConcurReportInput!): ConcurReport!
+  submitConcurReport(id: ID!): ConcurReport!
+  approveConcurReport(id: ID!, approverId: ID!): ConcurReport!
+
+  # Fieldglass
+  createWorkOrder(input: WorkOrderInput!): WorkOrder!
+  updateWorkOrder(id: ID!, input: WorkOrderInput!): WorkOrder!
+
+  # BTP
+  createBTPService(input: BTPServiceInput!): BTPService!
+  deleteBTPService(id: ID!): Boolean!
+  createBTPBinding(serviceId: ID!, applicationName: String): BTPBinding!
+  deleteBTPBinding(id: ID!): Boolean!
+}
+
+# ─────────────────────────────────────────────
+# Input Types (Filters)
+# ─────────────────────────────────────────────
+
+input CustomerFilter {
+  customerNumber: String
+  name: String
+  accountGroup: String
+  salesOrganization: String
+  industry: String
+}
+
+input SalesOrderFilter {
+  customerId: ID
+  status: String
+  salesOrganization: String
+  fromDate: Date
+  toDate: Date
+}
+
+input BusinessPartnerFilter {
+  businessPartnerType: String
+  organizationName: String
+  country: String
+  searchTerm: String
+}
+
+input SupplierFilter {
+  supplierNumber: String
+  name: String
+  accountGroup: String
+  country: String
+}
+
+input PurchaseOrderFilter {
+  supplierId: ID
+  companyCodeId: ID
+  status: String
+  fromDate: Date
+  toDate: Date
+}
+
+input PurchaseRequisitionFilter {
+  status: String
+  requestedBy: String
+  plantId: ID
+  fromDate: Date
+  toDate: Date
+}
+
+input InvoiceFilter {
+  supplierId: ID
+  customerId: ID
+  companyCodeId: ID
+  status: String
+  fromDate: Date
+  toDate: Date
+}
+
+input DeliveryNoteFilter {
+  status: String
+  shippingPoint: String
+  fromDate: Date
+  toDate: Date
+}
+
+input ContractFilter {
+  supplierId: ID
+  customerId: ID
+  status: String
+  validAt: Date
+}
+
+input ProductFilter {
+  productType: String
+  productCategoryId: ID
+  productGroupId: ID
+  searchTerm: String
+}
+
+input MaterialDocumentFilter {
+  plantId: ID
+  movementType: String
+  fromDate: Date
+  toDate: Date
+}
+
+input ProjectFilter {
+  status: String
+  responsibleCostCenterId: ID
+  companyCodeId: ID
+}
+
+input CostCenterFilter {
+  companyCodeId: ID
+  controllingArea: String
+  costCenterGroupId: ID
+  isActive: Boolean
+}
+
+input EmployeeFilter {
+  status: String
+  department: String
+  managerId: ID
+  costCenterId: ID
+  hireFromDate: Date
+  hireToDate: Date
+}
+
+input HCMWorkerFilter {
+  workerType: String
+  status: String
+  costCenterId: ID
+}
+
+input RecruitmentFilter {
+  status: String
+  recruiterId: ID
+  hiringManagerId: ID
+}
+
+input AribaRequisitionFilter {
+  status: String
+  requestedBy: String
+  fromDate: Date
+  toDate: Date
+}
+
+input WorkOrderFilter {
+  supplierId: ID
+  status: String
+  costCenterId: ID
+  fromDate: Date
+  toDate: Date
+}
+
+input SalesOrderInput {
+  customerId: ID!
+  salesOrganization: String!
+  distributionChannel: String!
+  division: String!
+  orderDate: Date!
+  requestedDeliveryDate: Date
+  currency: String!
+  plantId: ID
+}
+
+input CustomerInput {
+  customerNumber: String
+  name: String!
+  accountGroup: String!
+  salesOrganization: String
+  currency: String!
+  industry: String
+}
+
+input PurchaseOrderInput {
+  supplierId: ID!
+  companyCodeId: ID!
+  purchasingOrganization: String!
+  purchasingGroup: String!
+  documentDate: Date!
+  currency: String!
+}
+
+input PurchaseRequisitionInput {
+  requisitionType: String!
+  requestedBy: String!
+  plantId: ID
+  deliveryDate: Date!
+}
+
+input InvoiceInput {
+  supplierId: ID
+  customerId: ID
+  companyCodeId: ID!
+  invoiceType: String!
+  invoiceDate: Date!
+  postingDate: Date!
+  totalAmount: Decimal!
+  currency: String!
+}
+
+input GoodsReceiptInput {
+  purchaseOrderId: ID!
+  plantId: ID!
+  storageLocationId: ID
+  postingDate: Date!
+  documentDate: Date!
+}
+
+input EmployeeInput {
+  firstName: String!
+  lastName: String!
+  email: String
+  hireDate: Date!
+  positionId: ID
+  costCenterId: ID
+  managerId: ID
+}
+
+input LeaveInput {
+  employeeId: ID!
+  leaveType: String!
+  startDate: Date!
+  endDate: Date!
+  comments: String
+}
+
+input AribaRequisitionInput {
+  title: String!
+  requestedBy: String!
+  currency: String!
+}
+
+input ConcurExpenseInput {
+  expenseType: String!
+  transactionDate: Date!
+  amount: Decimal!
+  currency: String!
+  businessPurpose: String
+  merchant: String
+}
+
+input ConcurReportInput {
+  reportName: String!
+  reportDate: Date!
+  employeeId: ID!
+  currency: String!
+}
+
+input WorkOrderInput {
+  workOrderTitle: String!
+  supplierId: ID!
+  startDate: Date!
+  currency: String!
+  billRate: Decimal
+  billRateUnit: String
+}
+
+input BTPServiceInput {
+  serviceName: String!
+  serviceInstanceName: String!
+  servicePlan: String!
+  region: String!
+  subaccount: String!
+  parameters: JSON
+}

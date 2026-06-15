@@ -1,0 +1,269 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP S/4HANA Cloud Business Partner API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Partners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Business Partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to skip"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData sort expression"
+              }
+            ]
+          },
+          "docs": "Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new business partner master record in SAP S/4HANA Cloud."
+        },
+        {
+          "info": {
+            "name": "Sap Get a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner(':BusinessPartner')",
+            "params": [
+              {
+                "name": "BusinessPartner",
+                "value": "example_value",
+                "type": "path",
+                "description": "Business partner number"
+              }
+            ]
+          },
+          "docs": "Retrieves a single business partner by its key."
+        },
+        {
+          "info": {
+            "name": "Sap Update a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner(':BusinessPartner')",
+            "params": [
+              {
+                "name": "BusinessPartner",
+                "value": "example_value",
+                "type": "path",
+                "description": "Business partner number"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates fields of an existing business partner record."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Business Partner Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerAddress",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to skip"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieves address records associated with business partners."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bank Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Bank Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerBank",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to skip"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieves bank account records for business partners."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Business Partner Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerRole",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieves role assignments for business partners, indicating whether they serve as customer, supplier, or both."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tax Numbers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Tax Numbers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerTaxNumber",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              }
+            ]
+          },
+          "docs": "Retrieves tax identification numbers for business partners."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1259 @@
+{
+  "item": [
+    {
+      "id": "834c1ab0-b18f-4eaa-8be1-f7e35682c4c4",
+      "name": "Addresses",
+      "description": {
+        "content": "Business partner address management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28697bec-385b-491d-a2ee-7852febcec6c",
+          "name": "Sap List Business Partner Addresses",
+          "request": {
+            "name": "Sap List Business Partner Addresses",
+            "description": {
+              "content": "Retrieves address records associated with business partners.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartnerAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of entries to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7c7005d-e2ea-4c95-b5ec-e9af9b8906f4",
+              "name": "Collection of addresses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartnerAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"AddressID\": \"500123\",\n        \"Country\": \"example_value\",\n        \"Region\": \"example_value\",\n        \"CityName\": \"example_value\",\n        \"PostalCode\": \"example_value\",\n        \"StreetName\": \"example_value\",\n        \"HouseNumber\": \"example_value\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bb92738d-83ee-4d1b-9fd1-95916cc56293",
+      "name": "Bank Accounts",
+      "description": {
+        "content": "Business partner bank account details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c345350-f0ab-485c-9bcd-c3bde3b0bfec",
+          "name": "Sap List Bank Accounts",
+          "request": {
+            "name": "Sap List Bank Accounts",
+            "description": {
+              "content": "Retrieves bank account records for business partners.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartnerBank"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of entries to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d9ed169-ed4d-4aa3-8178-ce682c8d47e1",
+              "name": "Collection of bank accounts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartnerBank"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"BankIdentification\": \"example_value\",\n        \"BankCountryKey\": \"example_value\",\n        \"BankNumber\": \"example_value\",\n        \"BankAccount\": \"example_value\",\n        \"IBAN\": \"example_value\",\n        \"SWIFTCode\": \"example_value\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e4cca6d2-7fba-4f1c-a328-a6d86b9218af",
+      "name": "Business Partners",
+      "description": {
+        "content": "Business partner header data and general information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8d1fed5-5cb6-4dc8-bdec-fbeeaf95b0f0",
+          "name": "Sap List Business Partners",
+          "request": {
+            "name": "Sap List Business Partners",
+            "description": {
+              "content": "Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of entries to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData sort expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "036a418c-58fc-42d9-87e6-4ca1d98c1d33",
+              "name": "Collection of business partners",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"BusinessPartnerFullName\": \"example_value\",\n        \"BusinessPartnerCategory\": \"1\",\n        \"BusinessPartnerGrouping\": \"example_value\",\n        \"FirstName\": \"example_value\",\n        \"LastName\": \"example_value\",\n        \"OrganizationBPName1\": \"example_value\",\n        \"SearchTerm1\": \"example_value\",\n        \"Language\": \"example_value\",\n        \"CreationDate\": \"2026-01-15\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c904a261-a960-41f6-ab63-62190078d51d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c0da291-efcc-4dad-8cba-edf5e544d7cf",
+          "name": "Sap Create a Business Partner",
+          "request": {
+            "name": "Sap Create a Business Partner",
+            "description": {
+              "content": "Creates a new business partner master record in SAP S/4HANA Cloud.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"<string>\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "112a08be-8c0e-4729-bd19-f7a65497c7be",
+              "name": "Business partner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"example_value\",\n    \"BusinessPartnerFullName\": \"example_value\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"example_value\",\n    \"FirstName\": \"example_value\",\n    \"LastName\": \"example_value\",\n    \"OrganizationBPName1\": \"example_value\",\n    \"SearchTerm1\": \"example_value\",\n    \"Language\": \"example_value\",\n    \"CreationDate\": \"2026-01-15\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "171afcc6-6a96-4eeb-92a8-9acdd2f64cdd",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0efc51c-ef5e-46a6-be6e-653ceb1f7f49",
+          "name": "Sap Get a Business Partner",
+          "request": {
+            "name": "Sap Get a Business Partner",
+            "description": {
+              "content": "Retrieves a single business partner by its key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c7e8c0e-3a39-4c51-8162-c5a866f8e10e",
+              "name": "Business partner details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"example_value\",\n    \"BusinessPartnerFullName\": \"example_value\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"example_value\",\n    \"FirstName\": \"example_value\",\n    \"LastName\": \"example_value\",\n    \"OrganizationBPName1\": \"example_value\",\n    \"SearchTerm1\": \"example_value\",\n    \"Language\": \"example_value\",\n    \"CreationDate\": \"2026-01-15\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "922275ca-3c26-4ddd-b9c5-f59ad494dab0",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32451c45-1f17-4134-82c3-6a5be8382964",
+          "name": "Sap Update a Business Partner",
+          "request": {
+            "name": "Sap Update a Business Partner",
+            "description": {
+              "content": "Updates fields of an existing business partner record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"<string>\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b6dd5dcd-c615-4171-9468-3718035e0fea",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29b9d2ac-bbb1-42fc-9213-b5f69ffb108d",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba21123e-b063-442a-b252-c7f5186246b1",
+      "name": "Roles",
+      "description": {
+        "content": "Business partner role assignments (customer, supplier)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e0a58c9-7e28-44b7-adc9-e811b968ed09",
+          "name": "Sap List Business Partner Roles",
+          "request": {
+            "name": "Sap List Business Partner Roles",
+            "description": {
+              "content": "Retrieves role assignments for business partners, indicating whether they serve as customer, supplier, or both.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartnerRole"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "663d025d-920d-471d-95b6-51b148d7c888",
+              "name": "Collection of roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartnerRole"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"BusinessPartnerRole\": \"example_value\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8f04f81d-9f0c-4627-b6ef-199e10ad0af0",
+      "name": "Tax Numbers",
+      "description": {
+        "content": "Business partner tax identification numbers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7554ddb7-b28c-4341-8aab-c4db60525a99",
+          "name": "Sap List Tax Numbers",
+          "request": {
+            "name": "Sap List Tax Numbers",
+            "description": {
+              "content": "Retrieves tax identification numbers for business partners.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartnerTaxNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP S/4HANA Cloud hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a9d8d4e-8255-4b58-ac2d-01d463e8ee42",
+              "name": "Collection of tax numbers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartnerTaxNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP S/4HANA Cloud hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"BPTaxType\": \"example_value\",\n        \"BPTaxNumber\": \"example_value\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP S/4HANA Cloud hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "sandbox.api.sap.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Business partner number",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "BusinessPartner"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9119f611-71a1-423a-ac24-2048d4151202",
+    "name": "SAP S/4HANA Cloud Business Partner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OData v2 API for managing business partner master data in SAP S/4HANA Cloud. Covers creation, retrieval, and update of business partners, addresses, bank accounts, tax numbers, and roles (customer, supplier).\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

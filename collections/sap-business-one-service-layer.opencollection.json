@@ -1,0 +1,391 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP Business One Service Layer API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "B1SESSION",
+      "value": "{{B1SESSION}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap Authenticate and Create a Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/Login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticates a user against SAP Business One and returns a session cookie for subsequent API calls."
+        },
+        {
+          "info": {
+            "name": "Sap End the Current Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/Logout"
+          },
+          "docs": "Terminates the current authenticated session and invalidates the session cookie."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Business Partners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Business Partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/BusinessPartners",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData ordering expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of business partners including customers, vendors, and leads with support for OData query options."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/BusinessPartners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new business partner record in SAP Business One."
+        },
+        {
+          "info": {
+            "name": "Sap Get a Business Partner by Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/BusinessPartners(':CardCode')",
+            "params": [
+              {
+                "name": "CardCode",
+                "value": "example_value",
+                "type": "path",
+                "description": "The unique card code of the business partner"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific business partner by their card code."
+        },
+        {
+          "info": {
+            "name": "Sap Update a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{server}:50000/b1s/v1/BusinessPartners(':CardCode')",
+            "params": [
+              {
+                "name": "CardCode",
+                "value": "example_value",
+                "type": "path",
+                "description": "The unique card code of the business partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing business partner record with the provided fields."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Sales Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/Orders",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData ordering expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of sales orders with support for OData query options including filtering, sorting, and pagination."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/Orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new sales order in SAP Business One with line items."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/Items",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves the item master data list with support for OData query options."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Journal Entries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Journal Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/JournalEntries",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves financial journal entries with support for OData filtering and pagination."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Journal Entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/JournalEntries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new financial journal entry with debit and credit lines."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Ar Invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{server}:50000/b1s/v1/Invoices",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves accounts receivable invoices with OData query support."
+        },
+        {
+          "info": {
+            "name": "Sap Create an Ar Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{server}:50000/b1s/v1/Invoices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new accounts receivable invoice with line items."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1919 @@
+{
+  "item": [
+    {
+      "id": "947d0652-50d2-4d27-92c6-d7c19b3c4616",
+      "name": "Authentication",
+      "description": {
+        "content": "Login and session management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebeb9a1a-cda2-4061-aee0-4ec72f752d32",
+          "name": "Sap Authenticate and Create a Session",
+          "request": {
+            "name": "Sap Authenticate and Create a Session",
+            "description": {
+              "content": "Authenticates a user against SAP Business One and returns a session cookie for subsequent API calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CompanyDB\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4d064447-02a2-4d2d-9b3e-61eb13efd8a1",
+              "name": "Successfully authenticated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyDB\": \"example_value\",\n  \"UserName\": \"example_value\",\n  \"Password\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SessionId\": \"500123\",\n  \"Version\": \"example_value\",\n  \"SessionTimeout\": 10\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b19d5b3a-2308-4036-b432-f1163a283cb8",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyDB\": \"example_value\",\n  \"UserName\": \"example_value\",\n  \"Password\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68df6ec0-cb9f-4962-b8fa-a8eab6eac86d",
+          "name": "Sap End the Current Session",
+          "request": {
+            "name": "Sap End the Current Session",
+            "description": {
+              "content": "Terminates the current authenticated session and invalidates the session cookie.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cb35e69-8bf8-4c6c-853d-c0107d4e4563",
+              "name": "Successfully logged out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "dc05da4f-72fc-493a-a6d5-0ff370a6cf52",
+      "name": "Business Partners",
+      "description": {
+        "content": "Manage customers, vendors, and leads",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08231e1b-9c40-4cdf-8dc2-7622762545fc",
+          "name": "Sap List Business Partners",
+          "request": {
+            "name": "Sap List Business Partners",
+            "description": {
+              "content": "Retrieves a list of business partners including customers, vendors, and leads with support for OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData ordering expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8676cfe-d59e-4c4b-8292-3ab6888f01f1",
+              "name": "List of business partners",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"CardCode\": \"example_value\",\n      \"CardName\": \"example_value\",\n      \"CardType\": \"cCustomer\",\n      \"GroupCode\": 10,\n      \"Phone1\": \"example_value\",\n      \"EmailAddress\": \"user@example.com\",\n      \"FederalTaxID\": \"500123\",\n      \"Currency\": \"example_value\",\n      \"Valid\": \"tYES\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdf9dd5b-725d-44f3-b771-541fdce70b10",
+          "name": "Sap Create a Business Partner",
+          "request": {
+            "name": "Sap Create a Business Partner",
+            "description": {
+              "content": "Creates a new business partner record in SAP Business One.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"<string>\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7262ddeb-4a95-4987-99b4-12e7baa91820",
+              "name": "Business partner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc1fd6aa-4fc9-41e5-a448-1dee81448410",
+              "name": "Invalid request data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48763578-653d-4b43-98b6-d36b93dcc772",
+          "name": "Sap Get a Business Partner by Code",
+          "request": {
+            "name": "Sap Get a Business Partner by Code",
+            "description": {
+              "content": "Retrieves a specific business partner by their card code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e95f699e-f306-4b9e-9ab6-6efacf19a1f0",
+              "name": "Business partner details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fb981eb-929c-40d1-9d0b-c1a980dfec6b",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d4786c8-1e9b-4788-95ef-81d5bd56813b",
+          "name": "Sap Update a Business Partner",
+          "request": {
+            "name": "Sap Update a Business Partner",
+            "description": {
+              "content": "Updates an existing business partner record with the provided fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"<string>\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65a33679-e5e6-40ff-9878-15024bea2931",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de2cd3a1-f618-45ee-8fab-a7a702c0f344",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4c4ec261-9d92-4ae3-98bc-6aca1b3fdb24",
+      "name": "Invoices",
+      "description": {
+        "content": "AR and AP invoice management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "567fa593-bb11-4508-a42f-7b9c5867a09a",
+          "name": "Sap List Ar Invoices",
+          "request": {
+            "name": "Sap List Ar Invoices",
+            "description": {
+              "content": "Retrieves accounts receivable invoices with OData query support.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe67f564-b78a-4a29-bb6c-1b06630d86fa",
+              "name": "List of invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"DocEntry\": 10,\n      \"DocNum\": 10,\n      \"CardCode\": \"example_value\",\n      \"DocDate\": \"2026-01-15\",\n      \"DocDueDate\": \"2026-01-15\",\n      \"DocTotal\": 42.5,\n      \"DocumentLines\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e75ee60-eab4-4203-97f6-4e6ee88b1e34",
+          "name": "Sap Create an Ar Invoice",
+          "request": {
+            "name": "Sap Create an Ar Invoice",
+            "description": {
+              "content": "Creates a new accounts receivable invoice with line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8594d1a6-44a2-4fdf-a0cc-28e8651a0100",
+              "name": "Invoice created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bffc5647-507e-40ce-90c7-b644248957ea",
+      "name": "Items",
+      "description": {
+        "content": "Product and item master data management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cdd2063f-dd05-41ba-8227-6e526cdc1dea",
+          "name": "Sap List Items",
+          "request": {
+            "name": "Sap List Items",
+            "description": {
+              "content": "Retrieves the item master data list with support for OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bad7b8c0-9726-455d-a0bb-9a60054527d0",
+              "name": "List of items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"ItemName\": \"example_value\",\n      \"ItemType\": \"itItems\",\n      \"ItemsGroupCode\": 10,\n      \"QuantityOnStock\": 42.5,\n      \"AvgStdPrice\": 42.5,\n      \"SalesUnit\": \"example_value\",\n      \"PurchaseUnit\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "46b28cda-9c58-4a01-88f6-0987c58e8748",
+      "name": "Journal Entries",
+      "description": {
+        "content": "Financial journal entries and postings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4703c173-0d84-4bcf-9768-d8b1623dd7ca",
+          "name": "Sap List Journal Entries",
+          "request": {
+            "name": "Sap List Journal Entries",
+            "description": {
+              "content": "Retrieves financial journal entries with support for OData filtering and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "JournalEntries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c56a2c9b-2e4a-4f96-b928-88ffa1f2609c",
+              "name": "List of journal entries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "JournalEntries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"JdtNum\": 10,\n      \"ReferenceDate\": \"2026-01-15\",\n      \"Memo\": \"example_value\",\n      \"JournalEntryLines\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "364201ec-db94-40f0-ab93-04e6a9637f7c",
+          "name": "Sap Create a Journal Entry",
+          "request": {
+            "name": "Sap Create a Journal Entry",
+            "description": {
+              "content": "Creates a new financial journal entry with debit and credit lines.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "JournalEntries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ReferenceDate\": \"<date>\",\n  \"Memo\": \"<string>\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    },\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63c1ff14-7547-4f65-841c-34e40f13fb81",
+              "name": "Journal entry created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "JournalEntries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"JdtNum\": 10,\n  \"ReferenceDate\": \"2026-01-15\",\n  \"Memo\": \"example_value\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"example_value\",\n      \"Debit\": 42.5,\n      \"Credit\": 42.5,\n      \"ShortName\": \"example_value\",\n      \"LineMemo\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"JdtNum\": 10,\n  \"ReferenceDate\": \"2026-01-15\",\n  \"Memo\": \"example_value\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"example_value\",\n      \"Debit\": 42.5,\n      \"Credit\": 42.5,\n      \"ShortName\": \"example_value\",\n      \"LineMemo\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7b0ef312-b126-444f-94b5-d32963d96ffc",
+      "name": "Orders",
+      "description": {
+        "content": "Sales orders, purchase orders, and delivery management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdefb88e-7397-4519-9c99-903de08965ce",
+          "name": "Sap List Sales Orders",
+          "request": {
+            "name": "Sap List Sales Orders",
+            "description": {
+              "content": "Retrieves a list of sales orders with support for OData query options including filtering, sorting, and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData ordering expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a343e9d-8c41-42f4-8820-a9d27fc286a3",
+              "name": "List of sales orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"DocEntry\": 10,\n      \"DocNum\": 10,\n      \"CardCode\": \"example_value\",\n      \"DocDate\": \"2026-01-15\",\n      \"DocDueDate\": \"2026-01-15\",\n      \"DocTotal\": 42.5,\n      \"DocCurrency\": \"example_value\",\n      \"DocumentLines\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b507f32b-af21-41a6-92f1-c2e9090f59b0",
+          "name": "Sap Create a Sales Order",
+          "request": {
+            "name": "Sap Create a Sales Order",
+            "description": {
+              "content": "Creates a new sales order in SAP Business One with line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The hostname of your SAP Business One server",
+                  "type": "any",
+                  "value": "{{server}}",
+                  "key": "server"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocCurrency\": \"<string>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5fd262b0-ccaa-461c-a250-fa8314eff12b",
+              "name": "Sales order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1ac6b47-93a2-4a7b-8751-841260740ec9",
+              "name": "Invalid order data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The hostname of your SAP Business One server",
+                      "type": "any",
+                      "value": "{{server}}",
+                      "key": "server"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "B1SESSION",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The hostname of your SAP Business One server",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "server"
+    },
+    {
+      "type": "string",
+      "value": "https://{{server}}:50000/b1s/v1",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The unique card code of the business partner",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "CardCode"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "B1SESSION"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d640838a-5d91-4cb6-a7ba-4e97d5744c84",
+    "name": "SAP Business One Service Layer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful API for accessing SAP Business One data and business logic. Provides CRUD operations on business objects such as orders, business partners, items, and financial documents through OData-compatible endpoints.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

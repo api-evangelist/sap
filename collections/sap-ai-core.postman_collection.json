@@ -1,0 +1,1791 @@
+{
+  "item": [
+    {
+      "id": "df573fb2-ea35-4831-8165-3c36cdee695c",
+      "name": "Artifacts",
+      "description": {
+        "content": "Model artifacts and dataset management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "023c013f-a99f-42b0-810e-3ad01a71c30f",
+          "name": "Sap List Artifacts",
+          "request": {
+            "name": "Sap List Artifacts",
+            "description": {
+              "content": "Retrieves all artifacts (models, datasets) in the resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "artifacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bf72388-7dcc-4ff1-b940-557fa0c21199",
+              "name": "List of artifacts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"kind\": \"model\",\n      \"url\": \"https://www.example.com\",\n      \"scenarioId\": \"500123\",\n      \"executionId\": \"500123\",\n      \"description\": \"A sample description.\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83ef61ea-d3fc-4570-9fcd-24eab0af2bc9",
+          "name": "Sap Register an Artifact",
+          "request": {
+            "name": "Sap Register an Artifact",
+            "description": {
+              "content": "Registers a new artifact (model or dataset) for use in executions and deployments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "artifacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"url\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b806aac-66e6-4e8d-8ead-8e74d5d9234c",
+              "name": "Artifact registered",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "artifacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"kind\": \"model\",\n  \"url\": \"https://www.example.com\",\n  \"scenarioId\": \"500123\",\n  \"description\": \"A sample description.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"name\": \"Example Title\",\n  \"kind\": \"model\",\n  \"url\": \"https://www.example.com\",\n  \"scenarioId\": \"500123\",\n  \"executionId\": \"500123\",\n  \"description\": \"A sample description.\",\n  \"createdAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6c43f23b-5b15-4fd4-b698-2b0ff009cad8",
+      "name": "Configurations",
+      "description": {
+        "content": "Execution and deployment configurations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86e70731-09e6-4f52-9ec5-7cc0507b8497",
+          "name": "Sap List Configurations",
+          "request": {
+            "name": "Sap List Configurations",
+            "description": {
+              "content": "Retrieves all configurations for executions and deployments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scenarioId",
+                  "value": "<string>",
+                  "description": "Filter by scenario ID"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f660de7-0845-423b-b34a-6601b05a5d77",
+              "name": "List of configurations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scenarioId",
+                      "value": "500123"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"scenarioId\": \"500123\",\n      \"executableId\": \"500123\",\n      \"parameterBindings\": [\n        {}\n      ],\n      \"inputArtifactBindings\": [\n        {}\n      ],\n      \"createdAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8dbfad0-9b3f-4661-b3a1-f4bc3efc3d15",
+          "name": "Sap Create a Configuration",
+          "request": {
+            "name": "Sap Create a Configuration",
+            "description": {
+              "content": "Creates a new configuration for an execution or deployment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"executableId\": \"<string>\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45ed9119-14df-46fb-ac82-e1d406a58d81",
+              "name": "Configuration created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"scenarioId\": \"500123\",\n  \"executableId\": \"500123\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"example_value\",\n      \"value\": \"example_value\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"example_value\",\n      \"artifactId\": \"500123\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"name\": \"Example Title\",\n  \"scenarioId\": \"500123\",\n  \"executableId\": \"500123\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"example_value\",\n      \"value\": \"example_value\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"example_value\",\n      \"artifactId\": \"500123\"\n    }\n  ],\n  \"createdAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bc7717c5-3fbf-4712-a1be-946204fd03aa",
+      "name": "Deployments",
+      "description": {
+        "content": "Model deployment and serving management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c586ef2-6905-4b6c-a9f3-706c5645fa02",
+          "name": "Sap List Deployments",
+          "request": {
+            "name": "Sap List Deployments",
+            "description": {
+              "content": "Retrieves all model deployments in the resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44bd6346-9c42-40f4-99e2-0472f1ef5fdb",
+              "name": "List of deployments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"configurationId\": \"500123\",\n      \"scenarioId\": \"500123\",\n      \"status\": \"PENDING\",\n      \"deploymentUrl\": \"https://www.example.com\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\",\n      \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c38f3ee4-1da9-4e40-9ceb-fa8b60d9f3e1",
+          "name": "Sap Create a Deployment",
+          "request": {
+            "name": "Sap Create a Deployment",
+            "description": {
+              "content": "Creates a new model deployment for serving predictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35306769-dc77-472d-a63d-63a47f904eef",
+              "name": "Deployment created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configurationId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"configurationId\": \"500123\",\n  \"scenarioId\": \"500123\",\n  \"status\": \"PENDING\",\n  \"deploymentUrl\": \"https://www.example.com\",\n  \"createdAt\": \"2026-01-15T10:30:00Z\",\n  \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "368d4da3-edf7-47c8-8a02-9273f6f0397e",
+      "name": "Executions",
+      "description": {
+        "content": "Training execution lifecycle management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbf4e881-9e4e-4f0e-a2ec-d1bd2dd25c99",
+          "name": "Sap List Executions",
+          "request": {
+            "name": "Sap List Executions",
+            "description": {
+              "content": "Retrieves all training executions in the resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "executions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by execution status"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bee0d928-44de-4252-8dd2-097b1dcaab4c",
+              "name": "List of executions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "PENDING"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"configurationId\": \"500123\",\n      \"scenarioId\": \"500123\",\n      \"status\": \"PENDING\",\n      \"statusMessage\": \"example_value\",\n      \"outputArtifacts\": [\n        {}\n      ],\n      \"createdAt\": \"2026-01-15T10:30:00Z\",\n      \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "380d836c-bc35-44f1-a7f5-7edcf93c43d6",
+          "name": "Sap Create an Execution",
+          "request": {
+            "name": "Sap Create an Execution",
+            "description": {
+              "content": "Triggers a new training execution using a configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "executions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88cbcd8f-6a2a-4496-abc0-c3eb6d40190c",
+              "name": "Execution created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configurationId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"configurationId\": \"500123\",\n  \"scenarioId\": \"500123\",\n  \"status\": \"PENDING\",\n  \"statusMessage\": \"example_value\",\n  \"outputArtifacts\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"kind\": \"model\",\n      \"url\": \"https://www.example.com\",\n      \"scenarioId\": \"500123\",\n      \"executionId\": \"500123\",\n      \"description\": \"A sample description.\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ],\n  \"createdAt\": \"2026-01-15T10:30:00Z\",\n  \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c72e744-3ba4-45c9-8131-b1c4d3556d2a",
+          "name": "Sap Get an Execution",
+          "request": {
+            "name": "Sap Get an Execution",
+            "description": {
+              "content": "Retrieves details of a specific training execution.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "executions",
+                ":executionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "executionId",
+                  "description": "(Required) Execution identifier"
+                },
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6702794-f95b-495b-86a5-31c330f9564d",
+              "name": "Execution details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "executions",
+                    ":executionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "executionId",
+                      "description": "(Required) Execution identifier"
+                    },
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"configurationId\": \"500123\",\n  \"scenarioId\": \"500123\",\n  \"status\": \"PENDING\",\n  \"statusMessage\": \"example_value\",\n  \"outputArtifacts\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"kind\": \"model\",\n      \"url\": \"https://www.example.com\",\n      \"scenarioId\": \"500123\",\n      \"executionId\": \"500123\",\n      \"description\": \"A sample description.\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ],\n  \"createdAt\": \"2026-01-15T10:30:00Z\",\n  \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ff21031-af49-4085-ac4c-86a0c9e68e84",
+              "name": "Execution not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "executions",
+                    ":executionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "executionId",
+                      "description": "(Required) Execution identifier"
+                    },
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f189c7e-2df9-413f-8527-b1bae4782fba",
+          "name": "Sap Stop an Execution",
+          "request": {
+            "name": "Sap Stop an Execution",
+            "description": {
+              "content": "Stops a running execution or marks it for deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "executions",
+                ":executionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "executionId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cb0cbb9-a958-4d6f-beb6-56ba408293ca",
+              "name": "Execution stop accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "executions",
+                    ":executionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "executionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fa446159-c13e-4553-a1eb-a7843ad0d728",
+      "name": "Scenarios",
+      "description": {
+        "content": "AI scenario definitions and metadata",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e5aaa3b-2117-42a5-90bd-4aa277fdb77c",
+          "name": "Sap List Ai Scenarios",
+          "request": {
+            "name": "Sap List Ai Scenarios",
+            "description": {
+              "content": "Retrieves all AI scenarios available in the resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "scenarios"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4174400f-f596-43de-a967-a2b19bf476d7",
+              "name": "List of scenarios",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "scenarios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"name\": \"Example Title\",\n      \"description\": \"A sample description.\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\",\n      \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5acbb0f-ff5e-4db8-9e42-5bd865042086",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "scenarios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c13387af-31d3-4241-8e79-044fe28ad972",
+          "name": "Sap List Scenario Versions",
+          "request": {
+            "name": "Sap List Scenario Versions",
+            "description": {
+              "content": "Retrieves all versions for a specific AI scenario.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "scenarios",
+                ":scenarioId",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scenarioId",
+                  "description": "(Required) Scenario identifier"
+                },
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d5e384f-6e65-4a5f-82b8-84fff39e2c43",
+              "name": "List of scenario versions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "scenarios",
+                    ":scenarioId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scenarioId",
+                      "description": "(Required) Scenario identifier"
+                    },
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP BTP region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eu10",
+      "key": "region"
+    },
+    {
+      "description": {
+        "content": "SAP BTP landscape",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "hana",
+      "key": "landscape"
+    },
+    {
+      "type": "string",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b796f049-3444-4c69-a67b-c50d0b40a5bf",
+    "name": "SAP AI Core API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

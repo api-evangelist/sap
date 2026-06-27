@@ -340,7 +340,7 @@ apis:
     url: https://api.sap.com/api/AI_CORE_API/resource
   - type: Hub
     url: https://api.sap.com/api/AI_CORE_API/overview
-  - type: SDK
+  - type: SDKs
     url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
 - name: SAP Emarsys Customer Engagement API
   description: REST APIs for marketing automation, customer engagement, and personalized
@@ -417,11 +417,11 @@ common:
   url: https://learning.sap.com/
 - type: Portal
   url: https://www.sap.com
-- type: SignUp
+- type: Signup
   url: https://developers.sap.com/tutorials/hcp-create-trial-account.html
 - type: Login
   url: https://accounts.sap.com
-- type: SDK
+- type: SDKs
   url: https://developers.sap.com/topics/cloud-sdk.html
 - type: StackOverflow
   url: https://stackoverflow.com/questions/tagged/sap
@@ -471,4 +471,4 @@ common:
   type: MCPServer
 - name: Agent Skills
   url: https://github.com/SAP/ai-skills-library
-  type: AgentSkill
+  type: AgentSkills

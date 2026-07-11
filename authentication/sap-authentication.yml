@@ -1,0 +1,36 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sap-ai-core-openapi.yml, openapi/sap-business-one-service-layer-openapi.yml,
+  openapi/sap-s4hana-cloud-business-partner-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  - oauth2
+  api_key_in:
+  - cookie
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+    scopes: 0
+  sources:
+  - openapi/sap-ai-core-openapi.yml
+  - openapi/sap-s4hana-cloud-business-partner-openapi.yml
+- name: sessionCookie
+  type: apiKey
+  in: cookie
+  parameter: B1SESSION
+  description: Session cookie obtained from the Login endpoint
+  sources:
+  - openapi/sap-business-one-service-layer-openapi.yml
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Basic authentication with SAP user credentials
+  sources:
+  - openapi/sap-s4hana-cloud-business-partner-openapi.yml

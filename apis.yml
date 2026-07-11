@@ -391,6 +391,10 @@ tags:
 - ERP
 - Integration
 common:
+- type: VulnerabilityDisclosure
+  url: security/sap-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/sap-domain-security.yml
 - type: Authentication
   url: authentication/sap-authentication.yml
 - type: OAuthScopes

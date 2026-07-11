@@ -391,6 +391,10 @@ tags:
 - ERP
 - Integration
 common:
+- type: Authentication
+  url: authentication/sap-authentication.yml
+- type: OAuthScopes
+  url: scopes/sap-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/sap
 - type: DeveloperPortal

@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sap-ai-core-openapi.yml, openapi/sap-s4hana-cloud-business-partner-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/sap-ai-core-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+- name: oauth2
+  source: openapi/sap-s4hana-cloud-business-partner-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{host}/oauth/token
+  description: OAuth 2.0 authentication
+scopes:
+- scope: API_BUSINESS_PARTNER
+  description: Access to Business Partner API
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/sap-s4hana-cloud-business-partner-openapi.yml

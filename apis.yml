@@ -391,6 +391,8 @@ tags:
 - ERP
 - Integration
 common:
+- type: AgenticAccess
+  url: agentic-access/sap-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/sap-vulnerability-disclosure.yml
 - type: DomainSecurity

@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Addresses
+  description: Business partner address management
+paths:
+  /A_BusinessPartnerAddress:
+    get:
+      operationId: listBusinessPartnerAddresses
+      summary: Sap List Business Partner Addresses
+      description: Retrieves address records associated with business partners.
+      tags:
+      - Addresses
+      parameters:
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of addresses
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerAddress'
+              examples:
+                Listbusinesspartneraddresses200Example:
+                  summary: Default listBusinessPartnerAddresses 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        AddressID: '500123'
+                        Country: example_value
+                        Region: example_value
+                        CityName: example_value
+                        PostalCode: example_value
+                        StreetName: example_value
+                        HouseNumber: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    BusinessPartnerAddress:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+          example: example_value
+        AddressID:
+          type: string
+          description: Address identifier
+          example: '500123'
+        Country:
+          type: string
+          description: Country key (ISO 3166-1 alpha-2)
+          maxLength: 2
+          example: example_value
+        Region:
+          type: string
+          description: Region or state code
+          example: example_value
+        CityName:
+          type: string
+          description: City name
+          example: example_value
+        PostalCode:
+          type: string
+          description: Postal code
+          example: example_value
+        StreetName:
+          type: string
+          description: Street name
+          example: example_value
+        HouseNumber:
+          type: string
+          description: House number
+          example: example_value
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

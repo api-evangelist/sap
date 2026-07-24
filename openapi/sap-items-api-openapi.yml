@@ -1,0 +1,150 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Items API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Items
+  description: Product and item master data management
+paths:
+  /Items:
+    get:
+      operationId: listItems
+      summary: Sap List Items
+      description: Retrieves the item master data list with support for OData query options.
+      tags:
+      - Items
+      parameters:
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+              examples:
+                Listitems200Example:
+                  summary: Default listItems 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - ItemCode: example_value
+                      ItemName: example_value
+                      ItemType: itItems
+                      ItemsGroupCode: 10
+                      QuantityOnStock: 42.5
+                      AvgStdPrice: 42.5
+                      SalesUnit: example_value
+                      PurchaseUnit: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        ItemCode:
+          type: string
+          description: Unique item code
+          maxLength: 50
+          example: example_value
+        ItemName:
+          type: string
+          description: Item description
+          maxLength: 200
+          example: example_value
+        ItemType:
+          type: string
+          description: Item type
+          enum:
+          - itItems
+          - itLabor
+          - itTravel
+          - itFixedAssets
+          example: itItems
+        ItemsGroupCode:
+          type: integer
+          description: Item group code
+          example: 10
+        QuantityOnStock:
+          type: number
+          format: double
+          description: Current quantity in stock
+          readOnly: true
+          example: 42.5
+        AvgStdPrice:
+          type: number
+          format: double
+          description: Average or standard price
+          example: 42.5
+        SalesUnit:
+          type: string
+          description: Default sales unit of measure
+          example: example_value
+        PurchaseUnit:
+          type: string
+          description: Default purchase unit of measure
+          example: example_value
+  parameters:
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

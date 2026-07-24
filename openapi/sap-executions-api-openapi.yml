@@ -1,0 +1,312 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Executions API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Executions
+  description: Training execution lifecycle management
+paths:
+  /lm/executions:
+    get:
+      operationId: listExecutions
+      summary: Sap List Executions
+      description: Retrieves all training executions in the resource group.
+      tags:
+      - Executions
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      - name: status
+        in: query
+        description: Filter by execution status
+        schema:
+          type: string
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+        example: PENDING
+      responses:
+        '200':
+          description: List of executions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Execution'
+              examples:
+                Listexecutions200Example:
+                  summary: Default listExecutions 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      configurationId: '500123'
+                      scenarioId: '500123'
+                      status: PENDING
+                      statusMessage: example_value
+                      outputArtifacts:
+                      - {}
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createExecution
+      summary: Sap Create an Execution
+      description: Triggers a new training execution using a configuration.
+      tags:
+      - Executions
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExecutionCreate'
+            examples:
+              CreateexecutionRequestExample:
+                summary: Default createExecution request
+                x-microcks-default: true
+                value:
+                  configurationId: '500123'
+      responses:
+        '202':
+          description: Execution created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+              examples:
+                Createexecution202Example:
+                  summary: Default createExecution 202 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    statusMessage: example_value
+                    outputArtifacts:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /lm/executions/{executionId}:
+    get:
+      operationId: getExecution
+      summary: Sap Get an Execution
+      description: Retrieves details of a specific training execution.
+      tags:
+      - Executions
+      parameters:
+      - name: executionId
+        in: path
+        required: true
+        description: Execution identifier
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: Execution details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Execution'
+              examples:
+                Getexecution200Example:
+                  summary: Default getExecution 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    statusMessage: example_value
+                    outputArtifacts:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
+        '404':
+          description: Execution not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteExecution
+      summary: Sap Stop an Execution
+      description: Stops a running execution or marks it for deletion.
+      tags:
+      - Executions
+      parameters:
+      - name: executionId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '202':
+          description: Execution stop accepted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Execution:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Execution identifier
+          example: abc123
+        configurationId:
+          type: string
+          description: Configuration used for this execution
+          example: '500123'
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        status:
+          type: string
+          description: Current execution status
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+          - UNKNOWN
+          example: PENDING
+        statusMessage:
+          type: string
+          description: Human-readable status message
+          example: example_value
+        outputArtifacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Artifact'
+          example: []
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+        modifiedAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Artifact identifier
+          example: abc123
+        name:
+          type: string
+          description: Artifact name
+          example: Example Title
+        kind:
+          type: string
+          description: Artifact kind
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          description: Storage URL for the artifact
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        executionId:
+          type: string
+          description: Execution that produced this artifact
+          example: '500123'
+        description:
+          type: string
+          description: Artifact description
+          example: A sample description.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+    ExecutionCreate:
+      type: object
+      required:
+      - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the execution
+          example: '500123'
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

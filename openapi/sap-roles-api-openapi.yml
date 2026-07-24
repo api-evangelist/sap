@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Roles API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Roles
+  description: Business partner role assignments (customer, supplier)
+paths:
+  /A_BusinessPartnerRole:
+    get:
+      operationId: listBusinessPartnerRoles
+      summary: Sap List Business Partner Roles
+      description: Retrieves role assignments for business partners, indicating whether they serve as customer, supplier, or both.
+      tags:
+      - Roles
+      parameters:
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Filter'
+      responses:
+        '200':
+          description: Collection of roles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartnerRole'
+              examples:
+                Listbusinesspartnerroles200Example:
+                  summary: Default listBusinessPartnerRoles 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BusinessPartnerRole: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    BusinessPartnerRole:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+          example: example_value
+        BusinessPartnerRole:
+          type: string
+          description: Role code (e.g., FLCU01=Customer, FLVN01=Vendor)
+          example: example_value
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

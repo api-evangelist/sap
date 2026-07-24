@@ -1,0 +1,125 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Authentication API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Authentication
+  description: Login and session management
+paths:
+  /Login:
+    post:
+      operationId: login
+      summary: Sap Authenticate and Create a Session
+      description: Authenticates a user against SAP Business One and returns a session cookie for subsequent API calls.
+      tags:
+      - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            examples:
+              LoginRequestExample:
+                summary: Default login request
+                x-microcks-default: true
+                value:
+                  CompanyDB: example_value
+                  UserName: example_value
+                  Password: example_value
+      responses:
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              examples:
+                Login200Example:
+                  summary: Default login 200 response
+                  x-microcks-default: true
+                  value:
+                    SessionId: '500123'
+                    Version: example_value
+                    SessionTimeout: 10
+        '401':
+          description: Authentication failed
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Logout:
+    post:
+      operationId: logout
+      summary: Sap End the Current Session
+      description: Terminates the current authenticated session and invalidates the session cookie.
+      tags:
+      - Authentication
+      responses:
+        '204':
+          description: Successfully logged out
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    LoginResponse:
+      type: object
+      properties:
+        SessionId:
+          type: string
+          description: The session identifier for subsequent requests
+          example: '500123'
+        Version:
+          type: string
+          description: The Service Layer version
+          example: example_value
+        SessionTimeout:
+          type: integer
+          description: Session timeout in minutes
+          example: 10
+    LoginRequest:
+      type: object
+      required:
+      - CompanyDB
+      - UserName
+      - Password
+      properties:
+        CompanyDB:
+          type: string
+          description: The name of the company database to connect to
+          example: example_value
+        UserName:
+          type: string
+          description: The SAP Business One user name
+          example: example_value
+        Password:
+          type: string
+          description: The user password
+          example: example_value
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

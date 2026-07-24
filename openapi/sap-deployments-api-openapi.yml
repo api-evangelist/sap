@@ -1,0 +1,176 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Deployments API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Deployments
+  description: Model deployment and serving management
+paths:
+  /lm/deployments:
+    get:
+      operationId: listDeployments
+      summary: Sap List Deployments
+      description: Retrieves all model deployments in the resource group.
+      tags:
+      - Deployments
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of deployments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Deployment'
+              examples:
+                Listdeployments200Example:
+                  summary: Default listDeployments 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      configurationId: '500123'
+                      scenarioId: '500123'
+                      status: PENDING
+                      deploymentUrl: https://www.example.com
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDeployment
+      summary: Sap Create a Deployment
+      description: Creates a new model deployment for serving predictions.
+      tags:
+      - Deployments
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeploymentCreate'
+            examples:
+              CreatedeploymentRequestExample:
+                summary: Default createDeployment request
+                x-microcks-default: true
+                value:
+                  configurationId: '500123'
+      responses:
+        '202':
+          description: Deployment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+              examples:
+                Createdeployment202Example:
+                  summary: Default createDeployment 202 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    configurationId: '500123'
+                    scenarioId: '500123'
+                    status: PENDING
+                    deploymentUrl: https://www.example.com
+                    createdAt: '2026-01-15T10:30:00Z'
+                    modifiedAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DeploymentCreate:
+      type: object
+      required:
+      - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the deployment
+          example: '500123'
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Deployment identifier
+          example: abc123
+        configurationId:
+          type: string
+          description: Configuration used for this deployment
+          example: '500123'
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        status:
+          type: string
+          description: Current deployment status
+          enum:
+          - PENDING
+          - RUNNING
+          - COMPLETED
+          - DEAD
+          - STOPPED
+          - UNKNOWN
+          example: PENDING
+        deploymentUrl:
+          type: string
+          format: uri
+          description: URL for sending inference requests
+          example: https://www.example.com
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+        modifiedAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

@@ -1,0 +1,571 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Business Partners API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Business Partners
+  description: Manage customers, vendors, and leads
+paths:
+  /BusinessPartners:
+    get:
+      operationId: listBusinessPartners
+      summary: Sap List Business Partners
+      description: Retrieves a list of business partners including customers, vendors, and leads with support for OData query options.
+      tags:
+      - Business Partners
+      parameters:
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/OrderBy'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of business partners
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Listbusinesspartners200Example:
+                  summary: Default listBusinessPartners 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - CardCode: example_value
+                      CardName: example_value
+                      CardType: cCustomer
+                      GroupCode: 10
+                      Phone1: example_value
+                      EmailAddress: user@example.com
+                      FederalTaxID: '500123'
+                      Currency: example_value
+                      Valid: tYES
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createBusinessPartner
+      summary: Sap Create a Business Partner
+      description: Creates a new business partner record in SAP Business One.
+      tags:
+      - Business Partners
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              CreatebusinesspartnerRequestExample:
+                summary: Default createBusinessPartner request
+                x-microcks-default: true
+                value:
+                  CardCode: example_value
+                  CardName: example_value
+                  CardType: cCustomer
+                  GroupCode: 10
+                  Phone1: example_value
+                  EmailAddress: user@example.com
+                  FederalTaxID: '500123'
+                  Currency: example_value
+                  Valid: tYES
+      responses:
+        '201':
+          description: Business partner created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Createbusinesspartner201Example:
+                  summary: Default createBusinessPartner 201 response
+                  x-microcks-default: true
+                  value:
+                    CardCode: example_value
+                    CardName: example_value
+                    CardType: cCustomer
+                    GroupCode: 10
+                    Phone1: example_value
+                    EmailAddress: user@example.com
+                    FederalTaxID: '500123'
+                    Currency: example_value
+                    Valid: tYES
+        '400':
+          description: Invalid request data
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /BusinessPartners('{CardCode}'):
+    get:
+      operationId: getBusinessPartner
+      summary: Sap Get a Business Partner by Code
+      description: Retrieves a specific business partner by their card code.
+      tags:
+      - Business Partners
+      parameters:
+      - name: CardCode
+        in: path
+        required: true
+        description: The unique card code of the business partner
+        schema:
+          type: string
+        example: example_value
+      responses:
+        '200':
+          description: Business partner details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessPartner'
+              examples:
+                Getbusinesspartner200Example:
+                  summary: Default getBusinessPartner 200 response
+                  x-microcks-default: true
+                  value:
+                    CardCode: example_value
+                    CardName: example_value
+                    CardType: cCustomer
+                    GroupCode: 10
+                    Phone1: example_value
+                    EmailAddress: user@example.com
+                    FederalTaxID: '500123'
+                    Currency: example_value
+                    Valid: tYES
+        '404':
+          description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateBusinessPartner
+      summary: Sap Update a Business Partner
+      description: Updates an existing business partner record with the provided fields.
+      tags:
+      - Business Partners
+      parameters:
+      - name: CardCode
+        in: path
+        required: true
+        description: The unique card code of the business partner
+        schema:
+          type: string
+        example: example_value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner'
+            examples:
+              UpdatebusinesspartnerRequestExample:
+                summary: Default updateBusinessPartner request
+                x-microcks-default: true
+                value:
+                  CardCode: example_value
+                  CardName: example_value
+                  CardType: cCustomer
+                  GroupCode: 10
+                  Phone1: example_value
+                  EmailAddress: user@example.com
+                  FederalTaxID: '500123'
+                  Currency: example_value
+                  Valid: tYES
+      responses:
+        '204':
+          description: Business partner updated
+        '404':
+          description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /A_BusinessPartner:
+    get:
+      operationId: listBusinessPartners
+      summary: Sap List Business Partners
+      description: Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination.
+      tags:
+      - Business Partners
+      parameters:
+      - $ref: '#/components/parameters/Top_2'
+      - $ref: '#/components/parameters/Skip_2'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Select_2'
+      - $ref: '#/components/parameters/Orderby'
+      responses:
+        '200':
+          description: Collection of business partners
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/BusinessPartner_2'
+              examples:
+                Listbusinesspartners200Example:
+                  summary: Default listBusinessPartners 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      results:
+                      - BusinessPartner: example_value
+                        BusinessPartnerFullName: example_value
+                        BusinessPartnerCategory: '1'
+                        BusinessPartnerGrouping: example_value
+                        FirstName: example_value
+                        LastName: example_value
+                        OrganizationBPName1: example_value
+                        SearchTerm1: example_value
+                        Language: example_value
+                        CreationDate: '2026-01-15'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createBusinessPartner
+      summary: Sap Create a Business Partner
+      description: Creates a new business partner master record in SAP S/4HANA Cloud.
+      tags:
+      - Business Partners
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner_2'
+            examples:
+              CreatebusinesspartnerRequestExample:
+                summary: Default createBusinessPartner request
+                x-microcks-default: true
+                value:
+                  BusinessPartner: example_value
+                  BusinessPartnerFullName: example_value
+                  BusinessPartnerCategory: '1'
+                  BusinessPartnerGrouping: example_value
+                  FirstName: example_value
+                  LastName: example_value
+                  OrganizationBPName1: example_value
+                  SearchTerm1: example_value
+                  Language: example_value
+                  CreationDate: '2026-01-15'
+      responses:
+        '201':
+          description: Business partner created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/BusinessPartner_2'
+              examples:
+                Createbusinesspartner201Example:
+                  summary: Default createBusinessPartner 201 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      BusinessPartner: example_value
+                      BusinessPartnerFullName: example_value
+                      BusinessPartnerCategory: '1'
+                      BusinessPartnerGrouping: example_value
+                      FirstName: example_value
+                      LastName: example_value
+                      OrganizationBPName1: example_value
+                      SearchTerm1: example_value
+                      Language: example_value
+                      CreationDate: '2026-01-15'
+        '400':
+          description: Invalid request
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /A_BusinessPartner('{BusinessPartner}'):
+    get:
+      operationId: getBusinessPartner
+      summary: Sap Get a Business Partner
+      description: Retrieves a single business partner by its key.
+      tags:
+      - Business Partners
+      parameters:
+      - name: BusinessPartner
+        in: path
+        required: true
+        description: Business partner number
+        schema:
+          type: string
+          maxLength: 10
+        example: example_value
+      responses:
+        '200':
+          description: Business partner details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    $ref: '#/components/schemas/BusinessPartner_2'
+              examples:
+                Getbusinesspartner200Example:
+                  summary: Default getBusinessPartner 200 response
+                  x-microcks-default: true
+                  value:
+                    d:
+                      BusinessPartner: example_value
+                      BusinessPartnerFullName: example_value
+                      BusinessPartnerCategory: '1'
+                      BusinessPartnerGrouping: example_value
+                      FirstName: example_value
+                      LastName: example_value
+                      OrganizationBPName1: example_value
+                      SearchTerm1: example_value
+                      Language: example_value
+                      CreationDate: '2026-01-15'
+        '404':
+          description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateBusinessPartner
+      summary: Sap Update a Business Partner
+      description: Updates fields of an existing business partner record.
+      tags:
+      - Business Partners
+      parameters:
+      - name: BusinessPartner
+        in: path
+        required: true
+        description: Business partner number
+        schema:
+          type: string
+        example: example_value
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessPartner_2'
+            examples:
+              UpdatebusinesspartnerRequestExample:
+                summary: Default updateBusinessPartner request
+                x-microcks-default: true
+                value:
+                  BusinessPartner: example_value
+                  BusinessPartnerFullName: example_value
+                  BusinessPartnerCategory: '1'
+                  BusinessPartnerGrouping: example_value
+                  FirstName: example_value
+                  LastName: example_value
+                  OrganizationBPName1: example_value
+                  SearchTerm1: example_value
+                  Language: example_value
+                  CreationDate: '2026-01-15'
+      responses:
+        '204':
+          description: Business partner updated
+        '404':
+          description: Business partner not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    BusinessPartner:
+      type: object
+      properties:
+        CardCode:
+          type: string
+          description: Unique identifier for the business partner
+          maxLength: 15
+          example: example_value
+        CardName:
+          type: string
+          description: Name of the business partner
+          maxLength: 100
+          example: example_value
+        CardType:
+          type: string
+          description: Type of business partner
+          enum:
+          - cCustomer
+          - cSupplier
+          - cLid
+          example: cCustomer
+        GroupCode:
+          type: integer
+          description: Business partner group code
+          example: 10
+        Phone1:
+          type: string
+          description: Primary phone number
+          example: example_value
+        EmailAddress:
+          type: string
+          description: Email address
+          format: email
+          example: user@example.com
+        FederalTaxID:
+          type: string
+          description: Tax identification number
+          example: '500123'
+        Currency:
+          type: string
+          description: Default currency code
+          example: example_value
+        Valid:
+          type: string
+          description: Whether the business partner is active
+          enum:
+          - tYES
+          - tNO
+          example: tYES
+    BusinessPartner_2:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+          maxLength: 10
+          example: example_value
+        BusinessPartnerFullName:
+          type: string
+          description: Full name of the business partner
+          example: example_value
+        BusinessPartnerCategory:
+          type: string
+          description: Category (1=Organization, 2=Person, 3=Group)
+          enum:
+          - '1'
+          - '2'
+          - '3'
+          example: '1'
+        BusinessPartnerGrouping:
+          type: string
+          description: Business partner grouping
+          example: example_value
+        FirstName:
+          type: string
+          description: First name (for person category)
+          example: example_value
+        LastName:
+          type: string
+          description: Last name (for person category)
+          example: example_value
+        OrganizationBPName1:
+          type: string
+          description: Organization name line 1
+          example: example_value
+        SearchTerm1:
+          type: string
+          description: Search term 1
+          example: example_value
+        Language:
+          type: string
+          description: Correspondence language
+          maxLength: 2
+          example: example_value
+        CreationDate:
+          type: string
+          format: date
+          description: Date the business partner was created
+          example: '2026-01-15'
+  parameters:
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+    Orderby:
+      name: $orderby
+      in: query
+      description: OData sort expression
+      schema:
+        type: string
+    Skip_2:
+      name: $skip
+      in: query
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Select_2:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to return
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+    OrderBy:
+      name: $orderby
+      in: query
+      description: OData ordering expression
+      schema:
+        type: string
+    Top_2:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

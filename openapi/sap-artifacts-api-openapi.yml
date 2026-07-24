@@ -1,0 +1,202 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Artifacts API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Artifacts
+  description: Model artifacts and dataset management
+paths:
+  /lm/artifacts:
+    get:
+      operationId: listArtifacts
+      summary: Sap List Artifacts
+      description: Retrieves all artifacts (models, datasets) in the resource group.
+      tags:
+      - Artifacts
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of artifacts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Artifact'
+              examples:
+                Listartifacts200Example:
+                  summary: Default listArtifacts 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      kind: model
+                      url: https://www.example.com
+                      scenarioId: '500123'
+                      executionId: '500123'
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createArtifact
+      summary: Sap Register an Artifact
+      description: Registers a new artifact (model or dataset) for use in executions and deployments.
+      tags:
+      - Artifacts
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtifactCreate'
+            examples:
+              CreateartifactRequestExample:
+                summary: Default createArtifact request
+                x-microcks-default: true
+                value:
+                  name: Example Title
+                  kind: model
+                  url: https://www.example.com
+                  scenarioId: '500123'
+                  description: A sample description.
+      responses:
+        '201':
+          description: Artifact registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artifact'
+              examples:
+                Createartifact201Example:
+                  summary: Default createArtifact 201 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    kind: model
+                    url: https://www.example.com
+                    scenarioId: '500123'
+                    executionId: '500123'
+                    description: A sample description.
+                    createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Artifact identifier
+          example: abc123
+        name:
+          type: string
+          description: Artifact name
+          example: Example Title
+        kind:
+          type: string
+          description: Artifact kind
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          description: Storage URL for the artifact
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        executionId:
+          type: string
+          description: Execution that produced this artifact
+          example: '500123'
+        description:
+          type: string
+          description: Artifact description
+          example: A sample description.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+    ArtifactCreate:
+      type: object
+      required:
+      - name
+      - kind
+      - url
+      - scenarioId
+      properties:
+        name:
+          type: string
+          example: Example Title
+        kind:
+          type: string
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          example: '500123'
+        description:
+          type: string
+          example: A sample description.
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

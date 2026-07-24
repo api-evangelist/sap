@@ -1,0 +1,200 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Journal Entries API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Journal Entries
+  description: Financial journal entries and postings
+paths:
+  /JournalEntries:
+    get:
+      operationId: listJournalEntries
+      summary: Sap List Journal Entries
+      description: Retrieves financial journal entries with support for OData filtering and pagination.
+      tags:
+      - Journal Entries
+      parameters:
+      - $ref: '#/components/parameters/Select'
+      - $ref: '#/components/parameters/Filter'
+      - $ref: '#/components/parameters/Top'
+      - $ref: '#/components/parameters/Skip'
+      responses:
+        '200':
+          description: List of journal entries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/JournalEntry'
+              examples:
+                Listjournalentries200Example:
+                  summary: Default listJournalEntries 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - JdtNum: 10
+                      ReferenceDate: '2026-01-15'
+                      Memo: example_value
+                      JournalEntryLines:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createJournalEntry
+      summary: Sap Create a Journal Entry
+      description: Creates a new financial journal entry with debit and credit lines.
+      tags:
+      - Journal Entries
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JournalEntry'
+            examples:
+              CreatejournalentryRequestExample:
+                summary: Default createJournalEntry request
+                x-microcks-default: true
+                value:
+                  JdtNum: 10
+                  ReferenceDate: '2026-01-15'
+                  Memo: example_value
+                  JournalEntryLines:
+                  - AccountCode: example_value
+                    Debit: 42.5
+                    Credit: 42.5
+                    ShortName: example_value
+                    LineMemo: example_value
+      responses:
+        '201':
+          description: Journal entry created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JournalEntry'
+              examples:
+                Createjournalentry201Example:
+                  summary: Default createJournalEntry 201 response
+                  x-microcks-default: true
+                  value:
+                    JdtNum: 10
+                    ReferenceDate: '2026-01-15'
+                    Memo: example_value
+                    JournalEntryLines:
+                    - AccountCode: example_value
+                      Debit: 42.5
+                      Credit: 42.5
+                      ShortName: example_value
+                      LineMemo: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    JournalEntryLine:
+      type: object
+      properties:
+        AccountCode:
+          type: string
+          description: General ledger account code
+          example: example_value
+        Debit:
+          type: number
+          format: double
+          description: Debit amount in local currency
+          example: 42.5
+        Credit:
+          type: number
+          format: double
+          description: Credit amount in local currency
+          example: 42.5
+        ShortName:
+          type: string
+          description: Short name or business partner code
+          example: example_value
+        LineMemo:
+          type: string
+          description: Memo for this line
+          example: example_value
+    JournalEntry:
+      type: object
+      properties:
+        JdtNum:
+          type: integer
+          description: Journal entry number
+          readOnly: true
+          example: 10
+        ReferenceDate:
+          type: string
+          format: date
+          description: Reference date
+          example: '2026-01-15'
+        Memo:
+          type: string
+          description: Remark or memo for the journal entry
+          example: example_value
+        JournalEntryLines:
+          type: array
+          description: Debit and credit lines
+          items:
+            $ref: '#/components/schemas/JournalEntryLine'
+          example: []
+  parameters:
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

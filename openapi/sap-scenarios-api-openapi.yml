@@ -1,0 +1,133 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Scenarios API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Scenarios
+  description: AI scenario definitions and metadata
+paths:
+  /lm/scenarios:
+    get:
+      operationId: listScenarios
+      summary: Sap List Ai Scenarios
+      description: Retrieves all AI scenarios available in the resource group.
+      tags:
+      - Scenarios
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of scenarios
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Scenario'
+              examples:
+                Listscenarios200Example:
+                  summary: Default listScenarios 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      description: A sample description.
+                      createdAt: '2026-01-15T10:30:00Z'
+                      modifiedAt: '2026-01-15T10:30:00Z'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /lm/scenarios/{scenarioId}/versions:
+    get:
+      operationId: listScenarioVersions
+      summary: Sap List Scenario Versions
+      description: Retrieves all versions for a specific AI scenario.
+      tags:
+      - Scenarios
+      parameters:
+      - name: scenarioId
+        in: path
+        required: true
+        description: Scenario identifier
+        schema:
+          type: string
+        example: '500123'
+      - $ref: '#/components/parameters/AIResourceGroup'
+      responses:
+        '200':
+          description: List of scenario versions
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  schemas:
+    Scenario:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique scenario identifier
+          example: abc123
+        name:
+          type: string
+          description: Human-readable scenario name
+          example: Example Title
+        description:
+          type: string
+          description: Scenario description
+          example: A sample description.
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+          example: '2026-01-15T10:30:00Z'
+        modifiedAt:
+          type: string
+          format: date-time
+          description: Last modification timestamp
+          example: '2026-01-15T10:30:00Z'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

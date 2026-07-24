@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: SAP AI Core Addresses Configurations API
+  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
+  version: '2.0'
+  contact:
+    name: SAP Support
+    url: https://support.sap.com/
+  termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+servers:
+- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
+  description: SAP AI Core Production
+  variables:
+    region:
+      description: SAP BTP region
+      default: eu10
+    landscape:
+      description: SAP BTP landscape
+      default: hana
+security:
+- oauth2: []
+tags:
+- name: Configurations
+  description: Execution and deployment configurations
+paths:
+  /lm/configurations:
+    get:
+      operationId: listConfigurations
+      summary: Sap List Configurations
+      description: Retrieves all configurations for executions and deployments.
+      tags:
+      - Configurations
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      - name: scenarioId
+        in: query
+        description: Filter by scenario ID
+        schema:
+          type: string
+        example: '500123'
+      responses:
+        '200':
+          description: List of configurations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  resources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Configuration'
+              examples:
+                Listconfigurations200Example:
+                  summary: Default listConfigurations 200 response
+                  x-microcks-default: true
+                  value:
+                    count: 10
+                    resources:
+                    - id: abc123
+                      name: Example Title
+                      scenarioId: '500123'
+                      executableId: '500123'
+                      parameterBindings:
+                      - {}
+                      inputArtifactBindings:
+                      - {}
+                      createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createConfiguration
+      summary: Sap Create a Configuration
+      description: Creates a new configuration for an execution or deployment.
+      tags:
+      - Configurations
+      parameters:
+      - $ref: '#/components/parameters/AIResourceGroup'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurationCreate'
+            examples:
+              CreateconfigurationRequestExample:
+                summary: Default createConfiguration request
+                x-microcks-default: true
+                value:
+                  name: Example Title
+                  scenarioId: '500123'
+                  executableId: '500123'
+                  parameterBindings:
+                  - key: example_value
+                    value: example_value
+                  inputArtifactBindings:
+                  - key: example_value
+                    artifactId: '500123'
+      responses:
+        '201':
+          description: Configuration created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Configuration'
+              examples:
+                Createconfiguration201Example:
+                  summary: Default createConfiguration 201 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: Example Title
+                    scenarioId: '500123'
+                    executableId: '500123'
+                    parameterBindings:
+                    - key: example_value
+                      value: example_value
+                    inputArtifactBindings:
+                    - key: example_value
+                      artifactId: '500123'
+                    createdAt: '2026-01-15T10:30:00Z'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
+  schemas:
+    Configuration:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Configuration identifier
+          example: abc123
+        name:
+          type: string
+          description: Configuration name
+          example: Example Title
+        scenarioId:
+          type: string
+          description: Associated scenario ID
+          example: '500123'
+        executableId:
+          type: string
+          description: Associated executable ID
+          example: '500123'
+        parameterBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterBinding'
+          example: []
+        inputArtifactBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtifactBinding'
+          example: []
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+    ConfigurationCreate:
+      type: object
+      required:
+      - name
+      - scenarioId
+      - executableId
+      properties:
+        name:
+          type: string
+          example: Example Title
+        scenarioId:
+          type: string
+          example: '500123'
+        executableId:
+          type: string
+          example: '500123'
+        parameterBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterBinding'
+          example: []
+        inputArtifactBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtifactBinding'
+          example: []
+    ParameterBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Parameter name
+          example: example_value
+        value:
+          type: string
+          description: Parameter value
+          example: example_value
+    ArtifactBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Input artifact key
+          example: example_value
+        artifactId:
+          type: string
+          description: Artifact identifier
+          example: '500123'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes: {}
+externalDocs:
+  description: SAP AI Core API Reference
+  url: https://api.sap.com/api/AI_CORE_API/resource

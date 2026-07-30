@@ -1,56 +1,27 @@
 name: SAP
 description: Collection of SAP's enterprise APIs for business applications and cloud
   services.
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
 url: https://api.sap.com
 created: '2024-01-15'
 modified: '2026-05-19'
 specificationVersion: '0.18'
 apis:
-- name: SAP Business One Service Layer API
-  description: RESTful API for accessing SAP Business One data and business logic.
-  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
-  baseUrl: https://{server}:50000/b1s/v1
-  tags:
-  - Business Management
-  - Enterprise
-  - ERP
-  properties:
-  - type: Documentation
-    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
-  - type: OpenAPI
-    url: openapi/sap-business-one-service-layer-openapi.yml
-  - type: Authentication
-    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
-  - type: GettingStarted
-    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
-  - url: graphql/sap-graphql.md
-    type: GraphQL
-- name: SAP S/4HANA Cloud API
-  description: APIs for SAP S/4HANA Cloud enabling integration with intelligent ERP.
-  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: https://api.sap.com/package/SAPS4HANACloud
-  baseUrl: https://sandbox.api.sap.com/s4hanacloud
-  tags:
-  - Cloud
-  - Enterprise Resource Planning
-  - ERP
-  - S/4HANA
-  properties:
-  - type: OpenAPI
-    url: openapi/sap-s4hana-cloud-business-partner-openapi.yml
-  - type: Documentation
-    url: https://api.sap.com/package/SAPS4HANACloud
-  - type: Hub
-    url: https://api.sap.com/package/SAPS4HANACloud/rest
-  - type: Sandbox
-    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
-  - type: GettingStarted
-    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
 - name: SAP SuccessFactors API
-  description: Human Capital Management APIs for employee central, recruiting, and
-    talent management.
+  description: Human Capital Management APIs for employee central, recruiting, and talent management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPSuccessFactors
   baseUrl: https://api.successfactors.com/odata/v2
@@ -69,8 +40,7 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPSuccessFactors
 - name: SAP Ariba APIs
-  description: Procurement and supply chain APIs for sourcing, contracts, and supplier
-    management.
+  description: Procurement and supply chain APIs for sourcing, contracts, and supplier management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.ariba.com
   baseUrl: https://openapi.ariba.com
@@ -104,7 +74,8 @@ apis:
   - type: Training
     url: https://help.sap.com/learning-journeys/integrate-applications-and-services
   - type: GettingStarted
-    url: https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
+    url: >-
+      https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
 - name: SAP Commerce Cloud API
   description: E-commerce APIs for product catalog, cart, checkout, and order management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
@@ -117,11 +88,14 @@ apis:
   - Retail
   properties:
   - type: Documentation
-    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
+    url: >-
+      https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
   - type: APIReference
-    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
+    url: >-
+      https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
   - type: APIReference
-    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
+    url: >-
+      https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
 - name: SAP Analytics Cloud API
   description: APIs for business intelligence, planning, and predictive analytics.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
@@ -140,8 +114,8 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
 - name: SAP Concur API
-  description: APIs for travel and expense management including expense reporting,
-    travel booking, and invoice processing.
+  description: >-
+    APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.concur.com
   baseUrl: https://us.api.concursolutions.com
@@ -162,8 +136,8 @@ apis:
   - type: ChangeLog
     url: https://developer.concur.com/tools-support/release-notes/
 - name: SAP Fieldglass API
-  description: Vendor management system APIs for managing external workers, contractors,
-    and service providers.
+  description: >-
+    Vendor management system APIs for managing external workers, contractors, and service providers.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/products/SAPFieldglass/apis/packages
   baseUrl: https://www.fieldglass.net/api
@@ -182,8 +156,8 @@ apis:
   - type: APIReference
     url: https://api.sap.com/products/SAPFieldglass/apis/all
 - name: SAP BTP Core Services API
-  description: Core platform APIs for managing accounts, entitlements, and services
-    on SAP Business Technology Platform.
+  description: >-
+    Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPCloudPlatformCoreServices/overview
   baseUrl: https://accounts-service.cfapps.{region}.hana.ondemand.com
@@ -202,8 +176,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/btp/btp-developers-guide/apis
 - name: SAP Datasphere API
-  description: APIs for data warehousing, catalog access, and consumption of analytical
-    and relational models.
+  description: >-
+    APIs for data warehousing, catalog access, and consumption of analytical and relational models.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sapdatasphere/overview
   baseUrl: https://{tenant}.{region}.hcs.cloud.sap
@@ -222,8 +196,7 @@ apis:
   - type: APIReference
     url: https://api.sap.com/api/DatasphereCatalog/resource/
 - name: SAP Event Mesh API
-  description: Messaging APIs for event-driven architecture supporting AMQP, MQTT,
-    and REST protocols.
+  description: Messaging APIs for event-driven architecture supporting AMQP, MQTT, and REST protocols.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/event-mesh
   baseUrl: https://enterprise-messaging-pubsub.cfapps.{region}.hana.ondemand.com
@@ -244,8 +217,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh
 - name: SAP Master Data Integration API
-  description: APIs for centralizing and harmonizing master data across SAP and third-party
-    applications.
+  description: >-
+    APIs for centralizing and harmonizing master data across SAP and third-party applications.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sap-mdi-masterDataIntegration/overview
   baseUrl: https://{tenant}.integrationsuite.{region}.hana.ondemand.com
@@ -264,10 +237,10 @@ apis:
   - type: APIReference
     url: https://api.sap.com/api/masterdata/resource
 - name: SAP Signavio Process Manager API
-  description: APIs for process modeling, BPMN diagram management, and process governance
-    automation.
+  description: APIs for process modeling, BPMN diagram management, and process governance automation.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+  humanUrl: >-
+    https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   baseUrl: https://editor.signavio.com/p
   tags:
   - BPM
@@ -276,14 +249,17 @@ apis:
   - Process Mining
   properties:
   - type: Documentation
-    url: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+    url: >-
+      https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   - type: APIReference
-    url: https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
+    url: >-
+      https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
   - type: APIReference
     url: https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
 - name: SAP Document Management Service API
-  description: CMIS-based APIs for document management including versioning, access
-    control, and content storage on BTP.
+  description: >-
+    CMIS-based APIs for document management including versioning, access control, and content storage
+    on BTP.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/document-management-service
   baseUrl: https://{tenant}.document-center.cfapps.{region}.hana.ondemand.com
@@ -298,10 +274,11 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPDocumentManagementServiceIntegrationOptionCMISAPI/rest
   - type: GettingStarted
-    url: https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
+    url: >-
+      https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
 - name: SAP Integration Suite API Management
-  description: APIs for building, managing, publishing, and monitoring API proxies
-    within SAP Integration Suite.
+  description: >-
+    APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/sap-api-management
   baseUrl: https://{tenant}.{region}.apimanagement.hana.ondemand.com
@@ -319,32 +296,10 @@ apis:
     url: https://developers.sap.com/group.cp-apim-code-1.html
   - type: DeveloperPortal
     url: https://api.sap.com/api/APIPortal_Developer_CF/overview
-- name: SAP AI Core API
-  description: APIs for deploying, managing, and consuming AI models and workflows
-    on SAP Business Technology Platform. Provides endpoints for scenario management,
-    execution orchestration, and model serving.
-  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
-  baseUrl: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
-  tags:
-  - AI Core
-  - Artificial Intelligence
-  - BTP
-  - Machine Learning
-  properties:
-  - type: OpenAPI
-    url: openapi/sap-ai-core-openapi.yml
-  - type: Documentation
-    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
-  - type: APIReference
-    url: https://api.sap.com/api/AI_CORE_API/resource
-  - type: Hub
-    url: https://api.sap.com/api/AI_CORE_API/overview
-  - type: SDKs
-    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
 - name: SAP Emarsys Customer Engagement API
-  description: REST APIs for marketing automation, customer engagement, and personalized
-    campaign management across email, web, SMS, and mobile channels.
+  description: >-
+    REST APIs for marketing automation, customer engagement, and personalized campaign management across
+    email, web, SMS, and mobile channels.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://dev.emarsys.com/
   baseUrl: https://api.emarsys.net/api/v2
@@ -357,14 +312,17 @@ apis:
   - type: Documentation
     url: https://dev.emarsys.com/
   - type: APIReference
-    url: https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
+    url: >-
+      https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
   - type: Hub
     url: https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview
 - name: SAP Build Work Zone API
-  description: APIs for managing digital workplace experiences, integrating business
-    applications into unified workpages, and administering work zone sites and content.
+  description: >-
+    APIs for managing digital workplace experiences, integrating business applications into unified workpages,
+    and administering work zone sites and content.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+  humanUrl: >-
+    https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
   baseUrl: https://{tenant}.dt.workzone.cfapps.{region}.hana.ondemand.com
   tags:
   - BTP
@@ -373,7 +331,518 @@ apis:
   - Work Zone
   properties:
   - type: Documentation
-    url: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+    url: >-
+      https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+- aid: sap:sap-addresses-api
+  name: SAP Addresses API
+  description: Business partner address management
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-addresses-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-artifacts-api
+  name: SAP Artifacts API
+  description: Model artifacts and dataset management
+  tags:
+  - Artifacts
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-artifacts-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-authentication-api
+  name: SAP Authentication API
+  description: Login and session management
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-bank-accounts-api
+  name: SAP Bank Accounts API
+  description: Business partner bank account details
+  tags:
+  - Bank Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-bank-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-business-partners-api
+  name: SAP Business Partners API
+  description: Manage customers, vendors, and leads
+  tags:
+  - Business Partners
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-business-partners-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-configurations-api
+  name: SAP Configurations API
+  description: Execution and deployment configurations
+  tags:
+  - Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-deployments-api
+  name: SAP Deployments API
+  description: Model deployment and serving management
+  tags:
+  - Deployments
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-deployments-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-executions-api
+  name: SAP Executions API
+  description: Training execution lifecycle management
+  tags:
+  - Executions
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-executions-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-invoices-api
+  name: SAP Invoices API
+  description: AR and AP invoice management
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-invoices-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-items-api
+  name: SAP Items API
+  description: Product and item master data management
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-items-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-journal-entries-api
+  name: SAP Journal Entries API
+  description: Financial journal entries and postings
+  tags:
+  - Journal Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-journal-entries-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-orders-api
+  name: SAP Orders API
+  description: Sales orders, purchase orders, and delivery management
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-orders-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-roles-api
+  name: SAP Roles API
+  description: Business partner role assignments (customer, supplier)
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-roles-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-scenarios-api
+  name: SAP Scenarios API
+  description: AI scenario definitions and metadata
+  tags:
+  - Scenarios
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-scenarios-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
+- aid: sap:sap-tax-numbers-api
+  name: SAP Tax Numbers API
+  description: Business partner tax identification numbers
+  tags:
+  - Tax Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/sap-tax-numbers-api-openapi.yml
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
+  - type: Authentication
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+  - type: GettingStarted
+    url: >-
+      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+  - type: GraphQL
+    url: graphql/sap-graphql.md
+  - type: Documentation
+    url: https://api.sap.com/package/SAPS4HANACloud
+  - type: Hub
+    url: https://api.sap.com/package/SAPS4HANACloud/rest
+  - type: Sandbox
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: GettingStarted
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD
+  - type: Documentation
+    url: https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api
+  - type: APIReference
+    url: https://api.sap.com/api/AI_CORE_API/resource
+  - type: Hub
+    url: https://api.sap.com/api/AI_CORE_API/overview
+  - type: SDKs
+    url: https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api
 include:
 - name: SAP API Business Hub
   url: https://api.sap.com
@@ -391,6 +860,8 @@ tags:
 - ERP
 - Integration
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/sap/overview
 - type: AgenticAccess
   url: agentic-access/sap-agentic-access.yml
 - type: VulnerabilityDisclosure

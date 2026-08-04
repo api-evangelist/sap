@@ -2,10 +2,6 @@
   "repo": "sap",
   "feeds": [
     {
-      "source": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://api.sap.com",
       "feed_url": "https://api.sap.com",
       "title": "",
@@ -13,6 +9,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-07-11T11:50:51Z",
+  "fetched": "2026-08-01T15:49:00Z",
   "post_count": 0
 }

@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "4da31554-351d-4f18-936a-07b786003a27",
+    "name": "SAP AI Core Addresses Deployments API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:23.000Z",
+    "updatedAt": "2026-07-28T02:51:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4da31554-351d-4f18-936a-07b786003a27"
+  },
+  "item": [
+    {
+      "name": "lm",
+      "item": [
+        {
+          "name": "deployments",
+          "item": [
+            {
+              "name": "Sap List Deployments",
+              "id": "d187b6fd-61d4-4add-b6d4-00dfbd99d602",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lm/deployments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ]
+                },
+                "description": "Retrieves all model deployments in the resource group."
+              },
+              "response": [
+                {
+                  "id": "9d55d4e9-7de4-4a4d-8e38-fd3e3ad66bbf",
+                  "name": "List of deployments",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/deployments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "deployments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"configurationId\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"status\": \"DEAD\",\n      \"deploymentUrl\": \"<uri>\",\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"configurationId\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"status\": \"UNKNOWN\",\n      \"deploymentUrl\": \"<uri>\",\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:23.000Z",
+                  "updatedAt": "2026-07-28T02:51:23.000Z",
+                  "uid": "35240-9d55d4e9-7de4-4a4d-8e38-fd3e3ad66bbf"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:23.000Z",
+              "updatedAt": "2026-07-28T02:51:23.000Z",
+              "uid": "35240-d187b6fd-61d4-4add-b6d4-00dfbd99d602"
+            },
+            {
+              "name": "Sap Create a Deployment",
+              "id": "75a5ce95-44b4-448d-8d3c-c3a2f6dac891",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/lm/deployments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ]
+                },
+                "description": "Creates a new model deployment for serving predictions."
+              },
+              "response": [
+                {
+                  "id": "b829d975-cba0-4af7-9604-8a76c4c44758",
+                  "name": "Deployment created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/deployments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "deployments"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"configurationId\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"status\": \"UNKNOWN\",\n  \"deploymentUrl\": \"<uri>\",\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:51:23.000Z",
+                  "updatedAt": "2026-07-28T02:51:23.000Z",
+                  "uid": "35240-b829d975-cba0-4af7-9604-8a76c4c44758"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:23.000Z",
+              "updatedAt": "2026-07-28T02:51:23.000Z",
+              "uid": "35240-75a5ce95-44b4-448d-8d3c-c3a2f6dac891"
+            }
+          ],
+          "id": "31649070-ddf1-401e-8a8d-0ed08eb0e7b9",
+          "createdAt": "2026-07-28T02:51:23.000Z",
+          "updatedAt": "2026-07-28T02:51:23.000Z",
+          "uid": "35240-31649070-ddf1-401e-8a8d-0ed08eb0e7b9"
+        }
+      ],
+      "id": "e66c2709-18c2-4709-a457-71ae8fea72da",
+      "createdAt": "2026-07-28T02:51:23.000Z",
+      "updatedAt": "2026-07-28T02:51:23.000Z",
+      "uid": "35240-e66c2709-18c2-4709-a457-71ae8fea72da"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

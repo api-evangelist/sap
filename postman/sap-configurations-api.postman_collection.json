@@ -1,0 +1,273 @@
+{
+  "info": {
+    "_postman_id": "b5e569ef-03e3-4e81-8e9c-87472ecb854d",
+    "name": "SAP AI Core Addresses Configurations API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:22.000Z",
+    "updatedAt": "2026-07-28T02:51:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b5e569ef-03e3-4e81-8e9c-87472ecb854d"
+  },
+  "item": [
+    {
+      "name": "lm",
+      "item": [
+        {
+          "name": "configurations",
+          "item": [
+            {
+              "name": "Sap List Configurations",
+              "id": "ce187c6c-b9d7-4844-98bb-2c0e05935299",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lm/configurations?scenarioId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "configurations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by scenario ID",
+                      "key": "scenarioId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieves all configurations for executions and deployments."
+              },
+              "response": [
+                {
+                  "id": "e1c423fc-8c42-46eb-91b5-c923f6cc02b7",
+                  "name": "List of configurations",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/configurations?scenarioId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "configurations"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by scenario ID",
+                          "key": "scenarioId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executableId\": \"<string>\",\n      \"parameterBindings\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"inputArtifactBindings\": [\n        {\n          \"key\": \"<string>\",\n          \"artifactId\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"artifactId\": \"<string>\"\n        }\n      ],\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executableId\": \"<string>\",\n      \"parameterBindings\": [\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"inputArtifactBindings\": [\n        {\n          \"key\": \"<string>\",\n          \"artifactId\": \"<string>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"artifactId\": \"<string>\"\n        }\n      ],\n      \"createdAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:22.000Z",
+                  "updatedAt": "2026-07-28T02:51:22.000Z",
+                  "uid": "35240-e1c423fc-8c42-46eb-91b5-c923f6cc02b7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:22.000Z",
+              "updatedAt": "2026-07-28T02:51:22.000Z",
+              "uid": "35240-ce187c6c-b9d7-4844-98bb-2c0e05935299"
+            },
+            {
+              "name": "Sap Create a Configuration",
+              "id": "3feaf467-a205-41f2-9c27-c65365993bd9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"executableId\": \"<string>\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/lm/configurations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "configurations"
+                  ]
+                },
+                "description": "Creates a new configuration for an execution or deployment."
+              },
+              "response": [
+                {
+                  "id": "fddc4aee-7c12-4575-84a6-571499ce366a",
+                  "name": "Configuration created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"executableId\": \"<string>\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/configurations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "configurations"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"executableId\": \"<string>\",\n  \"parameterBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"inputArtifactBindings\": [\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    },\n    {\n      \"key\": \"<string>\",\n      \"artifactId\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:51:22.000Z",
+                  "updatedAt": "2026-07-28T02:51:22.000Z",
+                  "uid": "35240-fddc4aee-7c12-4575-84a6-571499ce366a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:22.000Z",
+              "updatedAt": "2026-07-28T02:51:22.000Z",
+              "uid": "35240-3feaf467-a205-41f2-9c27-c65365993bd9"
+            }
+          ],
+          "id": "21641e05-d132-4c3a-8376-409f59844022",
+          "createdAt": "2026-07-28T02:51:22.000Z",
+          "updatedAt": "2026-07-28T02:51:22.000Z",
+          "uid": "35240-21641e05-d132-4c3a-8376-409f59844022"
+        }
+      ],
+      "id": "1ddeffef-0702-49cf-b8f5-eba6bce43a07",
+      "createdAt": "2026-07-28T02:51:22.000Z",
+      "updatedAt": "2026-07-28T02:51:22.000Z",
+      "uid": "35240-1ddeffef-0702-49cf-b8f5-eba6bce43a07"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

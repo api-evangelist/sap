@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "bf2e4f42-6c0a-4974-89d1-bc14b988fbae",
+    "name": "SAP AI Core Addresses Authentication API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:03.000Z",
+    "updatedAt": "2026-07-28T02:51:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bf2e4f42-6c0a-4974-89d1-bc14b988fbae"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Sap Authenticate and Create a Session",
+          "id": "6a599616-1678-4e8d-8000-bb988b19d8f2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CompanyDB\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Login"
+              ]
+            },
+            "description": "Authenticates a user against SAP Business One and returns a session cookie for subsequent API calls."
+          },
+          "response": [
+            {
+              "id": "05606f21-3633-4979-a10d-5bc3303cdef0",
+              "name": "Successfully authenticated",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyDB\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SessionId\": \"<string>\",\n  \"Version\": \"<string>\",\n  \"SessionTimeout\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:51:03.000Z",
+              "updatedAt": "2026-07-28T02:51:03.000Z",
+              "uid": "35240-05606f21-3633-4979-a10d-5bc3303cdef0"
+            },
+            {
+              "id": "132df016-a723-4b19-aac7-b8d8f957f028",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyDB\": \"<string>\",\n  \"UserName\": \"<string>\",\n  \"Password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Login"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:03.000Z",
+              "updatedAt": "2026-07-28T02:51:03.000Z",
+              "uid": "35240-132df016-a723-4b19-aac7-b8d8f957f028"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:03.000Z",
+          "updatedAt": "2026-07-28T02:51:03.000Z",
+          "uid": "35240-6a599616-1678-4e8d-8000-bb988b19d8f2"
+        }
+      ],
+      "id": "c44bfee0-bbb1-4834-b791-42feb7f031ed",
+      "createdAt": "2026-07-28T02:51:03.000Z",
+      "updatedAt": "2026-07-28T02:51:03.000Z",
+      "uid": "35240-c44bfee0-bbb1-4834-b791-42feb7f031ed"
+    },
+    {
+      "name": "Logout",
+      "item": [
+        {
+          "name": "Sap End the Current Session",
+          "id": "5bee2cd1-4e09-4563-95e9-ea5f46669b41",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/Logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Logout"
+              ]
+            },
+            "description": "Terminates the current authenticated session and invalidates the session cookie."
+          },
+          "response": [
+            {
+              "id": "58d905e7-ad8c-48c7-8a5f-3f3736e382ba",
+              "name": "Successfully logged out",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Logout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Logout"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:03.000Z",
+              "updatedAt": "2026-07-28T02:51:03.000Z",
+              "uid": "35240-58d905e7-ad8c-48c7-8a5f-3f3736e382ba"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:03.000Z",
+          "updatedAt": "2026-07-28T02:51:03.000Z",
+          "uid": "35240-5bee2cd1-4e09-4563-95e9-ea5f46669b41"
+        }
+      ],
+      "id": "a48b135f-83ea-420d-87f6-2dbff57b065b",
+      "createdAt": "2026-07-28T02:51:03.000Z",
+      "updatedAt": "2026-07-28T02:51:03.000Z",
+      "uid": "35240-a48b135f-83ea-420d-87f6-2dbff57b065b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

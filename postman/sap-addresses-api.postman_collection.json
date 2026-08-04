@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "e11d15ec-bf1a-41e9-9127-8f6b9ed9d611",
+    "name": "SAP AI Core Addresses API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:01.000Z",
+    "updatedAt": "2026-07-28T02:51:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e11d15ec-bf1a-41e9-9127-8f6b9ed9d611"
+  },
+  "item": [
+    {
+      "name": "A_BusinessPartnerAddress",
+      "item": [
+        {
+          "name": "Sap List Business Partner Addresses",
+          "id": "0bbde573-fca0-4f48-9904-7ab9d8d4a902",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartnerAddress?$top=<integer>&$skip=<integer>&$filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartnerAddress"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of entries to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of entries to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves address records associated with business partners."
+          },
+          "response": [
+            {
+              "id": "e3966728-5c1d-4119-a348-1c52d76be242",
+              "name": "Collection of addresses",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartnerAddress?$top=<integer>&$skip=<integer>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartnerAddress"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of entries to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"AddressID\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"Region\": \"<string>\",\n        \"CityName\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"StreetName\": \"<string>\",\n        \"HouseNumber\": \"<string>\"\n      },\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"AddressID\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"Region\": \"<string>\",\n        \"CityName\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"StreetName\": \"<string>\",\n        \"HouseNumber\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:51:01.000Z",
+              "updatedAt": "2026-07-28T02:51:01.000Z",
+              "uid": "35240-e3966728-5c1d-4119-a348-1c52d76be242"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:01.000Z",
+          "updatedAt": "2026-07-28T02:51:01.000Z",
+          "uid": "35240-0bbde573-fca0-4f48-9904-7ab9d8d4a902"
+        }
+      ],
+      "id": "9cf16c49-684e-4c36-a0e6-b2f6d44bf878",
+      "createdAt": "2026-07-28T02:51:01.000Z",
+      "updatedAt": "2026-07-28T02:51:01.000Z",
+      "uid": "35240-9cf16c49-684e-4c36-a0e6-b2f6d44bf878"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

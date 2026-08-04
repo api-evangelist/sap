@@ -1,0 +1,270 @@
+{
+  "info": {
+    "_postman_id": "313660dc-5268-40bc-a3b6-d02cebaa0541",
+    "name": "SAP AI Core Addresses Journal Entries API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:27.000Z",
+    "updatedAt": "2026-07-28T02:51:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-313660dc-5268-40bc-a3b6-d02cebaa0541"
+  },
+  "item": [
+    {
+      "name": "JournalEntries",
+      "item": [
+        {
+          "name": "Sap List Journal Entries",
+          "id": "2fa7a606-2357-450c-8d38-e5c8a79b0e10",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/JournalEntries?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "JournalEntries"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of fields to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of records to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves financial journal entries with support for OData filtering and pagination."
+          },
+          "response": [
+            {
+              "id": "2d95fbdb-da37-4362-8b8d-900dea4753e8",
+              "name": "List of journal entries",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/JournalEntries?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "JournalEntries"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of fields to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"JdtNum\": \"<integer>\",\n      \"ReferenceDate\": \"<date>\",\n      \"Memo\": \"<string>\",\n      \"JournalEntryLines\": [\n        {\n          \"AccountCode\": \"<string>\",\n          \"Debit\": \"<double>\",\n          \"Credit\": \"<double>\",\n          \"ShortName\": \"<string>\",\n          \"LineMemo\": \"<string>\"\n        },\n        {\n          \"AccountCode\": \"<string>\",\n          \"Debit\": \"<double>\",\n          \"Credit\": \"<double>\",\n          \"ShortName\": \"<string>\",\n          \"LineMemo\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"JdtNum\": \"<integer>\",\n      \"ReferenceDate\": \"<date>\",\n      \"Memo\": \"<string>\",\n      \"JournalEntryLines\": [\n        {\n          \"AccountCode\": \"<string>\",\n          \"Debit\": \"<double>\",\n          \"Credit\": \"<double>\",\n          \"ShortName\": \"<string>\",\n          \"LineMemo\": \"<string>\"\n        },\n        {\n          \"AccountCode\": \"<string>\",\n          \"Debit\": \"<double>\",\n          \"Credit\": \"<double>\",\n          \"ShortName\": \"<string>\",\n          \"LineMemo\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:27.000Z",
+              "updatedAt": "2026-07-28T02:51:27.000Z",
+              "uid": "35240-2d95fbdb-da37-4362-8b8d-900dea4753e8"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:27.000Z",
+          "updatedAt": "2026-07-28T02:51:27.000Z",
+          "uid": "35240-2fa7a606-2357-450c-8d38-e5c8a79b0e10"
+        },
+        {
+          "name": "Sap Create a Journal Entry",
+          "id": "8362e417-9442-46f3-9ddb-c7eb53eced4d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"JdtNum\": \"<integer>\",\n  \"ReferenceDate\": \"<date>\",\n  \"Memo\": \"<string>\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    },\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/JournalEntries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "JournalEntries"
+              ]
+            },
+            "description": "Creates a new financial journal entry with debit and credit lines."
+          },
+          "response": [
+            {
+              "id": "7b159946-93e9-41fa-98af-0894b4a890ec",
+              "name": "Journal entry created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"JdtNum\": \"<integer>\",\n  \"ReferenceDate\": \"<date>\",\n  \"Memo\": \"<string>\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    },\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/JournalEntries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "JournalEntries"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"JdtNum\": \"<integer>\",\n  \"ReferenceDate\": \"<date>\",\n  \"Memo\": \"<string>\",\n  \"JournalEntryLines\": [\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    },\n    {\n      \"AccountCode\": \"<string>\",\n      \"Debit\": \"<double>\",\n      \"Credit\": \"<double>\",\n      \"ShortName\": \"<string>\",\n      \"LineMemo\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:27.000Z",
+              "updatedAt": "2026-07-28T02:51:27.000Z",
+              "uid": "35240-7b159946-93e9-41fa-98af-0894b4a890ec"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:27.000Z",
+          "updatedAt": "2026-07-28T02:51:27.000Z",
+          "uid": "35240-8362e417-9442-46f3-9ddb-c7eb53eced4d"
+        }
+      ],
+      "id": "0be2d1d5-3c25-4e19-843f-aa1a2b7cdf2e",
+      "createdAt": "2026-07-28T02:51:27.000Z",
+      "updatedAt": "2026-07-28T02:51:27.000Z",
+      "uid": "35240-0be2d1d5-3c25-4e19-843f-aa1a2b7cdf2e"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

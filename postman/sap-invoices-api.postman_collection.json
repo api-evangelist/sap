@@ -1,0 +1,270 @@
+{
+  "info": {
+    "_postman_id": "f491c86f-4a24-481a-8c31-6c8866ca8259",
+    "name": "SAP AI Core Addresses Invoices API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:25.000Z",
+    "updatedAt": "2026-07-28T02:51:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f491c86f-4a24-481a-8c31-6c8866ca8259"
+  },
+  "item": [
+    {
+      "name": "Invoices",
+      "item": [
+        {
+          "name": "Sap List Ar Invoices",
+          "id": "04aadce6-1c0b-445f-bd38-4e50ddb3eba4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Invoices?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Invoices"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of fields to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of records to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves accounts receivable invoices with OData query support."
+          },
+          "response": [
+            {
+              "id": "590afea4-bf0e-4a75-b574-15637cbbed89",
+              "name": "List of invoices",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Invoices?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Invoices"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of fields to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"DocEntry\": \"<integer>\",\n      \"DocNum\": \"<integer>\",\n      \"CardCode\": \"<string>\",\n      \"DocDate\": \"<date>\",\n      \"DocDueDate\": \"<date>\",\n      \"DocTotal\": \"<double>\",\n      \"DocumentLines\": [\n        {\n          \"ItemCode\": \"<string>\",\n          \"Quantity\": \"<double>\",\n          \"UnitPrice\": \"<double>\",\n          \"Currency\": \"<string>\",\n          \"WarehouseCode\": \"<string>\",\n          \"TaxCode\": \"<string>\"\n        },\n        {\n          \"ItemCode\": \"<string>\",\n          \"Quantity\": \"<double>\",\n          \"UnitPrice\": \"<double>\",\n          \"Currency\": \"<string>\",\n          \"WarehouseCode\": \"<string>\",\n          \"TaxCode\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DocEntry\": \"<integer>\",\n      \"DocNum\": \"<integer>\",\n      \"CardCode\": \"<string>\",\n      \"DocDate\": \"<date>\",\n      \"DocDueDate\": \"<date>\",\n      \"DocTotal\": \"<double>\",\n      \"DocumentLines\": [\n        {\n          \"ItemCode\": \"<string>\",\n          \"Quantity\": \"<double>\",\n          \"UnitPrice\": \"<double>\",\n          \"Currency\": \"<string>\",\n          \"WarehouseCode\": \"<string>\",\n          \"TaxCode\": \"<string>\"\n        },\n        {\n          \"ItemCode\": \"<string>\",\n          \"Quantity\": \"<double>\",\n          \"UnitPrice\": \"<double>\",\n          \"Currency\": \"<string>\",\n          \"WarehouseCode\": \"<string>\",\n          \"TaxCode\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:25.000Z",
+              "updatedAt": "2026-07-28T02:51:25.000Z",
+              "uid": "35240-590afea4-bf0e-4a75-b574-15637cbbed89"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:25.000Z",
+          "updatedAt": "2026-07-28T02:51:25.000Z",
+          "uid": "35240-04aadce6-1c0b-445f-bd38-4e50ddb3eba4"
+        },
+        {
+          "name": "Sap Create an Ar Invoice",
+          "id": "0dacb650-4ec6-4fa0-987f-84e0b99e3ef4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DocEntry\": \"<integer>\",\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocTotal\": \"<double>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Invoices"
+              ]
+            },
+            "description": "Creates a new accounts receivable invoice with line items."
+          },
+          "response": [
+            {
+              "id": "63870290-4629-4398-8b8f-1495a30adc19",
+              "name": "Invoice created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": \"<integer>\",\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocTotal\": \"<double>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Invoices"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"DocEntry\": \"<integer>\",\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocTotal\": \"<double>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:25.000Z",
+              "updatedAt": "2026-07-28T02:51:25.000Z",
+              "uid": "35240-63870290-4629-4398-8b8f-1495a30adc19"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:25.000Z",
+          "updatedAt": "2026-07-28T02:51:25.000Z",
+          "uid": "35240-0dacb650-4ec6-4fa0-987f-84e0b99e3ef4"
+        }
+      ],
+      "id": "46b2efe4-534d-49d4-b6be-0104f497618d",
+      "createdAt": "2026-07-28T02:51:25.000Z",
+      "updatedAt": "2026-07-28T02:51:25.000Z",
+      "uid": "35240-46b2efe4-534d-49d4-b6be-0104f497618d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

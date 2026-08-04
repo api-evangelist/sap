@@ -1,0 +1,1179 @@
+{
+  "info": {
+    "_postman_id": "4eaaf1b7-77cc-44bc-a36f-2b02d6cd49f9",
+    "name": "SAP AI Core Addresses Business Partners API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:04.000Z",
+    "updatedAt": "2026-07-28T02:51:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4eaaf1b7-77cc-44bc-a36f-2b02d6cd49f9"
+  },
+  "item": [
+    {
+      "name": "BusinessPartners",
+      "item": [
+        {
+          "name": "Sap List Business Partners",
+          "id": "d46de1c8-50fe-46ef-a9d1-8ef548eab7af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/BusinessPartners?$select=<string>&$filter=<string>&$orderby=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "BusinessPartners"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of fields to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData ordering expression",
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of records to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves a list of business partners including customers, vendors, and leads with support for OData query options."
+          },
+          "response": [
+            {
+              "id": "f93e028a-f79e-497a-b81d-5ab1ef424652",
+              "name": "List of business partners",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners?$select=<string>&$filter=<string>&$orderby=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of fields to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData ordering expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"CardCode\": \"<string>\",\n      \"CardName\": \"<string>\",\n      \"CardType\": \"cLid\",\n      \"GroupCode\": \"<integer>\",\n      \"Phone1\": \"<string>\",\n      \"EmailAddress\": \"<email>\",\n      \"FederalTaxID\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"Valid\": \"tNO\"\n    },\n    {\n      \"CardCode\": \"<string>\",\n      \"CardName\": \"<string>\",\n      \"CardType\": \"cSupplier\",\n      \"GroupCode\": \"<integer>\",\n      \"Phone1\": \"<string>\",\n      \"EmailAddress\": \"<email>\",\n      \"FederalTaxID\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"Valid\": \"tNO\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-f93e028a-f79e-497a-b81d-5ab1ef424652"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-d46de1c8-50fe-46ef-a9d1-8ef548eab7af"
+        },
+        {
+          "name": "Sap Create a Business Partner",
+          "id": "d37d5984-dc08-453c-8b57-4b351c8c1e87",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/BusinessPartners",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "BusinessPartners"
+              ]
+            },
+            "description": "Creates a new business partner record in SAP Business One."
+          },
+          "response": [
+            {
+              "id": "89906872-2b49-4f66-80ae-ee05e70ebc2d",
+              "name": "Business partner created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-89906872-2b49-4f66-80ae-ee05e70ebc2d"
+            },
+            {
+              "id": "1b020b13-1064-4582-a2cf-a943ab2bb427",
+              "name": "Invalid request data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-1b020b13-1064-4582-a2cf-a943ab2bb427"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-d37d5984-dc08-453c-8b57-4b351c8c1e87"
+        }
+      ],
+      "id": "557cd4d9-0e6c-4931-b3c2-7b6cb5818fba",
+      "createdAt": "2026-07-28T02:51:05.000Z",
+      "updatedAt": "2026-07-28T02:51:05.000Z",
+      "uid": "35240-557cd4d9-0e6c-4931-b3c2-7b6cb5818fba"
+    },
+    {
+      "name": "BusinessPartners('{CardCode}')",
+      "item": [
+        {
+          "name": "Sap Get a Business Partner by Code",
+          "id": "79ca9d13-3424-4f84-93a4-27478068b7a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ]
+            },
+            "description": "Retrieves a specific business partner by their card code."
+          },
+          "response": [
+            {
+              "id": "fcc8e319-c10d-4dc2-900f-3f8164fd5a58",
+              "name": "Business partner details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-fcc8e319-c10d-4dc2-900f-3f8164fd5a58"
+            },
+            {
+              "id": "ffc7fb4e-7bb9-45c6-a1f6-d831eae5072f",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-ffc7fb4e-7bb9-45c6-a1f6-d831eae5072f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-79ca9d13-3424-4f84-93a4-27478068b7a6"
+        },
+        {
+          "name": "Sap Update a Business Partner",
+          "id": "4ad49d81-2eda-4d0e-b3f1-67488bdfb346",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ]
+            },
+            "description": "Updates an existing business partner record with the provided fields."
+          },
+          "response": [
+            {
+              "id": "78616014-cbc8-410a-86e8-0c2f6aad6ffc",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-78616014-cbc8-410a-86e8-0c2f6aad6ffc"
+            },
+            {
+              "id": "27b0bbc2-2788-4737-aa1d-7f871f14bb31",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"cSupplier\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"tNO\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/BusinessPartners('{{CardCode}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-27b0bbc2-2788-4737-aa1d-7f871f14bb31"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-4ad49d81-2eda-4d0e-b3f1-67488bdfb346"
+        }
+      ],
+      "id": "c0ea5dee-94c6-4fa4-a27d-b675f813de1b",
+      "createdAt": "2026-07-28T02:51:05.000Z",
+      "updatedAt": "2026-07-28T02:51:05.000Z",
+      "uid": "35240-c0ea5dee-94c6-4fa4-a27d-b675f813de1b"
+    },
+    {
+      "name": "A_BusinessPartner",
+      "item": [
+        {
+          "name": "Sap List Business Partners",
+          "id": "4e7edd19-3c5c-48d5-97b6-c954fd6428ca",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartner?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartner"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of entries to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of entries to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of properties to return",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData sort expression",
+                  "key": "$orderby",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination."
+          },
+          "response": [
+            {
+              "id": "c0b25344-24d1-429c-9573-68077f9afb76",
+              "name": "Collection of business partners",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of entries to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to return",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData sort expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BusinessPartnerFullName\": \"<string>\",\n        \"BusinessPartnerCategory\": \"3\",\n        \"BusinessPartnerGrouping\": \"<string>\",\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"OrganizationBPName1\": \"<string>\",\n        \"SearchTerm1\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"CreationDate\": \"<date>\"\n      },\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BusinessPartnerFullName\": \"<string>\",\n        \"BusinessPartnerCategory\": \"2\",\n        \"BusinessPartnerGrouping\": \"<string>\",\n        \"FirstName\": \"<string>\",\n        \"LastName\": \"<string>\",\n        \"OrganizationBPName1\": \"<string>\",\n        \"SearchTerm1\": \"<string>\",\n        \"Language\": \"<string>\",\n        \"CreationDate\": \"<date>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-c0b25344-24d1-429c-9573-68077f9afb76"
+            },
+            {
+              "id": "7555fdfa-28b9-41d8-85e1-36f2a28076b4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner?$top=<integer>&$skip=<integer>&$filter=<string>&$select=<string>&$orderby=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of entries to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of properties to return",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData sort expression",
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-7555fdfa-28b9-41d8-85e1-36f2a28076b4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-4e7edd19-3c5c-48d5-97b6-c954fd6428ca"
+        },
+        {
+          "name": "Sap Create a Business Partner",
+          "id": "341d847f-0858-4e71-9436-60e2df2a3f75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartner",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartner"
+              ]
+            },
+            "description": "Creates a new business partner master record in SAP S/4HANA Cloud."
+          },
+          "response": [
+            {
+              "id": "0f7c68ca-3766-44ca-9fdf-becd2eb30740",
+              "name": "Business partner created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"<string>\",\n    \"BusinessPartnerFullName\": \"<string>\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"LastName\": \"<string>\",\n    \"OrganizationBPName1\": \"<string>\",\n    \"SearchTerm1\": \"<string>\",\n    \"Language\": \"<string>\",\n    \"CreationDate\": \"<date>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-0f7c68ca-3766-44ca-9fdf-becd2eb30740"
+            },
+            {
+              "id": "c122f5d3-fb0b-47a4-9926-8a661b39c8ef",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-c122f5d3-fb0b-47a4-9926-8a661b39c8ef"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-341d847f-0858-4e71-9436-60e2df2a3f75"
+        }
+      ],
+      "id": "d572a40e-7a09-44c6-9f09-fa40c91ba126",
+      "createdAt": "2026-07-28T02:51:05.000Z",
+      "updatedAt": "2026-07-28T02:51:05.000Z",
+      "uid": "35240-d572a40e-7a09-44c6-9f09-fa40c91ba126"
+    },
+    {
+      "name": "A_BusinessPartner('{BusinessPartner}')",
+      "item": [
+        {
+          "name": "Sap Get a Business Partner",
+          "id": "b4dc7cb9-605d-4024-b02c-e7b12279e6aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ]
+            },
+            "description": "Retrieves a single business partner by its key."
+          },
+          "response": [
+            {
+              "id": "c33edcc0-627c-411d-b24e-62a7c0c69b47",
+              "name": "Business partner details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"<string>\",\n    \"BusinessPartnerFullName\": \"<string>\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"LastName\": \"<string>\",\n    \"OrganizationBPName1\": \"<string>\",\n    \"SearchTerm1\": \"<string>\",\n    \"Language\": \"<string>\",\n    \"CreationDate\": \"<date>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-c33edcc0-627c-411d-b24e-62a7c0c69b47"
+            },
+            {
+              "id": "30c30648-a224-4af9-aaa8-13f62bba5f19",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-30c30648-a224-4af9-aaa8-13f62bba5f19"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-b4dc7cb9-605d-4024-b02c-e7b12279e6aa"
+        },
+        {
+          "name": "Sap Update a Business Partner",
+          "id": "8b047c6e-402e-4e75-8545-6de45c2b36c1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ]
+            },
+            "description": "Updates fields of an existing business partner record."
+          },
+          "response": [
+            {
+              "id": "bd0b2ea4-c952-4881-8da7-41f59c13bd54",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-bd0b2ea4-c952-4881-8da7-41f59c13bd54"
+            },
+            {
+              "id": "9f6917e3-b741-45dc-94d9-bcfd3d544529",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"3\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartner('{{BusinessPartner}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:51:05.000Z",
+              "updatedAt": "2026-07-28T02:51:05.000Z",
+              "uid": "35240-9f6917e3-b741-45dc-94d9-bcfd3d544529"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:05.000Z",
+          "updatedAt": "2026-07-28T02:51:05.000Z",
+          "uid": "35240-8b047c6e-402e-4e75-8545-6de45c2b36c1"
+        }
+      ],
+      "id": "59bc996c-a22d-414f-ba26-d497915263a2",
+      "createdAt": "2026-07-28T02:51:05.000Z",
+      "updatedAt": "2026-07-28T02:51:05.000Z",
+      "uid": "35240-59bc996c-a22d-414f-ba26-d497915263a2"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    },
+    {
+      "key": "CardCode",
+      "value": "<string>"
+    },
+    {
+      "key": "BusinessPartner",
+      "value": "<string>"
+    }
+  ]
+}

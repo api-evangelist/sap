@@ -1,0 +1,259 @@
+{
+  "info": {
+    "_postman_id": "1fef7040-ea6d-45a9-aadd-ca1c83247496",
+    "name": "SAP AI Core Addresses Artifacts API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:02.000Z",
+    "updatedAt": "2026-07-28T02:51:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1fef7040-ea6d-45a9-aadd-ca1c83247496"
+  },
+  "item": [
+    {
+      "name": "lm",
+      "item": [
+        {
+          "name": "artifacts",
+          "item": [
+            {
+              "name": "Sap List Artifacts",
+              "id": "1ca25653-ab4b-435b-9868-981b1c8c2c3f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lm/artifacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "artifacts"
+                  ]
+                },
+                "description": "Retrieves all artifacts (models, datasets) in the resource group."
+              },
+              "response": [
+                {
+                  "id": "deed879d-a097-4ad0-834e-6579778126b7",
+                  "name": "List of artifacts",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/artifacts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "artifacts"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"model\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"other\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:02.000Z",
+                  "updatedAt": "2026-07-28T02:51:02.000Z",
+                  "uid": "35240-deed879d-a097-4ad0-834e-6579778126b7"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:02.000Z",
+              "updatedAt": "2026-07-28T02:51:02.000Z",
+              "uid": "35240-1ca25653-ab4b-435b-9868-981b1c8c2c3f"
+            },
+            {
+              "name": "Sap Register an Artifact",
+              "id": "1546d0b9-1a1f-4233-8499-88ce0bd5a13a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"resultset\",\n  \"url\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/lm/artifacts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "artifacts"
+                  ]
+                },
+                "description": "Registers a new artifact (model or dataset) for use in executions and deployments."
+              },
+              "response": [
+                {
+                  "id": "e20cd6a1-ec6f-42f4-8275-b11e616ae94e",
+                  "name": "Artifact registered",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"resultset\",\n  \"url\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/artifacts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "artifacts"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"kind\": \"resultset\",\n  \"url\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"executionId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:51:02.000Z",
+                  "updatedAt": "2026-07-28T02:51:02.000Z",
+                  "uid": "35240-e20cd6a1-ec6f-42f4-8275-b11e616ae94e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:02.000Z",
+              "updatedAt": "2026-07-28T02:51:02.000Z",
+              "uid": "35240-1546d0b9-1a1f-4233-8499-88ce0bd5a13a"
+            }
+          ],
+          "id": "46c8a807-c54d-40de-a0ee-69cbda374b2b",
+          "createdAt": "2026-07-28T02:51:02.000Z",
+          "updatedAt": "2026-07-28T02:51:02.000Z",
+          "uid": "35240-46c8a807-c54d-40de-a0ee-69cbda374b2b"
+        }
+      ],
+      "id": "76269fd2-10f8-46db-97a2-67fbdcc8919c",
+      "createdAt": "2026-07-28T02:51:02.000Z",
+      "updatedAt": "2026-07-28T02:51:02.000Z",
+      "uid": "35240-76269fd2-10f8-46db-97a2-67fbdcc8919c"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

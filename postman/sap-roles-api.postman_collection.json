@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "1728b628-148d-4ec1-908a-82d193e27022",
+    "name": "SAP AI Core Addresses Roles API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:44.000Z",
+    "updatedAt": "2026-07-28T02:51:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1728b628-148d-4ec1-908a-82d193e27022"
+  },
+  "item": [
+    {
+      "name": "A_BusinessPartnerRole",
+      "item": [
+        {
+          "name": "Sap List Business Partner Roles",
+          "id": "92738fa1-41fd-41fc-8113-ff2f4a867b7a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartnerRole?$top=<integer>&$filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartnerRole"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of entries to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves role assignments for business partners, indicating whether they serve as customer, supplier, or both."
+          },
+          "response": [
+            {
+              "id": "2ef0b66a-bffa-4785-b4f2-3f3ed98b3b1a",
+              "name": "Collection of roles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartnerRole?$top=<integer>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartnerRole"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BusinessPartnerRole\": \"<string>\"\n      },\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BusinessPartnerRole\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:51:44.000Z",
+              "updatedAt": "2026-07-28T02:51:44.000Z",
+              "uid": "35240-2ef0b66a-bffa-4785-b4f2-3f3ed98b3b1a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:44.000Z",
+          "updatedAt": "2026-07-28T02:51:44.000Z",
+          "uid": "35240-92738fa1-41fd-41fc-8113-ff2f4a867b7a"
+        }
+      ],
+      "id": "802d2913-c4ff-43e9-9052-33969c73276a",
+      "createdAt": "2026-07-28T02:51:44.000Z",
+      "updatedAt": "2026-07-28T02:51:44.000Z",
+      "uid": "35240-802d2913-c4ff-43e9-9052-33969c73276a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

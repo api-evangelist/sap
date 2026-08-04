@@ -1,0 +1,42 @@
+{
+  "provider": "sap",
+  "sources": [
+    "sap-addresses-api-openapi.yml",
+    "sap-artifacts-api-openapi.yml",
+    "sap-authentication-api-openapi.yml",
+    "sap-bank-accounts-api-openapi.yml",
+    "sap-business-partners-api-openapi.yml",
+    "sap-configurations-api-openapi.yml",
+    "sap-deployments-api-openapi.yml",
+    "sap-executions-api-openapi.yml",
+    "sap-invoices-api-openapi.yml",
+    "sap-items-api-openapi.yml",
+    "sap-journal-entries-api-openapi.yml",
+    "sap-orders-api-openapi.yml",
+    "sap-roles-api-openapi.yml",
+    "sap-scenarios-api-openapi.yml",
+    "sap-tax-numbers-api-openapi.yml"
+  ],
+  "outputs": [
+    "sap-addresses-api-openapi.yml",
+    "sap-artifacts-api-openapi.yml",
+    "sap-authentication-api-openapi.yml",
+    "sap-bank-accounts-api-openapi.yml",
+    "sap-business-partners-api-openapi.yml",
+    "sap-configurations-api-openapi.yml",
+    "sap-deployments-api-openapi.yml",
+    "sap-executions-api-openapi.yml",
+    "sap-invoices-api-openapi.yml",
+    "sap-items-api-openapi.yml",
+    "sap-journal-entries-api-openapi.yml",
+    "sap-orders-api-openapi.yml",
+    "sap-roles-api-openapi.yml",
+    "sap-scenarios-api-openapi.yml",
+    "sap-tax-numbers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,514 @@
+{
+  "info": {
+    "_postman_id": "ec6a3ab9-557b-458e-a94b-1e909db2ff2f",
+    "name": "SAP AI Core Addresses Executions API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:24.000Z",
+    "updatedAt": "2026-07-28T02:51:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ec6a3ab9-557b-458e-a94b-1e909db2ff2f"
+  },
+  "item": [
+    {
+      "name": "lm",
+      "item": [
+        {
+          "name": "executions",
+          "item": [
+            {
+              "name": "{executionId}",
+              "item": [
+                {
+                  "name": "Sap Get an Execution",
+                  "id": "5baf8b0b-ffc4-4c00-9710-903b813c3d0a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/executions/:executionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "executions",
+                        ":executionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ad38909f-df45-4732-87de-4a40f0ad0fd6",
+                          "key": "executionId",
+                          "value": "<string>",
+                          "description": "(Required) Execution identifier"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves details of a specific training execution."
+                  },
+                  "response": [
+                    {
+                      "id": "9898a367-10ca-45c8-823c-deb94ad6eb5d",
+                      "name": "Execution details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The resource group for multi-tenancy isolation",
+                            "key": "AI-Resource-Group",
+                            "value": "default"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lm/executions/:executionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lm",
+                            "executions",
+                            ":executionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "executionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"configurationId\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"status\": \"COMPLETED\",\n  \"statusMessage\": \"<string>\",\n  \"outputArtifacts\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"dataset\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"other\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:51:24.000Z",
+                      "updatedAt": "2026-07-28T02:51:24.000Z",
+                      "uid": "35240-9898a367-10ca-45c8-823c-deb94ad6eb5d"
+                    },
+                    {
+                      "id": "c36257e4-001f-49ce-a945-59d25981ee97",
+                      "name": "Execution not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The resource group for multi-tenancy isolation",
+                            "key": "AI-Resource-Group",
+                            "value": "default"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lm/executions/:executionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lm",
+                            "executions",
+                            ":executionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "executionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:51:24.000Z",
+                      "updatedAt": "2026-07-28T02:51:24.000Z",
+                      "uid": "35240-c36257e4-001f-49ce-a945-59d25981ee97"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:51:24.000Z",
+                  "updatedAt": "2026-07-28T02:51:24.000Z",
+                  "uid": "35240-5baf8b0b-ffc4-4c00-9710-903b813c3d0a"
+                },
+                {
+                  "name": "Sap Stop an Execution",
+                  "id": "ff30b246-dced-4b1f-a96c-5f27677cd27f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/executions/:executionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "executions",
+                        ":executionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7bf45973-89d9-4147-a765-9196c403bae3",
+                          "key": "executionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Stops a running execution or marks it for deletion."
+                  },
+                  "response": [
+                    {
+                      "id": "759d292f-2830-4993-8fc1-b93e26a8fd35",
+                      "name": "Execution stop accepted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "(Required) The resource group for multi-tenancy isolation",
+                            "key": "AI-Resource-Group",
+                            "value": "default"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lm/executions/:executionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lm",
+                            "executions",
+                            ":executionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "executionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:51:24.000Z",
+                      "updatedAt": "2026-07-28T02:51:24.000Z",
+                      "uid": "35240-759d292f-2830-4993-8fc1-b93e26a8fd35"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:51:24.000Z",
+                  "updatedAt": "2026-07-28T02:51:24.000Z",
+                  "uid": "35240-ff30b246-dced-4b1f-a96c-5f27677cd27f"
+                }
+              ],
+              "id": "0a903d18-5791-4e22-ba43-e9757a2bab01",
+              "createdAt": "2026-07-28T02:51:24.000Z",
+              "updatedAt": "2026-07-28T02:51:24.000Z",
+              "uid": "35240-0a903d18-5791-4e22-ba43-e9757a2bab01"
+            },
+            {
+              "name": "Sap List Executions",
+              "id": "c4d6a287-5841-46ff-83bb-a39aee1f28d1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lm/executions?status=DEAD",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "executions"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by execution status",
+                      "key": "status",
+                      "value": "DEAD"
+                    }
+                  ]
+                },
+                "description": "Retrieves all training executions in the resource group."
+              },
+              "response": [
+                {
+                  "id": "ffc7b68f-b239-4ff4-8f3f-e0fa8a382332",
+                  "name": "List of executions",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/executions?status=DEAD",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "executions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by execution status",
+                          "key": "status",
+                          "value": "DEAD"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"configurationId\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"status\": \"COMPLETED\",\n      \"statusMessage\": \"<string>\",\n      \"outputArtifacts\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"kind\": \"other\",\n          \"url\": \"<string>\",\n          \"scenarioId\": \"<string>\",\n          \"executionId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"createdAt\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"kind\": \"resultset\",\n          \"url\": \"<string>\",\n          \"scenarioId\": \"<string>\",\n          \"executionId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"createdAt\": \"<dateTime>\"\n        }\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"configurationId\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"status\": \"STOPPED\",\n      \"statusMessage\": \"<string>\",\n      \"outputArtifacts\": [\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"kind\": \"dataset\",\n          \"url\": \"<string>\",\n          \"scenarioId\": \"<string>\",\n          \"executionId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"createdAt\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"kind\": \"other\",\n          \"url\": \"<string>\",\n          \"scenarioId\": \"<string>\",\n          \"executionId\": \"<string>\",\n          \"description\": \"<string>\",\n          \"createdAt\": \"<dateTime>\"\n        }\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:24.000Z",
+                  "updatedAt": "2026-07-28T02:51:24.000Z",
+                  "uid": "35240-ffc7b68f-b239-4ff4-8f3f-e0fa8a382332"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:24.000Z",
+              "updatedAt": "2026-07-28T02:51:24.000Z",
+              "uid": "35240-c4d6a287-5841-46ff-83bb-a39aee1f28d1"
+            },
+            {
+              "name": "Sap Create an Execution",
+              "id": "d0730e60-46ce-4f1d-85e2-6045ea1729a9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/lm/executions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "executions"
+                  ]
+                },
+                "description": "Triggers a new training execution using a configuration."
+              },
+              "response": [
+                {
+                  "id": "4c7fdd62-5b77-45c4-aa7d-4cf7bb2c2130",
+                  "name": "Execution created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"configurationId\": \"<string>\",\n  \"scenarioId\": \"<string>\",\n  \"status\": \"COMPLETED\",\n  \"statusMessage\": \"<string>\",\n  \"outputArtifacts\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"dataset\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"kind\": \"other\",\n      \"url\": \"<string>\",\n      \"scenarioId\": \"<string>\",\n      \"executionId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"modifiedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:51:24.000Z",
+                  "updatedAt": "2026-07-28T02:51:24.000Z",
+                  "uid": "35240-4c7fdd62-5b77-45c4-aa7d-4cf7bb2c2130"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:24.000Z",
+              "updatedAt": "2026-07-28T02:51:24.000Z",
+              "uid": "35240-d0730e60-46ce-4f1d-85e2-6045ea1729a9"
+            }
+          ],
+          "id": "67612c1f-011c-47e7-9dcd-2b5662ece324",
+          "createdAt": "2026-07-28T02:51:24.000Z",
+          "updatedAt": "2026-07-28T02:51:24.000Z",
+          "uid": "35240-67612c1f-011c-47e7-9dcd-2b5662ece324"
+        }
+      ],
+      "id": "8eb85d37-9c21-4c7a-b66f-9ff7c530f2c6",
+      "createdAt": "2026-07-28T02:51:24.000Z",
+      "updatedAt": "2026-07-28T02:51:24.000Z",
+      "uid": "35240-8eb85d37-9c21-4c7a-b66f-9ff7c530f2c6"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

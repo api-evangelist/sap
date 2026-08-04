@@ -1,0 +1,292 @@
+{
+  "info": {
+    "_postman_id": "57e53a46-fceb-49cf-882f-5af4069ee2f2",
+    "name": "SAP AI Core Addresses Scenarios API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:45.000Z",
+    "updatedAt": "2026-07-28T02:51:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57e53a46-fceb-49cf-882f-5af4069ee2f2"
+  },
+  "item": [
+    {
+      "name": "lm",
+      "item": [
+        {
+          "name": "scenarios",
+          "item": [
+            {
+              "name": "{scenarioId}",
+              "item": [
+                {
+                  "name": "versions",
+                  "item": [
+                    {
+                      "name": "Sap List Scenario Versions",
+                      "id": "0cc0c29c-42bc-4965-a743-3ee41dc710eb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) The resource group for multi-tenancy isolation",
+                            "key": "AI-Resource-Group",
+                            "value": "default"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/lm/scenarios/:scenarioId/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "lm",
+                            "scenarios",
+                            ":scenarioId",
+                            "versions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a5be0445-0f16-4e61-82af-06feab522ccd",
+                              "key": "scenarioId",
+                              "value": "<string>",
+                              "description": "(Required) Scenario identifier"
+                            }
+                          ]
+                        },
+                        "description": "Retrieves all versions for a specific AI scenario."
+                      },
+                      "response": [
+                        {
+                          "id": "5eb81a87-9cce-4e69-8d36-e808af35a54b",
+                          "name": "List of scenario versions",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "(Required) The resource group for multi-tenancy isolation",
+                                "key": "AI-Resource-Group",
+                                "value": "default"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/lm/scenarios/:scenarioId/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "lm",
+                                "scenarios",
+                                ":scenarioId",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "scenarioId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:51:45.000Z",
+                          "updatedAt": "2026-07-28T02:51:45.000Z",
+                          "uid": "35240-5eb81a87-9cce-4e69-8d36-e808af35a54b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:51:45.000Z",
+                      "updatedAt": "2026-07-28T02:51:45.000Z",
+                      "uid": "35240-0cc0c29c-42bc-4965-a743-3ee41dc710eb"
+                    }
+                  ],
+                  "id": "731051a0-ed8f-4d82-a236-edfa34351ccb",
+                  "createdAt": "2026-07-28T02:51:45.000Z",
+                  "updatedAt": "2026-07-28T02:51:45.000Z",
+                  "uid": "35240-731051a0-ed8f-4d82-a236-edfa34351ccb"
+                }
+              ],
+              "id": "e4530f11-5943-4e60-905a-bb42bf6ba61b",
+              "createdAt": "2026-07-28T02:51:45.000Z",
+              "updatedAt": "2026-07-28T02:51:45.000Z",
+              "uid": "35240-e4530f11-5943-4e60-905a-bb42bf6ba61b"
+            },
+            {
+              "name": "Sap List Ai Scenarios",
+              "id": "76e8ef29-b890-400f-826a-976aeb1ed0fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/lm/scenarios",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "lm",
+                    "scenarios"
+                  ]
+                },
+                "description": "Retrieves all AI scenarios available in the resource group."
+              },
+              "response": [
+                {
+                  "id": "76b56e4a-de76-4534-98a3-ce9b74af895b",
+                  "name": "List of scenarios",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/scenarios",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "scenarios"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"resources\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"modifiedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:51:45.000Z",
+                  "updatedAt": "2026-07-28T02:51:45.000Z",
+                  "uid": "35240-76b56e4a-de76-4534-98a3-ce9b74af895b"
+                },
+                {
+                  "id": "6fe820cb-955c-443b-aee5-881bf2a23035",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) The resource group for multi-tenancy isolation",
+                        "key": "AI-Resource-Group",
+                        "value": "default"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/lm/scenarios",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "lm",
+                        "scenarios"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:51:45.000Z",
+                  "updatedAt": "2026-07-28T02:51:45.000Z",
+                  "uid": "35240-6fe820cb-955c-443b-aee5-881bf2a23035"
+                }
+              ],
+              "createdAt": "2026-07-28T02:51:45.000Z",
+              "updatedAt": "2026-07-28T02:51:45.000Z",
+              "uid": "35240-76e8ef29-b890-400f-826a-976aeb1ed0fa"
+            }
+          ],
+          "id": "ba0144a8-47bd-4b70-a333-28db3eb988a5",
+          "createdAt": "2026-07-28T02:51:45.000Z",
+          "updatedAt": "2026-07-28T02:51:45.000Z",
+          "uid": "35240-ba0144a8-47bd-4b70-a333-28db3eb988a5"
+        }
+      ],
+      "id": "f71c7b82-8694-44e2-8b2f-a682d0f68d0e",
+      "createdAt": "2026-07-28T02:51:45.000Z",
+      "updatedAt": "2026-07-28T02:51:45.000Z",
+      "uid": "35240-f71c7b82-8694-44e2-8b2f-a682d0f68d0e"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

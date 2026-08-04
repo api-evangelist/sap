@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "43581382-56b7-4ae2-ba66-7f29a130bc01",
+    "name": "SAP AI Core Addresses Tax Numbers API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:46.000Z",
+    "updatedAt": "2026-07-28T02:51:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-43581382-56b7-4ae2-ba66-7f29a130bc01"
+  },
+  "item": [
+    {
+      "name": "A_BusinessPartnerTaxNumber",
+      "item": [
+        {
+          "name": "Sap List Tax Numbers",
+          "id": "4a2534de-d6d8-4d88-a23d-9158f5ca8c84",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartnerTaxNumber?$top=<integer>&$filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartnerTaxNumber"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of entries to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves tax identification numbers for business partners."
+          },
+          "response": [
+            {
+              "id": "9d0db3e4-6bcf-4789-9e65-831059970009",
+              "name": "Collection of tax numbers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartnerTaxNumber?$top=<integer>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartnerTaxNumber"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BPTaxType\": \"<string>\",\n        \"BPTaxNumber\": \"<string>\"\n      },\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BPTaxType\": \"<string>\",\n        \"BPTaxNumber\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:51:46.000Z",
+              "updatedAt": "2026-07-28T02:51:46.000Z",
+              "uid": "35240-9d0db3e4-6bcf-4789-9e65-831059970009"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:46.000Z",
+          "updatedAt": "2026-07-28T02:51:46.000Z",
+          "uid": "35240-4a2534de-d6d8-4d88-a23d-9158f5ca8c84"
+        }
+      ],
+      "id": "0b35cccc-dcfe-4c28-ac1f-65e37b288ff0",
+      "createdAt": "2026-07-28T02:51:46.000Z",
+      "updatedAt": "2026-07-28T02:51:46.000Z",
+      "uid": "35240-0b35cccc-dcfe-4c28-ac1f-65e37b288ff0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

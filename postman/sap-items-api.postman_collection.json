@@ -1,0 +1,169 @@
+{
+  "info": {
+    "_postman_id": "fd219c4e-8b46-4b37-a4c3-363d73013709",
+    "name": "SAP AI Core Addresses Items API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:26.000Z",
+    "updatedAt": "2026-07-28T02:51:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fd219c4e-8b46-4b37-a4c3-363d73013709"
+  },
+  "item": [
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "Sap List Items",
+          "id": "7fbf36a4-8ff7-42c1-b2fc-def63de71b6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Items?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Items"
+              ],
+              "query": [
+                {
+                  "description": "Comma-separated list of fields to include in the response",
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of records to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of records to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves the item master data list with support for OData query options."
+          },
+          "response": [
+            {
+              "id": "b53d8841-3965-4da2-975f-0389dcf3fa82",
+              "name": "List of items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Items?$select=<string>&$filter=<string>&$top=<integer>&$skip=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Items"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of fields to include in the response",
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of records to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of records to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"ItemName\": \"<string>\",\n      \"ItemType\": \"itLabor\",\n      \"ItemsGroupCode\": \"<integer>\",\n      \"QuantityOnStock\": \"<double>\",\n      \"AvgStdPrice\": \"<double>\",\n      \"SalesUnit\": \"<string>\",\n      \"PurchaseUnit\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"ItemName\": \"<string>\",\n      \"ItemType\": \"itFixedAssets\",\n      \"ItemsGroupCode\": \"<integer>\",\n      \"QuantityOnStock\": \"<double>\",\n      \"AvgStdPrice\": \"<double>\",\n      \"SalesUnit\": \"<string>\",\n      \"PurchaseUnit\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:51:26.000Z",
+              "updatedAt": "2026-07-28T02:51:26.000Z",
+              "uid": "35240-b53d8841-3965-4da2-975f-0389dcf3fa82"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:26.000Z",
+          "updatedAt": "2026-07-28T02:51:26.000Z",
+          "uid": "35240-7fbf36a4-8ff7-42c1-b2fc-def63de71b6a"
+        }
+      ],
+      "id": "b189f83f-0752-403c-b7b5-241c84e2b137",
+      "createdAt": "2026-07-28T02:51:26.000Z",
+      "updatedAt": "2026-07-28T02:51:26.000Z",
+      "uid": "35240-b189f83f-0752-403c-b7b5-241c84e2b137"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

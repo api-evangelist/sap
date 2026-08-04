@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "d90fa053-38ba-4085-81ef-c0f6c1ab8e5f",
+    "name": "SAP AI Core Addresses Bank Accounts API",
+    "description": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:51:03.000Z",
+    "updatedAt": "2026-07-28T02:51:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d90fa053-38ba-4085-81ef-c0f6c1ab8e5f"
+  },
+  "item": [
+    {
+      "name": "A_BusinessPartnerBank",
+      "item": [
+        {
+          "name": "Sap List Bank Accounts",
+          "id": "50512cc8-f955-437f-bbf1-204f5e930b18",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/A_BusinessPartnerBank?$top=<integer>&$skip=<integer>&$filter=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "A_BusinessPartnerBank"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of entries to return",
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of entries to skip",
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "OData filter expression",
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves bank account records for business partners."
+          },
+          "response": [
+            {
+              "id": "79605ac7-b592-46ed-adf2-02d99dba8ae4",
+              "name": "Collection of bank accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/A_BusinessPartnerBank?$top=<integer>&$skip=<integer>&$filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "A_BusinessPartnerBank"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of entries to return",
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of entries to skip",
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "OData filter expression",
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BankIdentification\": \"<string>\",\n        \"BankCountryKey\": \"<string>\",\n        \"BankNumber\": \"<string>\",\n        \"BankAccount\": \"<string>\",\n        \"IBAN\": \"<string>\",\n        \"SWIFTCode\": \"<string>\"\n      },\n      {\n        \"BusinessPartner\": \"<string>\",\n        \"BankIdentification\": \"<string>\",\n        \"BankCountryKey\": \"<string>\",\n        \"BankNumber\": \"<string>\",\n        \"BankAccount\": \"<string>\",\n        \"IBAN\": \"<string>\",\n        \"SWIFTCode\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:51:04.000Z",
+              "updatedAt": "2026-07-28T02:51:04.000Z",
+              "uid": "35240-79605ac7-b592-46ed-adf2-02d99dba8ae4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:51:04.000Z",
+          "updatedAt": "2026-07-28T02:51:04.000Z",
+          "uid": "35240-50512cc8-f955-437f-bbf1-204f5e930b18"
+        }
+      ],
+      "id": "837a2536-4a7a-4118-abb0-78838214ab59",
+      "createdAt": "2026-07-28T02:51:04.000Z",
+      "updatedAt": "2026-07-28T02:51:04.000Z",
+      "uid": "35240-837a2536-4a7a-4118-abb0-78838214ab59"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "eu10"
+    },
+    {
+      "key": "landscape",
+      "value": "hana"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2"
+    }
+  ]
+}

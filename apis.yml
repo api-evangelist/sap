@@ -939,14 +939,6 @@ common:
   url: json-schema/sap-sales-order-schema.json
 - type: Rules
   url: rules/sap-spectral-rules.yml
-- type: Capabilities
-  url: capabilities/shared/ai-core.yaml
-- type: Capabilities
-  url: capabilities/shared/business-one.yaml
-- type: Capabilities
-  url: capabilities/shared/s4hana-business-partner.yaml
-- type: Capabilities
-  url: capabilities/enterprise-business-operations.yaml
 - name: MCP Server
   url: https://github.com/SAP/mdk-mcp-server
   type: MCPServer

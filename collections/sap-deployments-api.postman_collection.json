@@ -1,0 +1,320 @@
+{
+  "item": [
+    {
+      "id": "30db5429-95d1-4911-b3f3-4f250727000d",
+      "name": "Deployments",
+      "description": {
+        "content": "Model deployment and serving management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "475f4406-2558-42bf-8659-498a5e76cca5",
+          "name": "Sap List Deployments",
+          "request": {
+            "name": "Sap List Deployments",
+            "description": {
+              "content": "Retrieves all model deployments in the resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59ce5878-60ca-4da6-9b0f-ad64ab37f0c3",
+              "name": "List of deployments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 10,\n  \"resources\": [\n    {\n      \"id\": \"abc123\",\n      \"configurationId\": \"500123\",\n      \"scenarioId\": \"500123\",\n      \"status\": \"PENDING\",\n      \"deploymentUrl\": \"https://www.example.com\",\n      \"createdAt\": \"2026-01-15T10:30:00Z\",\n      \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb39d722-0de9-4bf7-8192-dfd2db9cfd7d",
+          "name": "Sap Create a Deployment",
+          "request": {
+            "name": "Sap Create a Deployment",
+            "description": {
+              "content": "Creates a new model deployment for serving predictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lm",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The resource group for multi-tenancy isolation",
+                "key": "AI-Resource-Group",
+                "value": "default"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"configurationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a1aa16-cd71-4c28-9c5e-034b376d26a0",
+              "name": "Deployment created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lm",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The resource group for multi-tenancy isolation",
+                    "key": "AI-Resource-Group",
+                    "value": "default"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configurationId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"configurationId\": \"500123\",\n  \"scenarioId\": \"500123\",\n  \"status\": \"PENDING\",\n  \"deploymentUrl\": \"https://www.example.com\",\n  \"createdAt\": \"2026-01-15T10:30:00Z\",\n  \"modifiedAt\": \"2026-01-15T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP BTP region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eu10",
+      "key": "region"
+    },
+    {
+      "description": {
+        "content": "SAP BTP landscape",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "hana",
+      "key": "landscape"
+    },
+    {
+      "type": "string",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d3fd0d6e-9262-45a4-8a95-2d5fffe2d403",
+    "name": "SAP AI Core Addresses Deployments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

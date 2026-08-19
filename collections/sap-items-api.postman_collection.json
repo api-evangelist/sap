@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "eb03d28b-1009-4b47-9bc7-9d86e7c20da3",
+      "name": "Items",
+      "description": {
+        "content": "Product and item master data management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "750ab320-4ab5-4a5b-9d2c-9ba0940725cb",
+          "name": "Sap List Items",
+          "request": {
+            "name": "Sap List Items",
+            "description": {
+              "content": "Retrieves the item master data list with support for OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86216532-1bbc-4225-8721-0ae7eb993974",
+              "name": "List of items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"ItemName\": \"example_value\",\n      \"ItemType\": \"itItems\",\n      \"ItemsGroupCode\": 10,\n      \"QuantityOnStock\": 42.5,\n      \"AvgStdPrice\": 42.5,\n      \"SalesUnit\": \"example_value\",\n      \"PurchaseUnit\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP BTP region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eu10",
+      "key": "region"
+    },
+    {
+      "description": {
+        "content": "SAP BTP landscape",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "hana",
+      "key": "landscape"
+    },
+    {
+      "type": "string",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1ed90a43-d980-4c4d-bb78-71c9907d8800",
+    "name": "SAP AI Core Addresses Items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

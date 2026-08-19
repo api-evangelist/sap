@@ -1,0 +1,1504 @@
+{
+  "item": [
+    {
+      "id": "6edf632b-812f-4149-8595-2e801afe147c",
+      "name": "Business Partners",
+      "description": {
+        "content": "Manage customers, vendors, and leads",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c77fcca-8a29-4d39-a0be-3bb7304fb77e",
+          "name": "Sap List Business Partners",
+          "request": {
+            "name": "Sap List Business Partners",
+            "description": {
+              "content": "Retrieves a list of business partners including customers, vendors, and leads with support for OData query options.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData ordering expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77990f4a-1881-47ee-ba43-998dfa641a58",
+              "name": "List of business partners",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"CardCode\": \"example_value\",\n      \"CardName\": \"example_value\",\n      \"CardType\": \"cCustomer\",\n      \"GroupCode\": 10,\n      \"Phone1\": \"example_value\",\n      \"EmailAddress\": \"user@example.com\",\n      \"FederalTaxID\": \"500123\",\n      \"Currency\": \"example_value\",\n      \"Valid\": \"tYES\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d219d44b-4906-40cd-a5aa-627e1de75b41",
+          "name": "Sap Create a Business Partner",
+          "request": {
+            "name": "Sap Create a Business Partner",
+            "description": {
+              "content": "Creates a new business partner record in SAP Business One.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"<string>\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "953d731a-7e4c-43a7-8e8a-6b17ae61cb9c",
+              "name": "Business partner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b00b2f4-380e-4075-97ed-3b5f3409623d",
+              "name": "Invalid request data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6eb772d0-b289-49c0-9b3c-1d073d481460",
+          "name": "Sap Get a Business Partner by Code",
+          "request": {
+            "name": "Sap Get a Business Partner by Code",
+            "description": {
+              "content": "Retrieves a specific business partner by their card code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc474e0b-7858-4a02-9d50-218142c1a702",
+              "name": "Business partner details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84e5a367-05f4-40f1-96ea-5d5f04dfcbdc",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e400fe2b-7290-4ba6-a842-423929cc2eab",
+          "name": "Sap Update a Business Partner",
+          "request": {
+            "name": "Sap Update a Business Partner",
+            "description": {
+              "content": "Updates an existing business partner record with the provided fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "BusinessPartners('{{CardCode}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CardCode\": \"<string>\",\n  \"CardName\": \"<string>\",\n  \"CardType\": \"<string>\",\n  \"GroupCode\": \"<integer>\",\n  \"Phone1\": \"<string>\",\n  \"EmailAddress\": \"<email>\",\n  \"FederalTaxID\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Valid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd0e3f33-18f9-480c-a953-619b16c49f5b",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef2ebc73-95f2-4cbe-9a01-ca66e781f05b",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "BusinessPartners('{{CardCode}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CardCode\": \"example_value\",\n  \"CardName\": \"example_value\",\n  \"CardType\": \"cCustomer\",\n  \"GroupCode\": 10,\n  \"Phone1\": \"example_value\",\n  \"EmailAddress\": \"user@example.com\",\n  \"FederalTaxID\": \"500123\",\n  \"Currency\": \"example_value\",\n  \"Valid\": \"tYES\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e82ab9a-0f56-4989-b89e-bf5172a15546",
+          "name": "Sap List Business Partners",
+          "request": {
+            "name": "Sap List Business Partners",
+            "description": {
+              "content": "Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entries to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of entries to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData sort expression"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b73ed93-99d6-4aa1-ae3f-9778117b65fd",
+              "name": "Collection of business partners",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"BusinessPartner\": \"example_value\",\n        \"BusinessPartnerFullName\": \"example_value\",\n        \"BusinessPartnerCategory\": \"1\",\n        \"BusinessPartnerGrouping\": \"example_value\",\n        \"FirstName\": \"example_value\",\n        \"LastName\": \"example_value\",\n        \"OrganizationBPName1\": \"example_value\",\n        \"SearchTerm1\": \"example_value\",\n        \"Language\": \"example_value\",\n        \"CreationDate\": \"2026-01-15\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "57930b7a-bdc0-4791-89a2-0a370e7c6eb1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68bb983b-1a40-4c23-a82e-d89df24e262b",
+          "name": "Sap Create a Business Partner",
+          "request": {
+            "name": "Sap Create a Business Partner",
+            "description": {
+              "content": "Creates a new business partner master record in SAP S/4HANA Cloud.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"<string>\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12f69cc4-ce11-45da-b133-e77fee1a27a5",
+              "name": "Business partner created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"example_value\",\n    \"BusinessPartnerFullName\": \"example_value\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"example_value\",\n    \"FirstName\": \"example_value\",\n    \"LastName\": \"example_value\",\n    \"OrganizationBPName1\": \"example_value\",\n    \"SearchTerm1\": \"example_value\",\n    \"Language\": \"example_value\",\n    \"CreationDate\": \"2026-01-15\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "092fc991-09e5-44b4-a797-7fdfe207b621",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4792035e-d582-443d-9c17-2d99ba76c641",
+          "name": "Sap Get a Business Partner",
+          "request": {
+            "name": "Sap Get a Business Partner",
+            "description": {
+              "content": "Retrieves a single business partner by its key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ecceeb0-46ae-4946-85ab-c77a9b8e5566",
+              "name": "Business partner details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"BusinessPartner\": \"example_value\",\n    \"BusinessPartnerFullName\": \"example_value\",\n    \"BusinessPartnerCategory\": \"1\",\n    \"BusinessPartnerGrouping\": \"example_value\",\n    \"FirstName\": \"example_value\",\n    \"LastName\": \"example_value\",\n    \"OrganizationBPName1\": \"example_value\",\n    \"SearchTerm1\": \"example_value\",\n    \"Language\": \"example_value\",\n    \"CreationDate\": \"2026-01-15\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86c2f4f6-b75d-4258-9a88-a366ed2f8115",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b07b51c9-a969-44c6-a597-65f6a77cfb88",
+          "name": "Sap Update a Business Partner",
+          "request": {
+            "name": "Sap Update a Business Partner",
+            "description": {
+              "content": "Updates fields of an existing business partner record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_BusinessPartner('{{BusinessPartner}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BusinessPartner\": \"<string>\",\n  \"BusinessPartnerFullName\": \"<string>\",\n  \"BusinessPartnerCategory\": \"<string>\",\n  \"BusinessPartnerGrouping\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"OrganizationBPName1\": \"<string>\",\n  \"SearchTerm1\": \"<string>\",\n  \"Language\": \"<string>\",\n  \"CreationDate\": \"<date>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "032461cb-5319-4cb8-bb65-0641c007aa51",
+              "name": "Business partner updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3abadf9-b04c-4af7-9972-3b59be8a0e3b",
+              "name": "Business partner not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_BusinessPartner('{{BusinessPartner}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BusinessPartner\": \"example_value\",\n  \"BusinessPartnerFullName\": \"example_value\",\n  \"BusinessPartnerCategory\": \"1\",\n  \"BusinessPartnerGrouping\": \"example_value\",\n  \"FirstName\": \"example_value\",\n  \"LastName\": \"example_value\",\n  \"OrganizationBPName1\": \"example_value\",\n  \"SearchTerm1\": \"example_value\",\n  \"Language\": \"example_value\",\n  \"CreationDate\": \"2026-01-15\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP BTP region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eu10",
+      "key": "region"
+    },
+    {
+      "description": {
+        "content": "SAP BTP landscape",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "hana",
+      "key": "landscape"
+    },
+    {
+      "type": "string",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The unique card code of the business partner",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "CardCode"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Business partner number",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "BusinessPartner"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d019ad6d-1646-444d-95dd-42ae184da85d",
+    "name": "SAP AI Core Addresses Business Partners API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

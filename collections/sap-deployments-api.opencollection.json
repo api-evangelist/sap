@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP AI Core Addresses Deployments API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deployments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/deployments",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieves all model deployments in the resource group."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/deployments",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new model deployment for serving predictions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

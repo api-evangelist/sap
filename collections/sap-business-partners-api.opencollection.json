@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP AI Core Addresses Business Partners API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Partners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Business Partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/BusinessPartners",
+            "params": [
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData ordering expression"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of business partners including customers, vendors, and leads with support for OData query options."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/BusinessPartners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new business partner record in SAP Business One."
+        },
+        {
+          "info": {
+            "name": "Sap Get a Business Partner by Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/BusinessPartners(':CardCode')",
+            "params": [
+              {
+                "name": "CardCode",
+                "value": "example_value",
+                "type": "path",
+                "description": "The unique card code of the business partner"
+              }
+            ]
+          },
+          "docs": "Retrieves a specific business partner by their card code."
+        },
+        {
+          "info": {
+            "name": "Sap Update a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/BusinessPartners(':CardCode')",
+            "params": [
+              {
+                "name": "CardCode",
+                "value": "example_value",
+                "type": "path",
+                "description": "The unique card code of the business partner"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing business partner record with the provided fields."
+        },
+        {
+          "info": {
+            "name": "Sap List Business Partners",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/A_BusinessPartner",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entries to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of entries to skip"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to return"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "OData sort expression"
+              }
+            ]
+          },
+          "docs": "Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination."
+        },
+        {
+          "info": {
+            "name": "Sap Create a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/A_BusinessPartner",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new business partner master record in SAP S/4HANA Cloud."
+        },
+        {
+          "info": {
+            "name": "Sap Get a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/A_BusinessPartner(':BusinessPartner')",
+            "params": [
+              {
+                "name": "BusinessPartner",
+                "value": "example_value",
+                "type": "path",
+                "description": "Business partner number"
+              }
+            ]
+          },
+          "docs": "Retrieves a single business partner by its key."
+        },
+        {
+          "info": {
+            "name": "Sap Update a Business Partner",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/A_BusinessPartner(':BusinessPartner')",
+            "params": [
+              {
+                "name": "BusinessPartner",
+                "value": "example_value",
+                "type": "path",
+                "description": "Business partner number"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates fields of an existing business partner record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

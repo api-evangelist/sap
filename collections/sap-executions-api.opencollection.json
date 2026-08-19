@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP AI Core Addresses Executions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Executions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap List Executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/executions",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "status",
+                "value": "PENDING",
+                "type": "query",
+                "description": "Filter by execution status"
+              }
+            ]
+          },
+          "docs": "Retrieves all training executions in the resource group."
+        },
+        {
+          "info": {
+            "name": "Sap Create an Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/executions",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a new training execution using a configuration."
+        },
+        {
+          "info": {
+            "name": "Sap Get an Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/executions/:executionId",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "executionId",
+                "value": "500123",
+                "type": "path",
+                "description": "Execution identifier"
+              }
+            ]
+          },
+          "docs": "Retrieves details of a specific training execution."
+        },
+        {
+          "info": {
+            "name": "Sap Stop an Execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2/lm/executions/:executionId",
+            "headers": [
+              {
+                "name": "AI-Resource-Group",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "executionId",
+                "value": "500123",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stops a running execution or marks it for deletion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

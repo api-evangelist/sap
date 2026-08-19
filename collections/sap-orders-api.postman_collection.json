@@ -1,0 +1,404 @@
+{
+  "item": [
+    {
+      "id": "d7e52033-89e0-4a49-9c7a-d527063d6896",
+      "name": "Orders",
+      "description": {
+        "content": "Sales orders, purchase orders, and delivery management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd986701-889e-4a92-be39-d578ed4657fe",
+          "name": "Sap List Sales Orders",
+          "request": {
+            "name": "Sap List Sales Orders",
+            "description": {
+              "content": "Retrieves a list of sales orders with support for OData query options including filtering, sorting, and pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "OData ordering expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of records to skip"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d238f0f4-4786-4690-b6f6-43c48fb5d201",
+              "name": "List of sales orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"DocEntry\": 10,\n      \"DocNum\": 10,\n      \"CardCode\": \"example_value\",\n      \"DocDate\": \"2026-01-15\",\n      \"DocDueDate\": \"2026-01-15\",\n      \"DocTotal\": 42.5,\n      \"DocCurrency\": \"example_value\",\n      \"DocumentLines\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0dd3f6a1-b4b9-474d-9992-3e3762b29b5e",
+          "name": "Sap Create a Sales Order",
+          "request": {
+            "name": "Sap Create a Sales Order",
+            "description": {
+              "content": "Creates a new sales order in SAP Business One with line items.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SAP BTP region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                },
+                {
+                  "description": "SAP BTP landscape",
+                  "type": "any",
+                  "value": "{{landscape}}",
+                  "key": "landscape"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DocNum\": \"<integer>\",\n  \"CardCode\": \"<string>\",\n  \"DocDate\": \"<date>\",\n  \"DocDueDate\": \"<date>\",\n  \"DocCurrency\": \"<string>\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    },\n    {\n      \"ItemCode\": \"<string>\",\n      \"Quantity\": \"<double>\",\n      \"UnitPrice\": \"<double>\",\n      \"Currency\": \"<string>\",\n      \"WarehouseCode\": \"<string>\",\n      \"TaxCode\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f29deaa5-664a-4899-be6a-0b81f3f95088",
+              "name": "Sales order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5074ee91-772c-4755-b177-417b63d38a43",
+              "name": "Invalid order data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SAP BTP region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    },
+                    {
+                      "description": "SAP BTP landscape",
+                      "type": "any",
+                      "value": "{{landscape}}",
+                      "key": "landscape"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DocEntry\": 10,\n  \"DocNum\": 10,\n  \"CardCode\": \"example_value\",\n  \"DocDate\": \"2026-01-15\",\n  \"DocDueDate\": \"2026-01-15\",\n  \"DocTotal\": 42.5,\n  \"DocCurrency\": \"example_value\",\n  \"DocumentLines\": [\n    {\n      \"ItemCode\": \"example_value\",\n      \"Quantity\": 42.5,\n      \"UnitPrice\": 42.5,\n      \"Currency\": \"example_value\",\n      \"WarehouseCode\": \"example_value\",\n      \"TaxCode\": \"example_value\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SAP BTP region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "eu10",
+      "key": "region"
+    },
+    {
+      "description": {
+        "content": "SAP BTP landscape",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "hana",
+      "key": "landscape"
+    },
+    {
+      "type": "string",
+      "value": "https://api.ai.{{region}}.cfapps.{{landscape}}.hana.ondemand.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "421c939f-0101-4756-9344-5da82466fd6b",
+    "name": "SAP AI Core Addresses Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.\n\nContact Support:\n Name: SAP Support",
+      "type": "text/plain"
+    }
+  }
+}

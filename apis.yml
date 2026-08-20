@@ -145,6 +145,11 @@ apis:
   - Contingent Workforce
   - External Workers
   - Vendor Management
+  - VMs
+  tags_raw:
+  - Contingent Workforce
+  - External Workers
+  - Vendor Management
   - VMS
   properties:
   - type: Documentation
@@ -264,6 +269,11 @@ apis:
   humanUrl: https://help.sap.com/docs/document-management-service
   baseUrl: https://{tenant}.document-center.cfapps.{region}.hana.ondemand.com
   tags:
+  - BTP
+  - CMIS
+  - Content Management
+  - Document-Management
+  tags_raw:
   - BTP
   - CMIS
   - Content Management
@@ -541,6 +551,8 @@ apis:
   name: SAP Deployments API
   description: Model deployment and serving management
   tags:
+  - Deployment
+  tags_raw:
   - Deployments
   properties:
   - type: OpenAPI
@@ -575,6 +587,8 @@ apis:
   name: SAP Executions API
   description: Training execution lifecycle management
   tags:
+  - Execution
+  tags_raw:
   - Executions
   properties:
   - type: OpenAPI
@@ -643,6 +657,8 @@ apis:
   name: SAP Items API
   description: Product and item master data management
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -711,6 +727,8 @@ apis:
   name: SAP Orders API
   description: Sales orders, purchase orders, and delivery management
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -851,6 +869,15 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 tags:
+- Artificial Intelligence
+- BTP
+- Business Applications
+- Cloud
+- Data Management
+- Enterprise
+- ERP
+- Integration
+tags_raw:
 - AI
 - BTP
 - Business Applications

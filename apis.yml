@@ -1,6 +1,5 @@
 name: SAP
-description: Collection of SAP's enterprise APIs for business applications and cloud
-  services.
+description: Collection of SAP's enterprise APIs for business applications and cloud services.
 accessModel:
   pricing: enterprise
   onboarding: self-serve
@@ -17,7 +16,7 @@ accessModel:
 image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
 url: https://api.sap.com
 created: '2024-01-15'
-modified: '2026-05-19'
+modified: '2026-08-21'
 specificationVersion: '0.23'
 apis:
 - name: SAP SuccessFactors API
@@ -74,8 +73,7 @@ apis:
   - type: Training
     url: https://help.sap.com/learning-journeys/integrate-applications-and-services
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
+    url: https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability
 - name: SAP Commerce Cloud API
   description: E-commerce APIs for product catalog, cart, checkout, and order management.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
@@ -88,14 +86,11 @@ apis:
   - Retail
   properties:
   - type: Documentation
-    url: >-
-      https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/
   - type: APIReference
-    url: >-
-      https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/
   - type: APIReference
-    url: >-
-      https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
+    url: https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html
 - name: SAP Analytics Cloud API
   description: APIs for business intelligence, planning, and predictive analytics.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
@@ -114,8 +109,7 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
 - name: SAP Concur API
-  description: >-
-    APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
+  description: APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.concur.com
   baseUrl: https://us.api.concursolutions.com
@@ -136,8 +130,7 @@ apis:
   - type: ChangeLog
     url: https://developer.concur.com/tools-support/release-notes/
 - name: SAP Fieldglass API
-  description: >-
-    Vendor management system APIs for managing external workers, contractors, and service providers.
+  description: Vendor management system APIs for managing external workers, contractors, and service providers.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/products/SAPFieldglass/apis/packages
   baseUrl: https://www.fieldglass.net/api
@@ -161,8 +154,7 @@ apis:
   - type: APIReference
     url: https://api.sap.com/products/SAPFieldglass/apis/all
 - name: SAP BTP Core Services API
-  description: >-
-    Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
+  description: Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPCloudPlatformCoreServices/overview
   baseUrl: https://accounts-service.cfapps.{region}.hana.ondemand.com
@@ -181,8 +173,7 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/btp/btp-developers-guide/apis
 - name: SAP Datasphere API
-  description: >-
-    APIs for data warehousing, catalog access, and consumption of analytical and relational models.
+  description: APIs for data warehousing, catalog access, and consumption of analytical and relational models.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sapdatasphere/overview
   baseUrl: https://{tenant}.{region}.hcs.cloud.sap
@@ -222,8 +213,7 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh
 - name: SAP Master Data Integration API
-  description: >-
-    APIs for centralizing and harmonizing master data across SAP and third-party applications.
+  description: APIs for centralizing and harmonizing master data across SAP and third-party applications.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sap-mdi-masterDataIntegration/overview
   baseUrl: https://{tenant}.integrationsuite.{region}.hana.ondemand.com
@@ -244,8 +234,7 @@ apis:
 - name: SAP Signavio Process Manager API
   description: APIs for process modeling, BPMN diagram management, and process governance automation.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: >-
-    https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+  humanUrl: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   baseUrl: https://editor.signavio.com/p
   tags:
   - BPM
@@ -254,16 +243,13 @@ apis:
   - Process Mining
   properties:
   - type: Documentation
-    url: >-
-      https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
+    url: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   - type: APIReference
-    url: >-
-      https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
+    url: https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis
   - type: APIReference
     url: https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
 - name: SAP Document Management Service API
-  description: >-
-    CMIS-based APIs for document management including versioning, access control, and content storage
+  description: CMIS-based APIs for document management including versioning, access control, and content storage
     on BTP.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/document-management-service
@@ -284,11 +270,9 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPDocumentManagementServiceIntegrationOptionCMISAPI/rest
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
+    url: https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
 - name: SAP Integration Suite API Management
-  description: >-
-    APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
+  description: APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/sap-api-management
   baseUrl: https://{tenant}.{region}.apimanagement.hana.ondemand.com
@@ -307,8 +291,7 @@ apis:
   - type: DeveloperPortal
     url: https://api.sap.com/api/APIPortal_Developer_CF/overview
 - name: SAP Emarsys Customer Engagement API
-  description: >-
-    REST APIs for marketing automation, customer engagement, and personalized campaign management across
+  description: REST APIs for marketing automation, customer engagement, and personalized campaign management across
     email, web, SMS, and mobile channels.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://dev.emarsys.com/
@@ -322,17 +305,14 @@ apis:
   - type: Documentation
     url: https://dev.emarsys.com/
   - type: APIReference
-    url: >-
-      https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
+    url: https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html
   - type: Hub
     url: https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview
 - name: SAP Build Work Zone API
-  description: >-
-    APIs for managing digital workplace experiences, integrating business applications into unified workpages,
+  description: APIs for managing digital workplace experiences, integrating business applications into unified workpages,
     and administering work zone sites and content.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-  humanUrl: >-
-    https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+  humanUrl: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
   baseUrl: https://{tenant}.dt.workzone.cfapps.{region}.hana.ondemand.com
   tags:
   - BTP
@@ -341,8 +321,7 @@ apis:
   - Work Zone
   properties:
   - type: Documentation
-    url: >-
-      https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
+    url: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
 - aid: sap:sap-addresses-api
   name: SAP Addresses API
   description: Business partner address management
@@ -354,11 +333,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -388,11 +365,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -422,11 +397,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -456,11 +429,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -490,11 +461,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -524,11 +493,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -560,11 +527,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -596,11 +561,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -630,11 +593,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -666,11 +627,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -700,11 +659,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -736,11 +693,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -770,11 +725,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -804,11 +757,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -838,11 +789,9 @@ apis:
   - type: Documentation
     url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER
   - type: Authentication
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html
   - type: GettingStarted
-    url: >-
-      https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
+    url: https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html
   - type: GraphQL
     url: graphql/sap-graphql.md
   - type: Documentation
@@ -972,3 +921,73 @@ common:
 - name: Agent Skills
   url: https://github.com/SAP/ai-skills-library
   type: AgentSkills
+- type: Subsidiary
+  url: https://apis.io/providers/ariba-guided-buying/
+  name: Ariba Guided Buying
+  x-relationship: acquisition
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-america/
+  name: SAP America
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-api-management/
+  name: SAP API Management
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-bi-tools/
+  name: SAP BI Tools
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-brim-billing-and-revenue-innovation-management/
+  name: SAP BRIM (Billing and Revenue Innovation Management)
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-btp/
+  name: SAP Business Technology Platform
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-business-one/
+  name: SAP Business One
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-bydesign/
+  name: SAP Business ByDesign
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-commerce/
+  name: SAP Commerce Cloud
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-fieldglass/
+  name: SAP Fieldglass
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-integration-suite/
+  name: SAP Integration Suite
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-sales-and-distribution-sd/
+  name: SAP Sales and Distribution (SD)
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sap-successfactors/
+  name: SAP SuccessFactors
+  x-relationship: product
+  x-generated-by: sap-family:2026-08-21
+- type: Subsidiary
+  url: https://apis.io/providers/sybase/
+  name: Sybase
+  x-relationship: acquisition
+  x-generated-by: sap-family:2026-08-21

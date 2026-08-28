@@ -1,5 +1,17 @@
 name: SAP
 description: Collection of SAP's enterprise APIs for business applications and cloud services.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
@@ -836,6 +848,9 @@ tags_raw:
 - ERP
 - Integration
 common:
+- type: CapabilityMap
+  url: capabilities/sap-capability-edges.yml
+  name: SAP Business Capability Map
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/sap/overview
 - type: AgenticAccess

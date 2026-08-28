@@ -1,0 +1,90 @@
+slug: sap
+provider: SAP
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: Journal Entries
+  spec_file: sap-journal-entries-api-openapi.yml
+  capability_id: BC-200.10
+  capability_id_l1: BC-200
+  capability_name: General Ledger Management
+  confidence: 0.9
+  evidence: POST /JournalEntries  createJournalEntry; schemas JournalEntry, JournalEntryLine
+  reason: Creation and listing of accounting journal entries with line items is core General Ledger posting.
+- tag: Invoices
+  spec_file: sap-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.85
+  evidence: GET /Invoices  listInvoices  Sap List Ar Invoices; POST /Invoices  Sap Create an Ar Invoice
+  reason: Operations explicitly create and list AR (accounts receivable) invoices with document lines
+    — customer invoicing under Accounts Receivable Management.
+- tag: Artifacts
+  spec_file: sap-artifacts-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.78
+  evidence: 'POST /lm/artifacts  createArtifact  "Sap Register an Artifact"; description: "deploying,
+    managing, and consuming AI models and workflows ... model serving, and artifact tracking"'
+  reason: Artifacts are AI/ML assets (models, datasets) registered in SAP AI Core's lifecycle manager
+    — AI/ML model lifecycle and MLOps.
+- tag: Business Partners
+  spec_file: sap-business-partners-api-openapi.yml
+  capability_id: BC-610.20
+  capability_id_l1: BC-610
+  capability_name: Master Data Management
+  confidence: 0.7
+  evidence: POST /BusinessPartners  createBusinessPartner  Sap Create a Business Partner; PATCH /A_BusinessPartner('{BusinessPartner}')  updateBusinessPartner
+  reason: Full CRUD over the SAP Business Partner master record, which spans customers, vendors and other
+    counterparties. This is master data maintenance (MDM) rather than a specific customer-facing or sales
+    process.
+- tag: Configurations
+  spec_file: sap-configurations-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /lm/configurations  createConfiguration; schemas ArtifactBinding, ParameterBinding, ConfigurationCreate
+  reason: AI Core training/serving configurations binding artifacts and parameters for ML pipelines —
+    part of the ML model lifecycle (MLOps), not generic application configuration.
+- tag: Deployments
+  spec_file: sap-deployments-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: 'POST /lm/deployments  createDeployment; description: ''model serving'''
+  reason: Deployments here are AI model-serving deployments on SAP AI Core, i.e. MLOps model lifecycle
+    operations, not software release deployment of a product.
+- tag: Executions
+  spec_file: sap-executions-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /lm/executions  createExecution; DELETE /lm/executions/{executionId}  Sap Stop an Execution;
+    schemas ExecutionCreate, Artifact
+  reason: Executions are AI Core training/pipeline runs producing artifacts — ML model lifecycle orchestration
+    (MLOps).
+- tag: Scenarios
+  spec_file: sap-scenarios-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: GET /lm/scenarios  listScenarios  Sap List Ai Scenarios; GET /lm/scenarios/{scenarioId}/versions
+  reason: Lists AI scenarios and their versions on SAP AI Core — ML model/pipeline lifecycle metadata,
+    i.e. AI management, not scenario planning in FP&A.

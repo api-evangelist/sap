@@ -1,24 +1,25 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SAP AI Core Addresses Business Partners API
-  description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
-  version: '2.0'
+  title: Sap Business Partners API
+  version: '1.0'
   contact:
     name: SAP Support
     url: https://support.sap.com/
   termsOfService: https://www.sap.com/about/legal/terms-of-use.html
+  description: 'Operations tagged Business Partners across 2 of this provider''s published API definitions: sap-business-one-service-layer-openapi.yml, sap-s4hana-cloud-business-partner-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://api.ai.{region}.cfapps.{landscape}.hana.ondemand.com/v2
-  description: SAP AI Core Production
+- url: https://{server}:50000/b1s/v1
+  description: SAP Business One Service Layer Server
   variables:
-    region:
-      description: SAP BTP region
-      default: eu10
-    landscape:
-      description: SAP BTP landscape
-      default: hana
-security:
-- oauth2: []
+    server:
+      description: The hostname of your SAP Business One server
+      default: localhost
+- url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+  description: SAP S/4HANA Cloud OData Endpoint
+  variables:
+    host:
+      description: SAP S/4HANA Cloud hostname
+      default: sandbox.api.sap.com
 tags:
 - name: Business Partners
   description: Manage customers, vendors, and leads
@@ -66,6 +67,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - sessionCookie: []
     post:
       operationId: createBusinessPartner
       summary: Sap Create a Business Partner
@@ -118,6 +121,15 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - sessionCookie: []
+    servers:
+    - url: https://{server}:50000/b1s/v1
+      description: SAP Business One Service Layer Server
+      variables:
+        server:
+          description: The hostname of your SAP Business One server
+          default: localhost
   /BusinessPartners('{CardCode}'):
     get:
       operationId: getBusinessPartner
@@ -159,6 +171,8 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - sessionCookie: []
     patch:
       operationId: updateBusinessPartner
       summary: Sap Update a Business Partner
@@ -201,6 +215,15 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - sessionCookie: []
+    servers:
+    - url: https://{server}:50000/b1s/v1
+      description: SAP Business One Service Layer Server
+      variables:
+        server:
+          description: The hostname of your SAP Business One server
+          default: localhost
   /A_BusinessPartner:
     get:
       operationId: listBusinessPartners
@@ -251,6 +274,9 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - basicAuth: []
+      - oauth2: []
     post:
       operationId: createBusinessPartner
       summary: Sap Create a Business Partner
@@ -309,6 +335,16 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - basicAuth: []
+      - oauth2: []
+    servers:
+    - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+      description: SAP S/4HANA Cloud OData Endpoint
+      variables:
+        host:
+          description: SAP S/4HANA Cloud hostname
+          default: sandbox.api.sap.com
   /A_BusinessPartner('{BusinessPartner}'):
     get:
       operationId: getBusinessPartner
@@ -356,6 +392,9 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - basicAuth: []
+      - oauth2: []
     patch:
       operationId: updateBusinessPartner
       summary: Sap Update a Business Partner
@@ -399,7 +438,76 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      security:
+      - basicAuth: []
+      - oauth2: []
+    servers:
+    - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
+      description: SAP S/4HANA Cloud OData Endpoint
+      variables:
+        host:
+          description: SAP S/4HANA Cloud hostname
+          default: sandbox.api.sap.com
 components:
+  parameters:
+    OrderBy:
+      name: $orderby
+      in: query
+      description: OData ordering expression
+      schema:
+        type: string
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Select_2:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to return
+      schema:
+        type: string
+    Orderby:
+      name: $orderby
+      in: query
+      description: OData sort expression
+      schema:
+        type: string
+    Skip_2:
+      name: $skip
+      in: query
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
+    Top_2:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
   schemas:
     BusinessPartner:
       type: object
@@ -500,72 +608,24 @@ components:
           format: date
           description: Date the business partner was created
           example: '2026-01-15'
-  parameters:
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
-    Orderby:
-      name: $orderby
-      in: query
-      description: OData sort expression
-      schema:
-        type: string
-    Skip_2:
-      name: $skip
-      in: query
-      description: Number of entries to skip
-      schema:
-        type: integer
-        minimum: 0
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to include in the response
-      schema:
-        type: string
-    Select_2:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to return
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
-    OrderBy:
-      name: $orderby
-      in: query
-      description: OData ordering expression
-      schema:
-        type: string
-    Top_2:
-      name: $top
-      in: query
-      description: Maximum number of entries to return
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: B1SESSION
+      description: Session cookie obtained from the Login endpoint
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with SAP user credentials
     oauth2:
       type: oauth2
+      description: OAuth 2.0 authentication
       flows:
         clientCredentials:
-          tokenUrl: https://{subdomain}.authentication.{region}.hana.ondemand.com/oauth/token
-          scopes: {}
-externalDocs:
-  description: SAP AI Core API Reference
-  url: https://api.sap.com/api/AI_CORE_API/resource
+          tokenUrl: https://{host}/oauth/token
+          scopes:
+            API_BUSINESS_PARTNER: Access to Business Partner API
+x-refined-from:
+- sap-business-one-service-layer-openapi.yml
+- sap-s4hana-cloud-business-partner-openapi.yml

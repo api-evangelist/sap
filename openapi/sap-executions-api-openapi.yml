@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SAP AI Core Addresses Executions API
+  title: SAP AI Core Executions API
   description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
   version: '2.0'
   contact:
@@ -199,6 +199,55 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ExecutionCreate:
+      type: object
+      required:
+      - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the execution
+          example: '500123'
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Artifact identifier
+          example: abc123
+        name:
+          type: string
+          description: Artifact name
+          example: Example Title
+        kind:
+          type: string
+          description: Artifact kind
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          description: Storage URL for the artifact
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        executionId:
+          type: string
+          description: Execution that produced this artifact
+          example: '500123'
+        description:
+          type: string
+          description: Artifact description
+          example: A sample description.
+        createdAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
     Execution:
       type: object
       properties:
@@ -242,55 +291,6 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
-    Artifact:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Artifact identifier
-          example: abc123
-        name:
-          type: string
-          description: Artifact name
-          example: Example Title
-        kind:
-          type: string
-          description: Artifact kind
-          enum:
-          - model
-          - dataset
-          - resultset
-          - other
-          example: model
-        url:
-          type: string
-          description: Storage URL for the artifact
-          example: https://www.example.com
-        scenarioId:
-          type: string
-          description: Associated scenario
-          example: '500123'
-        executionId:
-          type: string
-          description: Execution that produced this artifact
-          example: '500123'
-        description:
-          type: string
-          description: Artifact description
-          example: A sample description.
-        createdAt:
-          type: string
-          format: date-time
-          example: '2026-01-15T10:30:00Z'
-    ExecutionCreate:
-      type: object
-      required:
-      - configurationId
-      properties:
-        configurationId:
-          type: string
-          description: Configuration to use for the execution
-          example: '500123'
   parameters:
     AIResourceGroup:
       name: AI-Resource-Group

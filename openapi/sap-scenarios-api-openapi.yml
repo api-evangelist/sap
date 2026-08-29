@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SAP AI Core Addresses Scenarios API
+  title: SAP AI Core Scenarios API
   description: REST API for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, model serving, and artifact tracking.
   version: '2.0'
   contact:
@@ -86,15 +86,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    AIResourceGroup:
-      name: AI-Resource-Group
-      in: header
-      required: true
-      description: The resource group for multi-tenancy isolation
-      schema:
-        type: string
-        default: default
   schemas:
     Scenario:
       type: object
@@ -121,6 +112,15 @@ components:
           format: date-time
           description: Last modification timestamp
           example: '2026-01-15T10:30:00Z'
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
   securitySchemes:
     oauth2:
       type: oauth2

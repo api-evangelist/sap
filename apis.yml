@@ -28,7 +28,7 @@ accessModel:
 image: ''
 url: https://api.sap.com
 created: '2024-01-15'
-modified: '2026-08-21'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - name: SAP SuccessFactors API
@@ -121,7 +121,8 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/
 - name: SAP Concur API
-  description: APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
+  description: APIs for travel and expense management including expense reporting, travel booking, and
+    invoice processing.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://developer.concur.com
   baseUrl: https://us.api.concursolutions.com
@@ -166,7 +167,8 @@ apis:
   - type: APIReference
     url: https://api.sap.com/products/SAPFieldglass/apis/all
 - name: SAP BTP Core Services API
-  description: Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
+  description: Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology
+    Platform.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/SAPCloudPlatformCoreServices/overview
   baseUrl: https://accounts-service.cfapps.{region}.hana.ondemand.com
@@ -185,7 +187,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/btp/btp-developers-guide/apis
 - name: SAP Datasphere API
-  description: APIs for data warehousing, catalog access, and consumption of analytical and relational models.
+  description: APIs for data warehousing, catalog access, and consumption of analytical and relational
+    models.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://api.sap.com/package/sapdatasphere/overview
   baseUrl: https://{tenant}.{region}.hcs.cloud.sap
@@ -249,6 +252,11 @@ apis:
   humanUrl: https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide
   baseUrl: https://editor.signavio.com/p
   tags:
+  - Business Process Management
+  - BPMN
+  - Process Management
+  - Process Mining
+  tags_raw:
   - BPM
   - BPMN
   - Process Management
@@ -261,8 +269,8 @@ apis:
   - type: APIReference
     url: https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api
 - name: SAP Document Management Service API
-  description: CMIS-based APIs for document management including versioning, access control, and content storage
-    on BTP.
+  description: CMIS-based APIs for document management including versioning, access control, and content
+    storage on BTP.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/document-management-service
   baseUrl: https://{tenant}.document-center.cfapps.{region}.hana.ondemand.com
@@ -284,7 +292,8 @@ apis:
   - type: GettingStarted
     url: https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api
 - name: SAP Integration Suite API Management
-  description: APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
+  description: APIs for building, managing, publishing, and monitoring API proxies within SAP Integration
+    Suite.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/sap-api-management
   baseUrl: https://{tenant}.{region}.apimanagement.hana.ondemand.com
@@ -303,8 +312,8 @@ apis:
   - type: DeveloperPortal
     url: https://api.sap.com/api/APIPortal_Developer_CF/overview
 - name: SAP Emarsys Customer Engagement API
-  description: REST APIs for marketing automation, customer engagement, and personalized campaign management across
-    email, web, SMS, and mobile channels.
+  description: REST APIs for marketing automation, customer engagement, and personalized campaign management
+    across email, web, SMS, and mobile channels.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://dev.emarsys.com/
   baseUrl: https://api.emarsys.net/api/v2
@@ -321,8 +330,8 @@ apis:
   - type: Hub
     url: https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview
 - name: SAP Build Work Zone API
-  description: APIs for managing digital workplace experiences, integrating business applications into unified workpages,
-    and administering work zone sites and content.
+  description: APIs for managing digital workplace experiences, integrating business applications into
+    unified workpages, and administering work zone sites and content.
   image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
   humanUrl: https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation
   baseUrl: https://{tenant}.dt.workzone.cfapps.{region}.hana.ondemand.com
@@ -848,6 +857,8 @@ tags_raw:
 - ERP
 - Integration
 common:
+- type: Website
+  url: https://sap.com
 - type: CapabilityMap
   url: capabilities/sap-capability-edges.yml
   name: SAP Business Capability Map

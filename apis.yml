@@ -38,6 +38,10 @@ apis:
   baseUrl: https://api.successfactors.com/odata/v2
   tags:
   - HCM
+  - Human Resources
+  - Talent Management
+  tags_raw:
+  - HCM
   - HR
   - Human Resources
   - Talent Management
@@ -110,6 +114,10 @@ apis:
   baseUrl: https://{tenant}.{region}.sapanalytics.cloud/api/v1
   tags:
   - Analytics
+  - Business Intelligence
+  - Planning
+  tags_raw:
+  - Analytics
   - BI
   - Business Intelligence
   - Planning
@@ -127,6 +135,11 @@ apis:
   humanUrl: https://developer.concur.com
   baseUrl: https://us.api.concursolutions.com
   tags:
+  - Concur
+  - Expense Management
+  - Invoices
+  - Travel
+  tags_raw:
   - Concur
   - Expense Management
   - Invoice
@@ -847,8 +860,8 @@ tags:
 - Enterprise
 - ERP
 - Integration
-- SAP
 tags_raw:
+- SAP
 - AI
 - BTP
 - Business Applications

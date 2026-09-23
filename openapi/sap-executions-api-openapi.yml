@@ -208,46 +208,6 @@ components:
           type: string
           description: Configuration to use for the execution
           example: '500123'
-    Artifact:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Artifact identifier
-          example: abc123
-        name:
-          type: string
-          description: Artifact name
-          example: Example Title
-        kind:
-          type: string
-          description: Artifact kind
-          enum:
-          - model
-          - dataset
-          - resultset
-          - other
-          example: model
-        url:
-          type: string
-          description: Storage URL for the artifact
-          example: https://www.example.com
-        scenarioId:
-          type: string
-          description: Associated scenario
-          example: '500123'
-        executionId:
-          type: string
-          description: Execution that produced this artifact
-          example: '500123'
-        description:
-          type: string
-          description: Artifact description
-          example: A sample description.
-        createdAt:
-          type: string
-          format: date-time
-          example: '2026-01-15T10:30:00Z'
     Execution:
       type: object
       properties:
@@ -288,6 +248,46 @@ components:
           format: date-time
           example: '2026-01-15T10:30:00Z'
         modifiedAt:
+          type: string
+          format: date-time
+          example: '2026-01-15T10:30:00Z'
+    Artifact:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Artifact identifier
+          example: abc123
+        name:
+          type: string
+          description: Artifact name
+          example: Example Title
+        kind:
+          type: string
+          description: Artifact kind
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          description: Storage URL for the artifact
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          description: Associated scenario
+          example: '500123'
+        executionId:
+          type: string
+          description: Execution that produced this artifact
+          example: '500123'
+        description:
+          type: string
+          description: Artifact description
+          example: A sample description.
+        createdAt:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'

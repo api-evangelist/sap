@@ -30,7 +30,8 @@
     "sap-ai-core-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "sap-business-one-service-layer-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "sap-s4hana-cloud-business-partner-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "tag 'Business Partners' spans 2 source specs (sap-business-one-service-layer-openapi.yml, sap-s4hana-cloud-business-partner-openapi.yml): per-path servers applied"
+    "tag 'Business Partners' spans 2 source specs (sap-business-one-service-layer-openapi.yml, sap-s4hana-cloud-business-partner-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "sap-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",

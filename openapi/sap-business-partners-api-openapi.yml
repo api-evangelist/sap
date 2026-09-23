@@ -456,12 +456,6 @@ components:
       description: OData ordering expression
       schema:
         type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to include in the response
-      schema:
-        type: string
     Skip:
       name: $skip
       in: query
@@ -482,10 +476,10 @@ components:
       description: OData filter expression
       schema:
         type: string
-    Select_2:
+    Select:
       name: $select
       in: query
-      description: Comma-separated list of properties to return
+      description: Comma-separated list of fields to include in the response
       schema:
         type: string
     Orderby:
@@ -508,6 +502,12 @@ components:
       schema:
         type: integer
         minimum: 1
+    Select_2:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to return
+      schema:
+        type: string
   schemas:
     BusinessPartner:
       type: object

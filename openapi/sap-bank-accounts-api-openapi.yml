@@ -66,13 +66,12 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    Top:
-      name: $top
+    Filter:
+      name: $filter
       in: query
-      description: Maximum number of entries to return
+      description: OData filter expression
       schema:
-        type: integer
-        minimum: 1
+        type: string
     Skip:
       name: $skip
       in: query
@@ -80,12 +79,13 @@ components:
       schema:
         type: integer
         minimum: 0
-    Filter:
-      name: $filter
+    Top:
+      name: $top
       in: query
-      description: OData filter expression
+      description: Maximum number of entries to return
       schema:
-        type: string
+        type: integer
+        minimum: 1
   schemas:
     BusinessPartnerBank:
       type: object

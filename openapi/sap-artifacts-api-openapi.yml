@@ -113,6 +113,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ArtifactCreate:
+      type: object
+      required:
+      - name
+      - kind
+      - url
+      - scenarioId
+      properties:
+        name:
+          type: string
+          example: Example Title
+        kind:
+          type: string
+          enum:
+          - model
+          - dataset
+          - resultset
+          - other
+          example: model
+        url:
+          type: string
+          example: https://www.example.com
+        scenarioId:
+          type: string
+          example: '500123'
+        description:
+          type: string
+          example: A sample description.
     Artifact:
       type: object
       properties:
@@ -153,34 +181,6 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
-    ArtifactCreate:
-      type: object
-      required:
-      - name
-      - kind
-      - url
-      - scenarioId
-      properties:
-        name:
-          type: string
-          example: Example Title
-        kind:
-          type: string
-          enum:
-          - model
-          - dataset
-          - resultset
-          - other
-          example: model
-        url:
-          type: string
-          example: https://www.example.com
-        scenarioId:
-          type: string
-          example: '500123'
-        description:
-          type: string
-          example: A sample description.
   parameters:
     AIResourceGroup:
       name: AI-Resource-Group

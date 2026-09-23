@@ -60,6 +60,12 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
     Top:
       name: $top
       in: query
@@ -67,12 +73,6 @@ components:
       schema:
         type: integer
         minimum: 1
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
   schemas:
     BusinessPartnerRole:
       type: object

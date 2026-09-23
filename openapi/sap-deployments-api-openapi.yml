@@ -107,15 +107,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DeploymentCreate:
-      type: object
-      required:
-      - configurationId
-      properties:
-        configurationId:
-          type: string
-          description: Configuration to use for the deployment
-          example: '500123'
     Deployment:
       type: object
       properties:
@@ -155,6 +146,15 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
+    DeploymentCreate:
+      type: object
+      required:
+      - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the deployment
+          example: '500123'
   parameters:
     AIResourceGroup:
       name: AI-Resource-Group

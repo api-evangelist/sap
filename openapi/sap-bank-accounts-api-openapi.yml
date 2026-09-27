@@ -65,27 +65,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    Skip:
-      name: $skip
-      in: query
-      description: Number of entries to skip
-      schema:
-        type: integer
-        minimum: 0
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of entries to return
-      schema:
-        type: integer
-        minimum: 1
   schemas:
     BusinessPartnerBank:
       type: object
@@ -118,6 +97,27 @@ components:
           type: string
           description: SWIFT/BIC code
           example: example_value
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+    Skip:
+      name: $skip
+      in: query
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
   securitySchemes:
     basicAuth:
       type: http

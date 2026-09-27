@@ -121,20 +121,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
     Filter:
       name: $filter
       in: query
@@ -147,7 +133,50 @@ components:
       description: Comma-separated list of fields to include in the response
       schema:
         type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
   schemas:
+    DocumentLine:
+      type: object
+      properties:
+        ItemCode:
+          type: string
+          description: Item code
+          example: example_value
+        Quantity:
+          type: number
+          format: double
+          description: Ordered quantity
+          example: 42.5
+        UnitPrice:
+          type: number
+          format: double
+          description: Price per unit
+          example: 42.5
+        Currency:
+          type: string
+          description: Line currency
+          example: example_value
+        WarehouseCode:
+          type: string
+          description: Warehouse code for the line item
+          example: example_value
+        TaxCode:
+          type: string
+          description: Tax code applied to the line
+          example: example_value
     Invoice:
       type: object
       properties:
@@ -186,35 +215,6 @@ components:
           items:
             $ref: '#/components/schemas/DocumentLine'
           example: []
-    DocumentLine:
-      type: object
-      properties:
-        ItemCode:
-          type: string
-          description: Item code
-          example: example_value
-        Quantity:
-          type: number
-          format: double
-          description: Ordered quantity
-          example: 42.5
-        UnitPrice:
-          type: number
-          format: double
-          description: Price per unit
-          example: 42.5
-        Currency:
-          type: string
-          description: Line currency
-          example: example_value
-        WarehouseCode:
-          type: string
-          description: Warehouse code for the line item
-          example: example_value
-        TaxCode:
-          type: string
-          description: Tax code applied to the line
-          example: example_value
   securitySchemes:
     sessionCookie:
       type: apiKey

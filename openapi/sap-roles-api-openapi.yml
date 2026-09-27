@@ -59,6 +59,18 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  schemas:
+    BusinessPartnerRole:
+      type: object
+      properties:
+        BusinessPartner:
+          type: string
+          description: Business partner number
+          example: example_value
+        BusinessPartnerRole:
+          type: string
+          description: Role code (e.g., FLCU01=Customer, FLVN01=Vendor)
+          example: example_value
   parameters:
     Filter:
       name: $filter
@@ -73,18 +85,6 @@ components:
       schema:
         type: integer
         minimum: 1
-  schemas:
-    BusinessPartnerRole:
-      type: object
-      properties:
-        BusinessPartner:
-          type: string
-          description: Business partner number
-          example: example_value
-        BusinessPartnerRole:
-          type: string
-          description: Role code (e.g., FLCU01=Customer, FLVN01=Vendor)
-          example: example_value
   securitySchemes:
     basicAuth:
       type: http

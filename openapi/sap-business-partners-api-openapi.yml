@@ -226,7 +226,7 @@ paths:
           default: localhost
   /A_BusinessPartner:
     get:
-      operationId: listBusinessPartners
+      operationId: getABusinessPartner
       summary: Sap List Business Partners
       description: Retrieves a collection of business partner master records with support for OData query options including filtering, sorting, and pagination.
       tags:
@@ -277,8 +277,10 @@ paths:
       security:
       - basicAuth: []
       - oauth2: []
+      x-operation-id-source: normalized
+      x-operation-id-original: listBusinessPartners
     post:
-      operationId: createBusinessPartner
+      operationId: postABusinessPartner
       summary: Sap Create a Business Partner
       description: Creates a new business partner master record in SAP S/4HANA Cloud.
       tags:
@@ -338,6 +340,8 @@ paths:
       security:
       - basicAuth: []
       - oauth2: []
+      x-operation-id-source: normalized
+      x-operation-id-original: createBusinessPartner
     servers:
     - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
       description: SAP S/4HANA Cloud OData Endpoint
@@ -347,7 +351,7 @@ paths:
           default: sandbox.api.sap.com
   /A_BusinessPartner('{BusinessPartner}'):
     get:
-      operationId: getBusinessPartner
+      operationId: getABusinessPartner('{BusinessPartner}')
       summary: Sap Get a Business Partner
       description: Retrieves a single business partner by its key.
       tags:
@@ -395,8 +399,10 @@ paths:
       security:
       - basicAuth: []
       - oauth2: []
+      x-operation-id-source: normalized
+      x-operation-id-original: getBusinessPartner
     patch:
-      operationId: updateBusinessPartner
+      operationId: patchABusinessPartner('{BusinessPartner}')
       summary: Sap Update a Business Partner
       description: Updates fields of an existing business partner record.
       tags:
@@ -441,6 +447,8 @@ paths:
       security:
       - basicAuth: []
       - oauth2: []
+      x-operation-id-source: normalized
+      x-operation-id-original: updateBusinessPartner
     servers:
     - url: https://{host}/sap/opu/odata/sap/API_BUSINESS_PARTNER
       description: SAP S/4HANA Cloud OData Endpoint
@@ -450,26 +458,6 @@ paths:
           default: sandbox.api.sap.com
 components:
   parameters:
-    OrderBy:
-      name: $orderby
-      in: query
-      description: OData ordering expression
-      schema:
-        type: string
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
     Filter:
       name: $filter
       in: query
@@ -482,19 +470,32 @@ components:
       description: Comma-separated list of fields to include in the response
       schema:
         type: string
-    Orderby:
-      name: $orderby
+    Top:
+      name: $top
       in: query
-      description: OData sort expression
+      description: Maximum number of records to return
       schema:
-        type: string
-    Skip_2:
+        type: integer
+        minimum: 1
+    Skip:
       name: $skip
       in: query
-      description: Number of entries to skip
+      description: Number of records to skip
       schema:
         type: integer
         minimum: 0
+    OrderBy:
+      name: $orderby
+      in: query
+      description: OData ordering expression
+      schema:
+        type: string
+    Select_2:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to return
+      schema:
+        type: string
     Top_2:
       name: $top
       in: query
@@ -502,10 +503,17 @@ components:
       schema:
         type: integer
         minimum: 1
-    Select_2:
-      name: $select
+    Skip_2:
+      name: $skip
       in: query
-      description: Comma-separated list of properties to return
+      description: Number of entries to skip
+      schema:
+        type: integer
+        minimum: 0
+    Orderby:
+      name: $orderby
+      in: query
+      description: OData sort expression
       schema:
         type: string
   schemas:

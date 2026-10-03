@@ -60,6 +60,20 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of entries to return
+      schema:
+        type: integer
+        minimum: 1
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
   schemas:
     BusinessPartnerTaxNumber:
       type: object
@@ -76,20 +90,6 @@ components:
           type: string
           description: Tax identification number
           example: example_value
-  parameters:
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of entries to return
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
     basicAuth:
       type: http

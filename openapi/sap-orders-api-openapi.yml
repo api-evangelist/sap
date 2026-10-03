@@ -127,6 +127,19 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    OrderBy:
+      name: $orderby
+      in: query
+      description: OData ordering expression
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
     Filter:
       name: $filter
       in: query
@@ -146,19 +159,6 @@ components:
       schema:
         type: integer
         minimum: 1
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
-    OrderBy:
-      name: $orderby
-      in: query
-      description: OData ordering expression
-      schema:
-        type: string
   schemas:
     Order:
       type: object

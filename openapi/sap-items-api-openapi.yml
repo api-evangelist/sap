@@ -63,6 +63,13 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
     Filter:
       name: $filter
       in: query
@@ -82,13 +89,6 @@ components:
       schema:
         type: integer
         minimum: 1
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
   schemas:
     Item:
       type: object

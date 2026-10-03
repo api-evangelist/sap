@@ -136,6 +136,17 @@ components:
         type: string
         default: default
   schemas:
+    ArtifactBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Input artifact key
+          example: example_value
+        artifactId:
+          type: string
+          description: Artifact identifier
+          example: '500123'
     ConfigurationCreate:
       type: object
       required:
@@ -162,28 +173,6 @@ components:
           items:
             $ref: '#/components/schemas/ArtifactBinding'
           example: []
-    ArtifactBinding:
-      type: object
-      properties:
-        key:
-          type: string
-          description: Input artifact key
-          example: example_value
-        artifactId:
-          type: string
-          description: Artifact identifier
-          example: '500123'
-    ParameterBinding:
-      type: object
-      properties:
-        key:
-          type: string
-          description: Parameter name
-          example: example_value
-        value:
-          type: string
-          description: Parameter value
-          example: example_value
     Configuration:
       type: object
       properties:
@@ -217,6 +206,17 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
+    ParameterBinding:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Parameter name
+          example: example_value
+        value:
+          type: string
+          description: Parameter value
+          example: example_value
   securitySchemes:
     oauth2:
       type: oauth2

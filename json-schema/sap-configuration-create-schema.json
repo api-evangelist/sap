@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-configuration-create-schema.json",
+  "title": "ConfigurationCreate",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-configurations-api-openapi.yml#/components/schemas/ConfigurationCreate",
+  "type": "object",
+  "required": [
+    "name",
+    "scenarioId",
+    "executableId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "executableId": {
+      "type": "string"
+    },
+    "parameterBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ParameterBinding"
+      }
+    },
+    "inputArtifactBindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ArtifactBinding"
+      }
+    }
+  },
+  "$defs": {
+    "ArtifactBinding": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Input artifact key"
+        },
+        "artifactId": {
+          "type": "string",
+          "description": "Artifact identifier"
+        }
+      }
+    },
+    "ParameterBinding": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "Parameter name"
+        },
+        "value": {
+          "type": "string",
+          "description": "Parameter value"
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ info:
     name: SAP Support
     url: https://support.sap.com/
   termsOfService: https://www.sap.com/about/legal/terms-of-use.html
-  externalDocs:
+  x-externalDocs:
     description: SAP Event Mesh Documentation
     url: https://help.sap.com/docs/event-mesh
 servers:

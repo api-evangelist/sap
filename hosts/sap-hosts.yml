@@ -1,0 +1,222 @@
+generated: '2026-10-03'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 17
+  own: 11
+  other_domain: 2
+  platform: 4
+  roles:
+  - api
+  - identity
+  - other
+  - partner
+  - portal
+  - source
+  - status
+  - support
+  - website
+hosts:
+- host: accounts.sap.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Login
+  serves: []
+  registrable_domain: sap.com
+  role: identity
+  relation: own
+- host: api.apis.io
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: apis.io
+  role: api
+  relation: other-domain
+- host: api.sap.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - Hub
+  serves: []
+  registrable_domain: sap.com
+  role: api
+  relation: own
+- host: apis.io
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Subsidiary
+  serves: []
+  platform: githubusercontent.com
+  registrable_domain: apis.io
+  role: api
+  relation: other-domain
+- host: community.sap.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Blog
+  - Support
+  serves:
+  - cdn
+  vendor: cloudflare
+  registrable_domain: sap.com
+  role: support
+  relation: own
+- host: developers.sap.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - DeveloperPortal
+  - GettingStarted
+  - Signup
+  - SDKs
+  serves:
+  - docs
+  platform: atxgsg7zi.accounts.ondemand.com
+  registrable_domain: sap.com
+  role: portal
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  - MCPServer
+  - AgentSkills
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: help.sap.com
+  found_by:
+  - pointer
+  - probed
+  - docs-index
+  - well-known
+  types:
+  - ChangeLog
+  serves:
+  - docs
+  registrable_domain: sap.com
+  role: support
+  relation: own
+- host: learning.sap.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Training
+  serves: []
+  registrable_domain: sap.com
+  role: other
+  relation: own
+- host: partner.sap.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: SAP Partner Portal | welcome
+  status: 200
+  registrable_domain: sap.com
+  role: partner
+  relation: own
+- host: partners.sap.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  types: []
+  serves: []
+  title: SAP Partner Portal | welcome
+  status: 200
+  registrable_domain: sap.com
+  role: partner
+  relation: own
+- host: sap.com
+  found_by:
+  - pointer
+  - probed
+  - vendor-detect
+  types:
+  - Website
+  serves:
+  - cdn
+  vendor: akamai
+  registrable_domain: sap.com
+  role: website
+  relation: own
+- host: stackoverflow.com
+  found_by:
+  - pointer
+  types:
+  - StackOverflow
+  serves: []
+  registrable_domain: stackoverflow.com
+  role: other
+  relation: platform
+- host: support.sap.com
+  found_by:
+  - pointer
+  - probed
+  - well-known
+  types:
+  - Support
+  serves: []
+  registrable_domain: sap.com
+  role: support
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform
+- host: www.postman.com
+  found_by:
+  - pointer
+  types:
+  - PostmanWorkspace
+  serves: []
+  registrable_domain: postman.com
+  role: other
+  relation: platform
+- host: www.sap.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  types:
+  - StatusPage
+  - PrivacyPolicy
+  - TermsOfService
+  - Portal
+  serves: []
+  registrable_domain: sap.com
+  role: status
+  relation: own

@@ -1,0 +1,194 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/sap-addresses-api-openapi.yml
+- openapi/sap-artifacts-api-openapi.yml
+- openapi/sap-authentication-api-openapi.yml
+- openapi/sap-bank-accounts-api-openapi.yml
+- openapi/sap-business-partners-api-openapi.yml
+- openapi/sap-configurations-api-openapi.yml
+- openapi/sap-deployments-api-openapi.yml
+- openapi/sap-executions-api-openapi.yml
+- openapi/sap-invoices-api-openapi.yml
+- openapi/sap-items-api-openapi.yml
+- openapi/sap-journal-entries-api-openapi.yml
+- openapi/sap-orders-api-openapi.yml
+- openapi/sap-roles-api-openapi.yml
+- openapi/sap-scenarios-api-openapi.yml
+- openapi/sap-tax-numbers-api-openapi.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: 'No MCP server was found. The pre-flight posted tools/list to /mcp on api.apis.io, developers.sap.com, api.sap.com, community.sap.com; verdict
+  opaque (https://developers.sap.com/api/mcp answered 401: the edge authenticates before it routes, which proves nothing either way). Candidate
+  tools below are derived from the 33 operation(s) in the provider''s own OpenAPI (33 listed); they describe what a server WOULD expose, not one
+  that exists.'
+tools:
+- name: list_business_partner_addresses
+  operationId: listBusinessPartnerAddresses
+  method: GET
+  path: /A_BusinessPartnerAddress
+  description: Sap List Business Partner Addresses
+- name: list_artifacts
+  operationId: listArtifacts
+  method: GET
+  path: /lm/artifacts
+  description: Sap List Artifacts
+- name: login
+  operationId: login
+  method: POST
+  path: /Login
+  description: Sap Authenticate and Create a Session
+- name: list_business_partner_bank_accounts
+  operationId: listBusinessPartnerBankAccounts
+  method: GET
+  path: /A_BusinessPartnerBank
+  description: Sap List Bank Accounts
+- name: list_business_partners
+  operationId: listBusinessPartners
+  method: GET
+  path: /BusinessPartners
+  description: Sap List Business Partners
+- name: list_configurations
+  operationId: listConfigurations
+  method: GET
+  path: /lm/configurations
+  description: Sap List Configurations
+- name: list_deployments
+  operationId: listDeployments
+  method: GET
+  path: /lm/deployments
+  description: Sap List Deployments
+- name: list_executions
+  operationId: listExecutions
+  method: GET
+  path: /lm/executions
+  description: Sap List Executions
+- name: list_invoices
+  operationId: listInvoices
+  method: GET
+  path: /Invoices
+  description: Sap List Ar Invoices
+- name: list_items
+  operationId: listItems
+  method: GET
+  path: /Items
+  description: Sap List Items
+- name: list_journal_entries
+  operationId: listJournalEntries
+  method: GET
+  path: /JournalEntries
+  description: Sap List Journal Entries
+- name: list_orders
+  operationId: listOrders
+  method: GET
+  path: /Orders
+  description: Sap List Sales Orders
+- name: list_business_partner_roles
+  operationId: listBusinessPartnerRoles
+  method: GET
+  path: /A_BusinessPartnerRole
+  description: Sap List Business Partner Roles
+- name: list_scenarios
+  operationId: listScenarios
+  method: GET
+  path: /lm/scenarios
+  description: Sap List Ai Scenarios
+- name: list_business_partner_tax_numbers
+  operationId: listBusinessPartnerTaxNumbers
+  method: GET
+  path: /A_BusinessPartnerTaxNumber
+  description: Sap List Tax Numbers
+- name: create_artifact
+  operationId: createArtifact
+  method: POST
+  path: /lm/artifacts
+  description: Sap Register an Artifact
+- name: logout
+  operationId: logout
+  method: POST
+  path: /Logout
+  description: Sap End the Current Session
+- name: create_business_partner
+  operationId: createBusinessPartner
+  method: POST
+  path: /BusinessPartners
+  description: Sap Create a Business Partner
+- name: create_configuration
+  operationId: createConfiguration
+  method: POST
+  path: /lm/configurations
+  description: Sap Create a Configuration
+- name: create_deployment
+  operationId: createDeployment
+  method: POST
+  path: /lm/deployments
+  description: Sap Create a Deployment
+- name: create_execution
+  operationId: createExecution
+  method: POST
+  path: /lm/executions
+  description: Sap Create an Execution
+- name: create_invoice
+  operationId: createInvoice
+  method: POST
+  path: /Invoices
+  description: Sap Create an Ar Invoice
+- name: create_journal_entry
+  operationId: createJournalEntry
+  method: POST
+  path: /JournalEntries
+  description: Sap Create a Journal Entry
+- name: create_order
+  operationId: createOrder
+  method: POST
+  path: /Orders
+  description: Sap Create a Sales Order
+- name: list_scenario_versions
+  operationId: listScenarioVersions
+  method: GET
+  path: /lm/scenarios/{scenarioId}/versions
+  description: Sap List Scenario Versions
+- name: get_business_partner
+  operationId: getBusinessPartner
+  method: GET
+  path: /BusinessPartners('{CardCode}')
+  description: Sap Get a Business Partner by Code
+- name: get_execution
+  operationId: getExecution
+  method: GET
+  path: /lm/executions/{executionId}
+  description: Sap Get an Execution
+- name: update_business_partner
+  operationId: updateBusinessPartner
+  method: PATCH
+  path: /BusinessPartners('{CardCode}')
+  description: Sap Update a Business Partner
+- name: delete_execution
+  operationId: deleteExecution
+  method: DELETE
+  path: /lm/executions/{executionId}
+  description: Sap Stop an Execution
+- name: get_abusiness_partner
+  operationId: getABusinessPartner
+  method: GET
+  path: /A_BusinessPartner
+  description: Sap List Business Partners
+- name: post_abusiness_partner
+  operationId: postABusinessPartner
+  method: POST
+  path: /A_BusinessPartner
+  description: Sap Create a Business Partner
+- name: get_abusiness_partner('{business_partner}')
+  operationId: getABusinessPartner('{BusinessPartner}')
+  method: GET
+  path: /A_BusinessPartner('{BusinessPartner}')
+  description: Sap Get a Business Partner
+- name: patch_abusiness_partner('{business_partner}')
+  operationId: patchABusinessPartner('{BusinessPartner}')
+  method: PATCH
+  path: /A_BusinessPartner('{BusinessPartner}')
+  description: Sap Update a Business Partner

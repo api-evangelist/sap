@@ -1,0 +1,13 @@
+generated: '2026-10-03'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/sap-business-partners-api-openapi.yml
+skills:
+- file: skills/sap-execution-lifecycle.md
+  name: sap-execution-lifecycle
+  api: openapi/sap-executions-api-openapi.yml
+  operations:
+  - createExecution
+  - getExecution
+  - listExecutions
+  - deleteExecution

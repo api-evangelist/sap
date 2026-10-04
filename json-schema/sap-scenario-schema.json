@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-scenario-schema.json",
+  "title": "Scenario",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-scenarios-api-openapi.yml#/components/schemas/Scenario",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique scenario identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable scenario name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Scenario description"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "modifiedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last modification timestamp"
+    }
+  }
+}

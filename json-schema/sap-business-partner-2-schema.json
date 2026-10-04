@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-business-partner-2-schema.json",
+  "title": "BusinessPartner_2",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-business-partners-api-openapi.yml#/components/schemas/BusinessPartner_2",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number",
+      "maxLength": 10
+    },
+    "BusinessPartnerFullName": {
+      "type": "string",
+      "description": "Full name of the business partner"
+    },
+    "BusinessPartnerCategory": {
+      "type": "string",
+      "description": "Category (1=Organization, 2=Person, 3=Group)",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "BusinessPartnerGrouping": {
+      "type": "string",
+      "description": "Business partner grouping"
+    },
+    "FirstName": {
+      "type": "string",
+      "description": "First name (for person category)"
+    },
+    "LastName": {
+      "type": "string",
+      "description": "Last name (for person category)"
+    },
+    "OrganizationBPName1": {
+      "type": "string",
+      "description": "Organization name line 1"
+    },
+    "SearchTerm1": {
+      "type": "string",
+      "description": "Search term 1"
+    },
+    "Language": {
+      "type": "string",
+      "description": "Correspondence language",
+      "maxLength": 2
+    },
+    "CreationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the business partner was created"
+    }
+  }
+}

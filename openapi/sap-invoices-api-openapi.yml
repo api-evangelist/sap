@@ -120,6 +120,33 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
+    Skip:
+      name: $skip
+      in: query
+      description: Number of records to skip
+      schema:
+        type: integer
+        minimum: 0
+    Select:
+      name: $select
+      in: query
+      description: Comma-separated list of fields to include in the response
+      schema:
+        type: string
+    Top:
+      name: $top
+      in: query
+      description: Maximum number of records to return
+      schema:
+        type: integer
+        minimum: 1
   schemas:
     Invoice:
       type: object
@@ -188,33 +215,6 @@ components:
           type: string
           description: Tax code applied to the line
           example: example_value
-  parameters:
-    Skip:
-      name: $skip
-      in: query
-      description: Number of records to skip
-      schema:
-        type: integer
-        minimum: 0
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
-    Select:
-      name: $select
-      in: query
-      description: Comma-separated list of fields to include in the response
-      schema:
-        type: string
-    Top:
-      name: $top
-      in: query
-      description: Maximum number of records to return
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
     sessionCookie:
       type: apiKey

@@ -1,0 +1,85 @@
+# SAP Developers Tutorials
+
+> Official tutorial platform for SAP technologies. Step-by-step tutorials, missions (multi-tutorial learning paths), and reference content for SAP BTP, ABAP Cloud, CAP, Fiori, HANA Cloud, and integration.
+
+Content policy: Citation in AI search and answer use cases is welcome. Use for model training is not.
+See https://developers.sap.com/AGENTS.md.
+
+## Missions
+
+Missions are multi-tutorial learning paths served dynamically from the catalog.
+Browse the full, up-to-date list at the mission index below.
+
+- Mission index: https://developers.sap.com/missions/
+
+## Tutorial Categories
+
+
+- [Tutorial>beginner](https://developers.sap.com/tags/tutorialbeginner/) — 1032 tutorials
+
+- [Software-Product>sap-Business-Technology-Platform](https://developers.sap.com/tags/software-productsap-business-technology-platform/) — 544 tutorials
+
+- [Tutorial>intermediate](https://developers.sap.com/tags/tutorialintermediate/) — 315 tutorials
+
+- [Topic>cloud](https://developers.sap.com/tags/topiccloud/) — 225 tutorials
+
+- [Products>sap-Hana](https://developers.sap.com/tags/productssap-hana/) — 193 tutorials
+
+- [Tutorial>license](https://developers.sap.com/tags/tutoriallicense/) — 179 tutorials
+
+- [Topic>artificial-Intelligence](https://developers.sap.com/tags/topicartificial-intelligence/) — 131 tutorials
+
+- [Tutorial>free-Tier](https://developers.sap.com/tags/tutorialfree-tier/) — 129 tutorials
+
+- [Topic>machine-Learning](https://developers.sap.com/tags/topicmachine-learning/) — 121 tutorials
+
+- [Products>sap-Business-Technology-Platform](https://developers.sap.com/tags/productssap-business-technology-platform/) — 113 tutorials
+
+- [-Express-Edition](https://developers.sap.com/tags/-express-edition/) — 112 tutorials
+
+- [Programming-Tool>abap-Development](https://developers.sap.com/tags/programming-toolabap-development/) — 100 tutorials
+
+- [Topic>mobile](https://developers.sap.com/tags/topicmobile/) — 88 tutorials
+
+- [Products>sap-Hana-Cloud](https://developers.sap.com/tags/productssap-hana-cloud/) — 71 tutorials
+
+- [Software-Product>sap-Hana-Cloud](https://developers.sap.com/tags/software-productsap-hana-cloud/) — 70 tutorials
+
+- [Software-Product>sap-Build](https://developers.sap.com/tags/software-productsap-build/) — 68 tutorials
+
+- [Software-Product>sap-Ai-Services](https://developers.sap.com/tags/software-productsap-ai-services/) — 65 tutorials
+
+- [Software-Product>sap-Business-Application-Studio](https://developers.sap.com/tags/software-productsap-business-application-studio/) — 65 tutorials
+
+- [Software-Product>sap-Integration-Suite](https://developers.sap.com/tags/software-productsap-integration-suite/) — 63 tutorials
+
+- [Operating-System>ios](https://developers.sap.com/tags/operating-systemios/) — 61 tutorials
+
+- [Software-Product-Function>sap-Cloud-Application-Programming-Model](https://developers.sap.com/tags/software-product-functionsap-cloud-application-programming-model/) — 61 tutorials
+
+- [Software-Product-Function>sap-Hana-Cloud](https://developers.sap.com/tags/software-product-functionsap-hana-cloud/) — 60 tutorials
+
+- [Software-Product>sap-Mobile-Services](https://developers.sap.com/tags/software-productsap-mobile-services/) — 59 tutorials
+
+- [-Sap-Hana-Database](https://developers.sap.com/tags/-sap-hana-database/) — 55 tutorials
+
+- [Operating-System>android](https://developers.sap.com/tags/operating-systemandroid/) — 54 tutorials
+
+- [Software-Product>sap-Fiori](https://developers.sap.com/tags/software-productsap-fiori/) — 53 tutorials
+
+- [Programming-Tool>node-Js](https://developers.sap.com/tags/programming-toolnode-js/) — 51 tutorials
+
+- [Software-Product-Function>sap-Hana-Cloud--Sap-Hana-Database](https://developers.sap.com/tags/software-product-functionsap-hana-cloud--sap-hana-database/) — 51 tutorials
+
+- [Topic>sql](https://developers.sap.com/tags/topicsql/) — 47 tutorials
+
+- [Software-Product>sap-Hana](https://developers.sap.com/tags/software-productsap-hana/) — 44 tutorials
+
+
+## Reference
+
+- Tutorial index: https://developers.sap.com/tutorials/
+- Mission index: https://developers.sap.com/missions/
+- Full machine-readable catalog: https://developers.sap.com/llms-full.txt
+- Navigable site map: https://developers.sap.com/sitemap.md
+- Sitemap: https://developers.sap.com/sitemap.xml

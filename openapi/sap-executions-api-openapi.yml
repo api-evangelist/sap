@@ -242,6 +242,15 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
+    ExecutionCreate:
+      type: object
+      required:
+      - configurationId
+      properties:
+        configurationId:
+          type: string
+          description: Configuration to use for the execution
+          example: '500123'
     Artifact:
       type: object
       properties:
@@ -282,15 +291,6 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
-    ExecutionCreate:
-      type: object
-      required:
-      - configurationId
-      properties:
-        configurationId:
-          type: string
-          description: Configuration to use for the execution
-          example: '500123'
   parameters:
     AIResourceGroup:
       name: AI-Resource-Group

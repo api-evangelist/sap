@@ -63,6 +63,12 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    Filter:
+      name: $filter
+      in: query
+      description: OData filter expression
+      schema:
+        type: string
     Skip:
       name: $skip
       in: query
@@ -70,12 +76,6 @@ components:
       schema:
         type: integer
         minimum: 0
-    Filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     Select:
       name: $select
       in: query

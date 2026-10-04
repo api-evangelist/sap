@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-invoice-schema.json",
+  "title": "Invoice",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-invoices-api-openapi.yml#/components/schemas/Invoice",
+  "type": "object",
+  "properties": {
+    "DocEntry": {
+      "type": "integer",
+      "description": "Unique document entry number",
+      "readOnly": true
+    },
+    "DocNum": {
+      "type": "integer",
+      "description": "Document number"
+    },
+    "CardCode": {
+      "type": "string",
+      "description": "Customer business partner code"
+    },
+    "DocDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice date"
+    },
+    "DocDueDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Payment due date"
+    },
+    "DocTotal": {
+      "type": "number",
+      "format": "double",
+      "description": "Total invoice amount",
+      "readOnly": true
+    },
+    "DocumentLines": {
+      "type": "array",
+      "description": "Invoice line items",
+      "items": {
+        "$ref": "#/$defs/DocumentLine"
+      }
+    }
+  },
+  "$defs": {
+    "DocumentLine": {
+      "type": "object",
+      "properties": {
+        "ItemCode": {
+          "type": "string",
+          "description": "Item code"
+        },
+        "Quantity": {
+          "type": "number",
+          "format": "double",
+          "description": "Ordered quantity"
+        },
+        "UnitPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "Price per unit"
+        },
+        "Currency": {
+          "type": "string",
+          "description": "Line currency"
+        },
+        "WarehouseCode": {
+          "type": "string",
+          "description": "Warehouse code for the line item"
+        },
+        "TaxCode": {
+          "type": "string",
+          "description": "Tax code applied to the line"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/sap-addresses-api-openapi.yml
+- openapi/sap-artifacts-api-openapi.yml
+- openapi/sap-authentication-api-openapi.yml
+- openapi/sap-bank-accounts-api-openapi.yml
+- openapi/sap-business-partners-api-openapi.yml
+vocabulary:
+  name: SAP Domain Vocabulary
+  description: 'Terms declared by SAP''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions. Derived,
+    not authored.'
+  version: '2026-10-03'
+  terms:
+  - term: Addresses
+    definition: Business partner address management
+    tags:
+    - Resource Group
+    source: openapi/sap-addresses-api-openapi.yml
+  - term: Artifacts
+    definition: Model artifacts and dataset management
+    tags:
+    - Resource Group
+    source: openapi/sap-artifacts-api-openapi.yml
+  - term: Authentication
+    definition: Login and session management
+    tags:
+    - Resource Group
+    source: openapi/sap-authentication-api-openapi.yml
+  - term: Bank Accounts
+    definition: Business partner bank account details
+    tags:
+    - Resource Group
+    source: openapi/sap-bank-accounts-api-openapi.yml
+  - term: Business Partners
+    definition: Manage customers, vendors, and leads
+    tags:
+    - Resource Group
+    source: openapi/sap-business-partners-api-openapi.yml
+  - term: Configurations
+    definition: Execution and deployment configurations
+    tags:
+    - Resource Group
+    source: openapi/sap-configurations-api-openapi.yml
+  - term: Deployments
+    definition: Model deployment and serving management
+    tags:
+    - Resource Group
+    source: openapi/sap-deployments-api-openapi.yml
+  - term: Executions
+    definition: Training execution lifecycle management
+    tags:
+    - Resource Group
+    source: openapi/sap-executions-api-openapi.yml
+  - term: Invoices
+    definition: AR and AP invoice management
+    tags:
+    - Resource Group
+    source: openapi/sap-invoices-api-openapi.yml
+  - term: Items
+    definition: Product and item master data management
+    tags:
+    - Resource Group
+    source: openapi/sap-items-api-openapi.yml
+  - term: Journal Entries
+    definition: Financial journal entries and postings
+    tags:
+    - Resource Group
+    source: openapi/sap-journal-entries-api-openapi.yml
+  - term: Orders
+    definition: Sales orders, purchase orders, and delivery management
+    tags:
+    - Resource Group
+    source: openapi/sap-orders-api-openapi.yml
+  - term: Roles
+    definition: Business partner role assignments (customer, supplier)
+    tags:
+    - Resource Group
+    source: openapi/sap-roles-api-openapi.yml
+  - term: Scenarios
+    definition: AI scenario definitions and metadata
+    tags:
+    - Resource Group
+    source: openapi/sap-scenarios-api-openapi.yml
+  - term: Tax Numbers
+    definition: Business partner tax identification numbers
+    tags:
+    - Resource Group
+    source: openapi/sap-tax-numbers-api-openapi.yml
+  - term: BusinessPartnerAddress
+    definition: 'Object declared by the contract with fields: BusinessPartner, AddressID, Country, Region, CityName, PostalCode, StreetName, HouseNumber.'
+    tags:
+    - Object
+    source: openapi/sap-addresses-api-openapi.yml#/components/schemas/BusinessPartnerAddress
+  - term: ArtifactCreate
+    definition: 'Object declared by the contract with fields: name, kind, url, scenarioId, description.'
+    tags:
+    - Object
+    source: openapi/sap-artifacts-api-openapi.yml#/components/schemas/ArtifactCreate
+  - term: Artifact
+    definition: 'Object declared by the contract with fields: id, name, kind, url, scenarioId, executionId, description, createdAt.'
+    tags:
+    - Object
+    source: openapi/sap-artifacts-api-openapi.yml#/components/schemas/Artifact
+  - term: LoginResponse
+    definition: 'Object declared by the contract with fields: SessionId, Version, SessionTimeout.'
+    tags:
+    - Object
+    source: openapi/sap-authentication-api-openapi.yml#/components/schemas/LoginResponse
+  - term: LoginRequest
+    definition: 'Object declared by the contract with fields: CompanyDB, UserName, Password.'
+    tags:
+    - Object
+    source: openapi/sap-authentication-api-openapi.yml#/components/schemas/LoginRequest
+  - term: BusinessPartnerBank
+    definition: 'Object declared by the contract with fields: BusinessPartner, BankIdentification, BankCountryKey, BankNumber, BankAccount, IBAN,
+      SWIFTCode.'
+    tags:
+    - Object
+    source: openapi/sap-bank-accounts-api-openapi.yml#/components/schemas/BusinessPartnerBank
+  - term: BusinessPartner
+    definition: 'Object declared by the contract with fields: CardCode, CardName, CardType, GroupCode, Phone1, EmailAddress, FederalTaxID, Currency,
+      Valid.'
+    tags:
+    - Object
+    source: openapi/sap-business-partners-api-openapi.yml#/components/schemas/BusinessPartner
+  - term: BusinessPartner_2
+    definition: 'Object declared by the contract with fields: BusinessPartner, BusinessPartnerFullName, BusinessPartnerCategory, BusinessPartnerGrouping,
+      FirstName, LastName, OrganizationBPName1, SearchTerm1, Language, CreationDate.'
+    tags:
+    - Object
+    source: openapi/sap-business-partners-api-openapi.yml#/components/schemas/BusinessPartner_2
+  - term: ArtifactBinding
+    definition: 'Object declared by the contract with fields: key, artifactId.'
+    tags:
+    - Object
+    source: openapi/sap-configurations-api-openapi.yml#/components/schemas/ArtifactBinding
+  - term: ConfigurationCreate
+    definition: 'Object declared by the contract with fields: name, scenarioId, executableId, parameterBindings, inputArtifactBindings.'
+    tags:
+    - Object
+    source: openapi/sap-configurations-api-openapi.yml#/components/schemas/ConfigurationCreate
+  - term: Configuration
+    definition: 'Object declared by the contract with fields: id, name, scenarioId, executableId, parameterBindings, inputArtifactBindings, createdAt.'
+    tags:
+    - Object
+    source: openapi/sap-configurations-api-openapi.yml#/components/schemas/Configuration
+  - term: ParameterBinding
+    definition: 'Object declared by the contract with fields: key, value.'
+    tags:
+    - Object
+    source: openapi/sap-configurations-api-openapi.yml#/components/schemas/ParameterBinding
+  - term: Deployment
+    definition: 'Object declared by the contract with fields: id, configurationId, scenarioId, status, deploymentUrl, createdAt, modifiedAt.'
+    tags:
+    - Object
+    source: openapi/sap-deployments-api-openapi.yml#/components/schemas/Deployment
+  - term: DeploymentCreate
+    definition: 'Object declared by the contract with fields: configurationId.'
+    tags:
+    - Object
+    source: openapi/sap-deployments-api-openapi.yml#/components/schemas/DeploymentCreate
+  - term: Execution
+    definition: 'Object declared by the contract with fields: id, configurationId, scenarioId, status, statusMessage, outputArtifacts, createdAt,
+      modifiedAt.'
+    tags:
+    - Object
+    source: openapi/sap-executions-api-openapi.yml#/components/schemas/Execution
+  - term: ExecutionCreate
+    definition: 'Object declared by the contract with fields: configurationId.'
+    tags:
+    - Object
+    source: openapi/sap-executions-api-openapi.yml#/components/schemas/ExecutionCreate
+  - term: Invoice
+    definition: 'Object declared by the contract with fields: DocEntry, DocNum, CardCode, DocDate, DocDueDate, DocTotal, DocumentLines.'
+    tags:
+    - Object
+    source: openapi/sap-invoices-api-openapi.yml#/components/schemas/Invoice
+  - term: DocumentLine
+    definition: 'Object declared by the contract with fields: ItemCode, Quantity, UnitPrice, Currency, WarehouseCode, TaxCode.'
+    tags:
+    - Object
+    source: openapi/sap-invoices-api-openapi.yml#/components/schemas/DocumentLine
+  - term: Item
+    definition: 'Object declared by the contract with fields: ItemCode, ItemName, ItemType, ItemsGroupCode, QuantityOnStock, AvgStdPrice, SalesUnit,
+      PurchaseUnit.'
+    tags:
+    - Object
+    source: openapi/sap-items-api-openapi.yml#/components/schemas/Item
+  - term: JournalEntry
+    definition: 'Object declared by the contract with fields: JdtNum, ReferenceDate, Memo, JournalEntryLines.'
+    tags:
+    - Object
+    source: openapi/sap-journal-entries-api-openapi.yml#/components/schemas/JournalEntry
+  - term: JournalEntryLine
+    definition: 'Object declared by the contract with fields: AccountCode, Debit, Credit, ShortName, LineMemo.'
+    tags:
+    - Object
+    source: openapi/sap-journal-entries-api-openapi.yml#/components/schemas/JournalEntryLine
+  - term: Order
+    definition: 'Object declared by the contract with fields: DocEntry, DocNum, CardCode, DocDate, DocDueDate, DocTotal, DocCurrency, DocumentLines.'
+    tags:
+    - Object
+    source: openapi/sap-orders-api-openapi.yml#/components/schemas/Order
+  - term: BusinessPartnerRole
+    definition: 'Object declared by the contract with fields: BusinessPartner, BusinessPartnerRole.'
+    tags:
+    - Object
+    source: openapi/sap-roles-api-openapi.yml#/components/schemas/BusinessPartnerRole
+  - term: Scenario
+    definition: 'Object declared by the contract with fields: id, name, description, createdAt, modifiedAt.'
+    tags:
+    - Object
+    source: openapi/sap-scenarios-api-openapi.yml#/components/schemas/Scenario
+  - term: BusinessPartnerTaxNumber
+    definition: 'Object declared by the contract with fields: BusinessPartner, BPTaxType, BPTaxNumber.'
+    tags:
+    - Object
+    source: openapi/sap-tax-numbers-api-openapi.yml#/components/schemas/BusinessPartnerTaxNumber

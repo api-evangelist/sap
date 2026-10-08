@@ -847,6 +847,12 @@ tags_raw:
 - Real-Time
 - A2A
 common:
+- type: Plans
+  url: plans/sap-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sap-rate-limits.yml
+- type: FinOps
+  url: finops/sap-finops.yml
 - type: Website
   url: https://sap.com
 - type: CapabilityMap

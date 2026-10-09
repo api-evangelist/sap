@@ -1,0 +1,42 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/sap-addresses-api-openapi.yml
+- openapi/sap-artifacts-api-openapi.yml
+- openapi/sap-authentication-api-openapi.yml
+- openapi/sap-bank-accounts-api-openapi.yml
+- openapi/sap-business-partners-api-openapi.yml
+- openapi/sap-configurations-api-openapi.yml
+- openapi/sap-deployments-api-openapi.yml
+- openapi/sap-executions-api-openapi.yml
+- openapi/sap-invoices-api-openapi.yml
+- openapi/sap-items-api-openapi.yml
+- openapi/sap-journal-entries-api-openapi.yml
+- openapi/sap-orders-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 33
+  statuses_declared: 3
+problems:
+- status: 400
+  title: Bad Request
+  description: Invalid request data
+  operations: 3
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized
+  operations: 3
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Business partner not found
+  operations: 5
+  media_types: []
+  schema: null

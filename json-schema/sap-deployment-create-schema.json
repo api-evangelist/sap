@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-deployment-create-schema.json",
+  "title": "DeploymentCreate",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-deployments-api-openapi.yml#/components/schemas/DeploymentCreate",
+  "type": "object",
+  "required": [
+    "configurationId"
+  ],
+  "properties": {
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration to use for the deployment"
+    }
+  }
+}

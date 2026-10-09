@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-deployment-schema.json",
+  "title": "Deployment",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-deployments-api-openapi.yml#/components/schemas/Deployment",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Deployment identifier"
+    },
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration used for this deployment"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current deployment status",
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "COMPLETED",
+        "DEAD",
+        "STOPPED",
+        "UNKNOWN"
+      ]
+    },
+    "deploymentUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for sending inference requests"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

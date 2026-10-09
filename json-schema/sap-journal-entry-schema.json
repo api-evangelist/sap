@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-journal-entry-schema.json",
+  "title": "JournalEntry",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-journal-entries-api-openapi.yml#/components/schemas/JournalEntry",
+  "type": "object",
+  "properties": {
+    "JdtNum": {
+      "type": "integer",
+      "description": "Journal entry number",
+      "readOnly": true
+    },
+    "ReferenceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Reference date"
+    },
+    "Memo": {
+      "type": "string",
+      "description": "Remark or memo for the journal entry"
+    },
+    "JournalEntryLines": {
+      "type": "array",
+      "description": "Debit and credit lines",
+      "items": {
+        "$ref": "#/$defs/JournalEntryLine"
+      }
+    }
+  },
+  "$defs": {
+    "JournalEntryLine": {
+      "type": "object",
+      "properties": {
+        "AccountCode": {
+          "type": "string",
+          "description": "General ledger account code"
+        },
+        "Debit": {
+          "type": "number",
+          "format": "double",
+          "description": "Debit amount in local currency"
+        },
+        "Credit": {
+          "type": "number",
+          "format": "double",
+          "description": "Credit amount in local currency"
+        },
+        "ShortName": {
+          "type": "string",
+          "description": "Short name or business partner code"
+        },
+        "LineMemo": {
+          "type": "string",
+          "description": "Memo for this line"
+        }
+      }
+    }
+  }
+}

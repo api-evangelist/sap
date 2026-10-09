@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-item-schema.json",
+  "title": "Item",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-items-api-openapi.yml#/components/schemas/Item",
+  "type": "object",
+  "properties": {
+    "ItemCode": {
+      "type": "string",
+      "description": "Unique item code",
+      "maxLength": 50
+    },
+    "ItemName": {
+      "type": "string",
+      "description": "Item description",
+      "maxLength": 200
+    },
+    "ItemType": {
+      "type": "string",
+      "description": "Item type",
+      "enum": [
+        "itItems",
+        "itLabor",
+        "itTravel",
+        "itFixedAssets"
+      ]
+    },
+    "ItemsGroupCode": {
+      "type": "integer",
+      "description": "Item group code"
+    },
+    "QuantityOnStock": {
+      "type": "number",
+      "format": "double",
+      "description": "Current quantity in stock",
+      "readOnly": true
+    },
+    "AvgStdPrice": {
+      "type": "number",
+      "format": "double",
+      "description": "Average or standard price"
+    },
+    "SalesUnit": {
+      "type": "string",
+      "description": "Default sales unit of measure"
+    },
+    "PurchaseUnit": {
+      "type": "string",
+      "description": "Default purchase unit of measure"
+    }
+  }
+}

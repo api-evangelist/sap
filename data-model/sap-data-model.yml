@@ -1,0 +1,153 @@
+generated: '2026-10-03'
+method: derived
+generator: derive-data-model.py
+source:
+- openapi/sap-addresses-api-openapi.yml
+- openapi/sap-artifacts-api-openapi.yml
+- openapi/sap-authentication-api-openapi.yml
+- openapi/sap-bank-accounts-api-openapi.yml
+- openapi/sap-business-partners-api-openapi.yml
+- openapi/sap-configurations-api-openapi.yml
+- openapi/sap-deployments-api-openapi.yml
+- openapi/sap-executions-api-openapi.yml
+- openapi/sap-invoices-api-openapi.yml
+- openapi/sap-items-api-openapi.yml
+- openapi/sap-journal-entries-api-openapi.yml
+- openapi/sap-orders-api-openapi.yml
+notation: has_one = property $ref; has_many = array of $ref; belongs_to = <entity>_id field
+summary:
+  entities: 25
+  entities_in_spec: 25
+  relationships: 20
+entities:
+- name: Artifact
+  fields: 8
+- name: ArtifactBinding
+  fields: 2
+- name: ArtifactCreate
+  fields: 5
+- name: BusinessPartner
+  fields: 9
+- name: BusinessPartnerAddress
+  fields: 8
+- name: BusinessPartnerBank
+  fields: 7
+- name: BusinessPartnerRole
+  fields: 2
+- name: BusinessPartnerTaxNumber
+  fields: 3
+- name: BusinessPartner_2
+  fields: 10
+- name: Configuration
+  fields: 7
+- name: ConfigurationCreate
+  fields: 5
+- name: Deployment
+  fields: 7
+- name: DeploymentCreate
+  fields: 1
+- name: DocumentLine
+  fields: 6
+- name: Execution
+  fields: 8
+- name: ExecutionCreate
+  fields: 1
+- name: Invoice
+  fields: 7
+- name: Item
+  fields: 8
+- name: JournalEntry
+  fields: 4
+- name: JournalEntryLine
+  fields: 5
+- name: LoginRequest
+  fields: 3
+- name: LoginResponse
+  fields: 3
+- name: Order
+  fields: 8
+- name: ParameterBinding
+  fields: 2
+- name: Scenario
+  fields: 5
+relationships:
+- from: ArtifactCreate
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: Artifact
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: Artifact
+  to: Execution
+  type: belongs_to
+  via: executionId
+- from: ArtifactBinding
+  to: Artifact
+  type: belongs_to
+  via: artifactId
+- from: ConfigurationCreate
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: ConfigurationCreate
+  to: ParameterBinding
+  type: has_many
+  via: parameterBindings
+- from: ConfigurationCreate
+  to: ArtifactBinding
+  type: has_many
+  via: inputArtifactBindings
+- from: Configuration
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: Configuration
+  to: ParameterBinding
+  type: has_many
+  via: parameterBindings
+- from: Configuration
+  to: ArtifactBinding
+  type: has_many
+  via: inputArtifactBindings
+- from: Deployment
+  to: Configuration
+  type: belongs_to
+  via: configurationId
+- from: Deployment
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: DeploymentCreate
+  to: Configuration
+  type: belongs_to
+  via: configurationId
+- from: Execution
+  to: Configuration
+  type: belongs_to
+  via: configurationId
+- from: Execution
+  to: Scenario
+  type: belongs_to
+  via: scenarioId
+- from: Execution
+  to: Artifact
+  type: has_many
+  via: outputArtifacts
+- from: ExecutionCreate
+  to: Configuration
+  type: belongs_to
+  via: configurationId
+- from: Invoice
+  to: DocumentLine
+  type: has_many
+  via: DocumentLines
+- from: JournalEntry
+  to: JournalEntryLine
+  type: has_many
+  via: JournalEntryLines
+- from: Order
+  to: DocumentLine
+  type: has_many
+  via: DocumentLines

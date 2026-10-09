@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-artifact-create-schema.json",
+  "title": "ArtifactCreate",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-artifacts-api-openapi.yml#/components/schemas/ArtifactCreate",
+  "type": "object",
+  "required": [
+    "name",
+    "kind",
+    "url",
+    "scenarioId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "model",
+        "dataset",
+        "resultset",
+        "other"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "scenarioId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

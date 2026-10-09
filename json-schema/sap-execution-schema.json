@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-execution-schema.json",
+  "title": "Execution",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-executions-api-openapi.yml#/components/schemas/Execution",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Execution identifier"
+    },
+    "configurationId": {
+      "type": "string",
+      "description": "Configuration used for this execution"
+    },
+    "scenarioId": {
+      "type": "string",
+      "description": "Associated scenario"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current execution status",
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "COMPLETED",
+        "DEAD",
+        "STOPPED",
+        "UNKNOWN"
+      ]
+    },
+    "statusMessage": {
+      "type": "string",
+      "description": "Human-readable status message"
+    },
+    "outputArtifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Artifact"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "Artifact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Artifact identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Artifact name"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Artifact kind",
+          "enum": [
+            "model",
+            "dataset",
+            "resultset",
+            "other"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "Storage URL for the artifact"
+        },
+        "scenarioId": {
+          "type": "string",
+          "description": "Associated scenario"
+        },
+        "executionId": {
+          "type": "string",
+          "description": "Execution that produced this artifact"
+        },
+        "description": {
+          "type": "string",
+          "description": "Artifact description"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

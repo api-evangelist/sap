@@ -126,53 +126,18 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    AIResourceGroup:
-      name: AI-Resource-Group
-      in: header
-      required: true
-      description: The resource group for multi-tenancy isolation
-      schema:
-        type: string
-        default: default
   schemas:
-    ArtifactBinding:
+    ParameterBinding:
       type: object
       properties:
         key:
           type: string
-          description: Input artifact key
+          description: Parameter name
           example: example_value
-        artifactId:
+        value:
           type: string
-          description: Artifact identifier
-          example: '500123'
-    ConfigurationCreate:
-      type: object
-      required:
-      - name
-      - scenarioId
-      - executableId
-      properties:
-        name:
-          type: string
-          example: Example Title
-        scenarioId:
-          type: string
-          example: '500123'
-        executableId:
-          type: string
-          example: '500123'
-        parameterBindings:
-          type: array
-          items:
-            $ref: '#/components/schemas/ParameterBinding'
-          example: []
-        inputArtifactBindings:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArtifactBinding'
-          example: []
+          description: Parameter value
+          example: example_value
     Configuration:
       type: object
       properties:
@@ -206,17 +171,52 @@ components:
           type: string
           format: date-time
           example: '2026-01-15T10:30:00Z'
-    ParameterBinding:
+    ConfigurationCreate:
+      type: object
+      required:
+      - name
+      - scenarioId
+      - executableId
+      properties:
+        name:
+          type: string
+          example: Example Title
+        scenarioId:
+          type: string
+          example: '500123'
+        executableId:
+          type: string
+          example: '500123'
+        parameterBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParameterBinding'
+          example: []
+        inputArtifactBindings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtifactBinding'
+          example: []
+    ArtifactBinding:
       type: object
       properties:
         key:
           type: string
-          description: Parameter name
+          description: Input artifact key
           example: example_value
-        value:
+        artifactId:
           type: string
-          description: Parameter value
-          example: example_value
+          description: Artifact identifier
+          example: '500123'
+  parameters:
+    AIResourceGroup:
+      name: AI-Resource-Group
+      in: header
+      required: true
+      description: The resource group for multi-tenancy isolation
+      schema:
+        type: string
+        default: default
   securitySchemes:
     oauth2:
       type: oauth2

@@ -1,0 +1,12 @@
+{
+  "resource": "https://developers.sap.com/mcp-auth",
+  "authorization_servers": [
+    "https://atxgsg7zi.accounts.ondemand.com"
+  ],
+  "scopes_supported": [
+    "openid"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

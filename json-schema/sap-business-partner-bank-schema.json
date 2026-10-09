@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-business-partner-bank-schema.json",
+  "title": "BusinessPartnerBank",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-bank-accounts-api-openapi.yml#/components/schemas/BusinessPartnerBank",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BankIdentification": {
+      "type": "string",
+      "description": "Bank detail identifier"
+    },
+    "BankCountryKey": {
+      "type": "string",
+      "description": "Bank country key (ISO 3166-1)"
+    },
+    "BankNumber": {
+      "type": "string",
+      "description": "Bank routing number"
+    },
+    "BankAccount": {
+      "type": "string",
+      "description": "Bank account number"
+    },
+    "IBAN": {
+      "type": "string",
+      "description": "International Bank Account Number"
+    },
+    "SWIFTCode": {
+      "type": "string",
+      "description": "SWIFT/BIC code"
+    }
+  }
+}

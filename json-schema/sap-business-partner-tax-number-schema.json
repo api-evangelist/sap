@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/sap/main/json-schema/sap-business-partner-tax-number-schema.json",
+  "title": "BusinessPartnerTaxNumber",
+  "x-generated": "2026-10-03",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/sap-tax-numbers-api-openapi.yml#/components/schemas/BusinessPartnerTaxNumber",
+  "type": "object",
+  "properties": {
+    "BusinessPartner": {
+      "type": "string",
+      "description": "Business partner number"
+    },
+    "BPTaxType": {
+      "type": "string",
+      "description": "Tax number category"
+    },
+    "BPTaxNumber": {
+      "type": "string",
+      "description": "Tax identification number"
+    }
+  }
+}

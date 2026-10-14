@@ -1,0 +1,69 @@
+generated: '2026-10-14'
+edges:
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=SAP%20SE
+  conformance:
+    organization: SAP SE
+    domain: sap.com
+    products: 1
+    compliant_specs:
+    - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1'
+    implementing_specs: []
+    products_list:
+    - name: SAP HANA
+      version: Cloud
+      type: Server
+      pid: '1752'
+      valid_until: '2026-10-29'
+      compliant:
+      - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1
+        (2022-10-30)'
+  match:
+    method: domain+name-among-holders
+    domain: sap.com
+  contract_reference:
+    register: portal.ogc.org/public_ogc/compliance
+    spec_file: null
+    role: implementation-registration
+    registered_name: SAP SE
+    register_id: SAP SE
+    detected_by: sweep-geospatial.py
+    detected: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/sap-ibp
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - sap-ibp
+      - sap-s4hana
+      status: released
+      sync_types:
+      - Entities
+      - Sales Orders
+      sync_modes:
+      - insert
+      - update
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+method: searched
+checked:
+- https://hightouch.com/docs/destinations/sap-ibp
+source: https://hightouch.com/docs/destinations/sap-ibp

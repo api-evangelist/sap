@@ -63,7 +63,87 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: JetBrains Marketplace
+  partner: jetbrains
+  partner_match: aggregator
+  type: marketplace
+  marketplace: jetbrains
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://plugins.jetbrains.com/vendor/sap-oss
+  listing_count: 1
+  apps:
+  - SAP CDS Language Support
+  publisher_name: SAP OSS
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/SAPOSS
+  listing_count: 8
+  apps:
+  - XML Toolkit
+  - SAP Business Application Studio toolkit
+  - Remote Access for SAP Business Application Studio
+  - UI5 Language Assistant
+  - Guided Answers extension by SAP
+  publisher_name: SAP OSS
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/SAPOS
+  listing_count: 1
+  apps:
+  - Application Wizard
+  publisher_name: SAP OS
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+- partner_name: Visual Studio Code Marketplace
+  partner: vs-code-marketplace
+  partner_match: aggregator
+  type: marketplace
+  marketplace: vscode
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://marketplace.visualstudio.com/publishers/SAPSE
+  listing_count: 14
+  apps:
+  - SAP Fiori Tools - Application Modeler
+  - SAP Fiori Tools - XML Annotation Language Server
+  - SAP Fiori Tools - Guided Development
+  - SAP Fiori Tools - Service Modeler
+  - SAP Fiori Tools - Extension Pack
+  publisher_name: SAP SE
+  badges:
+  - Verified publisher
+  - Verified domain
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
 method: searched
 checked:
 - https://hightouch.com/docs/destinations/sap-ibp
+- https://marketplace.visualstudio.com/vscode
+- https://plugins.jetbrains.com/
 source: https://hightouch.com/docs/destinations/sap-ibp
+marketplace_apps: []

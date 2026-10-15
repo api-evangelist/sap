@@ -140,27 +140,6 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - SAP ETD Cloud
-  - SAP LogServ
-  - SAP S4 Cloud Public Edition
-  listing_count: 3
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Threat Protection
-  badges:
-  - support-tier:partner
 - partner_name: C2PA (Content Credentials conformance programme)
   partner: null
   partner_match: register
@@ -237,6 +216,44 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-industrial-robotics.py
   first_seen: '2026-10-15'
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - SAP ETD Cloud
+  - SAP LogServ
+  - SAP S4 Cloud Public Edition
+  listing_count: 3
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Threat Protection
+  badges:
+  - support-tier:partner
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Open Payment Framework Integration
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: payment_gateways
 method: searched
 checked:
 - https://ddex.net/membership/current-members/
@@ -251,5 +268,6 @@ checked:
 - https://repo.ros2.org/rosdistro_cache/kilted-cache.yaml.gz
 - https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+- stripe/integrations/stripe-integration-edges.yml
 source: https://hightouch.com/docs/destinations/sap-ibp
 marketplace_apps: []

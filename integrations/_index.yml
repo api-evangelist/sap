@@ -58,19 +58,6 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
-- slug: sap-microsoft-sentinel-own
-  label: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_name: Microsoft Sentinel (own)
-  category: Security - Threat Protection
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: sap-c2pa-content-credentials-conformance-programme
   label: C2PA (Content Credentials conformance programme)
   partner_name: C2PA (Content Credentials conformance programme)
@@ -145,5 +132,31 @@
       per product; listed_products is context, never read
     detected_by: sweep-industrial-robotics.py
     detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: sap-microsoft-sentinel-own
+  label: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_name: Microsoft Sentinel (own)
+  category: Security - Threat Protection
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: sap-stripe-own
+  label: Stripe (own)
+  partner: stripe
+  partner_name: Stripe (own)
+  category: payment_gateways
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

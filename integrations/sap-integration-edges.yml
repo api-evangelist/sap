@@ -161,11 +161,95 @@ edges:
   category: Security - Threat Protection
   badges:
   - support-tier:partner
+- partner_name: C2PA (Content Credentials conformance programme)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://github.com/c2pa-org/conformance-public/blob/main/conforming-products/conforming-products-list.json
+  category: content provenance (Content Credentials) conformance
+  contract_reference:
+    register: C2PA conforming products list (c2pa-org/conformance-public)
+    spec_file: null
+    role: c2pa-conformant-applicant
+    registered_name: SAP SE
+    register_id: SAP SE
+    product_types:
+    - generatorProduct
+    assurance_levels:
+    - 1
+    spec_versions:
+    - '2.4'
+    media_types:
+    - audio/mp4
+    - audio/mpeg
+    - audio/wav
+    - image/avif
+    - image/heic
+    - image/heif
+    - image/jpeg
+    - image/png
+    - image/tiff
+    - image/webp
+    - video/mp4
+    - video/quicktime
+    products:
+    - product: SAP Watermark Service
+      record_id: 019fea79-e32e-73d2-bcfe-33ed12828104
+      conformance_date: '2026-08-10'
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    identity: wikidata Q552581 'SAP' P856 https://www.sap.com/
+    detected_by: sweep-media.py
+    detected: '2026-10-15'
+  detected_by: sweep-media.py
+  first_seen: '2026-10-15'
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/sap-plant-connectivity-pco/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA product listed
+    registered_name: SAP SE
+    member_id: '334'
+    website: http://www.sap.com
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    listed_products: 1
+    certified_products: []
+    listed_categories:
+    - None
+    sample_products:
+    - SAP SE SAP Plant Connectivity (PCo) Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-15'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
 method: searched
 checked:
+- https://ddex.net/membership/current-members/
 - https://hightouch.com/docs/destinations/sap-ibp
+- https://marketplace.odva.org/organizations
 - https://marketplace.visualstudio.com/vscode
+- https://opcfoundation.org/products/
 - https://plugins.jetbrains.com/
+- https://raw.githubusercontent.com/c2pa-org/conformance-public/main/conforming-products/conforming-products-list.json
+- https://repo.ros2.org/rosdistro_cache/humble-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/jazzy-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/kilted-cache.yaml.gz
+- https://repo.ros2.org/rosdistro_cache/rolling-cache.yaml.gz
 - microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
 source: https://hightouch.com/docs/destinations/sap-ibp
 marketplace_apps: []

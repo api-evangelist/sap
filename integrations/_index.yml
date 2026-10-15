@@ -341,3 +341,28 @@
     detected: '2026-10-15'
   status: not-a-workflow
   arazzo: null
+- slug: sap-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/sap-s4-hana/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: SAP S/4HANA
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: sap-s4-hana
+    beta: false
+    builder: unknown (not in the directory record)
+  status: pending-generation
+  arazzo: null

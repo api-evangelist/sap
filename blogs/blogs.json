@@ -2,6 +2,13 @@
   "repo": "sap",
   "feeds": [
     {
+      "source": "https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs",
+      "feed_url": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
       "source": "https://api.sap.com",
       "feed_url": "https://api.sap.com",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0
 }

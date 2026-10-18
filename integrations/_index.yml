@@ -390,7 +390,7 @@
     - connectors/databases/sap
     vendor_link: https://www.sap.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: sap-microsoft-teams-own
   label: Microsoft Teams (own)

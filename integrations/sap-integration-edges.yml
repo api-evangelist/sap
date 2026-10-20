@@ -1,42 +1,5 @@
 generated: '2026-10-14'
 edges:
-- partner_name: Open Geospatial Consortium
-  partner: ogc
-  detected_by: sweep-geospatial.py
-  first_seen: '2026-10-14'
-  partner_match: register
-  type: register
-  direction: partner-built
-  channel: standard-directory
-  relationship: standard-participant
-  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=SAP%20SE
-  conformance:
-    organization: SAP SE
-    domain: sap.com
-    products: 1
-    compliant_specs:
-    - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1'
-    implementing_specs: []
-    products_list:
-    - name: SAP HANA
-      version: Cloud
-      type: Server
-      pid: '1752'
-      valid_until: '2026-10-29'
-      compliant:
-      - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1
-        (2022-10-30)'
-  match:
-    method: domain+name-among-holders
-    domain: sap.com
-  contract_reference:
-    register: portal.ogc.org/public_ogc/compliance
-    spec_file: null
-    role: implementation-registration
-    registered_name: SAP SE
-    register_id: SAP SE
-    detected_by: sweep-geospatial.py
-    detected: '2026-10-14'
 - partner_name: JetBrains Marketplace
   partner: jetbrains
   partner_match: aggregator
@@ -114,6 +77,89 @@ edges:
   - Verified domain
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - SAP ETD Cloud
+  - SAP LogServ
+  - SAP S4 Cloud Public Edition
+  listing_count: 3
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Threat Protection
+  badges:
+  - support-tier:partner
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Open Payment Framework Integration
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: payment_gateways
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/sap-s4-hana/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: SAP S/4HANA
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: sap-s4-hana
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200006600
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - SAP SuccessFactors
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Certified
+  - Microsoft 365 Publisher Attestation
 - partner_name: Hightouch
   partner: hightouch
   partner_match: aggregator
@@ -140,6 +186,184 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
+- partner_name: Fivetran
+  partner: fivetran
+  partner_match: aggregator
+  type: marketplace
+  marketplace: fivetran-connectors
+  channel: elt-connector
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://fivetran.com/docs/connectors/databases/sap
+  category: null
+  contract_reference:
+    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
+    spec_file: null
+    role: elt-connector:fivetran
+    registered_name: SAP
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    detected_by: sweep-data-integration.py
+    detected: '2026-10-18'
+    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
+    connector_paths:
+    - connectors/databases/sap
+    vendor_link: https://www.sap.com/
+    builder: Fivetran
+  detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: OpenPeppol (certified service providers)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://peppol.org/members/peppol-certified-service-providers/
+  category: Peppol service provider
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OpenPeppol certified service providers (peppol.org/members/peppol-certified-service-providers)
+    spec_file: null
+    standard: Peppol
+    role: peppol-certified-service-provider
+    registered_name: SAP SE
+    legal_name: SAP SE
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    domain_source: contact email domain
+    peppol_authorities:
+    - KoSIT
+    countries:
+    - Germany
+    certified_products:
+    - product: Access Point
+      lapsed: false
+    signal_note: certified_products = one entry per Peppol-certified SERVICE (Access Point, SMP); authorities and
+      countries are context, never read
+    detected_by: sweep-einvoicing-tax.py
+    detected: '2026-10-19'
+  detected_by: sweep-einvoicing-tax.py
+  first_seen: '2026-10-15'
+- partner_name: OpenPeppol (certified service providers)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://peppol.org/members/peppol-certified-service-providers/
+  category: Peppol service provider
+  channel: standard-directory
+  relationship: compatible
+  shape: peppol
+  evidence_kind: conformance-register
+  degree: certified
+  report_only: true
+  contract_reference:
+    register: OpenPeppol certified service providers (peppol.org/members/peppol-certified-service-providers)
+    spec_file: null
+    standard: Peppol
+    role: peppol-certified-service-provider
+    registered_name: SAP SE
+    matched_domain: sap.com
+    detected_by: sweep-einvoicing-tax.py
+    detected: '2026-10-19'
+  detected_by: sweep-einvoicing-tax.py
+  first_seen: '2026-10-15'
+- partner_name: DGFiP plateformes agreees (France e-invoicing reform)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees
+  category: French e-invoicing platform
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: DGFiP liste des plateformes agreees (impots.gouv.fr)
+    spec_file: null
+    standard: France e-invoicing (plateforme agreee)
+    role: plateforme-agreee
+    registered_name: SAP
+    website: https://www.sap.com/france/
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    certified_products:
+    - product: plateforme agreee (PA)
+      lapsed: false
+      registered: '2026-01-15'
+    signal_note: certified_products = the immatriculation (one per operator); an operator awaiting the interop tests
+      is participation only
+    detected_by: sweep-einvoicing-tax.py
+    detected: '2026-10-19'
+  detected_by: sweep-einvoicing-tax.py
+  first_seen: '2026-10-15'
+- partner_name: Open Geospatial Consortium
+  partner: ogc
+  detected_by: sweep-geospatial.py
+  first_seen: '2026-10-14'
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://portal.ogc.org/public_ogc/compliance/implementing.php?org_match=SAP%20SE
+  conformance:
+    organization: SAP SE
+    domain: sap.com
+    products: 1
+    compliant_specs:
+    - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1'
+    implementing_specs: []
+    products_list:
+    - name: SAP HANA
+      version: Cloud
+      type: Server
+      pid: '1752'
+      valid_until: '2026-10-29'
+      compliant:
+      - 'Implementation Specification for Geographic information - Simple feature access - Part 2: SQL option 1.2.1
+        (2022-10-30)'
+  match:
+    method: domain+name-among-holders
+    domain: sap.com
+  contract_reference:
+    register: portal.ogc.org/public_ogc/compliance
+    spec_file: null
+    role: implementation-registration
+    registered_name: SAP SE
+    register_id: SAP SE
+    detected_by: sweep-geospatial.py
+    detected: '2026-10-19'
+- partner_name: OPC Foundation (OPC UA)
+  partner: null
+  partner_match: register
+  type: register
+  direction: partner-built
+  evidence: https://opcfoundation.org/products/view/sap-plant-connectivity-pco/
+  category: OPC UA products
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: OPC Foundation product marketplace (opcfoundation.org/products)
+    spec_file: null
+    standard: OPC UA
+    role: OPC UA product listed
+    registered_name: SAP SE
+    member_id: '334'
+    website: http://www.sap.com
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    listed_products: 1
+    certified_products: []
+    listed_categories:
+    - None
+    sample_products:
+    - SAP SE SAP Plant Connectivity (PCo) Show details
+    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
+      per product; listed_products is context, never read
+    detected_by: sweep-industrial-robotics.py
+    detected: '2026-10-19'
+  detected_by: sweep-industrial-robotics.py
+  first_seen: '2026-10-15'
 - partner_name: C2PA (Content Credentials conformance programme)
   partner: null
   partner_match: register
@@ -182,89 +406,20 @@ edges:
     matched_by: domain+name-among-holders
     identity: wikidata Q552581 'SAP' P856 https://www.sap.com/
     detected_by: sweep-media.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-media.py
   first_seen: '2026-10-15'
-- partner_name: OPC Foundation (OPC UA)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://opcfoundation.org/products/view/sap-plant-connectivity-pco/
-  category: OPC UA products
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: OPC Foundation product marketplace (opcfoundation.org/products)
-    spec_file: null
-    standard: OPC UA
-    role: OPC UA product listed
-    registered_name: SAP SE
-    member_id: '334'
-    website: http://www.sap.com
-    matched_domain: sap.com
-    matched_by: domain+name-among-holders
-    listed_products: 1
-    certified_products: []
-    listed_categories:
-    - None
-    sample_products:
-    - SAP SE SAP Plant Connectivity (PCo) Show details
-    signal_note: certified_products = one entry per product CATEGORY with a certified product (diversity), never
-      per product; listed_products is context, never read
-    detected_by: sweep-industrial-robotics.py
-    detected: '2026-10-15'
-  detected_by: sweep-industrial-robotics.py
-  first_seen: '2026-10-15'
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - SAP ETD Cloud
-  - SAP LogServ
-  - SAP S4 Cloud Public Edition
-  listing_count: 3
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Threat Protection
-  badges:
-  - support-tier:partner
-- partner_name: Stripe (own)
-  partner: stripe
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
-  mirror_of: stripe/integrations/stripe-integration-edges.yml
-  apps:
-  - Open Payment Framework Integration
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: payment_gateways
 - partner_name: CNCF (Cloud Native Landscape)
   partner: cncf
   partner_match: register
   type: register
   direction: partner-built
   category: Cloud native landscape
-  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
+  evidence: https://github.com/cncf/landscape/blob/42dd4cd91dad8ec8558ac02467a43f0805b9957a/landscape.yml
   channel: standard-directory
   relationship: standard-participant
   contract_reference:
-    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @42dd4cd91d)
     spec_file: null
     standard: Cloud Native (CNCF)
     role: cncf-member (Platinum)
@@ -286,7 +441,7 @@ edges:
     signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
       categories, tier and projects are CONTEXT, never read (breadth is not credit)'
     detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
 - partner_name: CNCF (Kubernetes Certified Service Provider)
@@ -300,7 +455,7 @@ edges:
   relationship: standard-participant
   contract_reference:
     register: CNCF Kubernetes Certified Service Provider (github.com/cncf/landscape landscape.yml Special / Kubernetes
-      Certified Service Provider @3a7d378b18)
+      Certified Service Provider @42dd4cd91d)
     spec_file: null
     standard: Kubernetes (KCSP)
     role: kcsp
@@ -313,7 +468,7 @@ edges:
       lapsed: false
     signal_note: certified_products = ONE entry (the KCSP vetting itself), never a count
     detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
 - partner_name: CNCF Certified Kubernetes
@@ -321,12 +476,12 @@ edges:
   partner_match: register
   type: register
   direction: partner-built
-  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.35/gardener-alicloud
+  evidence: https://github.com/cncf/k8s-conformance/tree/621a55d41c23eab137118626e941b72fb8d32f89/v1.36/gardener-alicloud
   category: Certified Kubernetes
   channel: standard-directory
   relationship: standard-participant
   contract_reference:
-    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @621a55d41c)
     spec_file: null
     standard: Kubernetes conformance
     role: certified-kubernetes
@@ -336,10 +491,10 @@ edges:
     matched_by: domain+name-among-holders
     certified_products:
     - product: hosted
-      newest_version: v1.35
+      newest_version: v1.36
       lapsed: false
     - product: installer
-      newest_version: v1.35
+      newest_version: v1.36
       lapsed: false
     versions_certified:
     - v1.24
@@ -354,6 +509,7 @@ edges:
     - v1.33
     - v1.34
     - v1.35
+    - v1.36
     products:
     - Cloud Platform - Gardener (https://github.com/gardener/gardener) shoot cluster deployed on ALICLOUD
     - Cloud Platform - Gardener (https://github.com/gardener/gardener) shoot cluster deployed on AWS
@@ -369,7 +525,7 @@ edges:
     signal_note: certified_products = one entry per product TYPE (distribution/hosted/installer), lapsed when its
       newest certified minor is outside the current window; products and versions are context, never read
     detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
 - partner_name: CNCF Certified Kubernetes
@@ -377,7 +533,7 @@ edges:
   partner_match: register
   type: register
   direction: partner-built
-  evidence: https://github.com/cncf/k8s-conformance/tree/85d26a419e7df96137e66817b61cb22a616ce1e9/v1.35/gardener-alicloud
+  evidence: https://github.com/cncf/k8s-conformance/tree/621a55d41c23eab137118626e941b72fb8d32f89/v1.36/gardener-alicloud
   category: Certified Kubernetes
   channel: standard-directory
   relationship: compatible
@@ -388,172 +544,17 @@ edges:
   note: the Kubernetes conformance suite was run against this product and the result merged into the CNCF register
     (anchor kubernetes)
   contract_reference:
-    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @85d26a419e)
+    register: CNCF Certified Kubernetes (github.com/cncf/k8s-conformance @621a55d41c)
     spec_file: null
     standard: Kubernetes API
     role: kubernetes-conformance
     registered_name: SAP
     matched_domain: sap.com
-    newest_version: v1.35
+    newest_version: v1.36
     detected_by: sweep-cloud-native.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
-- partner_name: OpenPeppol (certified service providers)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://peppol.org/members/peppol-certified-service-providers/
-  category: Peppol service provider
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: OpenPeppol certified service providers (peppol.org/members/peppol-certified-service-providers)
-    spec_file: null
-    standard: Peppol
-    role: peppol-certified-service-provider
-    registered_name: SAP SE
-    legal_name: SAP SE
-    matched_domain: sap.com
-    matched_by: domain+name-among-holders
-    domain_source: contact email domain
-    peppol_authorities:
-    - KoSIT
-    countries:
-    - Germany
-    certified_products:
-    - product: Access Point
-      lapsed: false
-    signal_note: certified_products = one entry per Peppol-certified SERVICE (Access Point, SMP); authorities and
-      countries are context, never read
-    detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
-  detected_by: sweep-einvoicing-tax.py
-  first_seen: '2026-10-15'
-- partner_name: OpenPeppol (certified service providers)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://peppol.org/members/peppol-certified-service-providers/
-  category: Peppol service provider
-  channel: standard-directory
-  relationship: compatible
-  shape: peppol
-  evidence_kind: conformance-register
-  degree: certified
-  report_only: true
-  contract_reference:
-    register: OpenPeppol certified service providers (peppol.org/members/peppol-certified-service-providers)
-    spec_file: null
-    standard: Peppol
-    role: peppol-certified-service-provider
-    registered_name: SAP SE
-    matched_domain: sap.com
-    detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
-  detected_by: sweep-einvoicing-tax.py
-  first_seen: '2026-10-15'
-- partner_name: DGFiP plateformes agreees (France e-invoicing reform)
-  partner: null
-  partner_match: register
-  type: register
-  direction: partner-built
-  evidence: https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees
-  category: French e-invoicing platform
-  channel: standard-directory
-  relationship: standard-participant
-  contract_reference:
-    register: DGFiP liste des plateformes agreees (impots.gouv.fr)
-    spec_file: null
-    standard: France e-invoicing (plateforme agreee)
-    role: plateforme-agreee
-    registered_name: SAP
-    website: https://www.sap.com/france/
-    matched_domain: sap.com
-    matched_by: domain+name-among-holders
-    certified_products:
-    - product: plateforme agreee (PA)
-      lapsed: false
-      registered: '2026-01-15'
-    signal_note: certified_products = the immatriculation (one per operator); an operator awaiting the interop tests
-      is participation only
-    detected_by: sweep-einvoicing-tax.py
-    detected: '2026-10-15'
-  detected_by: sweep-einvoicing-tax.py
-  first_seen: '2026-10-15'
-- partner_name: Zapier
-  partner: zapier
-  partner_match: aggregator
-  type: marketplace
-  marketplace: zapier-directory
-  channel: ipaas-listing
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://zapier.com/apps/sap-s4-hana/integrations
-  category: null
-  contract_reference:
-    register: Zapier app directory (zapier.com/api/v4/apps)
-    spec_file: null
-    role: ipaas-connector:zapier
-    registered_name: SAP S/4HANA
-    matched_domain: sap.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: sap-s4-hana
-    beta: false
-    builder: unknown (not in the directory record)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
-- partner_name: Fivetran
-  partner: fivetran
-  partner_match: aggregator
-  type: marketplace
-  marketplace: fivetran-connectors
-  channel: elt-connector
-  relationship: ipaas-bridge
-  direction: third-party
-  evidence: https://fivetran.com/docs/connectors/databases/sap
-  category: null
-  contract_reference:
-    register: Fivetran connectors (fivetran.com/docs/connectors, docs-sitemap.xml + Partner-Built program)
-    spec_file: null
-    role: elt-connector:fivetran
-    registered_name: SAP
-    matched_domain: sap.com
-    matched_by: domain+name-among-holders
-    detected_by: sweep-data-integration.py
-    detected: '2026-10-18'
-    signal_note: one edge per (provider, platform); connectors, streams, packages and usage are context, never read
-    connector_paths:
-    - connectors/databases/sap
-    vendor_link: https://www.sap.com/
-    builder: Fivetran
-  detected_by: sweep-data-integration.py
-  first_seen: '2026-10-18'
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200006600
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - SAP SuccessFactors
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Certified
-  - Microsoft 365 Publisher Attestation
 method: searched
 checked:
 - https://ddex.net/membership/current-members/

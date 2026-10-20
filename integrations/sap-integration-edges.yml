@@ -555,9 +555,86 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
+- partner_name: Cloud Security Alliance STAR Registry
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://cloudsecurityalliance.org/star/registry/sap/services/sap-business-technology-platforms
+  category: Cloud security assurance
+  contract_reference:
+    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
+    spec_file: null
+    standard: CSA STAR
+    role: star-level-2
+    registered_name: SAP
+    registry_id: sap
+    service_url: https://www.sap.com/germany/products/business-technology-platform.html
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
+    levels:
+    - EU Cloud CoC
+    - Partner Entries
+    - STAR Level 1
+    - STAR Level 2
+    certified_products:
+    - product: STAR Certification
+      lapsed: false
+      latest: '2026-07-01'
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
+      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
+      = every instance marked (Deprecated) by the registry; service counts never recorded
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+  detected_by: sweep-compliance-assurance.py
+  first_seen: '2026-10-20'
+- partner_name: EU Cloud Code of Conduct (SCOPE Europe monitoring body)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://eucoc.cloud/en/public-register/list-of-adherent-services
+  category: Cloud data-protection assurance
+  contract_reference:
+    register: EU Cloud Code of Conduct public register (eucoc.cloud, list of adherent services)
+    spec_file: null
+    standard: EU Cloud CoC
+    role: eu-cloud-coc-adherent
+    registered_name: SAP Central Cloud Services
+    register_id: 2021LVL02SCOPE216
+    service_url: https://www.sap.com/index.html
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    identity_source: the service URL on the register (filed by the adherent, verified by the monitoring body)
+    level_of_compliance: 2
+    latest_assessment: '2026-06-08'
+    due_date: '2027-06-25'
+    certified_products:
+    - product: EU Cloud CoC verified declaration of adherence
+      lapsed: false
+      level: 2
+    signal_note: 'one certified product: adherence verified by the accredited monitoring body (GDPR Art. 41); lapsed
+      when the due date has passed; level is context; services never counted'
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+    other_registrations:
+    - SAP Ariba (2025LVL02SCOPE5425)
+    - SAP Business Network (2025LVL02SCOPE5426)
+    - SAP Customer Experience (2021LVL02SCOPE319)
+    - SAP Enterprise Management (2025LVL02SCOPE5423)
+    - SAP Sales Performance Management (2026LVL02SCOPE5432)
+  detected_by: sweep-compliance-assurance.py
+  first_seen: '2026-10-20'
 method: searched
 checked:
+- https://cloudsecurityalliance.org/star/registry
 - https://ddex.net/membership/current-members/
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://focus.finops.org/data-generators/

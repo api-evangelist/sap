@@ -605,3 +605,96 @@
     detected: '2026-10-21'
   status: not-a-workflow
   arazzo: null
+- slug: sap-ismap
+  label: ISMAP
+  partner_name: ISMAP
+  category: Japan government cloud security assessment (ISMAP)
+  type: contract
+  channel: regulator-register
+  evidence: https://www.ismap.go.jp/csm?id=cloud_service_list
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ISMAP / ISMAP-LIU cloud service lists (www.ismap.go.jp)
+    standard: ISMAP
+    spec_file: null
+    role: ismap-registered
+    registrations:
+    - register_number: C23-0059-2
+      registration_type: ISMAP
+      service: SAP SuccessFactors
+      registered_name: SAP SE
+      service_url: https://www.sap.com/japan/products/hcm.html
+      matched_domain: sap.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=7e7b86572b760710434ff14a6e91bf34
+    - register_number: C23-0060-2
+      registration_type: ISMAP
+      service: SAP Business Technology Platform
+      registered_name: SAP SE
+      service_url: https://www.sap.com/japan/products/technology-platform.html
+      matched_domain: sap.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=aabbce572b760710434ff14a6e91bf9c
+    - register_number: C23-0061-2
+      registration_type: ISMAP
+      service: SAP Cloud ERP Private
+      registered_name: SAP SE
+      service_url: https://www.sap.com/japan/products/erp/s4hana-private-edition.html
+      matched_domain: sap.com
+      matched_by: domain+name-among-holders
+      evidence_url: https://www.ismap.go.jp/csm?id=cloud_service_list
+      scope_of_statement: https://www.ismap.go.jp/sys_attachment.do?sys_id=c4ec4e1b2b760710434ff14a6e91bfd1
+    signal_note: certified_products = one entry per ISMAP registration TYPE (ISMAP, ISMAP-LIU), never per service;
+      services are context, never counted. The lists carry current registrations only (a filed renewal keeps a registration
+      valid), so lapsed is always false
+    certified_products:
+    - product: ISMAP
+      standard: ISMAP
+      registration_type: ISMAP
+      lapsed: false
+    detected_by: sweep-japan-ismap-tisax-assessments.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: sap-cve-program-cve-numbering-authorities
+  label: CVE Program (CVE Numbering Authorities)
+  partner_name: CVE Program (CVE Numbering Authorities)
+  category: Vulnerability disclosure (CVE Numbering Authority)
+  type: register
+  channel: standard-directory
+  evidence: https://www.cve.org/PartnerInformation/ListofPartners/partner/sap
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CVE Program CNA list (github.com/CVEProject/cve-website CNAsList.json @ 239d3d9b68e0)
+    standard: CVE Program CNA Operational Rules (CVE Numbering Authority)
+    spec_file: null
+    role: cve-numbering-authority
+    registered_name: SAP SE
+    matched_domain: sap.com
+    matched_by: domain+name-among-holders
+    cna_id: CNA-2017-0038
+    cna_short_name: sap
+    cna_types:
+    - Vendor
+    - Hosted Service
+    - Open Source
+    cna_roles:
+    - CNA
+    scope: All SAP products.
+    top_level_root: MITRE Corporation
+    root: n/a
+    security_advisories:
+    - https://url.sap/sapsecuritypatchday
+    disclosure_policy:
+    - https://www.sap.com/about/trust-center/security/incident-management.html
+    country: Germany
+    signal_note: listing as a CVE Numbering Authority = participation (a public commitment to assign CVE IDs and
+      publish advisories for its scope); never a count of CVEs
+    detected_by: sweep-vulnerability-disclosure-cna.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null

@@ -14,8 +14,15 @@
       "title": "",
       "saved": 0,
       "method": "none"
+    },
+    {
+      "source": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
+      "feed_url": "https://community.sap.com/khhcw49343/rss/Category?category.id=all-blogs&interaction.style=forum",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     }
   ],
-  "fetched": "2026-10-10T13:15:00Z",
+  "fetched": "2026-10-17T14:53:57Z",
   "post_count": 0
 }

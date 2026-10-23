@@ -604,129 +604,6 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
-- partner_name: Microsoft Sentinel (own)
-  partner: microsoft-sentinel
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
-  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
-  apps:
-  - SAP ETD Cloud
-  - SAP LogServ
-  - SAP S4 Cloud Public Edition
-  listing_count: 3
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Security - Threat Protection
-  badges:
-  - support-tier:partner
-- partner_name: Stripe (own)
-  partner: stripe
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
-  mirror_of: stripe/integrations/stripe-integration-edges.yml
-  apps:
-  - Open Payment Framework Integration
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: payment_gateways
-- partner_name: Microsoft Teams (own)
-  partner: microsoft-teams
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://appsource.microsoft.com/en-us/product/office/WA200006600
-  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
-  apps:
-  - SAP SuccessFactors
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Microsoft Teams app
-  publisher_verified:
-  - Microsoft 365 Certified
-  - Microsoft 365 Publisher Attestation
-- partner_name: Eclipse Foundation (open-vsx)
-  partner: eclipse
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: open-vsx
-  evidence: https://open-vsx.org/namespace/SAPSE
-  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
-  apps:
-  - SAP CDS Language Support
-  - SAP Fiori Tools - Extension Pack
-  - SAP Fiori Tools - Application Modeler
-  - SAP Fiori Tools - Guided Development
-  - SAP Fiori Tools - XML Annotation Language Server
-  - SAP Fiori Tools - Service Modeler
-  - Mobile Development Kit Editor
-  - ABAP Development Tools for VS Code
-  - Core Data Services Graphical Modeler for VS Code
-  listing_count: 1
-  detected: '2026-10-20'
-  detected_by: mirror-platform-listings.py
-  category: IDE / developer extension marketplace listing
-  badges:
-  - Verified namespace
-- partner_name: OpenTofu (opentofu-registry)
-  partner: opentofu
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: opentofu-registry
-  evidence: https://search.opentofu.org/provider/sap/sap-cloud-identity-services
-  mirror_of: opentofu/integrations/opentofu-integration-edges.yml
-  apps:
-  - sap/sap-cloud-identity-services
-  listing_count: 1
-  detected: '2026-10-21'
-  detected_by: mirror-platform-listings.py
-  category: infrastructure-as-code provider registry listing
-  badges:
-  - Verified publisher (GitHub domain-verified organization)
-- partner_name: Terraform (terraform-registry)
-  partner: terraform
-  partner_match: mirror
-  mirror_match: domain+name-among-holders
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: terraform-registry
-  evidence: https://registry.terraform.io/providers/SAP/sap-cloud-identity-services
-  mirror_of: terraform/integrations/terraform-integration-edges.yml
-  apps:
-  - SAP/sap-cloud-identity-services
-  listing_count: 1
-  detected: '2026-10-21'
-  detected_by: mirror-platform-listings.py
-  category: infrastructure-as-code provider registry listing
-  badges:
-  - Verified publisher (GitHub domain-verified organization)
 - partner_name: UK G-Cloud 14 (Digital Marketplace)
   partner: null
   partner_match: register
@@ -948,6 +825,149 @@ edges:
     detected: '2026-10-22'
   detected_by: sweep-openssf-best-practices-badges.py
   first_seen: '2026-10-22'
+- partner_name: Microsoft Sentinel (own)
+  partner: microsoft-sentinel
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP%20ETD%20Cloud
+  mirror_of: microsoft-sentinel/integrations/microsoft-sentinel-integration-edges.yml
+  apps:
+  - SAP ETD Cloud
+  - SAP LogServ
+  - SAP S4 Cloud Public Edition
+  listing_count: 3
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Security - Threat Protection
+  badges:
+  - support-tier:partner
+- partner_name: Stripe (own)
+  partner: stripe
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.stripe.com/apps/open-payment-framework-integration
+  mirror_of: stripe/integrations/stripe-integration-edges.yml
+  apps:
+  - Open Payment Framework Integration
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: payment_gateways
+- partner_name: Microsoft Teams (own)
+  partner: microsoft-teams
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://appsource.microsoft.com/en-us/product/office/WA200006600
+  mirror_of: microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+  apps:
+  - SAP SuccessFactors
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Microsoft Teams app
+  publisher_verified:
+  - Microsoft 365 Certified
+  - Microsoft 365 Publisher Attestation
+- partner_name: Eclipse Foundation (open-vsx)
+  partner: eclipse
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: open-vsx
+  evidence: https://open-vsx.org/namespace/SAPSE
+  mirror_of: eclipse/integrations/eclipse-integration-edges.yml
+  apps:
+  - SAP CDS Language Support
+  - SAP Fiori Tools - Extension Pack
+  - SAP Fiori Tools - Application Modeler
+  - SAP Fiori Tools - Guided Development
+  - SAP Fiori Tools - XML Annotation Language Server
+  - SAP Fiori Tools - Service Modeler
+  - Mobile Development Kit Editor
+  - ABAP Development Tools for VS Code
+  - Core Data Services Graphical Modeler for VS Code
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified namespace
+- partner_name: OpenTofu (opentofu-registry)
+  partner: opentofu
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: opentofu-registry
+  evidence: https://search.opentofu.org/provider/sap/sap-cloud-identity-services
+  mirror_of: opentofu/integrations/opentofu-integration-edges.yml
+  apps:
+  - sap/sap-cloud-identity-services
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/SAP/sap-cloud-identity-services
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - SAP/sap-cloud-identity-services
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
+- partner_name: Chef Software (chef-supermarket)
+  partner: chef-software
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: chef-supermarket
+  evidence: https://supermarket.chef.io/cookbooks/hana-client
+  mirror_of: chef-software/integrations/chef-software-integration-edges.yml
+  apps:
+  - hana-client
+  - hana-studio
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: configuration-management content listing (Chef cookbook)
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
 method: searched
 checked:
 - https://cloudsecurityalliance.org/star/registry
@@ -993,5 +1013,6 @@ checked:
 - https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 - https://www.bestpractices.dev/en/projects.json
 - https://www.bestpractices.dev/en/projects.json?page=N
+- chef-software/integrations/chef-software-integration-edges.yml
 source: https://hightouch.com/docs/destinations/sap-ibp
 marketplace_apps: []

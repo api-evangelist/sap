@@ -1,4 +1,4 @@
-# SAP (sap)
+# SAP
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,501 +66,339 @@
 
 Collection of SAP's enterprise APIs for business applications and cloud services.
 
-**APIs.json:** [https://api.sap.com](https://api.sap.com)
+**Areas:** SAP · Artificial Intelligence · BTP · Business Applications · Cloud · Data Management · Enterprise · ERP · Integration · Real-Time · A2A
 
-## Tags
+## SAP on APIs.io
 
-- AI
-- BTP
-- Business Applications
-- Cloud
-- Data Management
-- Enterprise
-- ERP
-- Integration
+Everything profiled for SAP is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sap/](https://apis.io/providers/sap/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (31)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
-
-## APIs
-
-### SAP Business One Service Layer API
-
-RESTful API for accessing SAP Business One data and business logic.
-
-#### Tags
-
-- Business Management
-- Enterprise
-- ERP
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER)
-- [OpenAPI](openapi/sap-business-one-service-layer-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Authentication.html)
-- [Getting Started](https://help.sap.com/docs/SAP_BUSINESS_ONE_SERVICE_LAYER/0a7d48c2c45a4732914129e920b0a8c1/Getting_Started.html)
-
-### SAP S/4HANA Cloud API
-
-APIs for SAP S/4HANA Cloud enabling integration with intelligent ERP.
-
-#### Tags
-
-- Cloud
-- Enterprise Resource Planning
-- ERP
-- S/4HANA
-
-#### Properties
-
-- [OpenAPI](openapi/sap-s4hana-cloud-business-partner-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://api.sap.com/package/SAPS4HANACloud)
-- [Hub](https://api.sap.com/package/SAPS4HANACloud/rest)
-- [Sandbox](https://api.sap.com/api/API_BUSINESS_PARTNER/tryout)
-- [Getting Started](https://help.sap.com/docs/SAP_S4HANA_CLOUD)
-
-### SAP SuccessFactors API
-
-Human Capital Management APIs for employee central, recruiting, and talent management.
-
-#### Tags
-
-- HCM
-- HR
-- Human Resources
-- Talent Management
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_SUCCESSFACTORS_PLATFORM/d599f15995d348a1b45ba5603e2aba9b/)
-- [API Reference](https://api.sap.com/package/SAPSuccessFactors/odata)
-- [API Reference](https://help.sap.com/doc/74597e67f54d4f448252bad4c2b601c9/)
-- [Hub](https://api.sap.com/package/SAPSuccessFactors)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Ariba APIs
-
-Procurement and supply chain APIs for sourcing, contracts, and supplier management.
-
-#### Tags
-
-- Procurement
-- Sourcing
-- Supplier Management
-- Supply Chain
-
-#### Properties
-
-- [Documentation](https://developer.ariba.com/api)
-- [Developer Portal](https://developer.ariba.com)
-- [API Reference](https://developer.ariba.com/api/guides)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Cloud Platform Integration Suite
-
-Integration APIs for connecting applications, data, and processes.
-
-#### Tags
-
-- Cloud Platform
-- Integration
-- iPaaS
-- Middleware
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/CLOUD_INTEGRATION)
-- [Hub](https://api.sap.com/package/CloudPlatformIntegration)
-- [Training](https://help.sap.com/learning-journeys/integrate-applications-and-services)
-- [Getting Started](https://help.sap.com/docs/integration-suite/sap-integration-suite/api-management-capability)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Commerce Cloud API
-
-E-commerce APIs for product catalog, cart, checkout, and order management.
-
-#### Tags
-
-- Commerce
-- E-Commerce
-- OCC
-- Retail
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0996ba68e5794b8ab51db8d25d4c9f4a/)
-- [API Reference](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/9d346683b0084da2938be8a285c0c27a/)
-- [API Reference](https://help.sap.com/docs/SAP_COMMERCE_CLOUD/9d346683b0084da2938be8a285c0c27a/swagger.html)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Analytics Cloud API
-
-APIs for business intelligence, planning, and predictive analytics.
-
-#### Tags
-
-- Analytics
-- BI
-- Business Intelligence
-- Planning
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/14cac91febef464dbb1efce20e3f1613/)
-- [API Reference](https://help.sap.com/doc/14cac91febef464dbb1efce20e3f1613/release/en-US/index.html)
-- [API Reference](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD/c7c2d8a03f524126af618f2cdac43595/)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Concur API
-
-APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
-
-#### Tags
-
-- Concur
-- Expense Management
-- Invoice
-- Travel
-
-#### Properties
-
-- [Documentation](https://developer.concur.com/api-reference/)
-- [Developer Portal](https://developer.concur.com)
-- [Authentication](https://developer.concur.com/api-reference/authentication/getting-started.html)
-- [Hub](https://api.sap.com/products/SAPConcur/apis/REST)
-- [Changelog](https://developer.concur.com/tools-support/release-notes/)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Fieldglass API
-
-Vendor management system APIs for managing external workers, contractors, and service providers.
-
-#### Tags
-
-- Contingent Workforce
-- External Workers
-- Vendor Management
-- VMS
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_FIELDGLASS_INTEGRATION)
-- [Hub](https://api.sap.com/package/FieldglassAPI)
-- [API Reference](https://api.sap.com/package/FieldglassAPI/odata)
-- [API Reference](https://api.sap.com/products/SAPFieldglass/apis/all)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP BTP Core Services API
-
-Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
-
-#### Tags
-
-- BTP
-- Cloud Management
-- Cloud Platform
-- Platform Services
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/BTP)
-- [API Reference](https://api.sap.com/package/SAPCloudPlatformCoreServices/rest)
-- [Hub](https://api.sap.com/package/SAPCloudPlatformCoreServices/overview)
-- [Getting Started](https://help.sap.com/docs/btp/btp-developers-guide/apis)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Datasphere API
-
-APIs for data warehousing, catalog access, and consumption of analytical and relational models.
-
-#### Tags
-
-- Analytics
-- Data Integration
-- Data Warehousing
-- Datasphere
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_DATASPHERE)
-- [API Reference](https://api.sap.com/package/sapdatasphere/odatav4)
-- [Hub](https://api.sap.com/package/sapdatasphere/overview)
-- [API Reference](https://api.sap.com/api/DatasphereCatalog/resource/)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Event Mesh API
-
-Messaging APIs for event-driven architecture supporting AMQP, MQTT, and REST protocols.
-
-#### Tags
-
-- AMQP
-- Event-Driven
-- Messaging
-- MQTT
-
-#### Properties
-
-- [AsyncAPI](asyncapi/sap-event-mesh-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Documentation](https://help.sap.com/docs/event-mesh)
-- [API Reference](https://help.sap.com/docs/event-mesh/event-mesh/rest-apis-for-messaging)
-- [Hub](https://api.sap.com/package/SAPEventMeshDefaultPlan/rest)
-- [Getting Started](https://help.sap.com/docs/event-mesh/event-mesh/what-is-sap-event-mesh)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Master Data Integration API
-
-APIs for centralizing and harmonizing master data across SAP and third-party applications.
-
-#### Tags
-
-- Data Integration
-- Data Quality
-- Master Data
-- MDI
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/SAP_MASTER_DATA_INTEGRATION)
-- [API Reference](https://api.sap.com/package/sap-mdi-masterDataIntegration)
-- [Hub](https://api.sap.com/package/sap-mdi-masterDataIntegration/overview)
-- [API Reference](https://api.sap.com/api/masterdata/resource)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Signavio Process Manager API
-
-APIs for process modeling, BPMN diagram management, and process governance automation.
-
-#### Tags
-
-- BPM
-- BPMN
-- Process Management
-- Process Mining
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/signavio-process-manager/sap-signavio-process-manager-api/sap-signavio-process-manager-api-guide)
-- [API Reference](https://help.sap.com/docs/signavio-process-insights/api-reference/getting-started-with-apis)
-- [API Reference](https://help.sap.com/docs/signavio-process-governance/developer-guide/public-api)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Document Management Service API
-
-CMIS-based APIs for document management including versioning, access control, and content storage on BTP.
-
-#### Tags
-
-- BTP
-- CMIS
-- Content Management
-- Document Management
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/document-management-service)
-- [Hub](https://api.sap.com/package/SAPDocumentManagementServiceIntegrationOptionCMISAPI/rest)
-- [Getting Started](https://help.sap.com/docs/document-management-service/sap-document-management-service/access-document-management-service-application-option-repository-using-api)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Integration Suite API Management
-
-APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
-
-#### Tags
-
-- API Gateway
-- API Management
-- API Proxy
-- Integration Suite
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/api-documentation)
-- [Hub](https://api.sap.com/package/APIMgmt/overview)
-- [Getting Started](https://developers.sap.com/group.cp-apim-code-1.html)
-- [Developer Portal](https://api.sap.com/api/APIPortal_Developer_CF/overview)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP AI Core API
-
-APIs for deploying, managing, and consuming AI models and workflows on SAP Business Technology Platform. Provides endpoints for scenario management, execution orchestration, and model serving.
-
-#### Tags
-
-- AI Core
-- Artificial Intelligence
-- BTP
-- Machine Learning
-
-#### Properties
-
-- [OpenAPI](openapi/sap-ai-core-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://help.sap.com/docs/sap-ai-core/sap-ai-core-service-guide/about-ai-api)
-- [API Reference](https://api.sap.com/api/AI_CORE_API/resource)
-- [Hub](https://api.sap.com/api/AI_CORE_API/overview)
-- [SDK](https://sap.github.io/ai-sdk/docs/js/ai-core/ai-api)
-
-### SAP Emarsys Customer Engagement API
-
-REST APIs for marketing automation, customer engagement, and personalized campaign management across email, web, SMS, and mobile channels.
-
-#### Tags
-
-- CRM
-- Customer Engagement
-- Email Marketing
-- Marketing Automation
-
-#### Properties
-
-- [Documentation](https://dev.emarsys.com/)
-- [API Reference](https://help.sap.com/docs/SAP_EMARSYS_CUSTOMER_ENGAGEMENT/f8e2fafeea804018a954a8857d9dfff3/fdf6023c74c11014b724bbfdb6028c98.html)
-- [Hub](https://api.sap.com/package/SAPEmarsysCustomerEngagement/overview)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP Build Work Zone API
-
-APIs for managing digital workplace experiences, integrating business applications into unified workpages, and administering work zone sites and content.
-
-#### Tags
-
-- BTP
-- Digital Workplace
-- Portal
-- Work Zone
-
-#### Properties
-
-- [Documentation](https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/api-documentation)
-- [Postman Collection](collections/sap-ai-core.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-ai-core.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-business-one-service-layer.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-business-one-service-layer.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/sap-s4hana-cloud-business-partner.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-cloud-business-partner.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/sap)
-- [Developer Portal](https://developers.sap.com/)
-- [Hub](https://api.sap.com)
-- [Blog](https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs)
+- [SAP SuccessFactors API](https://apis.io/apis/sap/sap-successfactors-api/) — Human Capital Management APIs for employee central, recruiting, and talent management.
+- [SAP Ariba APIs](https://apis.io/apis/sap/sap-ariba-apis/) — Procurement and supply chain APIs for sourcing, contracts, and supplier management.
+- [SAP Cloud Platform Integration Suite](https://apis.io/apis/sap/sap-cloud-platform-integration-suite/) — Integration APIs for connecting applications, data, and processes.
+- [SAP Commerce Cloud API](https://apis.io/apis/sap/sap-commerce-cloud-api/) — E-commerce APIs for product catalog, cart, checkout, and order management.
+- [SAP Analytics Cloud API](https://apis.io/apis/sap/sap-analytics-cloud-api/) — APIs for business intelligence, planning, and predictive analytics.
+- [SAP Concur API](https://apis.io/apis/sap/sap-concur-api/) — APIs for travel and expense management including expense reporting, travel booking, and invoice processing.
+- [SAP Fieldglass API](https://apis.io/apis/sap/sap-fieldglass-api/) — Vendor management system APIs for managing external workers, contractors, and service providers.
+- [SAP BTP Core Services API](https://apis.io/apis/sap/sap-btp-core-services-api/) — Core platform APIs for managing accounts, entitlements, and services on SAP Business Technology Platform.
+- [SAP Datasphere API](https://apis.io/apis/sap/sap-datasphere-api/) — APIs for data warehousing, catalog access, and consumption of analytical and relational models.
+- [SAP Event Mesh API](https://apis.io/apis/sap/sap-event-mesh-api/) — Messaging APIs for event-driven architecture supporting AMQP, MQTT, and REST protocols.
+- [SAP Master Data Integration API](https://apis.io/apis/sap/sap-master-data-integration-api/) — APIs for centralizing and harmonizing master data across SAP and third-party applications.
+- [SAP Signavio Process Manager API](https://apis.io/apis/sap/sap-signavio-process-manager-api/) — APIs for process modeling, BPMN diagram management, and process governance automation.
+- [SAP Document Management Service API](https://apis.io/apis/sap/sap-document-management-service-api/) — CMIS-based APIs for document management including versioning, access control, and content storage on BTP.
+- [SAP Integration Suite API Management](https://apis.io/apis/sap/sap-integration-suite-api-management/) — APIs for building, managing, publishing, and monitoring API proxies within SAP Integration Suite.
+- [SAP Emarsys Customer Engagement API](https://apis.io/apis/sap/sap-emarsys-customer-engagement-api/) — REST APIs for marketing automation, customer engagement, and personalized campaign management across email, web, SMS, and mobile channels.
+- [SAP Build Work Zone API](https://apis.io/apis/sap/sap-build-work-zone-api/) — APIs for managing digital workplace experiences, integrating business applications into unified workpages, and administering work zone sites and content.
+- [SAP Addresses API](https://apis.io/apis/sap/sap-addresses-api/) — Business partner address management
+- [SAP Artifacts API](https://apis.io/apis/sap/sap-artifacts-api/) — Model artifacts and dataset management
+- [SAP Authentication API](https://apis.io/apis/sap/sap-authentication-api/) — Login and session management
+- [SAP Bank Accounts API](https://apis.io/apis/sap/sap-bank-accounts-api/) — Business partner bank account details
+- [SAP Business Partners API](https://apis.io/apis/sap/sap-business-partners-api/) — Manage customers, vendors, and leads
+- [SAP Configurations API](https://apis.io/apis/sap/sap-configurations-api/) — Execution and deployment configurations
+- [SAP Deployments API](https://apis.io/apis/sap/sap-deployments-api/) — Model deployment and serving management
+- [SAP Executions API](https://apis.io/apis/sap/sap-executions-api/) — Training execution lifecycle management
+- [SAP Invoices API](https://apis.io/apis/sap/sap-invoices-api/) — AR and AP invoice management
+- [SAP Items API](https://apis.io/apis/sap/sap-items-api/) — Product and item master data management
+- [SAP Journal Entries API](https://apis.io/apis/sap/sap-journal-entries-api/) — Financial journal entries and postings
+- [SAP Orders API](https://apis.io/apis/sap/sap-orders-api/) — Sales orders, purchase orders, and delivery management
+- [SAP Roles API](https://apis.io/apis/sap/sap-roles-api/) — Business partner role assignments (customer, supplier)
+- [SAP Scenarios API](https://apis.io/apis/sap/sap-scenarios-api/) — AI scenario definitions and metadata
+- [SAP Tax Numbers API](https://apis.io/apis/sap/sap-tax-numbers-api/) — Business partner tax identification numbers
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [SAP Event Mesh Events](https://apis.io/asyncapis/sap/sap-event-mesh-asyncapi/)
+
+#### Event channels (6)
+
+Individual events and webhooks the provider emits.
+
+- [sap/s4/beh/businesspartner/v1/BusinessPartner/Changed/v1](https://apis.io/channels/sap/sap-s4-beh-businesspartner-v1-businesspartner-changed-v1/)
+- [sap/s4/beh/businesspartner/v1/BusinessPartner/Created/v1](https://apis.io/channels/sap/sap-s4-beh-businesspartner-v1-businesspartner-created-v1/)
+- [sap/s4/beh/materialDocument/v1/MaterialDocument/Created/v1](https://apis.io/channels/sap/sap-s4-beh-materialdocument-v1-materialdocument-created-v1/)
+- [sap/s4/beh/purchaseorder/v1/PurchaseOrder/Created/v1](https://apis.io/channels/sap/sap-s4-beh-purchaseorder-v1-purchaseorder-created-v1/)
+- [sap/s4/beh/salesorder/v1/SalesOrder/Changed/v1](https://apis.io/channels/sap/sap-s4-beh-salesorder-v1-salesorder-changed-v1/)
+- [sap/s4/beh/salesorder/v1/SalesOrder/Created/v1](https://apis.io/channels/sap/sap-s4-beh-salesorder-v1-salesorder-created-v1/)
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Moved to /providers/sap/](https://apis.io/graphqls/sap/sap-graphql/)
+
+#### MCP servers (6)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [MCP Server](https://apis.io/servers/sap/mcp-server/)
+- [sap](https://apis.io/servers/sap/sap/)
+- [sap](https://apis.io/servers/sap/sap-2/)
+- [sap](https://apis.io/servers/sap/sap-3/)
+- [sap](https://apis.io/servers/sap/sap-4/)
+- [sap-mcp.yml](https://apis.io/servers/sap/sap-mcp-yml/)
+
+#### Agent skills (1)
+
+Agent skills built on the API.
+
+- [sap-fiori-guidelines](https://apis.io/agent-skills/sap/sap-fiori-guidelines/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Sap Agentic Access](https://apis.io/agentic-access/sap/sap-agentic-access/)
+
+#### JSON Schema (47)
+
+The data models the API reads and writes.
+
+- [Artifact](https://apis.io/schemas/sap/sap-ai-core-artifact/)
+- [ArtifactBinding](https://apis.io/schemas/sap/sap-ai-core-artifact-binding/)
+- [ArtifactCreate](https://apis.io/schemas/sap/sap-ai-core-artifact-create/)
+- [Configuration](https://apis.io/schemas/sap/sap-ai-core-configuration/)
+- [ConfigurationCreate](https://apis.io/schemas/sap/sap-ai-core-configuration-create/)
+- [Deployment](https://apis.io/schemas/sap/sap-ai-core-deployment/)
+- [DeploymentCreate](https://apis.io/schemas/sap/sap-ai-core-deployment-create/)
+- [Execution](https://apis.io/schemas/sap/sap-ai-core-execution/)
+- [ExecutionCreate](https://apis.io/schemas/sap/sap-ai-core-execution-create/)
+- [ParameterBinding](https://apis.io/schemas/sap/sap-ai-core-parameter-binding/)
+- [Scenario](https://apis.io/schemas/sap/sap-ai-core-scenario/)
+- [Artifact](https://apis.io/schemas/sap/sap-artifact/)
+- [ArtifactCreate](https://apis.io/schemas/sap/sap-artifact-create/)
+- [BusinessPartner](https://apis.io/schemas/sap/sap-business-one-service-layer-business-partner/)
+- [DocumentLine](https://apis.io/schemas/sap/sap-business-one-service-layer-document-line/)
+- [Invoice](https://apis.io/schemas/sap/sap-business-one-service-layer-invoice/)
+- [Item](https://apis.io/schemas/sap/sap-business-one-service-layer-item/)
+- [JournalEntry](https://apis.io/schemas/sap/sap-business-one-service-layer-journal-entry/)
+- [JournalEntryLine](https://apis.io/schemas/sap/sap-business-one-service-layer-journal-entry-line/)
+- [LoginRequest](https://apis.io/schemas/sap/sap-business-one-service-layer-login-request/)
+- [LoginResponse](https://apis.io/schemas/sap/sap-business-one-service-layer-login-response/)
+- [Order](https://apis.io/schemas/sap/sap-business-one-service-layer-order/)
+- [SAP Business Partner](https://apis.io/schemas/sap/sap-business-partner/)
+- [BusinessPartner_2](https://apis.io/schemas/sap/sap-business-partner-2/)
+- [BusinessPartnerAddress](https://apis.io/schemas/sap/sap-business-partner-address/)
+- …and 22 more published on APIs.io
+
+#### JSON Structure (25)
+
+Data models expressed in JSON Structure.
+
+- [Sap Ai Core Artifact Binding Structure](https://apis.io/json-structure/sap/sap-ai-core-artifact-binding-structure/)
+- [Sap Ai Core Artifact Create Structure](https://apis.io/json-structure/sap/sap-ai-core-artifact-create-structure/)
+- [Sap Ai Core Artifact Structure](https://apis.io/json-structure/sap/sap-ai-core-artifact-structure/)
+- [Sap Ai Core Configuration Create Structure](https://apis.io/json-structure/sap/sap-ai-core-configuration-create-structure/)
+- [Sap Ai Core Configuration Structure](https://apis.io/json-structure/sap/sap-ai-core-configuration-structure/)
+- [Sap Ai Core Deployment Create Structure](https://apis.io/json-structure/sap/sap-ai-core-deployment-create-structure/)
+- [Sap Ai Core Deployment Structure](https://apis.io/json-structure/sap/sap-ai-core-deployment-structure/)
+- [Sap Ai Core Execution Create Structure](https://apis.io/json-structure/sap/sap-ai-core-execution-create-structure/)
+- [Sap Ai Core Execution Structure](https://apis.io/json-structure/sap/sap-ai-core-execution-structure/)
+- [Sap Ai Core Parameter Binding Structure](https://apis.io/json-structure/sap/sap-ai-core-parameter-binding-structure/)
+- [Sap Ai Core Scenario Structure](https://apis.io/json-structure/sap/sap-ai-core-scenario-structure/)
+- [Sap Business One Service Layer Business Partner Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-business-partner-structure/)
+- [Sap Business One Service Layer Document Line Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-document-line-structure/)
+- [Sap Business One Service Layer Invoice Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-invoice-structure/)
+- [Sap Business One Service Layer Item Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-item-structure/)
+- [Sap Business One Service Layer Journal Entry Line Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-journal-entry-line-structure/)
+- [Sap Business One Service Layer Journal Entry Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-journal-entry-structure/)
+- [Sap Business One Service Layer Login Request Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-login-request-structure/)
+- [Sap Business One Service Layer Login Response Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-login-response-structure/)
+- [Sap Business One Service Layer Order Structure](https://apis.io/json-structure/sap/sap-business-one-service-layer-order-structure/)
+- [Sap S4Hana Cloud Business Partner Business Partner Address Structure](https://apis.io/json-structure/sap/sap-s4hana-cloud-business-partner-business-partner-address-structure/)
+- [Sap S4Hana Cloud Business Partner Business Partner Bank Structure](https://apis.io/json-structure/sap/sap-s4hana-cloud-business-partner-business-partner-bank-structure/)
+- [Sap S4Hana Cloud Business Partner Business Partner Role Structure](https://apis.io/json-structure/sap/sap-s4hana-cloud-business-partner-business-partner-role-structure/)
+- [Sap S4Hana Cloud Business Partner Business Partner Structure](https://apis.io/json-structure/sap/sap-s4hana-cloud-business-partner-business-partner-structure/)
+- [Sap S4Hana Cloud Business Partner Business Partner Tax Number Structure](https://apis.io/json-structure/sap/sap-s4hana-cloud-business-partner-business-partner-tax-number-structure/)
+
+#### JSON-LD (4)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Sap Ai Core Context](https://apis.io/jsonld/sap/sap-ai-core-context/)
+- [Sap Business One Service Layer Context](https://apis.io/jsonld/sap/sap-business-one-service-layer-context/)
+- [Sap Context](https://apis.io/jsonld/sap/sap-context/)
+- [Sap S4Hana Cloud Business Partner Context](https://apis.io/jsonld/sap/sap-s4hana-cloud-business-partner-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [sap API Vocabulary](https://apis.io/vocabularies/sap/sap-vocabulary/)
+
+#### Examples (25)
+
+Example requests and responses.
+
+- [Sap Ai Core Artifact Binding Example](https://apis.io/examples/sap/sap-ai-core-artifact-binding-example/)
+- [Sap Ai Core Artifact Create Example](https://apis.io/examples/sap/sap-ai-core-artifact-create-example/)
+- [Sap Ai Core Artifact Example](https://apis.io/examples/sap/sap-ai-core-artifact-example/)
+- [Sap Ai Core Configuration Create Example](https://apis.io/examples/sap/sap-ai-core-configuration-create-example/)
+- [Sap Ai Core Configuration Example](https://apis.io/examples/sap/sap-ai-core-configuration-example/)
+- [Sap Ai Core Deployment Create Example](https://apis.io/examples/sap/sap-ai-core-deployment-create-example/)
+- [Sap Ai Core Deployment Example](https://apis.io/examples/sap/sap-ai-core-deployment-example/)
+- [Sap Ai Core Execution Create Example](https://apis.io/examples/sap/sap-ai-core-execution-create-example/)
+- [Sap Ai Core Execution Example](https://apis.io/examples/sap/sap-ai-core-execution-example/)
+- [Sap Ai Core Parameter Binding Example](https://apis.io/examples/sap/sap-ai-core-parameter-binding-example/)
+- [Sap Ai Core Scenario Example](https://apis.io/examples/sap/sap-ai-core-scenario-example/)
+- [Sap Business One Service Layer Business Partner Example](https://apis.io/examples/sap/sap-business-one-service-layer-business-partner-example/)
+- [Sap Business One Service Layer Document Line Example](https://apis.io/examples/sap/sap-business-one-service-layer-document-line-example/)
+- [Sap Business One Service Layer Invoice Example](https://apis.io/examples/sap/sap-business-one-service-layer-invoice-example/)
+- [Sap Business One Service Layer Item Example](https://apis.io/examples/sap/sap-business-one-service-layer-item-example/)
+- [Sap Business One Service Layer Journal Entry Example](https://apis.io/examples/sap/sap-business-one-service-layer-journal-entry-example/)
+- [Sap Business One Service Layer Journal Entry Line Example](https://apis.io/examples/sap/sap-business-one-service-layer-journal-entry-line-example/)
+- [Sap Business One Service Layer Login Request Example](https://apis.io/examples/sap/sap-business-one-service-layer-login-request-example/)
+- [Sap Business One Service Layer Login Response Example](https://apis.io/examples/sap/sap-business-one-service-layer-login-response-example/)
+- [Sap Business One Service Layer Order Example](https://apis.io/examples/sap/sap-business-one-service-layer-order-example/)
+- [Sap S4Hana Cloud Business Partner Business Partner Address Example](https://apis.io/examples/sap/sap-s4hana-cloud-business-partner-business-partner-address-example/)
+- [Sap S4Hana Cloud Business Partner Business Partner Bank Example](https://apis.io/examples/sap/sap-s4hana-cloud-business-partner-business-partner-bank-example/)
+- [Sap S4Hana Cloud Business Partner Business Partner Example](https://apis.io/examples/sap/sap-s4hana-cloud-business-partner-business-partner-example/)
+- [Sap S4Hana Cloud Business Partner Business Partner Role Example](https://apis.io/examples/sap/sap-s4hana-cloud-business-partner-business-partner-role-example/)
+- [Sap S4Hana Cloud Business Partner Business Partner Tax Number Example](https://apis.io/examples/sap/sap-s4hana-cloud-business-partner-business-partner-tax-number-example/)
+
+#### Collections (33)
+
+Postman and Open Collection request collections.
+
+- [SAP AI Core Addresses API](https://apis.io/collections/sap/open-sap-addresses-api/)
+- [SAP AI Core API](https://apis.io/collections/sap/open-sap-ai-core/)
+- [SAP AI Core Addresses Artifacts API](https://apis.io/collections/sap/open-sap-artifacts-api/)
+- [SAP AI Core Addresses Authentication API](https://apis.io/collections/sap/open-sap-authentication-api/)
+- [SAP AI Core Addresses Bank Accounts API](https://apis.io/collections/sap/open-sap-bank-accounts-api/)
+- [SAP Business One Service Layer API](https://apis.io/collections/sap/open-sap-business-one-service-layer/)
+- [SAP AI Core Addresses Business Partners API](https://apis.io/collections/sap/open-sap-business-partners-api/)
+- [SAP AI Core Addresses Configurations API](https://apis.io/collections/sap/open-sap-configurations-api/)
+- [SAP AI Core Addresses Deployments API](https://apis.io/collections/sap/open-sap-deployments-api/)
+- [SAP AI Core Addresses Executions API](https://apis.io/collections/sap/open-sap-executions-api/)
+- [SAP AI Core Addresses Invoices API](https://apis.io/collections/sap/open-sap-invoices-api/)
+- [SAP AI Core Addresses Items API](https://apis.io/collections/sap/open-sap-items-api/)
+- [SAP AI Core Addresses Journal Entries API](https://apis.io/collections/sap/open-sap-journal-entries-api/)
+- [SAP AI Core Addresses Orders API](https://apis.io/collections/sap/open-sap-orders-api/)
+- [SAP AI Core Addresses Roles API](https://apis.io/collections/sap/open-sap-roles-api/)
+- [SAP S/4HANA Cloud Business Partner API](https://apis.io/collections/sap/open-sap-s4hana-cloud-business-partner/)
+- [SAP AI Core Addresses Scenarios API](https://apis.io/collections/sap/open-sap-scenarios-api/)
+- [SAP AI Core Addresses Tax Numbers API](https://apis.io/collections/sap/open-sap-tax-numbers-api/)
+- [SAP AI Core Addresses API](https://apis.io/collections/sap/postman-sap-addresses-api/)
+- [SAP AI Core Addresses Artifacts API](https://apis.io/collections/sap/postman-sap-artifacts-api/)
+- [SAP AI Core Addresses Authentication API](https://apis.io/collections/sap/postman-sap-authentication-api/)
+- [SAP AI Core Addresses Bank Accounts API](https://apis.io/collections/sap/postman-sap-bank-accounts-api/)
+- [SAP AI Core Addresses Business Partners API](https://apis.io/collections/sap/postman-sap-business-partners-api/)
+- [SAP AI Core Addresses Configurations API](https://apis.io/collections/sap/postman-sap-configurations-api/)
+- [SAP AI Core Addresses Deployments API](https://apis.io/collections/sap/postman-sap-deployments-api/)
+- …and 8 more published on APIs.io
+
+#### Governance rules (4)
+
+Spectral rulesets for the provider's contracts.
+
+- [SAP — asyncapi rules](https://apis.io/rules/sap/sap-asyncapi-spectral-rules/)
+- [SAP — jsonschema rules](https://apis.io/rules/sap/sap-jsonschema-spectral-rules/)
+- [SAP API Rules](https://apis.io/rules/sap/sap-rules/)
+- [SAP API Rules](https://apis.io/rules/sap/sap-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sap Authentication](https://apis.io/security/sap/sap-authentication/)
+- [Sap Domain Security](https://apis.io/security/sap/sap-domain-security/)
+- [Sap Vulnerability Disclosure](https://apis.io/security/sap/sap-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Sap Scopes](https://apis.io/scopes/sap/sap-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Sap Plans Pricing](https://apis.io/plans/sap/sap-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Sap Rate Limits](https://apis.io/rate-limits/sap/sap-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Sap Finops](https://apis.io/finops/sap/sap-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://sap.com)
+- [Getting started](https://developers.sap.com/tutorial-navigator.html)
 - [Support](https://community.sap.com/)
-- [GitHub Organization](https://github.com/SAP)
-- [Status Page](https://www.sap.com/about/trust-center/cloud-service-status.html)
-- [Support](https://support.sap.com/)
-- [Privacy Policy](https://www.sap.com/about/legal/privacy.html)
-- [Terms of Service](https://www.sap.com/about/legal/terms-of-use.html)
-- [Getting Started](https://developers.sap.com/tutorial-navigator.html)
-- [Training](https://learning.sap.com/)
-- [Portal](https://www.sap.com)
-- [Sign Up](https://developers.sap.com/tutorials/hcp-create-trial-account.html)
-- [Login](https://accounts.sap.com)
-- [SDK](https://developers.sap.com/topics/cloud-sdk.html)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/sap)
-- [YouTube](https://www.youtube.com/@SAPTechnology)
 - [Changelog](https://help.sap.com/whats-new/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [JSON-LD](json-ld/sap-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/sap-business-partner-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/sap-sales-order-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Rules](rules/sap-spectral-rules.yml)
-- [Capabilities](capabilities/shared/ai-core.yaml)
-- [Capabilities](capabilities/shared/business-one.yaml)
-- [Capabilities](capabilities/shared/s4hana-business-partner.yaml)
-- [Capabilities](capabilities/enterprise-business-operations.yaml)
-- [M C P Server](https://github.com/SAP/mdk-mcp-server)
-- [Agent Skill](https://github.com/SAP/ai-skills-library)
+- [Blog](https://community.sap.com/t5/all-sap-community-blogs/ct-p/all-blogs)
+- [Terms of service](https://www.sap.com/about/legal/terms-of-use.html)
+- [Privacy policy](https://www.sap.com/about/legal/privacy.html)
+- [GitHub](https://github.com/SAP)
+- [Status](https://www.sap.com/about/trust-center/cloud-service-status.html)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 51.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.3 |
+| Contract quality | 62.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 60.1 |
+| Access clarity | 32.9 |
+
+**Agent readiness 57.1** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | conformant |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 37.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sap/](https://apis.io/providers/sap/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SAP: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sap/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
